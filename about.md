@@ -14,7 +14,9 @@ redirect_from:
 
 ## 使用语言
 
-C | C++ | Java | Python | JavaScript | PHP | shell
+C | C++ | Java
+Python | JavaScript | PHP
+| shell
 
 主攻`Java`
 
