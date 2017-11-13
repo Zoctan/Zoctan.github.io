@@ -7,7 +7,7 @@ google_analytics: UA-109619265-1
 share:            true
 # 分页
 paginate:         5
-paginate_path:    "liberxuepage:num"
+paginate_path:    "pages:num"
 gems:             [jekyll-paginate]
 links:
   - name:         首页
@@ -35,3 +35,9 @@ permalink:        /:title
 defaults:
   - values:
       layout:     "default"
+
+
+# about
+owner:
+  name:           "朱天强" # 填写作者信息：名字
+  email:          752481828@qq.com # 填写作者信息：邮箱
