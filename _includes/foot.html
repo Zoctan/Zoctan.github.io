@@ -35,32 +35,26 @@
 				<!--置顶-->
 			</div>
 			<div class="meta-item meta-comments">
-				<h3 class="meta-title">最新文章</h3> {% for post in site.posts limit:14 %} {% if post.book %}
+				<h3 class="meta-title">最新文章</h3>
+				{% for post in site.posts limit:14 %}
+				{% if post.book %}
 				<li><a href="{{ post.url }}" title="访问 {{ post.title }}" data-hover="{{ post.title }}">{{ post.title }}</a></li>
-				{% endif %} {% endfor %}
+				{% endif %}
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 </footer>
-<script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
-<script src="/search/js/cb-search.js"></script>
+<script src="{{ site.url }}/static/js/jquery.min.js"></script>
+<script src="{{ site.url }}/static/js/bootstrap3-typeahead.min.js"></script>
+<script src="{{ site.url }}/static/js/search.js"></script>
 <script>
-	$(function() {
-		setTimeout(function() {
-			$('code').removeClass('hljs');
-			$('code').removeClass('language');
-		}, 90);
+	$(document).ready(function() {
+		$(function() {
+			setTimeout(function() {
+				$('code').removeClass('hljs');
+				$('code').removeClass('language');
+			}, 90);
+		});
 	});
-	(function() {
-		var bp = document.createElement('script');
-		var curProtocol = window.location.protocol.split(':')[0];
-		if (curProtocol === 'https') {
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-		} else {
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-		}
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(bp, s);
-	})();
 </script>

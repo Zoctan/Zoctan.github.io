@@ -2,21 +2,22 @@
 <div class="lists-navigator clearfix">
   <ol class="page-navigator">
     <li class="current">
-      <a href="/?liberxue" data-hover="首页">
-                <span>首页</span>
-            </a>
+      <a href="/?liberxue" data-hover="首页"><span>首页</span></a>
     </li>
     <li class="current">
       {% if paginator.page == 1 %}
-      <span>&laquo;</span> {% else %} {% if paginator.previous_page == 1 %}
+      <span>&laquo;</span>
+      {% else %}
+      {% if paginator.previous_page == 1 %}
       <a href="/liberxuepage/?liberxue">
-            {% else %}
-            <a href="/liberxuepage{{ paginator.previous_page }}?liberxue" >
-            {% endif %}
-                <span>&laquo;</span>
-            </a> {% endif %}
+      {% else %}
+      <a href="/liberxuepage{{ paginator.previous_page }}?liberxue" >
+      {% endif %}
+      <span>&laquo;</span>
+      </a>
+      {% endif %}
     </li>
-    {% for i in (1..paginator.total_pages) limit:9 offset:{{paginator.page-1}} %} {% if paginator.page == i %}
+    {% for i in (1..paginator.total_pages) limit:3 offset:{{paginator.page-1}} %} {% if paginator.page == i %}
     <li class="current">
       {% else %}
       <li>

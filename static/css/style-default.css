@@ -450,43 +450,43 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   top: 0;
 }
 
-.bg-ico-book {
+.ico-book {
   background-position: 0 0!important;
 }
 
-.bg-ico-game {
+.ico-game {
   background-position: 0 -40px!important;
 }
 
-.bg-ico-note {
+.ico-note {
   background-position: 0 -80px!important;
 }
 
-.bg-ico-chat {
+.ico-chat {
   background-position: 0 -120px!important;
 }
 
-.bg-ico-code {
+.ico-code {
   background-position: 0 -160px!important;
 }
 
-.bg-ico-image {
+.ico-image {
   background-position: 0 -200px!important;
 }
 
-.bg-ico-web {
+.ico-web {
   background-position: 0 -240px!important;
 }
 
-.bg-ico-link {
+.ico-link {
   background-position: 0 -280px!important;
 }
 
-.bg-ico-design {
+.ico-design {
   background-position: 0 -320px!important;
 }
 
-.bg-ico-lock {
+.ico-lock {
   background-position: 0 -360px!important;
 }
 
@@ -807,7 +807,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border-radius: .6rem;
 }
 
-.liberxue-title {
+.lean-title {
   background: rgba(227, 234, 241, 0.3);
   font-weight: 200;
   padding: 4px 13px;
