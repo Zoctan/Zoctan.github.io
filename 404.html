@@ -1,64 +1,168 @@
 ---
-layout: page    
-header-img: "img/red.jpg"  
-description: "你来到了一片荒芜之地"
-permalink: 404.html  
+permalink: /404.html
+layout: null
+title: 404
+description: "404"
 ---
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: PingFang SC, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+  }
 
-<p>你来到这个页面，通常有两个原因</p>
+  a,
+  button.submit {
+    color: #6E7173;
+    text-decoration: none;
+    -webkit-transition: all .1s ease-in;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+  }
 
-<h2 id="toc_0">一、链接错误</h2>
+  a:hover,
+  a:active {
+    color: #6E7173;
+  }
 
-<p>原因：博客搬迁造成的旧链接失效。</p>
+  .body404 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    background-size: auto 100%;
+  }
 
-<h3 id="toc_1">解决办法一：修改原链接</h3>
+  .body-about .body404 {
+    background: #fff;
+  }
 
-<p>例子：《如何搭建一个独立博客——简明Github Pages与Hexo教程》的链接是</p>
+  .site-name404 {
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 150px;
+    line-height: 1;
+    font-weight: 100;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+  }
 
-<pre><code class="language-none"> http://cnfeat.com/2014/05/10/how-to-build-a-blog/</code></pre>
+  .site-name404 h1 {
+    margin: 0 0 10px;
+    font-size: 50px;
+    line-height: 1.2;
+  }
 
-<p>请修改成</p>
+  .title404 span {
+    font-size: 15px;
+    width: 2px;
+  }
 
-<pre><code class="language-none"> http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</code></pre>
+  .title404 p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    color: #7b8993;
+  }
 
-<p>改动要点：在 <strong>http://cnfeat.com/</strong> 与 <strong>日期（2014/05/10/）</strong>之间加入 <strong>blog/</strong></p>
+  .info404 {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    margin-top: -160px;
+  }
 
-<p>标注：http://cnfeat.com/【<strong>blog/</strong>】2014/05/10/how-to-build-a-blog/</p>
+  .body-about .info404 {
+    margin-top: -180px;
+  }
 
-<p>即加入【】内的「blog/」字样。</p>
+  #footer404 {
+    margin-top: 30px;
+    font-size: 10px;
+  }
 
-<h3 id="toc_2">解决办法一：在<a href="http://cnfeat.com/archive/">文章存档</a>中找</h3>
+  .index404 {
+    margin-top: 24px;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 14px;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    text-shadow: none;
+    border: 2px solid #02ccba;
+    line-height: 36px;
+    text-align: center;
+    height: 36px;
+    padding: 0 25px;
+    border-radius: 25px;
+    background-color: #fff;
+    color: #7b8993;
+    box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, .15);
+  }
 
-<h2 id="toc_3">二、维度攻击</h2>
+  .icon-about {
+    padding: 10px 0 25px;
+  }
 
-<p>不明力量入侵，你想要访问的页面被摧毁了。</p>
+  .icon-about a {
+    font-size: 20px;
+    margin: 5px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 100%;
+    padding: 6px;
+  }
 
+  @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
 
+    to {
+      -webkit-filter: hue-rotate(-360deg);
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="body404">
+    <div class="info404">
+      <header id="header404" class="clearfix">
+        <div class="site-name404">404</div>
+      </header>
+      <section>
+        <div class="title404">
+          <p>Sorry,实在找不到😄 <br>要不双击ctrl来搜索吧</p>
+        </div><a href="/" class="index404">返回首页</a>
+      </section>
+    </div>
+  </div>
+  <!-- jQuery -->
+  <script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+  <div class="cb-search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px;
+      opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input style="background: rgba(0,0,0,0.5);
+    border: 2px solid #02ccba;
+color: #fff;box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);text-align: center;line-height: 40px;font-size: 12px;font-weight: bold;
+z-index:99;width: 450px;border-radius: 50px;height: 50px;left:50%;/*FF IE7*/top: 50%;/*FF IE7*/
+margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
+margin-top:0px;position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/" type="text" class="form-control cb-search-content" id="cb-search-content" style="position: fixed; top: 60px" placeholder="文章标题 日期 标签">
+  </div>
+  <script src="//cdn.bootcss.com/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
+  <script src="/search/js/cb-search.js"></script>
 </body>
 
-
-
-<!----------------------------------------------------------------
-         mm
-      /^(  )^\                     Ascii arts included in this page:
-      \,(..),/                     - R2D2, provided by: http://www.chris.com/
-        V~~V                       - Texts, generated from: http://www.network-science.de/ascii/  
-                                   http:// cnfeat.github.io
-            
------------------------------------------------------------------->
-
-  <style>
-    pre {
-          background: none;
-          border: none;
-    }
-  </style>
-
-  <pre>         
----x-----mm--
-      /^(  )^\
-      \,(..),/        Oops...
-        V~~V                     
-一定是发生了什么可怕的事情....
-    </pre>
-
+</html>
