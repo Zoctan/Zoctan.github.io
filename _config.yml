@@ -1,4 +1,3 @@
-# ----------- CONFIGURABLE START -----------
 title:            "Zoctan Blog"
 description:      "后端汪 | Zoctan 「时光屋」"
 url:              https://Zoctan.github.io # 域名
@@ -8,16 +7,16 @@ share:            true
 # 分页
 paginate:         5
 paginate_path:    "pages:num"
-gems:             [jekyll-paginate]
+plugins:          [jekyll-paginate]
 links:
   - name:         首页
     url:          /
     external:     false
-  - name:         书籍
-    url:          /book
+  - name:         学习
+    url:          /study
     external:     false
-  - name:         旅游
-    url:          /road
+  - name:         生活
+    url:          /life
     external:     false
   - name:         归档
     url:          /archives
@@ -35,9 +34,3 @@ permalink:        /:title
 defaults:
   - values:
       layout:     "default"
-
-
-# about
-owner:
-  name:           "朱天强" # 填写作者信息：名字
-  email:          752481828@qq.com # 填写作者信息：邮箱

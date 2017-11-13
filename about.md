@@ -1,35 +1,32 @@
 ---
 layout: blog
 title: About Me
-data: 2017-11-13
-tags:
-  - Zoctan
-  - 关于
+data: 2017-11-13T00:00:00.000Z
 redirect_from:
-  - /about/
+  - /about
 ---
+
+# Me
+
+朱天强
 
 # Hello World
 
+## 使用语言
 
-### 使用语言
-
-C | C++ | Java
-Python | JavaScript | PHP
-shell |
+C | C++ | Java | Python | JavaScript | PHP | shell
 
 主攻`Java`
 
-### 业余时间
+## 业余时间
 
-### 开发经历
+## 开发经历
 
 # 个人独立开发项目
 
-|    ID   | 项目名称 | 开发语言 | 功能简述 |   框架   | 是否上线|
-|:--------|:-------:|:-------:|:-------:|:-------:|-------:|
+项目名称 | 开发语言 | 功能简述
+:--: | :--: | :--:
 |
-
 
 ## 联系方式
 
