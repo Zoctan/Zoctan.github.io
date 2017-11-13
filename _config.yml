@@ -1,36 +1,36 @@
-title:            "Zoctan Blog"
-description:      "后端汪 | Zoctan 「时光屋」"
-url:              https://Zoctan.github.io # 域名
-signoff:          "Zoctan" # Your name
-google_analytics: UA-109619265-1
-share:            true
+title:             "Zoctan Blog"
+description:       "后端汪 | Zoctan 「时光屋」"
+url:               https://Zoctan.github.io # 域名
+signoff:           "Zoctan" # Your name
+#google_analytics: UA-109619265-1
+share:             true
 # 分页
-paginate:         5
-paginate_path:    "pages:num"
-plugins:          [jekyll-paginate]
+paginate:          5
+paginate_path:     "pages:num"
+plugins:           [jekyll-paginate]
 links:
-  - name:         首页
-    url:          /
-    external:     false
-  - name:         学习
-    url:          /study
-    external:     false
-  - name:         生活
-    url:          /life
-    external:     false
-  - name:         归档
-    url:          /archives
-    external:     false
-  - name:         标签
-    url:          /tags
-    external:     false
-  - name:         关于
-    url:          /about
-    external:     false
+  - name:          首页
+    url:           /
+    external:      false
+  - name:          学习
+    url:           /study
+    external:      false
+  - name:          生活
+    url:           /life
+    external:      false
+  - name:          归档
+    url:           /archives
+    external:      false
+  - name:          标签
+    url:           /tags
+    external:      false
+  - name:          关于
+    url:           /about
+    external:      false
 # ------------ CONFIGURABLE END ------------
 
-#permalink:       /:categories/:title.html
-permalink:        /:title
+#permalink:        /:categories/:title.html
+permalink:         /:title
 defaults:
   - values:
-      layout:     "default"
+      layout:      "default"

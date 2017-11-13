@@ -16,7 +16,9 @@
 						<a href="http://www.liberxue.com/2017/08/03/Jekyllthemes.html" title="访问 Jekyll liberxue主题" data-hover="Jekyll liberxue" target="_blank">Jekyll liberxue</a>
 						<p>Powered by <a href="{{ site.url }}/tags/#Jekyll" title="Jekyll" data-hover="Jekyll" target="_blank" rel="nofollow">Jekyll</a></p>
 						<p>&copy; 2017 <a href="/feed.xml" title="访问 Zoctan Blog RSS" data-hover="liberxue blog RSS">Zoctan Blog RSS</a></p>
-						<p>总计文章：{{paginator.total_posts}}篇</p>
+						{% if paginator.total_posts %}
+						<p>总计文章：{{ paginator.total_posts }}篇</p>
+						{% endif %}
 					</div>
 				</div>
 			</div>
@@ -42,6 +44,10 @@
 <script src="{{ site.url }}/static/js/search.js"></script>
 <script>
 	$(document).ready(function() {
+		{% if site.google_analytics %}
+		!function(a,b,c,d,e,f,g){a.GoogleAnalyticsObject=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","{{ site.google_analytics }}","auto"),ga("send","pageview");
+		{% endif %}
+
 		$(function() {
 			setTimeout(function() {
 				$('code').removeClass('hljs');
