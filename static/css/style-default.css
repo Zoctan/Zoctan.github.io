@@ -631,7 +631,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   top: 100%;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
-  margin: 0 0 0 -95px;
+  margin: 0 0 0 -60px;
   padding: 0;
   -webkit-transition: -webkit-transform 300ms;
   transition: -webkit-transform 300ms;
@@ -656,9 +656,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-size: 15px;
   line-height: 2.2;
   display: block;
-  width: 140px;
+  width: 100px;
   margin: 0;
-  padding: 8px 25px;
+  padding: 5px 35px;
   background-color: #eee;
 }
 
