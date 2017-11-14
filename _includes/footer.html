@@ -2,8 +2,8 @@
 	<div class="footer-social">
 		<div class="footer-container clearfix">
 			<div class="social-list">
-				<a class="social github" target="blank" href="https://github.com/Zoctan" title="访问 Zoctan GitHub" data-hover="GitHub">GitHub</a>
-				<a class="social stackoverflow" target="blank" href="https://stackoverflow.com/users/8932516/zoctan" title="访问 Zoctan StackOverFlow" data-hover="StackOverflow">StackOverflow</a>
+				<a class="social github" target="_blank" href="https://github.com/Zoctan" title="访问 Zoctan GitHub" data-hover="GitHub">GitHub</a>
+				<a class="social stackoverflow" target="_blank" href="https://stackoverflow.com/users/8932516/zoctan" title="访问 Zoctan StackOverFlow" data-hover="StackOverflow">StackOverflow</a>
 			</div>
 		</div>
 	</div>
@@ -13,9 +13,11 @@
 				<div class="meta-copyright-info">
 					<a href="/" class="info-logo"><img src="{{ site.url }}/static/images/logo.png" title="Zoctan Blog" data-hover="Zoctan Blog" alt="Zoctan Blog" /></a>
 					<div class="info-text">
-						<a href="http://www.liberxue.com/2017/08/03/Jekyllthemes.html" title="访问 Jekyll liberxue主题" data-hover="Jekyll liberxue" target="_blank">Jekyll liberxue</a>
-						<p>Powered by <a href="{{ site.url }}/tags/#Jekyll" title="Jekyll" data-hover="Jekyll" target="_blank" rel="nofollow">Jekyll</a></p>
-						<p>&copy; 2017 <a href="/feed.xml" title="访问 Zoctan Blog RSS" data-hover="liberxue blog RSS">Zoctan Blog RSS</a></p>
+						<p>
+							<a href="http://www.liberxue.com/2017/08/03/Jekyllthemes.html" title="访问 liberxue 主题" data-hover="liberxue" target="_blank">liberxue</a>
+							Powered by <a href="https://jekyllrb.com/" title="Jekyll" data-hover="Jekyll" target="_blank" rel="nofollow">Jekyll</a>
+						</p>
+						<p>Copyright &copy; 2017-2018 Zoctan.</p><p>All rights reserved.</p>
 						{% if paginator.total_posts %}
 						<p>总计文章：{{ paginator.total_posts }}篇</p>
 						{% endif %}
@@ -25,14 +27,14 @@
 			<div class="meta-item meta-posts">
 				<h3 class="meta-title">置顶文章</h3>
 				<!--置顶-->
-				{% for post in site.posts limit:15 %} {% if post.istop %}
+				{% for post in site.posts limit:5 %} {% if post.istop %}
 				<li><a href="{{ post.url }}" title="访问 {{ post.title }}" data-hover="{{ post.title }}">{{ post.title }}</a></li>
 				{% endif %} {% endfor %}
 				<!--置顶-->
 			</div>
 			<div class="meta-item meta-comments">
 				<h3 class="meta-title">最新文章</h3>
-				{% for post in site.posts limit:14 %} {% if post.book %}
+				{% for post in site.posts limit:5 %} {% if post.book %}
 				<li><a href="{{ post.url }}" title="访问 {{ post.title }}" data-hover="{{ post.title }}">{{ post.title }}</a></li>
 				{% endif %} {% endfor %}
 			</div>

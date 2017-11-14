@@ -27,7 +27,6 @@ links:
   - name:          关于
     url:           /about
     external:      false
-# ------------ CONFIGURABLE END ------------
 
 #permalink:        /:categories/:title.html
 permalink:         /:title
