@@ -1,7 +1,7 @@
 ---
 layout: blog
 istop: true
-code: true
+ico: code
 background: blue
 background-image: 'http://ozg7h08dz.bkt.clouddn.com/lanqiao.png'
 category: 学习
