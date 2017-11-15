@@ -52,7 +52,6 @@ import java.lang.Math;
 
 public class UglyNumber {
 	public static void main(String[] args) {
-		System.out.println("Please input a index which you want:");
 		Scanner scanner = new Scanner(System.in);
 		int index = scanner.nextInt();
 		UglyNumber uglyNumber = new UglyNumber();
