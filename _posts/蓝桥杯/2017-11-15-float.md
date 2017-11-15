@@ -1,6 +1,7 @@
 ---
 layout: blog
 istop: true
+study: true
 ico: code
 background: blue
 background-image: 'http://ozg7h08dz.bkt.clouddn.com/lanqiao.png'
