@@ -1,6 +1,8 @@
 {% assign is_post = page.date %}
 <!DOCTYPE html>
-<html lang="zh-cn" data-scribe-reduced-action-queue="true">
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="zh-cn data-scribe-reduced-action-queue="true""><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="zh-cn data-scribe-reduced-action-queue="true""><![endif]-->
+<!--[if gt IE 9]><!--><html lang="zh-cn" data-scribe-reduced-action-queue="true"><!--<![endif]-->
 
 <head>
   <title>{{ page.title }} - {{ site.title }}</title>
@@ -33,7 +35,7 @@
       </div>
     </div>
   </header>
-  <div class="post-header-thumb bg-white}">
+  <div class="post-header-thumb bg-white">
     <div class="post-header-thumb-op"></div>
     <div class="post-header-thumb">
       <div class="post-header-thumb-container">

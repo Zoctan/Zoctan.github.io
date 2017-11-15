@@ -529,13 +529,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   position: relative;
   width: 1040px;
   max-width: 100%;
-  height: 70px;
+  height: 60px;
   margin: 0 auto;
 }
 
 .navbar-logo {
   font-size: 22px;
-  line-height: 22px;
+  line-height: 12px;
   position: absolute;
   top: 50%;
   left: 0;
@@ -568,7 +568,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .navbar-mobile-menu {
-  line-height: 80px;
+  line-height: 50px;
   z-index: 1;
   display: none;
   width: 28px;
