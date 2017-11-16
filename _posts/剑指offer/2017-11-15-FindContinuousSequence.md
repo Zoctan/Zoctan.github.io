@@ -32,13 +32,13 @@ tags:
 #### 方法 1：双指针
 
 1. 前后各一个指针：front、reer
-2. 如果序列和小于 S，reer 后移；否则 front 后移
+2. 若序列和小于 S，reer 后移；否则 front 后移
 
 front -> | …… | reer -> | ……
 :---:|:---:|:---:|:---:
 x1 | …… | xn | ……
 
-终止条件是 reer 小于等于 front 
+终止条件：reer、front 相遇 
 
 ```java
 import java.util.Scanner;
@@ -62,7 +62,7 @@ public class Main {
 		ArrayList<ArrayList<Integer>> lists = new ArrayList<ArrayList<Integer>>();
 		Integer front = 1;
 		Integer reer = 2;
-		while (reer > front) {
+		while (reer != front) {
 			int s = (front + reer) * (reer - front + 1) / 2;
 			if (s > sum) {
 				front += 1;
