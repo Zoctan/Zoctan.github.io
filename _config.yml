@@ -5,7 +5,7 @@ signoff:           "Zoctan" # Your name
 #google_analytics: UA-109619265-1
 share:             true
 # 分页
-paginate:          10
+paginate:          9
 paginate_path:     "pages:num"
 plugins:           [jekyll-paginate]
 links:

@@ -64,6 +64,46 @@ tags:
 
 #### 方法 1：直接来
 
-```java
+1
 
+1 1
+
+1 2 1
+
+1 3 3 1
+
+1 4 6 4 1
+
+1 5 10 10 5 1
+
+除了边上的1
+
+中间值 = 上一行该位置的值 + 上一行前一位置的值
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 34) {
+			int[][] array = new int[n][n];
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j <= i; j++) {
+					if (j == 0 || i == j) {
+						array[i][j] = 1;
+					} else {
+						array[i][j] = array[i - 1][j] + array[i - 1][j - 1];
+					}
+					System.out.print(array[i][j] + " ");
+				}
+				System.out.println();
+			}
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+}
 ```
