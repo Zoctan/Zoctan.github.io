@@ -34,23 +34,21 @@ tags:
 
 样例输入
 
-	5
+	6
 
-	1 3 -2 4 5
+	1 9 4 8 3 9
+
+	9 
 
 样例输出
 
-	5
-
-	-2
-
-	11
+	2
 
 数据规模与约定
 
-	1 <= n <= 10000
+	1 <= n <= 1000
 
-#### 方法 1：边输入边判断
+#### 方法 1：直接来
 
 ```java
 import java.util.Scanner;
@@ -59,24 +57,21 @@ public class Main {
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
-		if (1 <= n && n <= 10000) {
-			int buf, min = 0, max = 0, sum = 0;
+		if (1 <= n && n <= 1000) {
+			int[] array = new int[n];
 			for (int i = 0; i < n; i++) {
-				buf = scanner.nextInt();
-				if (i == 0) {
-					min = max = buf;
-				}
-				if (buf < min) {
-					min = buf;
-				}
-				if (buf > max) {
-					max = buf;
-				}
-				sum += buf;
+				array[i] = scanner.nextInt();
 			}
-			System.out.println(max);
-			System.out.println(min);
-			System.out.println(sum);
+			int a = scanner.nextInt();
+
+			int position = -1;
+			for (int i = 0; i < n; i++) {
+				if (array[i] == a) {
+					position = i + 1;
+					break;
+				}
+			}
+			System.out.println(position);
 		} else {
 			System.out.println();
 		}
