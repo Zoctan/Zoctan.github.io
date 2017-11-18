@@ -44,14 +44,76 @@ tags:
 
   1E
 
-#### 方法1：二进制做中转
+锦囊
 
-根据之前的大数坑，看到这些题还是先转为二进制，再每几位转换过来。
+  按除16取余倒数（也可使用格式输出）
 
-十六进制：4位一组
-
-30 -> 11110 -> 0001 1110 -> 1E
+#### 方法1：直接用内置函数
 
 ```java
+import java.util.Scanner;
 
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		if (1 <= a && a <= 2147483647) {
+			System.out.println(Integer.toHexString(a).toUpperCase());
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+}
+```
+
+#### 方法2：按锦囊来
+
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		if (1 <= a && a <= 2147483647) {
+			System.out.println(dec2hex(a));
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+
+	public static String dec2hex(int dec) {
+		String hex = "";
+		String tmp = "";
+		do {
+			tmp = dec % 16 + "";
+			switch (tmp) {
+			case "10":
+				tmp = "A";
+				break;
+			case "11":
+				tmp = "B";
+				break;
+			case "12":
+				tmp = "C";
+				break;
+			case "13":
+				tmp = "D";
+				break;
+			case "14":
+				tmp = "E";
+				break;
+			case "15":
+				tmp = "F";
+				break;
+			}
+			hex = tmp + hex;
+			dec = dec / 16;
+		} while (dec != 0);
+		return hex;
+	}
+}
 ```
