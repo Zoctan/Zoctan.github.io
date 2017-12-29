@@ -85,5 +85,5 @@ theme:              teal
 deploy:
   type:             git
   repo:             https://github.com/Zoctan/Zoctan.github.io.git
-  branch:           [branch]
-  message:          [message]
+  branch:           post
+  message:          hexo
