@@ -1,0 +1,883 @@
+---
+title: 基础练习
+date: 2017-11-18
+category: 学习
+tags:
+  - 蓝桥杯
+  - Java
+---
+
+# 闰年判断
+
+问题描述
+
+	给定一个年份，判断这一年是不是闰年。
+
+	当以下情况之一满足时，这一年是闰年：
+
+	1. 年份是4的倍数而不是100的倍数
+
+	2. 年份是400的倍数
+
+	其他的年份都不是闰年。
+
+输入格式
+
+	输入包含一个整数y，表示当前的年份
+
+输出格式
+
+	输出一行，如果给定的年份是闰年，则输出yes，否则输出no
+
+样例输入
+
+	2013
+
+样例输出
+
+	no
+
+样例输入
+
+	2016
+
+样例输出
+
+	yes
+
+数据规模与约定
+
+	1990 <= y <= 2050
+
+说明
+
+	当试题指定你输出一个字符串作为结果
+
+	（比如本题的yes或者no，你需要严格按照试题中给定的大小写，写错大小写将不得分
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int y = scanner.nextInt();
+		if (y % 400 == 0) {
+			System.out.println("yes");
+		} else if (y % 4 == 0 && y % 100 != 0) {
+			System.out.println("yes");
+		} else {
+			System.out.println("no");
+		}
+		scanner.close();
+	}
+}
+```
+
+# 01字串
+
+问题描述
+
+	对于长度为5位的一个01串，每一位都可能是0或1，一共有32种可能。它们的前几个是：
+
+	00000
+
+	00001
+
+	00010
+
+	00011
+
+	00100
+
+	请按从小到大的顺序输出这32种01串
+
+输出格式
+
+	输出32行，按从小到大的顺序每行一个长度为5的01串
+
+```java 暴力输出
+public class Main {
+	public static void main(String args[]) {
+		for (int i = 0; i < 32; i++) {
+			System.out.printf("%05d\n", Integer.parseInt(Integer.toBinaryString(i)));
+		}
+	}
+}
+```
+
+# 字母图形
+
+问题描述
+
+	利用字母可以组成一些美丽的图形，下面给出了一个例子：
+
+	ABCDEFG
+
+	BABCDEF
+
+	CBABCDE
+
+	DCBABCD
+
+	EDCBABC
+
+	这是一个5行7列的图形，请找出这个图形的规律，并输出一个n行m列的图形
+
+输入格式
+
+	输入一行，包含两个整数n和m，分别表示你要输出的图形的行数的列数
+
+输出格式
+
+	输出n行，每行m个字符
+
+样例输入
+
+	5 7
+
+样例输出
+
+	ABCDEFG
+
+	BABCDEF
+
+	CBABCDE
+
+	DCBABCD
+
+	EDCBABC
+
+数据规模与约定
+
+	1 <= n, m <= 26
+
+```java 暴力输出
+/**
+ * 每一行：上一行的第一个字母的后一位 + 上一行去掉最后一个字母的子串
+ * 步骤：
+ * 1. 先初始化第一行字母
+ * 2. 之后的每行都是上一行的修改
+ */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		int m = scanner.nextInt();
+		if (1 <= n && m <= 26) {
+			ArrayList<String> chArrayLists = new ArrayList<String>();
+			String string = new String();
+			Character start = 'A';
+			for (int i = 0; i < m; i++) {
+				string += start.toString();
+				start++;
+			}
+			chArrayLists.add(string);
+			for (int i = 0; i < n - 1; i++) {
+				string = chArrayLists.get(chArrayLists.size() - 1);
+				start = string.charAt(0);
+				start++;
+				string = start.toString() + string;
+				chArrayLists.add(string.substring(0, m));
+			}
+			for (int i = 0; i < n; i++) {
+				System.out.println(chArrayLists.get(i));
+			}
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+}
+```
+
+# 数列特征
+
+问题描述
+
+	给出n个数，找出这n个数的最大值，最小值，和
+
+输入格式
+
+	第一行为整数n，表示数的个数
+
+	第二行有n个数，为给定的n个数，每个数的绝对值都小于10000
+
+输出格式
+
+	输出三行，每行一个整数。
+
+	第一行表示这些数中的最大值，第二行表示这些数中的最小值，第三行表示这些数的和
+
+样例输入
+
+	5
+
+	1 3 -2 4 5
+
+样例输出
+
+	5
+
+	-2
+
+	11
+
+数据规模与约定
+
+	1 <= n <= 10000
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 10000) {
+			int buf, min = 0, max = 0, sum = 0;
+			for (int i = 0; i < n; i++) {
+				buf = scanner.nextInt();
+				if (i == 0) {
+					min = max = buf;
+				}
+				if (buf < min) {
+					min = buf;
+				}
+				if (buf > max) {
+					max = buf;
+				}
+				sum += buf;
+			}
+			System.out.println(max);
+			System.out.println(min);
+			System.out.println(sum);
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+}
+```
+
+# 查找整数
+
+问题描述
+
+	给出一个包含n个整数的数列，问整数a在数列中的第一次出现是第几个
+
+输入格式
+
+	第一行包含一个整数n
+
+	第二行包含n个非负整数，为给定的数列，数列中的每个数都不大于10000
+
+	第三行包含一个整数a，为待查找的数
+
+输出格式
+
+	如果a在数列中出现了，输出它第一次出现的位置(位置从1开始编号)，否则输出-1
+
+样例输入
+
+	6
+
+	1 9 4 8 3 9
+
+	9
+
+样例输出
+
+	2
+
+数据规模与约定
+
+	1 <= n <= 1000
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 1000) {
+			int[] array = new int[n];
+			for (int i = 0; i < n; i++) {
+				array[i] = scanner.nextInt();
+			}
+			int a = scanner.nextInt();
+
+			int position = -1;
+			for (int i = 0; i < n; i++) {
+				if (array[i] == a) {
+					position = i + 1;
+					break;
+				}
+			}
+			System.out.println(position);
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+}
+```
+
+# 杨辉三角形
+
+问题描述
+
+	杨辉三角形又称Pascal三角形，它的第i+1行是(a+b)i的展开式的系数。
+
+	它的一个重要性质是：三角形中的每个数字等于它两肩上的数字相加。
+
+	下面给出了杨辉三角形的前4行：
+
+	1
+
+	1 1
+
+	1 2 1
+
+	1 3 3 1
+
+	给出n，输出它的前n行
+
+输入格式
+
+	输入包含一个数n
+
+输出格式
+
+	输出杨辉三角形的前n行。每一行从这一行的第一个数开始依次输出，中间使用一个空格分隔。
+
+	请不要在前面输出多余的空格
+
+样例输入
+
+	4
+
+样例输出
+
+	1
+
+	1 1
+
+	1 2 1
+
+	1 3 3 1
+
+数据规模与约定
+
+	1 <= n <= 34
+
+
+
+```java
+/**
+ * 1
+ * 1 1
+ * 1 2 1
+ * 1 3 3 1
+ * 1 4 6 4 1
+ * 1 5 10 10 5 1
+ * 除了边上的1
+ * 中间值 = 上一行该位置的值 + 上一行前一位置的值
+ */
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 34) {
+			int[][] array = new int[n][n];
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j <= i; j++) {
+					if (j == 0 || i == j) {
+						array[i][j] = 1;
+					} else {
+						array[i][j] = array[i - 1][j] + array[i - 1][j - 1];
+					}
+					System.out.print(array[i][j] + " ");
+				}
+				System.out.println();
+			}
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+}
+```
+
+# 特殊的数字
+
+问题描述
+
+	153是一个非常特殊的数，它等于它的每位数字的立方和，即153=1*1*1+5*5*5+3*3*3。
+
+	求所有满足这种条件的三位十进制数
+
+输出格式
+
+	按从小到大的顺序输出满足条件的三位十进制数，每个数占一行
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		for (int i = 100; i <= 999; i++) {
+			if (Math.pow(i % 10, 3) + Math.pow(i / 10 % 10, 3) + Math.pow(i / 100, 3) == i) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+```
+
+# 回文数
+
+问题描述
+
+	1221是一个非常特殊的数，它从左边读和从右边读是一样的，编程求所有这样的四位十进制数
+
+输出格式
+
+	按从小到大的顺序输出满足条件的四位十进制数
+
+```java 暴力输出
+public class Main {
+	public static void main(String args[]) {
+		for (int i = 1; i <= 9; i++) {
+			for (int j = 0; j <= 9; j++) {
+				System.out.println(i + "" + j + "" + j + "" + i + "");
+			}
+		}
+	}
+}
+```
+
+# 特殊回文数
+
+问题描述
+
+	123321是一个非常特殊的数，它从左边读和从右边读是一样的
+
+	输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n
+
+输入格式
+
+	输入一行，包含一个正整数n
+
+输出格式
+
+	按从小到大的顺序输出满足条件的整数，每个整数占一行
+
+样例输入
+
+	52
+
+样例输出
+
+	899998
+
+	989989
+
+	998899
+
+数据规模与约定
+
+	1 <= n <= 54
+
+```java
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 54) {
+			for (int i = 10000; i <= 999999; i++) {
+				if (isEqual(i, n)) {
+					if (isHuiWen(i)) {
+						System.out.println(i);
+					}
+				}
+			}
+		} else {
+			System.out.println();
+		}
+		scanner.close();
+	}
+
+	public static boolean isEqual(int i, int n) {
+		if ((i % 10 + i / 10 % 10 + i / 100 % 10 + i / 1000 % 10 + i / 10000 % 10 + i / 100000 % 10) == n) {
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean isHuiWen(int i) {
+		String num = Integer.toString(i);
+		int front = 0;
+		int reer = num.length() - 1;
+		while (reer > front) {
+			if (num.charAt(front) != num.charAt(reer)) {
+				return false;
+			}
+			front++;
+			reer--;
+		}
+		return true;
+	}
+}
+```
+
+# 十进制转十六进制
+
+问题描述
+
+	十六进制数是在程序设计时经常要使用到的一种整数的表示方式。
+
+	它有0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F共16个符号，分别表示十进制数的0至15
+
+	十六进制的计数方法是满16进1，所以十进制数16在十六进制中是10
+
+	而十进制的17在十六进制中是11，以此类推，十进制的30在十六进制中是1E
+
+	给出一个非负整数，将它表示成十六进制的形式
+
+输入格式
+
+	输入包含一个非负整数a，表示要转换的数。0<=a<=2147483647
+
+输出格式
+
+	输出这个整数的16进制表示
+
+样例输入
+
+	30
+
+样例输出
+
+	1E
+
+锦囊
+
+	按除16取余倒数（也可使用格式输出）
+
+```java 内置函数
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		if (1 <= a && a <= 2147483647) {
+			System.out.println(Integer.toHexString(a).toUpperCase());
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+}
+```
+
+```java 按锦囊来
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int a = scanner.nextInt();
+		if (1 <= a && a <= 2147483647) {
+			System.out.println(dec2hex(a));
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+
+	public static String dec2hex(int dec) {
+		String hex = "";
+		String tmp = "";
+		do {
+			tmp = dec % 16 + "";
+			switch (tmp) {
+			case "10":
+				tmp = "A";
+				break;
+			case "11":
+				tmp = "B";
+				break;
+			case "12":
+				tmp = "C";
+				break;
+			case "13":
+				tmp = "D";
+				break;
+			case "14":
+				tmp = "E";
+				break;
+			case "15":
+				tmp = "F";
+				break;
+			}
+			hex = tmp + hex;
+			dec = dec / 16;
+		} while (dec != 0);
+		return hex;
+	}
+}
+```
+
+# 十六进制转十进制
+
+问题描述
+
+	从键盘输入一个不超过8位的正的十六进制数字符串，将它转换为正的十进制数后输出
+
+	注：十六进制数中的10~15分别用大写的英文字母A、B、C、D、E、F表示
+
+样例输入
+
+	FFFF
+
+样例输出
+
+	65535
+
+锦囊
+
+	按16进制展开
+
+```java 内置函数
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		String a = scanner.next();
+		if (a != null) {
+			System.out.println(Long.parseLong(a, 16));
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+}
+```
+
+```java 每位的进制幂之和
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		String a = scanner.next();
+		if (a != null) {
+			System.out.println(hex2dec(a));
+		} else {
+			System.out.println(a);
+		}
+		scanner.close();
+	}
+
+	public static long hex2dec(String hex) {
+		int tmp = 0;
+		long dec = 0;
+		for (int i = 0; i < hex.length(); i++) {
+			switch (Character.toUpperCase(hex.charAt(i))) {
+			case 'A':
+				tmp = 10;
+				break;
+			case 'B':
+				tmp = 11;
+				break;
+			case 'C':
+				tmp = 12;
+				break;
+			case 'D':
+				tmp = 13;
+				break;
+			case 'E':
+				tmp = 14;
+				break;
+			case 'F':
+				tmp = 15;
+				break;
+			default:
+				tmp = (int) hex.charAt(i) - 48;
+				break;
+			}
+			dec += tmp * Math.pow(16, hex.length() - i - 1);
+		}
+		return dec;
+	}
+}
+```
+
+# 十六进制转八进制
+
+问题描述
+
+	给定n个十六进制正整数，输出它们对应的八进制数
+
+输入格式
+
+	输入的第一行为一个正整数n （1<=n<=10）
+
+	接下来n行，每行一个由0~9、大写字母A~F组成的字符串，
+
+	表示要转换的十六进制正整数，每个十六进制数长度不超过100000。
+
+输出格式
+
+	输出n行，每行为输入对应的八进制正整数
+
+样例输入
+
+	2
+
+	39
+
+	123ABC
+
+样例输出
+
+	71
+
+	4435274
+
+说明
+
+	先将十六进制数转换成某进制数，再由某进制数转换成八进制。
+
+```java 手动实现进制转换
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		if (1 <= n && n <= 10) {
+			String[] hexArray = new String[n];
+			for (int i = 0; i < n; i++) {
+				hexArray[i] = scanner.next();
+			}
+			for (int i = 0; i < n; i++) {
+				String strBinary = hex2bin(hexArray[i]);
+				int len_strBin = strBinary.length();
+				if (len_strBin % 3 != 0) {
+					for (int j = 0; j < (3 - len_strBin % 3); j++) {
+						strBinary = "0" + strBinary;
+					}
+				}
+				String strOctal = bin2oct(strBinary);
+				System.out.println(strOctal);
+			}
+		} else {
+			System.out.println(n);
+		}
+		scanner.close();
+	}
+
+	private static String bin2oct(String bin) {
+		StringBuilder stb = new StringBuilder();
+		int i = bin.substring(0, 3).equals("000") ? 3 : 0;
+		for (; i < bin.length() - 2; i += 3) {
+			switch (bin.substring(i, i + 3)) {
+			case "000":
+				stb.append("0");
+				break;
+			case "001":
+				stb.append("1");
+				break;
+			case "010":
+				stb.append("2");
+				break;
+			case "011":
+				stb.append("3");
+				break;
+			case "100":
+				stb.append("4");
+				break;
+			case "101":
+				stb.append("5");
+				break;
+			case "110":
+				stb.append("6");
+				break;
+			case "111":
+				stb.append("7");
+				break;
+			}
+		}
+		return stb.toString();
+	}
+
+	private static String hex2bin(String hex) {
+		StringBuffer stb = new StringBuffer();
+		for (int i = 0; i < hex.length(); i++) {
+			switch (hex.charAt(i)) {
+			case '0':
+				stb.append("0000");
+				break;
+			case '1':
+				stb.append("0001");
+				break;
+			case '2':
+				stb.append("0010");
+				break;
+			case '3':
+				stb.append("0011");
+				break;
+			case '4':
+				stb.append("0100");
+				break;
+			case '5':
+				stb.append("0101");
+				break;
+			case '6':
+				stb.append("0110");
+				break;
+			case '7':
+				stb.append("0111");
+				break;
+			case '8':
+				stb.append("1000");
+				break;
+			case '9':
+				stb.append("1001");
+				break;
+			case 'A':
+				stb.append("1010");
+				break;
+			case 'B':
+				stb.append("1011");
+				break;
+			case 'C':
+				stb.append("1100");
+				break;
+			case 'D':
+				stb.append("1101");
+				break;
+			case 'E':
+				stb.append("1110");
+				break;
+			case 'F':
+				stb.append("1111");
+				break;
+			}
+		}
+		return stb.toString();
+	}
+}
+```
