@@ -1,17 +1,16 @@
 {
   "skills": {
-    "Python": 5,
-    "Java": 6,
-    "HTML/CSS": 6,
-    "Java": 6,
+    "Python": 2,
+    "Java": 3,
+    "HTML/CSS": 3,
 
     "invisible-split-line-1": -1,
 
-    "Shell": 4,
+    "Shell": 2,
 
     "invisible-split-line-2": -1,
 
-    "Photoshop": 3
+    "Photoshop": 2
   },
   "projects": [{
     "name": "项目A",
