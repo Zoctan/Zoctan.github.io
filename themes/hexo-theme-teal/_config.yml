@@ -1,5 +1,5 @@
 # hexo-theme-teal
-
+# https://github.com/Zoctan/hexo-theme-teal
 menu:
   home:                   /
   archives:               /archives
@@ -76,7 +76,6 @@ less:
   paths:
     - source/css/style.less
 
-# 以下评论插件开启一个即可
 # 是否使用 gitment，https://github.com/imsun/gitment
 gitment:                  false
 # gitment:
