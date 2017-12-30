@@ -78,7 +78,7 @@ category_generator:
 
 # Extensions
 ## Plugins:         https://hexo.io/plugins/
-theme:              teal
+theme:              hexo-theme-teal
 
 # Deployment
 ## Docs:            https://hexo.io/zh-cn/docs/deployment.html

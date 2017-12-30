@@ -5,6 +5,9 @@ const {
 
 hexo.extend.helper.register('theme_version', () => version)
 
+/*
+ * github无法缓存
+*/
 const source = (path, cache, ext) => {
     if (cache) {
         const minFile = `${path}${ext === '.js' ? '.min' : ''}${ext}`
