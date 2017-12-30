@@ -1,3 +1,11 @@
+---
+title: Java模版
+category: 学习
+tags:
+- Java
+---
+
+一些常用的算法模板
 
 ```java 大整数字符串模拟
 public class BigInteger {

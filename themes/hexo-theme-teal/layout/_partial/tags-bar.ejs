@@ -7,33 +7,30 @@
             var options = [];
 
             (type === 'tags' ? site.tags : site.categories).each(function(o) {
-                if(o.posts.length) {
-                    options.push(o)
-                }
+              if (o.posts.length) {
+                options.push(o)
+              }
             })
 
             var index = _.findIndex(options, function(o) {
-                return is_current(o.path)
+              return is_current(o.path)
             })
             var len = options.length
             var order = 0
-            options.forEach(function(tag, i){
+            options.forEach(function(tag, i) {
 
-                if(index <= 1) {
-                    order = i
+              if (index <= 1) {
+                order = i
+              } else {
+
+                if (i < index - 1) {
+                  order = len - (index - 1) + i
                 } else {
-
-                    if( i < index - 1) {
-                        order = len - (index - 1) + i
-                    } else {
-                        order = i - (index - 1)
-                    }
+                  order = i - (index - 1)
                 }
-
+              }
             %>
-
-            <a href="<%- url_for(tag.path) %>" style="-webkit-order:<%= order%>;order:<%= order%>" class="tags-list-item waves-effect waves-button waves-light<% if(is_current(tag.path)){%> active<%}%>"><%-tag.name%></a>
-
+            <a href="<%- url_for(tag.path) %>" style="-webkit-order:<%= order %>;order:<%= order %>" class="tags-list-item waves-effect waves-button waves-light<% if (is_current(tag.path)) { %> active<% } %>"><%- tag.name %></a>
         <% }) %>
     </nav>
     <!-- PC show more-->

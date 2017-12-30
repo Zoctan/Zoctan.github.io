@@ -6,7 +6,7 @@
     <%
         var posts = [];
 
-        page.posts.each(function(post){
+        page.posts.each(function(post) {
             posts.push(post);
         });
 
@@ -14,25 +14,25 @@
     %>
 
     <%
-    var y = 0, m = 0;
-    sortPosts.forEach(function(post, i){
-        var dt = post.date;
-        var ny = post.date.year();
-        var nm = post.date.month();
+        var y = 0, m = 0;
+        sortPosts.forEach(function(post, i) {
+            var dt = post.date;
+            var ny = post.date.year();
+            var nm = post.date.month();
 
-        if(ny !== y || nm !== m) {
+            if(ny !== y || nm !== m) {
 
-            y = ny;
-            m = nm;
+                y = ny;
+                m = nm;
     %>
-            <% if(i > 0){%></div> <% } %>
+            <% if (i > 0) { %></div> <% } %>
             <h3 class="archive-separator"><%=dt.format('MMMM, YYYY')%></h3>
             <div class="waterfall">
     <%    } %>
 
-        <%- partial('_partial/archive', {post: post, date_format: 'MMM D'}) %>
+        <%- partial('_partial/archive', { post: post, date_format: 'MMM D' }) %>
 
-    <%})%>
+    <% }) %>
     </div>
 
     <%- partial('_partial/paginator') %>

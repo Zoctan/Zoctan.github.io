@@ -1,7 +1,10 @@
 <% if (theme.google_analytics) { %>
 <!-- Google Analytics -->
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+window.ga = window.ga || function() {
+  (ga.q = ga.q || []).push(arguments)
+};
+ga.l = +new Date;
 ga('create', '<%- theme.google_analytics %>', 'auto');
 ga('send', 'pageview');
 </script>

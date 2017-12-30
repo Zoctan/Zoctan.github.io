@@ -3,8 +3,8 @@
     hdClass: 'page-header'
 }) %>
 <%
-page.reward = 'reward' in page ? (theme.reward && page.reward) : theme.reward;
-page.slug = 'hexo-page-' + page.path.replace(/\/index\.html$/,'').split('/').join('-');
+    page.reward = 'reward' in page ? (theme.reward && page.reward) : theme.reward;
+    page.slug = 'hexo-page-' + page.path.replace(/\/index\.html$/,'').split('/').join('-');
 %>
 <div class="container body-wrap">
     <article class="page-article fade" itemprop="blogPage">

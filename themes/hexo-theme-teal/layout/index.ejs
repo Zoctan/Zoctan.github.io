@@ -3,9 +3,8 @@
     hdClass: 'index-header'
 }) %>
 <div class="container body-wrap">
-
     <ul class="post-list">
-    <% page.posts.each(function(post){ %>
+    <% page.posts.each(function(post) { %>
         <li class="post-list-item fade">
             <%- partial('_partial/index-item', {
                 post: post,
@@ -16,5 +15,4 @@
     </ul>
 
     <%- partial('_partial/paginator') %>
-
 </div>

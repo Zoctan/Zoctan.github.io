@@ -268,36 +268,46 @@
                 position: absolute;
                 top: 15px;
                 left: 20px;
-                font-weight: 600;
-                font-size: 14px;
-                border-radius: 24px;
-                background: @accentColor;
-                line-height: 18px;
-                padding: 4px 14px;
-                color: @textPrimaryColor;
-            }
 
-            .card-tag {
-                position: absolute;
-                top: 15px;
-                right: 10px;
-
-                .chip {
+                span {
                     border-radius: 24px;
-                    background: @primaryColor;
+                    background: @accentColor;
                     display: inline-block;
                     font-size: 14px;
-                    font-weight: 500;
+                    font-weight: 600;
                     height: initial;
                     line-height: 18px;
                     padding: 4px 14px;
                     color: @textPrimaryColor;
                 }
             }
+
+            .card-tag {
+                position: absolute;
+                bottom: 15px;
+                right: 20px;
+
+                span {
+                border-radius: 24px;
+                background: @primaryColor;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 600;
+                height: initial;
+                line-height: 18px;
+                padding: 4px 14px;
+                color: @textPrimaryColor;
+              }
+            }
         }
     }
 }
 @media screen and(max-width: 480px) {
+  .project-item {
+      display: inline-block;
+      width: 100%;
+    }
+    
     .card-content {
         padding-left: 15px;
         padding-right: 15px;

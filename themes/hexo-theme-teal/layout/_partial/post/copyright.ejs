@@ -2,7 +2,7 @@
     <div class="content">
         <%- partial('updated') %>
         <% if (theme.postMessage) { %>
-        <%- _.template(theme.postMessage)(locals) %>
+        <p><%- _.template(theme.postMessage)(locals) %></p>
         <% } %>
     </div>
     <footer>
