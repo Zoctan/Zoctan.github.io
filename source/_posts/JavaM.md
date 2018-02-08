@@ -8,11 +8,11 @@ tags:
 一些常用的算法模板
 
 ```java 大整数字符串模拟
-public class BigInteger {
+private class BigInteger {
 	/**
 	 * 阶乘 http://www.open-open.com/home/space-135360-do-blog-id-9620.html
 	 */
-	public String factorial(int bigInteger) {
+	private String factorial(int bigInteger) {
 		int pos = 0;//
 		int digit;// 数据长度
 		double sum = 0;// 阶乘位数
@@ -72,7 +72,7 @@ public class BigInteger {
 	/*
 	 * 加法
 	 */
-	public String add(String x1, String x2) {
+	private String add(String x1, String x2) {
 		if (x1 == null && x2 == null)
 			return "0";
 		if (x1 == null)
@@ -118,7 +118,7 @@ public class BigInteger {
  * 求最大公约数
  * 最小公倍数 = ab/最大公约数
  */
-public long gcd(long a, long b) {
+private long gcd(long a, long b) {
     long tmp;
     while ((tmp = a % b) != 0) {
         a = b;
@@ -127,7 +127,7 @@ public long gcd(long a, long b) {
     return b;
 }
 
-public long gcd(long a, long b) {
+private long gcd(long a, long b) {
     return a == 0 ? b : gcd(b % a, a);
 }
 ```
@@ -136,7 +136,7 @@ public long gcd(long a, long b) {
 /**
  * 求乘法逆元
  */
-public long exgcd(long a, long n) {
+private long exgcd(long a, long n) {
     long x0 = 1, y0 = 0, x1 = 0, y1 = 1, x2, y2;
     long r = a % n;
     long q = (a - r) / n;
@@ -157,7 +157,7 @@ public long exgcd(long a, long n) {
 ```
 
 ```java 快速幂
-public long quickMod(long x, long n, long mod) {
+private long quickMod(long x, long n, long mod) {
     long res = 1;
     while (n > 0) {
         if ((n & 1) != 0)
@@ -174,7 +174,7 @@ public long quickMod(long x, long n, long mod) {
  * 输出的序列无顺序
  * 思想：冒泡排序，不断和后面的交换
  */
-public static void permutate(char[] array, int from, int to) {
+private static void permutate(char[] array, int from, int to) {
     if (from == to) { // 输出
         System.out.println(new String(array));
     } else {
@@ -206,7 +206,7 @@ private static void swap(char[] array, int m, int n) {
 /**
  * Arrays.binarySearch()
  */
-public int binarySearch(int[] array, int x) {
+private int binarySearch(int[] array, int x) {
     int low = 0;
     int high = array.length - 1;
     int middle;
@@ -228,7 +228,7 @@ public int binarySearch(int[] array, int x) {
 /**
  * 两个字符串中的最长公共子序列，不要求子序列连续
  */
-public void findLCS(String s1, String s2) {
+private void findLCS(String s1, String s2) {
     int s1Len = s1.length();
     int s2Len = s2.length();
     int[][] dp = new int[s1Len + 1][s2Len + 1];
@@ -267,7 +267,7 @@ public void findLCS(String s1, String s2) {
 /**
  * 两个字符串中的最长公共子串，要求子串一定连续
  */
-public static int findLongest(String str1, String str2) {
+private static int findLongest(String str1, String str2) {
     int s1Len = str1.length();
     int s2Len = str2.length();
     if (s1Len == 0 || s2Len == 0)
@@ -293,6 +293,32 @@ public static int findLongest(String str1, String str2) {
         }
     }
     return longest;
+}
+```
+
+```java 埃拉托斯特尼筛法 打素数表
+private static ArrayList<Integer> getPrime(int n) {
+	boolean[] notPrime = new boolean[n + 1];
+	int sqrtN = (int) Math.sqrt(n);
+	for (int i = 2; i <= sqrtN; i++) {
+		if (notPrime[i])
+			continue;
+		for (int j = i * i; j <= n; j += i) {
+			// j是i的倍数，即不是素数
+			notPrime[j] = true;
+		}
+	}
+	ArrayList<Integer> prime = new ArrayList<>();
+	if (n > 1) {
+		prime.add(2);
+	}
+	for (int i = 3; i <= n; i += 2) {
+		if (notPrime[i])
+			continue;
+		prime.add(i);
+	}
+	System.out.println(prime.size());
+	return prime;
 }
 ```
 

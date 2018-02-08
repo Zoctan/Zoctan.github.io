@@ -169,19 +169,29 @@ public class ArraySort {
 	而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。
 
 ```java
+import java.io.BufferedInputStream;
 import java.util.Scanner;
-
 public class Main {
-	public static void main(String args[]) {
-		Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(new BufferedInputStream(System.in));
 		int n = scanner.nextInt();
-		int[] array = new int[n];
-		array[0] = array[1] = 1;
-		for (int i = 2; i < array.length; i++) {
-			array[i] = (array[i - 1] + array[i - 2]) % 10007;
+		if (1 <= n && n <= 1000000) {
+			if (n == 1 || n == 2) {
+				System.out.println(1);
+			} else if (n == 3) {
+				System.out.println(2);
+			} else {
+				int[] f = new int[] { 1, 2, 3 };
+				for (int i = 5; i <= n; i++) {
+					f[0] = f[1];
+					f[1] = f[2];
+					f[2] = (f[1] + f[0]) % 10007;
+				}
+				System.out.println(f[2]);
+			}
+		} else {
+			System.out.println(-1);
 		}
-		System.out.println(array[n - 1]);
-		scanner.close();
 	}
 }
 ```
