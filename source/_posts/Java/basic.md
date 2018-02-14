@@ -1,5 +1,5 @@
 ---
-title: 基础概念
+title: Java基础概念
 date: 2017-12-26
 category: 学习
 tags:
@@ -46,6 +46,14 @@ Java 的初衷就是做这一块的开发。
 注意：Android手机有自己的开发组件，不使用 J2ME 进行开发。
 
 Java5.0版本后，J2SE、J2EE、J2ME分别更名为Java SE、Java EE、Java ME，由于习惯的原因，我们依然称之为J2SE、J2EE、J2ME。
+
+# JRE和JDK
+
+JRE（Java Runtime Environment）：Java运行时环境，包含了Java虚拟机，Java基础类库。是使用Java语言编写的程序运行所需要的软件环境，是提供给想运行Java程序的用户使用的。如果需要运行Java程序，只需安装JRE就可以了。
+
+JRE根据不同操作系统（如：Windows，Linux等）和不同JRE提供商（IBM,ORACLE等）有很多版本，最常用的是Oracle公司收购SUN公司的JRE版本。
+
+JDK（Java Development Kit）：JDK顾名思义是Java开发工具包，是程序员使用Java语言编写Java程序所需的开发工具包，是提供给程序员使用的。JDK包含了JRE，同时还包含了编译Java源码的编译器Javac，还包含了很多Java程序调试和分析的工具：Jconsole，Jvisualvm等工具软件，还包含了Java程序编写所需的文档和Demo例子程序。如果需要编写Java程序，即需要安装JDK。
 
 # 面向对象编程(Object Oriented Programming, OOP)
 
@@ -275,16 +283,16 @@ a: 2
 基本数据类型 | 对应的包装类
 ------------|-----------
 byte        | Byte
-short      | Short
-int      | Integer
-long      | Long
-char      | Character
-float      | Float
+short       | Short
+int         | Integer
+long        | Long
+char        | Character
+float       | Float
 double      | Double
-boolean      | Boolean
+boolean     | Boolean
 
 基本类型和对应的包装类相互装换：
-- 装箱：由基本类型向对应的包装类转换，如把 int 包装成 Integer 类的对象；
+- 装箱：由基本类型向对应的包装类转换，如把 int 包装成 Integer 类的对象。
 - 拆箱：包装类向对应的基本类型转换，如把 Integer 类的对象重新简化为 int。
 
 ```java Java 1.5(5.0) 之前必须手动拆箱装箱
@@ -305,7 +313,7 @@ n = 500
 obj 等价于 obj1？true
 ```
 
-```java // Java 1.5(5.0) 之后系统自动拆箱装箱
+```java Java 1.5(5.0) 之后系统自动拆箱装箱
 public class Demo {
     public static void main(String[] args) {
         int m = 500;
@@ -359,7 +367,7 @@ class Teacher extends People {
 
 注：构造方法不能被继承。 一个类能得到构造方法，只有两个办法：编写构造方法，或者根本没有构造方法，类有一个默认的构造方法。
 
-## super关键字（用来表示父类）
+## super 关键字（用来表示父类）
 
 功能：
 - 调用父类中声明为 private 的变量。
@@ -474,9 +482,9 @@ class Dog extends Animal {
 - 覆盖方法的返回类型、方法名称、参数列表必须与原方法的相同。
 - 覆盖方法不能比原方法访问性差（即访问权限不允许缩小）。
 - 覆盖方法不能比原方法抛出更多的异常。
-- 被覆盖的方法不能是final类型，因为final修饰的方法是无法覆盖的。
-- 被覆盖的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖。
-- 被覆盖的方法不能为static。如果父类中的方法为静态的，而子类中的方法不是静态的，但是两个方法除了这一点外其他都满足覆盖条件，那么会发生编译错误；反之亦然。即使父类和子类中的方法都是静态的，并且满足覆盖条件，但是仍然不会发生覆盖，因为静态方法是在编译的时候把静态方法和类的引用类型进行匹配。
+- 被覆盖的方法不能是 final 类型，因为 final 修饰的方法是无法覆盖的。
+- 被覆盖的方法不能为 private，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖。
+- 被覆盖的方法不能为 static。（覆盖是基于运行时动态绑定的，而 static 方法是编译时静态绑定的。static 方法跟类的任何实例都不相关，所以概念上不适用）
 
 覆盖和重载的不同：
 - 方法覆盖要求参数列表必须一致，而方法重载要求参数列表必须不一致。
@@ -682,9 +690,6 @@ b.i=10, b.j=0
 - 静态变量也可以通过对象来访问，但不提倡，编译器也会产生警告。
 - 静态变量在类装载的时候就会被初始化。也就是说，只要类被装载，不管你是否使用了这个 static 变量，它都会被初始化，并占用内存。
 
-
-静态方法不能操作对象，所以不能在静态方法中访问实例变量，只能访问自身类的静态变量。
-
 以下情形可以使用静态方法：
 - 方法不需要访问对象状态，其所需参数都是通过显式参数提供（例如 Math.pow()）。
 - 方法只需要访问类的静态变量。
@@ -695,8 +700,8 @@ b.i=10, b.j=0
 - 如访问控制权限允许，静态变量和静态方法也可以通过对象来访问，但不被推荐；
 - 静态方法中不存在当前对象，因而不能使用 this，当然也不能使用 super；
 - 静态方法不能被非静态方法覆盖；
-- 构造方法不允许声明为 static 的；
-- 局部变量不能使用static修饰。
+- 构造方法不允许声明为 static；
+- 局部变量不能使用 static 修饰。
 
 静态初始器（静态块）(Static Initializer)
 静态初始器是一个存在于类中、方法外面的静态块。静态初始器仅仅在类装载的时候（第一次使用类的时候）执行一次，往往用来初始化静态变量。
@@ -742,6 +747,9 @@ public class Demo {
 运行：
 产生的一个随机数：0.05800891549018705
 ```
+
+问：是否可以在 static 环境中访问非 static 变量？
+答：static 变量在 Java 中是属于类的，它在所有的实例中的值是一样的。当类被 Java 虚拟机载入的时候，会对 static 变量进行初始化。如果你的代码尝试不用实例来访问非 static 的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。
 
 ## final 关键字：阻止继承和多态
 
@@ -816,7 +824,7 @@ public class Outer {
 
 http://www.weixueyuan.net/view/6007.html
 
-## 抽象类的概念和使用（abstract）
+## abstract 抽象类的概念和使用
 
 在自上而下的继承层次结构中，位于上层的类更具有通用性，甚至可能更加抽象。
 
@@ -824,6 +832,688 @@ http://www.weixueyuan.net/view/6007.html
 
 这种只给出定义而不具体实现的方法被称为抽象方法，抽象方法是没有方法体的，在代码的表达上就是没有“{}”。包含一个或多个抽象方法的类也必须被声明为抽象类。
 
+使用 abstract 修饰符来表示抽象方法和抽象类。
+
+抽象类除了包含抽象方法外，还可以包含具体的变量和具体的方法。类即使不包含抽象方法，也可以被声明为抽象类，防止被实例化。
+
+抽象类不能被实例化，抽象方法必须在子类中被实现。
+
+```java
+public class Demo {
+	public static void main(String[] args) {
+		Teacher teacher = new Teacher();
+		teacher.setName("王明");
+		teacher.work();
+
+		Driver driver = new Driver();
+		driver.setName("小陈");
+		driver.work();
+	}
+}
+
+// 定义一个抽象类
+abstract class People {
+	private String name; // 实例变量
+
+	// 共有的 setter 和 getter 方法
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	// 抽象方法
+	public abstract void work();
+}
+
+class Teacher extends People {
+	// 必须实现该方法
+	public void work() {
+		System.out.println("我的名字叫" + this.getName() + "，我正在讲课，请大家不要东张西望...");
+	}
+}
+
+class Driver extends People {
+	// 必须实现该方法
+	public void work() {
+		System.out.println("我的名字叫" + this.getName() + "，我正在开车，不能接听电话...");
+	}
+}
+
+运行：
+我的名字叫王明，我正在讲课，请大家不要东张西望...
+我的名字叫小陈，我正在开车，不能接听电话...
+```
+
+关于抽象类的几点说明：
+- 抽象类不能直接使用，必须用子类去实现抽象类，然后使用其子类的实例。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例，也就是可以使用抽象类来充当形参，实际实现类作为实参，也就是多态的应用。
+- 不能有抽象构造方法或抽象静态方法。
+
+在下列情况下，一个类将成为抽象类：
+- 当一个类的一个或多个方法是抽象方法时；
+- 当类是一个抽象类的子类，并且不能为任何抽象方法提供任何实现细节或方法主体时；
+- 当一个类实现一个接口，并且不能为任何抽象方法提供实现细节或方法主体时。
+
+注意：这里说的是这些情况下一个类将成为抽象类，没有说抽象类一定会有这些情况。
+
+一个典型的错误：抽象类一定包含抽象方法。 但是反过来说“包含抽象方法的类一定是抽象类”就是正确的。
+
+事实上，抽象类可以是一个完全正常实现的类。
+
+## interface 接口的概念及使用
+
+在抽象类中，可以包含一个或多个抽象方法；但在接口（interface）中，所有的方法必须都是抽象的，不能有方法体，它比抽象类更加“抽象”。
+
+接口使用 interface 关键字来声明，可以看做是一种特殊的抽象类，可以指定一个类必须做什么，而不是规定它如何去做。
+
+现实中也有很多接口的实例，比如说串口电脑硬盘，Serial ATA委员会指定了Serial ATA 2.0规范，这种规范就是接口。Serial ATA委员会不负责生产硬盘，只是指定通用的规范。
+
+希捷、日立、三星等生产厂家会按照规范生产符合接口的硬盘，这些硬盘就可以实现通用化，如果正在用一块160G日立的串口硬盘，现在要升级了，可以购买一块320G的希捷串口硬盘，安装上去就可以继续使用了。
+
+```java 模拟Serial ATA委员会定义以下串口硬盘接口
+// 串行硬盘接口
+public interface SataHdd {
+    // 连接线的数量
+    int CONNECT_LINE=4;
+    // 写数据
+    void writeData(String data);
+    // 读数据
+    String readData();
+}
+```
+
+注意：接口中声明的成员变量默认都是 public static final 的，必须显示的初始化。因而在常量声明时可以省略这些修饰符。
+
+接口是若干常量和抽象方法的集合，目前看来和抽象类差不多。确实如此，接口本就是从抽象类中演化而来的，因而除特别规定，接口享有和类同样的“待遇”。比如，源程序中可以定义多个类或接口，但最多只能有一个 public 的类或接口，如果有则源文件必须取和 public 的类和接口相同的名字。和类的继承格式一样，接口之间也可以继承，子接口可以继承父接口中的常量和抽象方法并添加新的抽象方法等。
+
+但接口有其自身的一些特性，归纳如下：
+
+1. 接口中只能定义抽象方法，这些方法默认为 public abstract 的，因而在声明方法时可以省略这些修饰符。试图在接口中定义实例变量、非抽象的实例方法及静态方法，都是非法的。例如： 
+
+```java
+public interface SataHdd {
+	// 连接线的数量
+	public int connectLine;
+	// 编译出错，connectLine被看做静态常量，必须显式初始化即 connectLine = 4
+
+	// 写数据
+	protected void writeData(String data);
+	// 编译出错，必须是public类型
+	
+	// 读数据
+	public static String readData() {
+	// 编译出错，接口中不能包含静态方法
+		return "数据";
+	}
+	// 编译出错，接口中只能包含抽象方法，即没有“{具体实现代码}”
+}
+```
+
+3. 接口中没有构造方法，不能被实例化。
+
+4. 一个接口不实现另一个接口，但可以继承多个其他接口。
+
+接口的多继承特点弥补了类的单继承。例如：
+```java
+// 串行硬盘接口
+public interface SataHdd extends A, B {
+    // 连接线的数量
+    public static final int CONNECT_LINE = 4;
+    // 写数据
+    public void writeData(String data);
+    // 读数据
+    public String readData();
+}
+
+interface A {
+    public void a();
+}
+
+interface B {
+    public void b();
+}
+```
+
+### 为什么使用接口
+
+大型项目开发中，可能需要从继承链的中间插入一个类，让它的子类具备某些功能而不影响它们的父类。
+
+例如：A -> B -> C -> D -> E，A 是祖先类，如果需要为C、D、E类添加某些通用的功能，最简单的方法是让 C 类再继承另外一个类。
+
+但问题来了，Java 是一种单继承的语言，不能再让 C 继承另外一个父类了，只到移动到继承链的最顶端，让 A 再继承一个父类。这样一来，对C、D、E类的修改，影响到了整个继承链，不具备可插入性的设计。
+
+接口是可插入性的保证。在一个继承链中的任何一个类都可以实现一个接口，这个接口会影响到此类的所有子类，但不会影响到此类的任何父类。此类将不得不实现这个接口所规定的方法，而子类可以从此类自动继承这些方法，这时候，这些子类具有了可插入性。
+
+我们关心的不是哪一个具体的类，而是这个类是否实现了我们需要的接口。
+
+接口提供了关联以及方法调用上的可插入性，软件系统的规模越大，生命周期越长，接口使得软件系统的灵活性和可扩展性，可插入性方面得到保证。
+
+接口在面向对象的 Java 程序设计中占有举足轻重的地位。事实上在设计阶段最重要的任务之一就是设计出各部分的接口，然后通过接口的组合，形成程序的基本框架结构。
+
+### 接口的使用
+
+接口的使用与类的使用有些不同。在需要使用类的地方，会直接使用 new 关键字来构建一个类的实例，但接口不可以这样使用，因为接口不能直接使用 new 关键字来构建实例。
+
+接口必须通过类来实现(implements)它的抽象方法，然后再实例化类。
+
+如果一个类不能实现该接口的所有抽象方法，那么这个类必须被定义为抽象方法。
+
+不允许创建接口的实例，但允许定义接口类型的引用变量，该变量指向了实现接口的类的实例。
+
+一个类只能继承一个父类，但却可以实现多个接口。
+
+实现接口的格式如下：
+```
+修饰符 class 类名 extends 父类 implements 多个接口（A, B...） {
+	实现方法
+}
+```
+
+例子： 
+
+```java
+public class Demo {
+	public static void main(String[] args) {
+		SataHdd sh1 = new SeagateHdd(); // 初始化希捷硬盘
+		SataHdd sh2 = new SamsungHdd(); // 初始化三星硬盘
+	}
+}
+
+// 串行硬盘接口
+interface SataHdd {
+	// 连接线的数量
+	public static final int CONNECT_LINE = 4;
+	// 写数据
+	public void writeData(String data);
+	// 读数据
+	public String readData();
+}
+
+// 维修硬盘接口
+interface fixHdd {
+	// 维修地址
+	String address = "北京市海淀区";
+	// 开始维修
+	boolean doFix();
+}
+
+// 希捷硬盘
+class SeagateHdd implements SataHdd, fixHdd {
+	// 希捷硬盘读取数据
+	public String readData() {
+		return "数据";
+	}
+
+	// 希捷硬盘写入数据
+	public void writeData(String data) {
+		System.out.println("写入成功");
+	}
+
+	// 维修希捷硬盘
+	public boolean doFix() {
+		return true;
+	}
+}
+
+// 三星硬盘
+class SamsungHdd implements SataHdd {
+	// 三星硬盘读取数据
+	public String readData() {
+		return "数据";
+	}
+
+	// 三星硬盘写入数据
+	public void writeData(String data) {
+		System.out.println("写入成功");
+	}
+}
+
+// 某劣质硬盘，不能写数据
+abstract class XXHdd implements SataHdd {
+	// 硬盘读取数据
+	public String readData() {
+		return "数据";
+	}
+}
+```
+
+### 接口作为类型使用
+
+接口作为引用类型来使用，任何实现该接口的类的实例都可以存储在该接口类型的变量中，通过这些变量可以访问类中所实现的接口中的方法，Java 运行时系统会动态地确定应该使用哪个类中的方法，实际上是调用相应的实现类的方法。
+
+接口可以作为一个类型来使用，如作为方法的参数和返回类型。例子： 
+```java
+public class Demo {
+	// 变量a使用A接口类型
+	public static void test1(A a) {
+		// 调用相应的实现类B的方法
+		a.doSth();
+	}
+
+	public static void main(String[] args) {
+		A a = new B();
+		test1(a);
+	}
+}
+
+interface A {
+	int doSth();
+}
+
+class B implements A {
+	public int doSth() {
+		System.out.println("now in B");
+		return 123;
+	}
+}
+
+运行：
+now in B
+```
+
+## 接口和抽象类的区别
+
+类是对象的模板，抽象类和接口可以看做是具体的类的模板。
+
+由于从某种角度讲，接口是一种特殊的抽象类，它们的渊源颇深，有很大的相似之处，所以在选择使用谁的问题上很容易迷糊。
+
+它们具有的相同点：
+1. 都代表类树形结构的抽象层。在使用引用变量时，尽量使用类结构的抽象层，使方法的定义和实现分离，这样做对于代码有松散耦合的好处。
+2. 都不能被实例化。
+3. 都能包含抽象方法。抽象方法用来描述系统提供哪些功能，而不必关心具体的实现。
+
+主要区别：
+1. 抽象类可以为部分方法提供实现，避免了在子类中重复实现这些方法，提高了代码的可重用性，这是抽象类的优势；
+而接口中只能包含抽象方法，不能包含任何实现。 
+
+```java
+public abstract class A {
+	// A 没有定义 method1 的实现
+	// 也就是说 B、C 可以根据自己的特点实现该方法，体现了松散耦合的特性
+	public abstract void method1();
+	
+	public void method2() {
+		// A 实现 method2 方法，避免B、C子类重复实现
+		// A 为子类提供了公共的功能，或说 A 约束了子类的行为
+	}
+}
+
+public class B extends A {
+	public void method1() {
+		// B method1
+	}
+}
+
+public class C extends A {
+	public void method1() {
+		// C method1
+	}
+}
+```
+
+再换成接口看看： 
+
+```java
+public interface A {
+	// 接口 A 无法为实现类B、C提供公共的功能
+	// 也就是说 A 无法约束B、C的行为
+	// B、C可以自由地发挥自己的特点现实 method1 和 method2方法
+	// 而接口 A 毫无掌控能力
+    public void method1();
+    public void method2();
+}
+
+public class B implements A {
+    public void method1() {
+        // B method1
+    }
+    public void method2() {
+        // B method2
+    }
+}
+
+public class C implements A {
+    public void method1() {
+        // C method1
+    }
+    public void method2() {
+        // C method2
+    }
+}
+```
+
+2. 一个类只能继承一个直接的父类（可能是抽象类），但一个类可以实现多个接口，这个就是接口的优势。 
+
+```java
+// 接口类
+interface A {
+	public void method1();
+}
+
+interface B {
+	public void method2();
+}
+
+class C implements A, B {
+	public void method1() {
+		// C method1
+	}
+	public void method2() {
+		// C method2
+	}
+}
+// 可以灵活的使用 C
+// 并且 C 还有机会进行扩展，实现其他接口
+A a = new C();
+B b = new C();
+
+// 抽象类
+abstract class A {
+    public abstract void method1();
+}
+
+abstract class B extends A {
+    public abstract void method2();
+}
+// 对于 C 类，将没有机会继承其他父类了
+class C extends B {
+    public void method1() {
+        // C method1
+    }
+    public void method2() {
+        // C method2
+    }
+}
+```
+
+综上所述，接口和抽象类各有优缺点，在接口和抽象类的选择上，必须遵守这样一个原则：
+
+行为模型应该总是通过接口而不是抽象类定义，所以通常是优先选用接口，尽量少用抽象类。
+
+选择抽象类的时候通常是如下情况：需要定义子类的行为，又要为子类提供通用的功能。
+
+## 泛型
+
+使用变量之前要定义，定义一个变量时必须要指明它的数据类型，什么样的数据类型赋给什么样的值。
+
+假如我们现在要定义一个类来表示坐标，要求坐标的数据类型可以是整数、小数和字符串，例如：
+
+    x = 10、y = 10
+    x = 12.88、y = 129.65
+    x = "东京180度"、y = "北纬210度"
+
+
+针对不同的数据类型，除了借助方法重载，还可以借助自动装箱和向上转型。我们知道，基本数据类型可以自动装箱，被转换成对应的包装类；Object 是所有类的祖先类，任何一个类的实例都可以向上转型为 Object 类型，例如：
+
+    int --> Integer --> Object
+    double -->Double --> Object
+    String --> Object
+
+
+这样，只需要定义一个方法，就可以接收所有类型的数据。例子： 
+```java
+public class Demo {
+    public static void main(String[] args){
+        Point p = new Point();
+        p.setX(10);  // int -> Integer -> Object
+        p.setY(20);
+        int x = (Integer)p.getX();  // 必须向下转型
+        int y = (Integer)p.getY();
+        System.out.println("This point is：" + x + ", " + y);
+       
+        p.setX(25.4);  // double -> Integer -> Object
+        p.setY("东京180度");
+        double m = (Double)p.getX();  // 必须向下转型
+        double n = (Double)p.getY();  // 运行期间抛出异常
+        System.out.println("This point is：" + m + ", " + n);
+    }
+}
+class Point{
+    Object x = 0;
+    Object y = 0;
+    public Object getX() {
+        return x;
+    }
+    public void setX(Object x) {
+        this.x = x;
+    }
+    public Object getY() {
+        return y;
+    }
+    public void setY(Object y) {
+        this.y = y;
+    }
+}
+```
+
+上面的代码中，生成坐标时不会有任何问题，但是取出坐标时，要向下转型，在 Java多态对象的类型转换 一文中我们讲到，向下转型存在着风险，而且编译期间不容易发现，只有在运行期间才会抛出异常，所以要尽量避免使用向下转型。运行上面的代码，第12行会抛出 java.lang.ClassCastException 异常。
+
+那么，有没有更好的办法，既可以不使用重载（有重复代码），又能把风险降到最低呢？
+
+有，可以使用泛型类(Java Class)，它可以接受任意类型的数据。所谓“泛型”，就是“宽泛的数据类型”，任意的数据类型。
+
+更改上面的代码，使用泛型类： 
+```java
+public class Demo {
+    public static void main(String[] args){
+        // 实例化泛型类
+        Point<Integer, Integer> p1 = new Point<Integer, Integer>();
+        p1.setX(10);
+        p1.setY(20);
+        int x = p1.getX();
+        int y = p1.getY();
+        System.out.println("This point is：" + x + ", " + y);
+       
+        Point<Double, String> p2 = new Point<Double, String>();
+        p2.setX(25.4);
+        p2.setY("东京180度");
+        double m = p2.getX();
+        String n = p2.getY();
+        System.out.println("This point is：" + m + ", " + n);
+    }
+}
+// 定义泛型类
+class Point<T1, T2>{
+    T1 x;
+    T2 y;
+    public T1 getX() {
+        return x;
+    }
+    public void setX(T1 x) {
+        this.x = x;
+    }
+    public T2 getY() {
+        return y;
+    }
+    public void setY(T2 y) {
+        this.y = y;
+    }
+}
+```
+
+运行结果：
+This point is：10, 20
+This point is：25.4, 东京180度
+
+与普通类的定义相比，上面的代码在类名后面多出了 <T1, T2>，T1, T2 是自定义的标识符，也是参数，用来传递数据的类型，而不是数据的值，我们称之为类型参数。在泛型中，不但数据的值可以通过参数传递，数据的类型也可以通过参数传递。T1, T2 只是数据类型的占位符，运行时会被替换为真正的数据类型。
+
+传值参数（我们通常所说的参数）由小括号包围，如 (int x, double y)，类型参数（泛型参数）由尖括号包围，多个参数由逗号分隔，如 <T> 或 <T, E>。
+
+类型参数需要在类名后面给出。一旦给出了类型参数，就可以在类中使用了。类型参数必须是一个合法的标识符，习惯上使用单个大写字母，通常情况下，K 表示键，V 表示值，E 表示异常或错误，T 表示一般意义上的数据类型。
+
+泛型类在实例化时必须指出具体的类型，也就是向类型参数传值，格式为：
+    className variable<dataType1, dataType2> = new className<dataType1, dataType2>();
+也可以省略等号右边的数据类型，但是会产生警告，即：
+    className variable<dataType1, dataType2> = new className();
+
+因为在使用泛型类时指明了数据类型，赋给其他类型的值会抛出异常，既不需要向下转型，也没有潜在的风险，比本文一开始介绍的自动装箱和向上转型要更加实用。
+
+注意：
+
+    泛型是 Java 1.5 的新增特性，它以C++模板为参照，本质是参数化类型(Parameterized Type)的应用。
+    类型参数只能用来表示引用类型，不能用来表示基本类型，如  int、double、char 等。但是传递基本类型不会报错，因为它们会自动装箱成对应的包装类。
+
+泛型方法
+除了定义泛型类，还可以定义泛型方法，例如，定义一个打印坐标的泛型方法： 
+```java
+public class Demo {
+    public static void main(String[] args){
+        // 实例化泛型类
+        Point<Integer, Integer> p1 = new Point<Integer, Integer>();
+        p1.setX(10);
+        p1.setY(20);
+        p1.printPoint(p1.getX(), p1.getY());
+       
+        Point<Double, String> p2 = new Point<Double, String>();
+        p2.setX(25.4);
+        p2.setY("东京180度");
+        p2.printPoint(p2.getX(), p2.getY());
+    }
+}
+// 定义泛型类
+class Point<T1, T2>{
+    T1 x;
+    T2 y;
+    public T1 getX() {
+        return x;
+    }
+    public void setX(T1 x) {
+        this.x = x;
+    }
+    public T2 getY() {
+        return y;
+    }
+    public void setY(T2 y) {
+        this.y = y;
+    }
+   
+    // 定义泛型方法
+    public <T1, T2> void printPoint(T1 x, T2 y){
+        T1 m = x;
+        T2 n = y;
+        System.out.println("This point is：" + m + ", " + n);
+    }
+}
+```
+
+运行结果：
+This point is：10, 20
+This point is：25.4, 东京180度
+
+上面的代码中定义了一个泛型方法 printPoint()，既有普通参数，也有类型参数，类型参数需要放在修饰符后面、返回值类型前面。一旦定义了类型参数，就可以在参数列表、方法体和返回值类型中使用了。
+
+与使用泛型类不同，使用泛型方法时不必指明参数类型，编译器会根据传递的参数自动查找出具体的类型。泛型方法除了定义不同，调用就像普通方法一样。 
+
+注意：泛型方法与泛型类没有必然的联系，泛型方法有自己的类型参数，在普通类中也可以定义泛型方法。泛型方法 printPoint() 中的类型参数 T1, T2 与泛型类 Point 中的 T1, T2 没有必然的联系，也可以使用其他的标识符代替： 
+
+```java
+public static <V1, V2> void printPoint(V1 x, V2 y){
+    V1 m = x;
+    V2 n = y;
+    System.out.println("This point is：" + m + ", " + n);
+}
+```
+
+ 泛型接口
+在Java中也可以定义泛型接口，这里不再赘述，仅仅给出示例代码：
+
+```java
+public class Demo {
+    public static void main(String arsg[]) {
+        Info<String> obj = new InfoImp<String>("www.weixueyuan.net");
+        System.out.println("Length Of String: " + obj.getVar().length());
+    }
+}
+//定义泛型接口
+interface Info<T> {
+    public T getVar();
+}
+//实现接口
+class InfoImp<T> implements Info<T> {
+    private T var;
+    // 定义泛型构造方法
+    public InfoImp(T var) {
+        this.setVar(var);
+    }
+    public void setVar(T var) {
+        this.var = var;
+    }
+    public T getVar() {
+        return this.var;
+    }
+}
+```
+
+运行结果：
+Length Of String: 18
+类型擦除
+如果在使用泛型时没有指明数据类型，那么就会擦除泛型类型，请看下面的代码： 
+
+```java
+public class Demo {
+    public static void main(String[] args){
+        Point p = new Point();  // 类型擦除
+        p.setX(10);
+        p.setY(20.8);
+        int x = (Integer)p.getX();  // 向下转型
+        double y = (Double)p.getY();
+        System.out.println("This point is：" + x + ", " + y);
+    }
+}
+class Point<T1, T2>{
+    T1 x;
+    T2 y;
+    public T1 getX() {
+        return x;
+    }
+    public void setX(T1 x) {
+        this.x = x;
+    }
+    public T2 getY() {
+        return y;
+    }
+    public void setY(T2 y) {
+        this.y = y;
+    }
+}
+```
+
+运行结果：
+This point is：10, 20.8
+
+因为在使用泛型时没有指明数据类型，为了不出现错误，编译器会将所有数据向上转型为 Object，所以在取出坐标使用时要向下转型，这与本文一开始不使用泛型没什么两样。
+限制泛型的可用类型
+在上面的代码中，类型参数可以接受任意的数据类型，只要它是被定义过的。但是，很多时候我们只需要一部分数据类型就够了，用户传递其他数据类型可能会引起错误。例如，编写一个泛型函数用于返回不同类型数组（Integer 数组、Double 数组、Character 数组等）中的最大值： 
+
+```java
+public <T> T getMax(T array[]){
+    T max = null;
+    for(T element : array){
+        max = element.doubleValue() > max.doubleValue() ? element : max;
+    }
+    return max;
+}
+```
+
+上面的代码会报错，doubleValue() 是 Number 类的方法，不是所有的类都有该方法，所以我们要限制类型参数 T，让它只能接受 Number 及其子类（Integer、Double、Character 等）。
+
+通过 extends 关键字可以限制泛型的类型，改进上面的代码： 
+
+```java
+public <T extends Number> T getMax(T array[]){
+    T max = null;
+    for(T element : array){
+        max = element.doubleValue() > max.doubleValue() ? element : max;
+    }
+    return max;
+}
+```
+
+<T extends Number> 表示 T 只接受 Number 及其子类，传入其他类型的数据会报错。这里的限定使用关键字 extends，后面可以是类也可以是接口。但这里的 extends 已经不是继承的含义了，应该理解为 T 是继承自 Number 类的类型，或者 T 是实现了 XX 接口的类型。
+
+注意：一般的应用开发中泛型使用较少，多用在框架或者库的设计中，这里不再深入讲解，主要让大家对泛型有所认识，为后面的教程做铺垫。
 
 # 常用类
 
