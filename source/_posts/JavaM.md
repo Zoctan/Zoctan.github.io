@@ -118,7 +118,7 @@ private class BigInteger {
  * 求最大公约数
  * 最小公倍数 = ab/最大公约数
  */
-private long gcd(long a, long b) {
+long gcd(long a, long b) {
     long tmp;
     while ((tmp = a % b) != 0) {
         a = b;
@@ -127,16 +127,23 @@ private long gcd(long a, long b) {
     return b;
 }
 
-private long gcd(long a, long b) {
+long gcd(long a, long b) {
     return a == 0 ? b : gcd(b % a, a);
 }
+```
+
+```java 斯特林公式
+/**
+ * 求n阶乘的位数
+ */
+double len = 0.5 * Math.log10(2.0 * Math.PI * n) + n * Math.log10(n * 1.0 / Math.E) + 1;
 ```
 
 ```java 扩展欧几里德
 /**
  * 求乘法逆元
  */
-private long exgcd(long a, long n) {
+long exgcd(long a, long n) {
     long x0 = 1, y0 = 0, x1 = 0, y1 = 1, x2, y2;
     long r = a % n;
     long q = (a - r) / n;
@@ -157,7 +164,7 @@ private long exgcd(long a, long n) {
 ```
 
 ```java 快速幂
-private long quickMod(long x, long n, long mod) {
+long quickMod(long x, long n, long mod) {
     long res = 1;
     while (n > 0) {
         if ((n & 1) != 0)
@@ -174,7 +181,7 @@ private long quickMod(long x, long n, long mod) {
  * 输出的序列无顺序
  * 思想：冒泡排序，不断和后面的交换
  */
-private static void permutate(char[] array, int from, int to) {
+static void permutate(char[] array, int from, int to) {
     if (from == to) { // 输出
         System.out.println(new String(array));
     } else {
@@ -188,14 +195,14 @@ private static void permutate(char[] array, int from, int to) {
     }
 }
 
-private static boolean isUnique(char[] array, int begin, int end) {
+static boolean isUnique(char[] array, int begin, int end) {
     for (int i = begin; i < end; i++)
         if (array[i] == array[end])
             return false;
     return true;
 }
 
-private static void swap(char[] array, int m, int n) {
+static void swap(char[] array, int m, int n) {
     char tmp = array[n];
     array[n] = array[m];
     array[m] = tmp;
@@ -206,7 +213,7 @@ private static void swap(char[] array, int m, int n) {
 /**
  * Arrays.binarySearch()
  */
-private int binarySearch(int[] array, int x) {
+int binarySearch(int[] array, int x) {
     int low = 0;
     int high = array.length - 1;
     int middle;
@@ -228,7 +235,7 @@ private int binarySearch(int[] array, int x) {
 /**
  * 两个字符串中的最长公共子序列，不要求子序列连续
  */
-private void findLCS(String s1, String s2) {
+void findLCS(String s1, String s2) {
     int s1Len = s1.length();
     int s2Len = s2.length();
     int[][] dp = new int[s1Len + 1][s2Len + 1];
@@ -267,7 +274,7 @@ private void findLCS(String s1, String s2) {
 /**
  * 两个字符串中的最长公共子串，要求子串一定连续
  */
-private static int findLongest(String str1, String str2) {
+static int findLongest(String str1, String str2) {
     int s1Len = str1.length();
     int s2Len = str2.length();
     if (s1Len == 0 || s2Len == 0)
@@ -296,8 +303,8 @@ private static int findLongest(String str1, String str2) {
 }
 ```
 
-```java 埃拉托斯特尼筛法 打素数表
-private static ArrayList<Integer> getPrime(int n) {
+```java 埃拉托斯特尼筛法
+static ArrayList<Integer> getPrime(int n) {
 	boolean[] notPrime = new boolean[n + 1];
 	int sqrtN = (int) Math.sqrt(n);
 	for (int i = 2; i <= sqrtN; i++) {

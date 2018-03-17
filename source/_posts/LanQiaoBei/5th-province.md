@@ -74,20 +74,6 @@ public class Main {
 
 注意：只填写一个小数，不要写任何多余的符号或说明。
 
-```java 暴力
-public class Main {
-	public static void main(String[] args) {
-		// 算到后7位，再四舍五入
-		for (double x = 2.0; x < 3.0; x += 0.0000001) {
-			if ((int) Math.pow(x, x) == 10) {
-				System.out.println(x);
-				break;
-			}
-		}
-	}
-}
-```
-
 ```java 二分
 public class Main {
 	public static void main(String[] args) {
@@ -148,10 +134,10 @@ public class Main {
 		int n = scanner.nextInt();
 		scanner.close();
 		int solution = 0;
-		for (int i = 0; i < n; i++) {
+		for (int i = 1; i < n; i++) {
 			// 利用开方和取整减少一层循环去猜测第3条边
 			int b = (int) Math.sqrt(n * n - i * i);
-			if (i != 0 && b != 0 && i * i + b * b == n * n) {
+			if (b != 0 && i * i + b * b == n * n) {
 				solution++;
 			}
 		}
@@ -225,11 +211,12 @@ CPU消耗  < 2000ms
 
 ```java
 import java.util.Scanner;
+
 public class Main {
-	private static int[][] map = new int[9][9];
+	static Scanner scanner = new Scanner(System.in);
+	static int[][] map = new int[9][9];
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		for (int i = 0; i < 9; i++) {
 			String buf = scanner.next();
 			char[] num = buf.toCharArray();
@@ -237,11 +224,10 @@ public class Main {
 				map[i][j] = num[j] - 48;
 			}
 		}
-		scanner.close();
 		backTrack(0, 0);
 	}
 
-	private static void backTrack(int x, int y) {
+	static void backTrack(int x, int y) {
 		if (x == 9 && y == 0) {
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) {
@@ -268,7 +254,7 @@ public class Main {
 		}
 	}
 
-	private static boolean isRowCollision(int x, int y) {
+	static boolean isRowCollision(int x, int y) {
 		for (int i = 0; i < 9; i++) {
 			if (map[x][y] == map[x][i] && y != i) {
 				return true;
@@ -277,7 +263,7 @@ public class Main {
 		return false;
 	}
 
-	private static boolean isColumnCollision(int x, int y) {
+	static boolean isColumnCollision(int x, int y) {
 		for (int i = 0; i < 9; i++) {
 			if (map[x][y] == map[i][y] && x != i) {
 				return true;
@@ -286,7 +272,7 @@ public class Main {
 		return false;
 	}
 
-	private static boolean is3x3Collision(int x, int y) {
+	static boolean is3x3Collision(int x, int y) {
 		int start, end;
 		if (x < 3) {
 			start = 0;
@@ -361,49 +347,46 @@ CPU消耗  < 2000ms
 分析：
 树形动态规划
 
-```java 抄的
+```java
 import java.io.BufferedInputStream;
 import java.util.Scanner;
-import java.util.Vector;
-public class Main {
-	static class Node {
-		Vector<Integer> subordinate = new Vector<Integer>();
-		int[] dp = new int[2];
-	}
+import java.util.LinkedList;
+import java.util.List;
 
-	static Node node[];
+public class Main {
+	static Scanner scanner = new Scanner(new BufferedInputStream(System.in));
+	static int n = scanner.nextInt();
+	static Node[] node = new Node[n + 1];
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(new BufferedInputStream(System.in));
-		int n = scanner.nextInt();
-		node = new Node[n + 1];
-		for (int i = 1; i < node.length; i++) {
+		for (int i = 1; i <= n; i++) {
 			node[i] = new Node();
-			node[i].dp[0] = 1;
-			node[i].dp[1] = 1;
 		}
 
-		for (int i = 2; i < node.length; i++) {
+		for (int i = 2; i <= n; i++) {
 			int m = scanner.nextInt();
 			// 储存下级
 			node[m].subordinate.add(i);
 		}
 
 		for (int i = n; i > 0; i--) {
-			// 得到该士兵的下级数量
-			int sum = node[i].subordinate.size();
-			for (int j = 0; j < sum; j++) {
-				int son = node[i].subordinate.get(j);
-				node[i].dp[1] *= node[son].dp[0];
-				node[i].dp[0] *= (node[son].dp[0] + node[son].dp[1]);
-				node[i].dp[1] %= 10007;
-				node[i].dp[0] %= 10007;
+			for (int j = 0; j < node[i].subordinate.size(); j++) {
+				int sub = node[i].subordinate.get(j);
+				node[i].dp[1] *= (node[sub].dp[0]) % 10007;
+				node[i].dp[0] *= (node[sub].dp[0] + node[sub].dp[1]) % 10007;
 			}
 		}
 
 		// 减去所有都没有去的情况
-		int ans = (node[1].dp[0] + node[1].dp[1] - 1) % 10007;
-		System.out.println(ans);
+		int count = (node[1].dp[0] + node[1].dp[1] - 1) % 10007;
+		System.out.println(count);
+	}
+
+	static class Node {
+		// 士兵的下级
+		List<Integer> subordinate = new LinkedList<>();
+		// 背包
+		int[] dp = { 1, 1 };
 	}
 }
 ```

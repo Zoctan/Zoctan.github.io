@@ -536,7 +536,7 @@ One integer per line representing the K-th maximum of the total value (this numb
 0
 
 分析：
-这次是找第K个最优解，比如上一题是第1个即最优。
+这次是找第K个最优解，上一题是第1个最优。
 
 第K个最优解：
 在0-1背包中，状态数组是f[c]，表示在容量为c时的最优决策，而不是最优的并没有保存下来。
@@ -631,7 +631,7 @@ public class Main {
 }
 ```
 
-# 多重背包
+#### 多重背包
 
 [HDU2159：FATE](http://acm.hdu.edu.cn/showproblem.php?pid=2159)
 最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。
@@ -658,3 +658,491 @@ public class Main {
 0
 -1
 1
+
+```java
+
+```
+
+# 回溯法
+
+## 基本概念
+
+类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。
+
+设想把你放在一个迷宫里，想要走出迷宫，最直接的办法是什么呢？
+没错，试。先选一条路走起，走不通就往回退尝试别的路，走不通继续往回退，直到找到出口或所有路都试过走不出去为止。
+
+## 回顾深度优先搜索
+
+左图是一个无向图，从点1开始的DFS过程可能是下图右的情况，其中实线表示搜索时的路径，虚线表示返回时的路径：
+
+{% asset_img DFS.png DFS %}
+
+## 基本思想与策略
+
+在包含问题的所有解的解空间树中，按照**深度优先搜索**的策略，从根结点出发深度探索解空间树。
+当探索到某一结点时，先判断该结点是否包含问题的解：
+- 包含：从该结点出发继续探索下去。
+- 不包含：逐层向其祖先结点回溯。
+
+回溯法就是对隐式图的深度优先搜索算法。
+
+- 求问题的所有解时，要回溯到根，且根结点的所有可行的子树都已被搜索遍才结束。
+- 求任一个解时，只要搜索到问题的一个解就可以结束。
+
+## 求解的基本步骤
+
+1. 针对所给问题，定义问题的解空间；
+2. 确定易于搜索的解空间结构；
+3. 以深度优先方式搜索解空间，并在搜索过程中用剪枝函数避免无效搜索。
+
+## 子集树与排列树
+
+下面的两棵解空间树是回溯法解题时常遇到的两类典型的解空间树。
+
+（1）从n个元素的集合S中找出满足某种性质的子集（相应的解空间树称为子集树）。
+
+{% asset_img 1.png 1 %}
+
+如：0-1背包问题(如上图)所相应的解空间树就是子集树，这类子集树通常有$2^n$个叶结点，其结点总个数为$2^n+1 -1$。遍历子集树的算法需时间O($2^n$)。
+
+（2）确定n个元素满足某种性质的排列（相应的解空间树称为排列树）。
+
+{% asset_img 2.png 2 %}
+
+如：旅行售货员问题：
+
+某售货员要到4个城市去推销商品，已知各城市之间的路程，请问他应该如何选定一条从城市1出发，经过每个城市一遍，最后回到城市1的路线，使得总的周游路程最小？
+
+{% asset_img sell.png sell %}
+
+该题的解空间树就是排列树，这类排列树通常有n!个叶结点。遍历子集树的算法需时间O(n!)。
+
+## 基本框架
+
+```java
+class BackTrack {
+    // 原空间
+	public static int[] originalCurrentAnswer;
+
+	public BackTrack(int[] originalCurrentAnswer) {
+		BackTrack.originalCurrentAnswer = originalCurrentAnswer;
+	}
+	
+	/*
+	 * 回溯法
+	 * @param currentAnswer 当前解空间
+	 * @param currentDepth 当前搜索深度
+	 * @param args 其他参数
+	 */
+	public static void backTrack(int[] currentAnswer, int currentDepth, String[] args) {
+		// 判断当前的部分解向量
+        // currentAnswer[1...currentDepth]是否是一个符合条件的解
+		if (isAnswer(currentAnswer, currentDepth, args)) {
+			// 对于符合条件的解进行处理，通常是输出、计数等
+			dealAnswer(currentAnswer, currentDepth, args);
+		} else {
+			// 根据当前状态，构造这一步可能的答案
+			int[] possibleAnswer = buildPossibleAnswer(currentAnswer, currentDepth, args);
+			int possibleAnswerLength = possibleAnswer.length;
+			for (int i = 0; i < possibleAnswerLength; i++) {
+				currentAnswer[currentDepth] = possibleAnswer[i];
+				// 前者将采取的选择更新到原始数据结构上，后者把这一行为撤销。
+				make(currentAnswer, currentDepth, args);
+				// 剪枝
+				if (pruning(currentAnswer, currentDepth, args)) {
+					backTrack(currentAnswer, currentDepth + 1, args);
+				}
+				unmake(currentAnswer, currentDepth, args);
+			}
+		}
+	}
+}
+```
+
+## 经典题型
+
+### 求集合的所有子集
+
+{% asset_img set.png set %}
+
+对于每个元素都有选和不选两种路径（1选，0不选）
+解空间就是集合选与不选的状态，这里初始是｛0，0，0｝，也是问题的一个解，空集。
+这里没有剪枝（具体问题具体加），直接就是深度搜索，直到当前深度等于集合的大小，就可以输出了。
+
+```java
+class BackTrack {
+	public static int[] originalCurrentAnswer;
+
+	public BackTrack(int[] originalCurrentAnswer) {
+		BackTrack.originalCurrentAnswer = originalCurrentAnswer;
+	}
+    
+	public static void backTrack(int[] currentAnswer, int currentDepth) {
+		if (isAnswer(currentAnswer, currentDepth)) {
+			dealAnswer(currentAnswer, currentDepth);
+		} else {
+			int[] possibleAnswer = buildPossibleAnswer(currentAnswer, currentDepth);
+			int possibleAnswerLength = possibleAnswer.length;
+			for (int i = 0; i < possibleAnswerLength; i++) {
+				currentAnswer[currentDepth] = possibleAnswer[i];
+                backTrack(currentAnswer, currentDepth + 1);
+			}
+		}
+	}
+
+	private static boolean isAnswer(int[] currentAnswer, int currentDepth) {
+        // 当前搜索深度已达到原空间的深度
+		return currentDepth == originalCurrentAnswer.length;
+	}
+    
+    /*
+     * 按位对应
+     * 如集合A={a,b}
+     * 对于任意一个元素，在每个子集中，要么存在，要么不存在 
+     * 映射为子集： 
+     * (1,1)->(a,b) (1,0)->(a) (0,1)->(b) (0,0)->空集
+     */
+	private static int[] buildPossibleAnswer(int[] currentAnswer, int currentDepth) {
+		// 选or不选即 1, 0
+		int[] isChosen = { 1, 0 };
+		return isChosen;
+	}
+
+	private static void dealAnswer(int[] currentAnswer, int currentDepth) {
+		for (int i = 0; i < currentDepth; i++) {
+            // 如果选，则输出
+			if (currentAnswer[i] == 1) {
+				System.out.print(originalCurrentAnswer[i] + " ");
+			}
+		}
+		System.out.println();
+	}
+}
+```
+
+### 求全排列
+
+{% asset_img n!.png n! %}
+
+交换两个位置的值，然后进入下一个深度，直到当前深度达到序列的长度。
+
+```java
+public static void backTrack(char[] currentAnswer, int currentDepth, int length) {
+    if (currentDepth == length) {
+        System.out.println(new String(currentAnswer));
+    } else {
+        for (int i = currentDepth; i < length; i++) {
+            if (isUnique(currentAnswer, currentDepth, i)) { // 剪枝（去重）
+                swap(currentAnswer, currentDepth, i); // 交换元素
+                backTrack(currentAnswer, currentDepth + 1, length);
+                swap(currentAnswer, currentDepth, i); // 还原
+            }
+        }
+    }
+}
+
+private static boolean isUnique(char[] currentAnswer, int currentDepth, int k) {
+    for (int i = currentDepth; i < length; i++)
+        if (currentAnswer[i] == currentAnswer[k])
+            return false;
+    return true;
+}
+
+private static void swap(char[] currentAnswer, int m, int n) {
+    char tmp = currentAnswer[n];
+    currentAnswer[n] = currentAnswer[m];
+    currentAnswer[m] = tmp;
+}
+```
+
+### 八皇后问题
+
+将八个皇后摆在一张8*8的国际象棋棋盘上，使每个皇后都无法吃掉别的皇后，一共有多少种摆法？
+（在国际象棋中，皇后是最强大的一枚棋子，可以吃掉与其在同行、同列和同斜线的敌方棋子）
+一种可能的情况：
+
+{% asset_img queen.png queen %}
+
+1、从空棋盘起，逐行放置棋子。 
+2、每在一个布局中放下一个棋子，即推演到下一个新的布局。 
+3、如果当前行上没有可合法放置棋子的位置，则回溯到上一行，重新布放上一行的棋子。
+
+```java
+class BackTrack {
+	public static int count = 0;
+	public static int DIM;
+
+	public BackTrack(int DIM) {
+		BackTrack.DIM = DIM;
+	}
+
+	public static void backTrack(int[][] chess, int row, int[] isColumnCollision) {
+		if (isAnswer(row)) {
+			dealAnswer(chess);
+		} else {
+			for (int i = 0; i < DIM; i++) {
+                // 同列存在皇后
+                // 或同对角线存在皇后
+                // 因为每次都是新的一行，所以不用检查行是否存在皇后
+				if (isColumnCollision[i] == 1 || isDiagonalCollision(chess, row, i))
+					continue;
+				chess[row][i] = 1;
+				isColumnCollision[i] = 1;
+				backTrack(chess, row + 1, isColumnCollision);
+				chess[row][i] = 0;
+				isColumnCollision[i] = 0;
+			}
+		}
+	}
+    
+    // 同对角线是否冲突
+	private static boolean isDiagonalCollision(int[][] chess, int x, int y) {
+        // 以当前皇后坐标为起点，到左上角的对角线
+		for (int i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--)
+			if (chess[i][j] == 1)
+				return true;
+        // 到右上角的对角线
+		for (int i = x - 1, j = y + 1; i >= 0 && j < DIM; i--, j++)
+			if (chess[i][j] == 1)
+				return true;
+		return false;
+	}
+
+	private static boolean isAnswer(int row) {
+		return row == DIM;
+	}
+
+	private static void dealAnswer(int[][] chess) {
+		count += 1;
+		for (int i = 0; i < DIM; i++) {
+			for (int j = 0; j < DIM; j++) {
+				System.out.print(chess[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+}
+```
+
+### 火力网问题
+
+在一个n*n的网格里，每个网格可能为“墙壁”（用x表示）和“街道”（用o表示）。现在在街道放置碉堡，每个碉堡可以向上下左右四个方向开火，子弹射程无限远。墙壁可以阻挡子弹。问最多能放置多少个碉堡，使它们彼此不会互相摧毁。
+如下图，墙壁用黑正方形表示，街道用空白正方形表示，圆球就代表碉堡。
+1、2、3可行，4、5不可行。因为4、5的两个碉堡同行、同列，他们会互相攻击。
+
+{% asset_img fire_net.png fire_net %}
+
+类似八皇后问题
+
+# 贪心法
+
+## 基本概念
+
+所谓贪心是指：在对问题求解时，总是做出在当前看来是最好的选择。
+也就是说，不从整体最优上加以考虑，所做出的仅是在某种意义上的局部最优解。
+
+贪心法没有固定的算法框架，算法设计的关键是贪心策略的选择。
+
+注意：
+- 贪心算法不是对所有问题都能得到整体最优解。
+- 选择的贪心策略必须具备无后效性，即某个状态以后的过程不会影响以前的状态，只与当前状态有关。
+
+所以对所采用的贪心策略一定要仔细分析其是否满足无后效性。
+
+## 求解的基本步骤
+
+1. 建立数学模型来描述问题。
+2. 把求解的问题分成若干个子问题。
+3. 对每个子问题求解，得到子问题的局部最优解。
+4. 把子问题的局部最优解合成原来解问题的一个解。
+
+贪心策略适用的前提是：局部最优策略能导致产生全局最优解。
+
+实际上，贪心算法适用的情况很少。
+一般，对一个问题分析是否适用于贪心算法，可以先选择该问题下的几个实际数据进行分析，就可做出判断。
+
+## 基本框架
+
+```java
+从问题的某一初始解出发；
+
+while (能朝给定总目标前进一步) {  
+	利用可行的决策，求出可行解的一个解元素；
+}
+
+由所有解元素组合成问题的一个可行解；
+```
+
+## 例题分析
+
+下面是一个可以试用贪心算法解的题目，贪心解的确不错，可惜不是最优解。
+
+[0-1背包]
+有一个背包，背包容量是M=150。有7个物品，物品可以分割成任意大小。要求尽可能让装入背包中的物品总价值最大，但不能超过总容量。
+物品 A B C D E F G
+重量 35 30 60 50 40 10 25
+价值 10 40 30 50 35 40 30
+
+分析：
+目标函数： ∑pi最大
+约束条件是装入的物品总重量不超过背包容量：∑wi<=M( M=150)
+1. 根据贪心的策略，每次挑选价值最大的物品装入背包，得到的结果是否最优？
+2. 每次挑选所占重量最小的物品装入是否能得到最优解？
+3. 每次选取单位重量价值最大的物品，成为解本题的策略。 
+
+值得注意的是，贪心算法并不是完全不可以使用，贪心策略一旦经过证明成立后，它就是一种高效的算法。
+
+贪心算法还是很常见的算法之一，这是由于它简单易行，构造贪心策略不是很困难。
+
+可惜的是，它需要证明后才能真正运用到题目的算法中。
+
+一般来说，贪心算法的证明围绕着：整个问题的最优解一定由在贪心策略中存在的子问题的最优解得来的。
+
+对于例题中的3种贪心策略，都是无法成立（无法被证明）的，解释如下：
+
+（1）贪心策略：选取价值最大者。反例：
+W=30
+物品：A B C
+重量：28 12 12
+价值：30 20 20
+根据策略，首先选取物品A，接下来就无法再选取了，可是，选取B、C则更好。
+
+（2）贪心策略：选取重量最小。它的反例与第一种策略的反例差不多。
+
+（3）贪心策略：选取单位重量价值最大的物品。反例：
+W=30
+物品：A B C
+重量：28 20 10
+价值：28 20 10
+
+根据策略，三种物品单位重量价值一样，程序无法依据现有策略作出判断，如果选择A，则答案错误。
+
+## 经典题型
+
+# 分治法
+
+## 基本概念
+
+字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。
+
+这个技巧是很多高效算法的基础，如排序算法(快速排序，归并排序)，傅立叶变换(快速傅立叶变换)……
+
+任何一个可以用计算机求解的问题所需的计算时间都与其规模有关。
+问题的规模越小，越容易直接求解，解题所需的计算时间也越少。
+
+例如，对于n个元素的排序问题，当n=1时，不需任何计算。n=2时，只要作一次比较即可排好序。n=3时只要作3次比较即可，…。而当n较大时，问题就不那么容易处理了。要想直接解决一个规模较大的问题，有时是相当困难的。
+
+## 基本思想与策略
+
+将一个难以直接解决的大问题，分割成一些规模较小的相同问题，以便各个击破，分而治之。
+
+策略：
+对于一个规模为n的问题，若该问题可以容易地解决（比如说规模n较小）则直接解决，否则将其分解为k个规模较小的子问题，这些子问题互相独立且与原问题形式相同，递归地解这些子问题，然后将各子问题的解合并得到原问题的解。
+
+如果原问题可分割成k个子问题，1<k≤n，且这些子问题都可解并可利用这些子问题的解求出原问题的解，那么这种分治法就是可行的。
+由分治法产生的子问题往往是原问题的较小模式，这就为使用递归技术提供了方便。
+在这种情况下，反复应用分治手段，可以使子问题与原问题类型一致而其规模却不断缩小，最终使子问题缩小到很容易直接求出其解。
+这自然导致递归过程的产生。分治与递归像一对孪生兄弟，经常同时应用在算法设计之中，并由此产生许多高效算法。
+
+## 适用情况
+
+分治法所能解决的问题一般具有以下几个特征：
+1. 该问题的规模缩小到一定的程度就可以容易地解决
+2. 该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质。
+3. 利用该问题分解出的子问题的解可以合并为该问题的解；
+4. 该问题所分解出的各个子问题是相互独立的，即子问题之间不包含公共的子子问题。
+
+第1条特征是绝大多数问题都可以满足的，因为问题的计算复杂性一般是随着问题规模的增加而增加；
+第2条特征是应用分治法的前提它也是大多数问题可以满足的，此特征反映了递归思想的应用；
+第3条特征是关键，能否利用分治法完全取决于问题是否具有第三条特征，如果具备了第一条和第二条特征，而不具备第三条特征，则可以考虑用贪心法或动态规划法。
+第4条特征涉及到分治法的效率，如果各子问题是不独立的则分治法要做许多不必要的工作，重复地解公共的子问题，此时虽然可用分治法，但一般用动态规划法较好。
+
+## 求解的基本步骤
+
+实际上就是类似于数学归纳法，找到解决本问题的求解方程公式，然后根据方程公式设计递归程序。
+
+1. 先找到最小问题规模时的求解方法
+2. 然后考虑随着问题规模增大时的求解方法
+3. 找到求解的递归函数式后（各种规模或因子），设计递归程序即可。
+
+分治法在每一层递归上都有三个步骤：
+
+1. 分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题；
+2. 解决：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题；
+3. 合并：将各个子问题的解合并为原问题的解。
+
+Divide-and-Conquer(P)
+1. if |P|≤n0
+2. then return(ADHOC(P))
+3. 将P分解为较小的子问题 P1 ,P2 ,...,Pk
+4. for i←1 to k
+5. do yi ← Divide-and-Conquer(Pi) △ 递归解决Pi
+6. T ← MERGE(y1,y2,...,yk) △ 合并子问题
+7. return(T)
+
+其中|P|表示问题P的规模；n0为一阈值，表示当问题P的规模不超过n0时，问题已容易直接解出，不必再继续分解。
+
+ADHOC(P)是该分治法中的基本子算法，用于直接解小规模的问题P。因此，当P的规模不超过n0时直接用算法ADHOC(P)求解。
+
+算法MERGE(y1,y2,...,yk)是该分治法中的合并子算法，用于将P的子问题P1 ,P2 ,...,Pk的相应的解y1,y2,...,yk合并为P的解。
+
+## 经典题型
+
+- 二分搜索
+- 大整数乘法
+- Strassen矩阵乘法
+- 棋盘覆盖
+- 合并排序
+- 快速排序
+- 线性时间选择
+- 最接近点对问题
+- 循环赛日程表
+- 汉诺塔
+
+# 分支限界法
+
+## 基本概念
+
+类似于回溯法，也是一种在问题的解空间树T上搜索问题解的算法。但在一般情况下，分支限界法与回溯法的求解目标不同。回溯法的求解目标是找出T中满足约束条件的所有解，而分支限界法的求解目标则是找出满足约束条件的一个解，或是在满足约束条件的解中找出使某一目标函数值达到极大或极小的解，即在某种意义下的最优解。
+
+（1）分支搜索算法
+所谓“分支”就是采用广度优先的策略，依次搜索E-结点的所有分支，也就是所有相邻结点，抛弃不满足约束条件的结点，其余结点加入活结点表。然后从表中选择一个结点作为下一个E-结点，继续搜索。
+选择下一个E-结点的方式不同，则会有几种不同的分支搜索方式：
+1. FIFO搜索
+2. LIFO搜索
+3. 优先队列式搜索
+
+（2）分支限界搜索算法
+
+## 基本思想与策略
+
+由于求解目标不同，导致分支限界法与回溯法在解空间树T上的搜索方式也不相同。
+回溯法以深度优先的方式搜索解空间树T，而分支限界法则以广度优先或以最小耗费优先的方式搜索解空间树T。
+
+支限界法的搜索策略是：在扩展结点处，先生成其所有的儿子结点（分支），然后再从当前的活结点表中选择下一个扩展对点。
+为了有效地选择下一扩展结点，以加速搜索的进程，在每一活结点处，计算一个函数值（限界），并根据这些已计算出的函数值，从当前活结点表中选择一个最有利的结点作为扩展结点，使搜索朝着解空间树上有最优解的分支推进，以便尽快地找出一个最优解。
+
+分支限界法常以广度优先或以最小耗费（最大效益）优先的方式搜索问题的解空间树。
+问题的解空间树是表示问题解空间的一棵有序树，常见的有子集树和排列树。
+在搜索问题的解空间树时，分支限界法与回溯法对当前扩展结点所使用的扩展方式不同。
+
+在分支限界法中，每一个活结点只有一次机会成为扩展结点。
+活结点一旦成为扩展结点，就一次性产生其所有儿子结点。
+在这些儿子结点中，那些导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被子加入活结点表中。
+此后，从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程。
+这个过程一直持续到找到所求的解或活结点表为空时为止。
+
+## 回溯法和分支限界法的一些区别
+
+有一些问题其实无论用回溯法还是分支限界法都可以得到很好的解决，但是另外一些则不然。也许我们需要具体一些的分析——到底何时使用分支限界而何时使用回溯呢？
+
+回溯法和分支限界法的一些区别：
+- 方法对解空间树的搜索方式存储结点的常用数据结构结点存储特性常用应用
+- 回溯法深度优先搜索堆栈活结点的所有可行子结点被遍历后才被从栈中弹出找出满足约束条件的所有解
+- 分支限界法广度优先或最小消耗优先搜索队列、优先队列每个结点只有一次成为活结点的机会找出满足约束条件的一个解或特定意义下的最优解
+
+## 经典题型
+
+# 总结

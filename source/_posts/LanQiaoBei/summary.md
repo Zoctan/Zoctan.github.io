@@ -103,15 +103,59 @@ System.out.println(calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MON
 
 ## 代码填空
 
-这些题基本就是回溯和动态规划，一般是填1句代码的。
+这些题基本就是回溯、动态规划、递归、广度/深度优先搜索等，一般是填1句代码的。
 
-没什么诀窍，复制到IDE里，然后确定基本框架是回溯、动态规划还是普通的递归。
+没什么诀窍，复制到IDE里，然后确定题型：
+
+回溯：改变后又变回来，如：a=1; f(n); a=0;
+
+动态规划：一维二维数组中涉及前面的状态，如：a[i] = a[i-1];
+
+广度：“至少”等字眼
+
+深度：
 
 在半懵逼下，多放几个断点，跟着程序走一下，看看能不能找到缺的是什么。
 
 ## 程序设计
 
-回溯，动态规划，数据结构，涉及到数学常用定理。
+回溯，动态规划，前缀和，广度/深度搜索，线段树，扫描线，数学常用定理：欧几里德。
+
+看懂题目，确定题型会做，增加多几个自己手算的样例，避免失分。
+
+代码基本模版，替代Scanner，这个输入输出流更快：
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.StreamTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		// 实际数据大小如果超过long，可以只用BufferedReader
+		StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+
+		// StreamTokenizer.TT_EOF这个是个参数，就是EOF
+		while (in.nextToken() != StreamTokenizer.TT_EOF) {
+			int a = (int) in.nval; // scanner.nextInt();
+
+			in.nextToken();// 指向下一个
+			int b = (int) in.nval;
+
+			in.nextToken();
+			String c = in.sval;
+
+			out.println(a + b + c);
+			// 刷新，不然数据会留在缓冲区
+			out.flush();
+		}
+	}
+}
+```
 
 # 总结
 
