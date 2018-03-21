@@ -3,6 +3,191 @@
   
     
     <entry>
+      <title><![CDATA[面向对象设计原则]]></title>
+      <url>/2018/03/20/design-pattern/</url>
+      <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>原作者<a href="http://blog.csdn.net/LoveLion/article/category/738450/7" target="_blank" rel="noopener">博客</a></p>
+<p>对于面向对象软件系统的设计而言，在支持可维护性的同时，提高系统的可复用性是一个至关重要的问题，如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。</p>
+<p>在面向对象设计中，可维护性的复用是以设计原则为基础的。每个原则都蕴含一些面向对象设计的思想，可以从不同的角度提升软件结构的设计水平。</p>
+<p>常见的7种面向对象设计原则：</p>
+<p><strong>单一职责原则</strong><br>SRP：Single Responsibility Principle -&gt; 一个类只负责一个功能领域中的相应职责</p>
+<p><strong>开闭原则</strong><br>OCP：Open-Closed Principle -&gt; 软件实体应对扩展开放，而对修改关闭</p>
+<p><strong>里氏代换原则</strong><br>LSP：Liskov Substitution Principle -&gt; 所有引用基类对象的地方能够透明地使用其子类的对象</p>
+<p><strong>依赖反转原则</strong><br>DIP：Dependence Inversion Principle -&gt; 抽象不应该依赖于细节，细节应该依赖于抽象</p>
+<p><strong>接口隔离原则</strong><br>ISP：Interface Segregation Principle -&gt; 使用多个专门的接口，而不使用单一的总接口</p>
+<p><strong>合成复用原则</strong><br>CRP：Composite Reuse Principle -&gt; 尽量使用对象组合，而不是继承来达到复用的目的</p>
+<p><strong>迪米特法则</strong><br>LoD：Law of Demeter -&gt; 一个软件实体应当尽可能少地与其他实体发生相互作用</p>
+<h1 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7536542" target="_blank" rel="noopener">单一职责原则</a></h1><p>定义：一个类只负责一个功能领域中的相应职责，或定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
+<p>单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。</p>
+<p>单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p>
+<p>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</p>
+<p>举个栗子：</p>
+<p>某 CRM（Customer Relationship Management，客户关系管理）系统中客户信息图形统计模块的初始设计方案：</p>
+<img src="/2018/03/20/design-pattern/1-1.png" title="1-1">
+<p>CustomerDataChart 类中的方法：getConnection() 连接数据库、findCustomers() 查询所有的客户信息、createChart() 创建图表、displayChart() 显示图表。</p>
+<p>CustomerDataChart 类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库，或者使用 findCustomers() 方法查询客户信息，就难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。</p>
+<p>因此需要对该类进行拆分，使其满足单一职责原则，将 CustomerDataChart 类拆分为如下三个类：</p>
+<ol>
+<li>DBUtil：负责数据库操作，包括数据库连接方法 getConnection()；</li>
+<li>CustomerDAO：负责操作数据库中的 Customer 表，包括对 Customer 表的增删改查等方法，如 findCustomers()；</li>
+<li>CustomerDataChart：负责图表的生成和显示，包括方法 createChart() 和 displayChart()。</li>
+</ol>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/1-2.png" title="1-2">
+<h1 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7537584" target="_blank" rel="noopener">开闭原则</a></h1><p>定义：一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展，其中软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。</p>
+<p>任何软件都需要面临一个很重要的问题，即它们的需求会随时间的推移而发生变化。当软件系统需要面对新的需求时，我们应该尽量保证系统的设计框架是稳定的。如果一个软件设计符合开闭原则，那么可以非常方便地对系统进行扩展，而且在扩展时无须修改现有代码，使得软件系统在拥有适应性和灵活性的同时具备较好的稳定性和延续性。随着软件规模越来越大，软件寿命越来越长，软件维护成本越来越高，设计满足开闭原则的软件系统也变得越来越重要。</p>
+<p>为了满足开闭原则，需要对系统进行抽象化设计，抽象化是开闭原则的关键。在 Java、C# 等编程语言中，可以为系统定义一个相对稳定的抽象层，而将不同的实现行为移至具体的实现层中完成。在很多面向对象编程语言中都提供了接口、抽象类等机制，可以通过它们定义系统的抽象层，再通过具体类来进行扩展。如果需要修改系统的行为，无须对抽象层进行任何改动，只需要增加新的具体类来实现新的业务功能即可，实现在不修改已有代码的基础上扩展系统的功能，达到开闭原则的要求。</p>
+<p>举个栗子：</p>
+<p>某 CRM 系统可以显示各种类型的图表，如饼状图和柱状图等，为了支持多种图表显示方式，原始设计方案：</p>
+<img src="/2018/03/20/design-pattern/2-1.png" title="2-1">
+<p>在 ChartDisplay 类的 display() 方法中存在如下代码片段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line"><span class="keyword">if</span> (type.equals(<span class="string">"pie"</span>)) &#123;</span><br><span class="line">    PieChart chart = <span class="keyword">new</span> PieChart();</span><br><span class="line">    chart.display();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (type.equals(<span class="string">"bar"</span>)) &#123;</span><br><span class="line">    BarChart chart = <span class="keyword">new</span> BarChart();</span><br><span class="line">    chart.display();</span><br><span class="line">&#125;</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<p>如果想新增一个图表类，如折线图 LineChart，那么只能修改 ChartDisplay 类的 display() 方法的源代码，增加判断逻辑。<br>如果新增的不止一个图表呢？如果后来需求改了，又得删除呢？代码就会变得难以修改和维护，这就是违反开闭原则的表现。</p>
+<p>现对该系统进行重构，使之符合开闭原则：</p>
+<p>本例中，由于在 ChartDisplay 类的 display() 方法中针对每一个图表类编程，因此增加新的图表类不得不修改源代码。只能通过抽象化的方式对系统进行重构，使之增加新的图表类时无须修改源代码，满足开闭原则：</p>
+<ol>
+<li>增加一个抽象图表类 AbstractChart，将各种具体图表类作为其子类；</li>
+<li>ChartDisplay 类针对抽象图表类进行编程，由客户端来决定使用哪种具体图表。</li>
+</ol>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/2-2.png" title="2-2">
+<p>这时如果想新增一种图表，如折线图 LineChart，那么 LineChart 只需要继承 AbstractChart，客户端在使用时只要向 ChartDisplay 中注入一个 LineChart 对象即可，无须修改现有类库的源代码。    </p>
+<p>注：xml 和 properties 等格式的配置文件属于纯文本文件，无须编译，因此在软件开发中，一般不把对配置文件的修改认为是对系统源代码的修改。如果一个系统在扩展时只涉及到修改配置文件，而原有的代码没有做任何修改，即可认为该系统是一个符合开闭原则的系统。</p>
+<h1 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7540445" target="_blank" rel="noopener">里氏替换原则</a></h1><p>里氏代换原则由2008年图灵奖得主、美国第一位计算机科学女博士 Barbara Liskov 教授和卡内基·梅隆大学 Jeannette Wing 教授于1994年提出。<br>严格定义：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1代换o2时，程序P的行为没有变化，那么类型S是类型T的子类型。</p>
+<p>通俗定义：所有引用基类（父类）的地方必须能透明地使用其子类的对象。</p>
+<p>在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常，反过来则不成立，如果一个软件实体使用的是一个子类对象的话，那么它不一定能够使用基类对象。例如：我喜欢动物，那我一定喜欢狗，因为狗是动物的子类；但是我喜欢狗，不能据此断定我喜欢动物，因为我并不喜欢老鼠，虽然它也是动物。</p>
+<p>比如，有两个类，一个基类 BaseClass，一个子类 SubClass：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BaseClass &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubClass extends BaseClass &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法接受 BaseClass 类型参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">(BaseClass base)</span></span>;</span><br><span class="line"><span class="comment">// 那么也必然可以接受 BaseClass 的子类对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 即可以这样调用：</span></span><br><span class="line">SubClass sub;</span><br><span class="line">method1(sub);<span class="comment">// 能够正常运行</span></span><br></pre></td></tr></table></figure>
+<p>但是，反过来不成立：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法接受 SubClass 类型参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">(SubClass sub)</span></span>;</span><br><span class="line"><span class="comment">// 但一般不可以接受 BaseClass 基类对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不可以这样调用：</span></span><br><span class="line">BaseClass base;</span><br><span class="line">method2(base);<span class="comment">// 除非是重载方法</span></span><br></pre></td></tr></table></figure>
+<p>里氏代换原则是实现开闭原则的重要方式之一，由于使用基类对象的地方都可以使用子类对象，因此在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象。</p>
+<p>需要注意如下几个问题：</p>
+<ol>
+<li>子类的所有方法必须在父类中声明，或子类必须实现父类中声明的所有方法。（根据里氏代换原则，为了保证系统的扩展性，在程序中通常使用父类来进行定义，如果一个方法只存在子类中，在父类中不提供相应的声明，则无法在以父类定义的对象中使用该方法）</li>
+<li>尽量把父类设计为抽象类或者接口，让子类继承父类或实现父接口，并实现在父类中声明的方法，运行时，子类实例替换父类实例，我们可以很方便地扩展系统的功能，同时无须修改原有子类的代码，增加新的功能可以通过增加一个新的子类来实现。</li>
+<li>Java 语言中，在编译阶段，Java 编译器会检查一个程序是否符合里氏代换原则，这是一个与实现无关的、纯语法意义上的检查，但 Java 编译器的检查是有局限的。</li>
+</ol>
+<p>举个栗子：</p>
+<p>某 CRM 系统中，客户（Customer）可以分为 VIP 客户（VIPCustomer）、普通客户（CommonCustomer）两类，系统需要提供一个发送 Email 的功能，原始设计方案：</p>
+<img src="/2018/03/20/design-pattern/3-1.png" title="3-1">
+<p>无论是普通客户还是 VIP 客户，发送邮件的过程都是相同的，也就是说两个 send() 方法中的代码重复，而且在本系统中还将增加新类型的客户。</p>
+<p>为了让系统具有更好的扩展性，同时减少代码重复，使用里氏代换原则对其进行重构：</p>
+<ul>
+<li>新增抽象客户类 Customer，将 CommonCustomer 和 VIPCustomer 类作为其子类；</li>
+<li>将 EmailSender 中的 send() 方法的参数类型改为 Customer，如果需要增加新类型的客户，只需将其作为 Customer 类的子类即可。</li>
+</ul>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/3-2.png" title="3-2">
+<p>本例中，在传递参数时使用基类对象，除此以外，在定义成员变量、定义局部变量、确定方法返回类型时都可使用里氏代换原则。针对基类编程，在程序运行时再确定具体子类。</p>
+<h1 id="依赖反转原则"><a href="#依赖反转原则" class="headerlink" title="依赖反转原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7562783" target="_blank" rel="noopener">依赖反转原则</a></h1><p>定义：抽象不应该依赖于细节，细节应当依赖于抽象。换言之，要针对接口编程，而不是针对实现编程。</p>
+<p>如果说开闭原则是面向对象设计的目标的话，那么依赖反转原则就是面向对象设计的主要实现机制之一，它是系统抽象化的具体实现。</p>
+<p>需要注意如下几个问题：</p>
+<ul>
+<li>代码中传递参数时或在关联关系中，尽量引用层次高的抽象层类，即使用接口和抽象类进行变量类型声明、参数类型声明、方法返回类型声明，以及数据类型的转换等，而不要用具体类来做这些事情。</li>
+<li>为了确保该原则的应用，一个具体类应当只实现接口或抽象类中声明过的方法，而不要给出多余的方法，否则将无法调用到在子类中增加的新方法。</li>
+</ul>
+<p>在引入抽象层后，系统将具有很好的灵活性，在程序中尽量使用抽象层进行编程，而将具体类写在配置文件中，这样一来，如果系统行为发生变化，只需要对抽象层进行扩展，并修改配置文件，而无须修改原有系统的源代码，在不修改的情况下来扩展系统的功能，满足开闭原则的要求。</p>
+<p>在实现依赖倒转原则时，需要我们针对抽象层编程，将具体类的对象通过依赖注入的方式注入到其他对象中。</p>
+<p>依赖注入（DependencyInjection, DI）是指当一个对象要与其他对象发生依赖关系时，通过抽象来注入所依赖的对象。</p>
+<p>常用的注入方式有三种：</p>
+<p><strong>构造注入</strong><br>通过构造函数来传入具体类的对象。</p>
+<p><strong>Setter注入</strong><br>通过Setter方法来传入具体类的对象。</p>
+<p><strong>接口注入</strong><br>通过在接口中声明的业务方法来传入具体类的对象。</p>
+<p>这些方法在定义时使用的是抽象类型，在运行时再传入具体类型的对象，由子类对象来覆盖父类对象。</p>
+<p>举个栗子：</p>
+<p>某 CRM 系统：该系统经常需要将存储在 TXT 或 Excel 文件中的客户信息转存到数据库中，因此需要进行数据格式转换，初始设计方案：</p>
+<img src="/2018/03/20/design-pattern/4-1.png" title="4-1">
+<p>该设计方案存在一个非常严重的问题，由于每次转换数据时数据来源不一定相同，因此需要更换数据转换类，如有时候需要将 TXTDataConvertor 改为 ExcelDataConvertor，此时，需要修改 CustomerDAO 的源代码，而且在引入并使用新的数据转换类时也不得不修改 CustomerDAO 的源代码。</p>
+<p>系统扩展性较差，违反了开闭原则，现需要对该方案进行重构，使之符合依赖反转原则：</p>
+<ul>
+<li>引用抽象数据转换类 DataConvertor，CustomerDAO 针对抽象类 DataConvertor 编程；</li>
+<li>将具体数据转换类名存储在配置文件中。</li>
+</ul>
+<p>根据里氏代换原则，程序运行时，具体数据转换类对象将替换 DataConvertor 类型的对象，程序不会出现任何问题。更换具体数据转换类时无须修改源代码，只需要修改配置文件；如果需要增加新的具体数据转换类，只要将新增数据转换类作为 DataConvertor 的子类并修改配置文件即可，原有代码无须做任何修改，满足开闭原则。</p>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/4-2.png" title="4-2">
+<p>在上述重构过程中，我们使用了开闭原则、里氏代换原则和依赖反转原则。<br>在大多数情况下，这三个设计原则会同时出现，开闭原则是目标，里氏代换原则是基础，依赖反转原则是手段，它们相辅相成，相互补充，目标一致，只是分析问题时所站角度不同而已。</p>
+<h1 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7562842" target="_blank" rel="noopener">接口隔离原则</a></h1><p>定义：使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p>
+<p>根据接口隔离原则，当一个接口太大时，我们需要将它分割成一些更细小的接口，使用该接口的客户端仅需知道与之相关的方法即可。每一个接口应该承担一种相对独立的角色，不干不该干的事，该干的事都要干。<br>这里的“接口”往往有两种不同的含义：</p>
+<ol>
+<li>一种是指一个类型所具有的方法特征的集合，仅仅是一种逻辑上的抽象；</li>
+<li>一种是指某种语言具体的“接口”定义，有严格的定义和结构，比如 Java 语言中的 interface。</li>
+</ol>
+<p>对于这两种不同的含义，接口隔离原则的表达方式以及含义都有所不同：</p>
+<ol>
+<li>当把“接口”理解成一个类型所提供的所有方法特征的集合的时候，这就是一种逻辑上的概念，接口的划分将直接带来类型的划分。可以把接口理解成角色，一个接口只能代表一个角色，每个角色都有它特定的一个接口，此时，这个原则可以叫做“角色隔离原则”。</li>
+<li>如果把“接口”理解成狭义的特定语言的接口，那么是指接口仅仅提供客户端需要的行为，客户端不需要的行为则隐藏起来，应当为客户端提供尽可能小的单独的接口，而不要提供大的总接口。在面向对象编程语言中，实现一个接口就需要实现该接口中定义的所有方法，因此大的总接口使用起来不一定很方便，为了使接口的职责单一，需要将大接口中的方法根据其职责不同分别放在不同的小接口中，以确保每个接口使用起来都较为方便，并都承担某一单一角色。接口应该尽量细化，同时接口中的方法应该尽量少，每个接口中只包含一个客户端（如子模块或业务逻辑类）所需的方法即可，这种机制也称为“定制服务”，即为不同的客户端提供宽窄不同的接口。</li>
+</ol>
+<p>举个栗子：</p>
+<p>某 CRM 系统的客户数据显示模块接口：</p>
+<img src="/2018/03/20/design-pattern/5-1.png" title="5-1">
+<p>dataRead() 从文件中读取数据<br>transformToXML() 将数据转换成 XML 格式<br>createChart() 创建图表<br>displayChart() 显示图表<br>createReport() 创建文字报表<br>displayReport() 显示文字报表。</p>
+<p>在实际使用过程中发现该接口很不灵活：</p>
+<ol>
+<li>如果一个具体的数据显示类本身不需要进行数据转换（源文件本身就是XML格式），但由于实现了该接口，将不得不实现其中声明的  transformToXML() 方法（至少需要提供一个空实现）；</li>
+<li>如果需要创建和显示图表，除了需实现与图表相关的方法外，还需要实现创建和显示文字报表的方法，否则程序编译时将报错。</li>
+</ol>
+<p>CustomerDataDisplay 接口定义了太多方法，即该接口承担了太多职责：</p>
+<ol>
+<li>导致该接口的实现类很庞大，在不同的实现类中都不得不实现接口中定义的所有方法，灵活性较差，如果出现大量的空方法，将导致系统中产生大量的无用代码，影响代码质量；</li>
+<li>由于客户端针对大接口编程，将在一定程序上破坏程序的封装性，客户端看到了不应该看到的方法，没有为客户端定制接口。</li>
+</ol>
+<p>现使用接口隔离原则和单一职责原则对其进行重构：</p>
+<ul>
+<li>将其中的一些方法封装在不同的小接口中，确保每一个接口使用起来都较为方便，并都承担某一单一角色，每个接口中只包含一个客户端（如模块或类）所需的方法。</li>
+</ul>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/5-2.png" title="5-2">
+<p>注：</p>
+<ol>
+<li>在使用接口隔离原则时，我们需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；</li>
+<li>接口也不能太大，太大的接口将违背接口隔离原则，灵活性较差，使用起来很不方便。</li>
+<li>一般而言，接口中仅包含为某一类用户定制的方法即可，不应该强迫客户依赖于那些它们不用的方法。</li>
+</ol>
+<h1 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a><a href="http://blog.csdn.net/lovelion/article/details/7563445" target="_blank" rel="noopener">迪米特法则</a></h1><p>迪米特法则又称最少知识原则(LeastKnowledge Principle, LKP)，来自1987年美国东北大学(Northeastern University)一个名为 Demeter 的研究项目。</p>
+<p>定义：一个软件实体应当尽可能少地与其他实体发生相互作用。</p>
+<p>如果一个系统符合迪米特法则，那么当其中某一个模块发生修改时，就会尽量少地影响其他模块，扩展会相对容易，这是对软件实体之间通信的限制，迪米特法则要求限制软件实体之间通信的宽度和深度。迪米特法则可降低系统的耦合度，使类与类之间保持松散的耦合关系。</p>
+<p>迪米特法则还有几种定义形式，包括：不要和“陌生人”说话、只与你的直接朋友通信等。对于一个对象，其朋友包括以下几类：</p>
+<ul>
+<li>当前对象本身(this)；</li>
+<li>以参数形式传入到当前对象方法中的对象；</li>
+<li>当前对象的成员对象；</li>
+<li>如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友；</li>
+<li>当前对象所创建的对象。</li>
+</ul>
+<p>任何一个对象，如果满足上面的条件之一，就是当前对象的“朋友”，否则就是“陌生人”。在应用迪米特法则时，一个对象只能与直接朋友发生交互，不要与“陌生人”发生直接交互，这样做可以降低系统的耦合度，一个对象的改变不会给太多其他对象带来影响。如果两个对象之间不必彼此直接通信，那么这两个对象就不应当发生任何直接的相互作用，如果其中的一个对象需要调用另一个对象的某一个方法的话，可以通过第三者转发这个调用。简言之，就是通过引入一个合理的第三者来降低现有对象之间的耦合度。</p>
+<p>需要注意如下几个问题：</p>
+<ol>
+<li>在类的划分上，应当尽量创建松耦合的类，类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大波及；</li>
+<li>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限；</li>
+<li>在类的设计上，只要有可能，一个类型应当设计成不变类；</li>
+<li>在对其他类的引用上，一个对象对其他对象的引用应当降到最低。</li>
+</ol>
+<p>举个栗子：</p>
+<p>某 CRM 系统包含很多业务操作窗口，在这些窗口中，某些界面控件之间存在复杂的交互关系，一个控件事件的触发将导致多个其他界面控件产生响应，比如，当一个按钮(Button)被单击时，对应的列表框(List)、组合框(ComboBox)、文本框(TextBox)、文本标签(Label)等都将发生改变。<br>初始设计方案：</p>
+<img src="/2018/03/20/design-pattern/6-1.png" title="6-1">
+<p>由于界面控件之间的交互关系复杂，导致在该窗口中增加新的界面控件时需要修改与之交互的其他控件的源代码，系统扩展性较差，也不便于增加和删除新控件。</p>
+<p>现使用迪米特对其进行重构：通过引入一个专门用于控制界面控件交互的中间类(Mediator)来降低界面控件之间的耦合度。</p>
+<p>重构后的结构：</p>
+<img src="/2018/03/20/design-pattern/6-2.png" title="6-2">
+<p>引入中间类之后，界面控件之间不再发生直接引用，而是将请求先转发给中间类，再由中间类来完成对其他控件的调用。当需要增加或删除新的控件时，只需修改中间类即可，无须修改新增控件或已有控件的源代码。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[十大经典排序算法]]></title>
       <url>/2018/03/20/Agorithm/sort/</url>
       <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>原作者<a href="http://www.cnblogs.com/guoyaohua/p/8600214.html" target="_blank" rel="noopener">博客</a></p>
@@ -462,191 +647,6 @@ public static int[] RadixSort(int[] array) {
     </entry>
     
     <entry>
-      <title><![CDATA[面向对象设计原则]]></title>
-      <url>/2018/03/20/design-pattern/</url>
-      <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>原作者<a href="http://blog.csdn.net/LoveLion/article/category/738450/7" target="_blank" rel="noopener">博客</a></p>
-<p>对于面向对象软件系统的设计而言，在支持可维护性的同时，提高系统的可复用性是一个至关重要的问题，如何同时提高一个软件系统的可维护性和可复用性是面向对象设计需要解决的核心问题之一。</p>
-<p>在面向对象设计中，可维护性的复用是以设计原则为基础的。每个原则都蕴含一些面向对象设计的思想，可以从不同的角度提升软件结构的设计水平。</p>
-<p>常见的7种面向对象设计原则：</p>
-<p><strong>单一职责原则</strong><br>SRP：Single Responsibility Principle -&gt; 一个类只负责一个功能领域中的相应职责</p>
-<p><strong>开闭原则</strong><br>OCP：Open-Closed Principle -&gt; 软件实体应对扩展开放，而对修改关闭</p>
-<p><strong>里氏代换原则</strong><br>LSP：Liskov Substitution Principle -&gt; 所有引用基类对象的地方能够透明地使用其子类的对象</p>
-<p><strong>依赖反转原则</strong><br>DIP：Dependence Inversion Principle -&gt; 抽象不应该依赖于细节，细节应该依赖于抽象</p>
-<p><strong>接口隔离原则</strong><br>ISP：Interface Segregation Principle -&gt; 使用多个专门的接口，而不使用单一的总接口</p>
-<p><strong>合成复用原则</strong><br>CRP：Composite Reuse Principle -&gt; 尽量使用对象组合，而不是继承来达到复用的目的</p>
-<p><strong>迪米特法则</strong><br>LoD：Law of Demeter -&gt; 一个软件实体应当尽可能少地与其他实体发生相互作用</p>
-<h1 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7536542" target="_blank" rel="noopener">单一职责原则</a></h1><p>定义：一个类只负责一个功能领域中的相应职责，或定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
-<p>单一职责原则是最简单的面向对象设计原则，它用于控制类的粒度大小。</p>
-<p>单一职责原则告诉我们：一个类不能太“累”！在软件系统中，一个类（大到模块，小到方法）承担的职责越多，它被复用的可能性就越小，而且一个类承担的职责过多，就相当于将这些职责耦合在一起，当其中一个职责变化时，可能会影响其他职责的运作，因此要将这些职责进行分离，将不同的职责封装在不同的类中，即将不同的变化原因封装在不同的类中，如果多个职责总是同时发生改变则可将它们封装在同一类中。</p>
-<p>单一职责原则是实现高内聚、低耦合的指导方针，它是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，而发现类的多重职责需要设计人员具有较强的分析设计能力和相关实践经验。</p>
-<p>举个栗子：</p>
-<p>某 CRM（Customer Relationship Management，客户关系管理）系统中客户信息图形统计模块的初始设计方案：</p>
-<img src="/2018/03/20/design-pattern/1-1.png" title="1-1">
-<p>CustomerDataChart 类中的方法：getConnection() 连接数据库、findCustomers() 查询所有的客户信息、createChart() 创建图表、displayChart() 显示图表。</p>
-<p>CustomerDataChart 类承担了太多的职责，既包含与数据库相关的方法，又包含与图表生成和显示相关的方法。如果在其他类中也需要连接数据库，或者使用 findCustomers() 方法查询客户信息，就难以实现代码的重用。无论是修改数据库连接方式还是修改图表显示方式都需要修改该类，它不止一个引起它变化的原因，违背了单一职责原则。</p>
-<p>因此需要对该类进行拆分，使其满足单一职责原则，将 CustomerDataChart 类拆分为如下三个类：</p>
-<ol>
-<li>DBUtil：负责数据库操作，包括数据库连接方法 getConnection()；</li>
-<li>CustomerDAO：负责操作数据库中的 Customer 表，包括对 Customer 表的增删改查等方法，如 findCustomers()；</li>
-<li>CustomerDataChart：负责图表的生成和显示，包括方法 createChart() 和 displayChart()。</li>
-</ol>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/1-2.png" title="1-2">
-<h1 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7537584" target="_blank" rel="noopener">开闭原则</a></h1><p>定义：一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展，其中软件实体可以指一个软件模块、一个由多个类组成的局部结构或一个独立的类。</p>
-<p>任何软件都需要面临一个很重要的问题，即它们的需求会随时间的推移而发生变化。当软件系统需要面对新的需求时，我们应该尽量保证系统的设计框架是稳定的。如果一个软件设计符合开闭原则，那么可以非常方便地对系统进行扩展，而且在扩展时无须修改现有代码，使得软件系统在拥有适应性和灵活性的同时具备较好的稳定性和延续性。随着软件规模越来越大，软件寿命越来越长，软件维护成本越来越高，设计满足开闭原则的软件系统也变得越来越重要。</p>
-<p>为了满足开闭原则，需要对系统进行抽象化设计，抽象化是开闭原则的关键。在 Java、C# 等编程语言中，可以为系统定义一个相对稳定的抽象层，而将不同的实现行为移至具体的实现层中完成。在很多面向对象编程语言中都提供了接口、抽象类等机制，可以通过它们定义系统的抽象层，再通过具体类来进行扩展。如果需要修改系统的行为，无须对抽象层进行任何改动，只需要增加新的具体类来实现新的业务功能即可，实现在不修改已有代码的基础上扩展系统的功能，达到开闭原则的要求。</p>
-<p>举个栗子：</p>
-<p>某 CRM 系统可以显示各种类型的图表，如饼状图和柱状图等，为了支持多种图表显示方式，原始设计方案：</p>
-<img src="/2018/03/20/design-pattern/2-1.png" title="2-1">
-<p>在 ChartDisplay 类的 display() 方法中存在如下代码片段：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">……</span><br><span class="line"><span class="keyword">if</span> (type.equals(<span class="string">"pie"</span>)) &#123;</span><br><span class="line">    PieChart chart = <span class="keyword">new</span> PieChart();</span><br><span class="line">    chart.display();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (type.equals(<span class="string">"bar"</span>)) &#123;</span><br><span class="line">    BarChart chart = <span class="keyword">new</span> BarChart();</span><br><span class="line">    chart.display();</span><br><span class="line">&#125;</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-<p>如果想新增一个图表类，如折线图 LineChart，那么只能修改 ChartDisplay 类的 display() 方法的源代码，增加判断逻辑。<br>如果新增的不止一个图表呢？如果后来需求改了，又得删除呢？代码就会变得难以修改和维护，这就是违反开闭原则的表现。</p>
-<p>现对该系统进行重构，使之符合开闭原则：</p>
-<p>本例中，由于在 ChartDisplay 类的 display() 方法中针对每一个图表类编程，因此增加新的图表类不得不修改源代码。只能通过抽象化的方式对系统进行重构，使之增加新的图表类时无须修改源代码，满足开闭原则：</p>
-<ol>
-<li>增加一个抽象图表类 AbstractChart，将各种具体图表类作为其子类；</li>
-<li>ChartDisplay 类针对抽象图表类进行编程，由客户端来决定使用哪种具体图表。</li>
-</ol>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/2-2.png" title="2-2">
-<p>这时如果想新增一种图表，如折线图 LineChart，那么 LineChart 只需要继承 AbstractChart，客户端在使用时只要向 ChartDisplay 中注入一个 LineChart 对象即可，无须修改现有类库的源代码。    </p>
-<p>注：xml 和 properties 等格式的配置文件属于纯文本文件，无须编译，因此在软件开发中，一般不把对配置文件的修改认为是对系统源代码的修改。如果一个系统在扩展时只涉及到修改配置文件，而原有的代码没有做任何修改，即可认为该系统是一个符合开闭原则的系统。</p>
-<h1 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7540445" target="_blank" rel="noopener">里氏替换原则</a></h1><p>里氏代换原则由2008年图灵奖得主、美国第一位计算机科学女博士 Barbara Liskov 教授和卡内基·梅隆大学 Jeannette Wing 教授于1994年提出。<br>严格定义：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1代换o2时，程序P的行为没有变化，那么类型S是类型T的子类型。</p>
-<p>通俗定义：所有引用基类（父类）的地方必须能透明地使用其子类的对象。</p>
-<p>在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常，反过来则不成立，如果一个软件实体使用的是一个子类对象的话，那么它不一定能够使用基类对象。例如：我喜欢动物，那我一定喜欢狗，因为狗是动物的子类；但是我喜欢狗，不能据此断定我喜欢动物，因为我并不喜欢老鼠，虽然它也是动物。</p>
-<p>比如，有两个类，一个基类 BaseClass，一个子类 SubClass：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BaseClass &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubClass extends BaseClass &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法接受 BaseClass 类型参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">(BaseClass base)</span></span>;</span><br><span class="line"><span class="comment">// 那么也必然可以接受 BaseClass 的子类对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 即可以这样调用：</span></span><br><span class="line">SubClass sub;</span><br><span class="line">method1(sub);<span class="comment">// 能够正常运行</span></span><br></pre></td></tr></table></figure>
-<p>但是，反过来不成立：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法接受 SubClass 类型参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">(SubClass sub)</span></span>;</span><br><span class="line"><span class="comment">// 但一般不可以接受 BaseClass 基类对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不可以这样调用：</span></span><br><span class="line">BaseClass base;</span><br><span class="line">method2(base);<span class="comment">// 除非是重载方法</span></span><br></pre></td></tr></table></figure>
-<p>里氏代换原则是实现开闭原则的重要方式之一，由于使用基类对象的地方都可以使用子类对象，因此在程序中尽量使用基类类型来对对象进行定义，而在运行时再确定其子类类型，用子类对象来替换父类对象。</p>
-<p>需要注意如下几个问题：</p>
-<ol>
-<li>子类的所有方法必须在父类中声明，或子类必须实现父类中声明的所有方法。（根据里氏代换原则，为了保证系统的扩展性，在程序中通常使用父类来进行定义，如果一个方法只存在子类中，在父类中不提供相应的声明，则无法在以父类定义的对象中使用该方法）</li>
-<li>尽量把父类设计为抽象类或者接口，让子类继承父类或实现父接口，并实现在父类中声明的方法，运行时，子类实例替换父类实例，我们可以很方便地扩展系统的功能，同时无须修改原有子类的代码，增加新的功能可以通过增加一个新的子类来实现。</li>
-<li>Java 语言中，在编译阶段，Java 编译器会检查一个程序是否符合里氏代换原则，这是一个与实现无关的、纯语法意义上的检查，但 Java 编译器的检查是有局限的。</li>
-</ol>
-<p>举个栗子：</p>
-<p>某 CRM 系统中，客户（Customer）可以分为 VIP 客户（VIPCustomer）、普通客户（CommonCustomer）两类，系统需要提供一个发送 Email 的功能，原始设计方案：</p>
-<img src="/2018/03/20/design-pattern/3-1.png" title="3-1">
-<p>无论是普通客户还是 VIP 客户，发送邮件的过程都是相同的，也就是说两个 send() 方法中的代码重复，而且在本系统中还将增加新类型的客户。</p>
-<p>为了让系统具有更好的扩展性，同时减少代码重复，使用里氏代换原则对其进行重构：</p>
-<ul>
-<li>新增抽象客户类 Customer，将 CommonCustomer 和 VIPCustomer 类作为其子类；</li>
-<li>将 EmailSender 中的 send() 方法的参数类型改为 Customer，如果需要增加新类型的客户，只需将其作为 Customer 类的子类即可。</li>
-</ul>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/3-2.png" title="3-2">
-<p>本例中，在传递参数时使用基类对象，除此以外，在定义成员变量、定义局部变量、确定方法返回类型时都可使用里氏代换原则。针对基类编程，在程序运行时再确定具体子类。</p>
-<h1 id="依赖反转原则"><a href="#依赖反转原则" class="headerlink" title="依赖反转原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7562783" target="_blank" rel="noopener">依赖反转原则</a></h1><p>定义：抽象不应该依赖于细节，细节应当依赖于抽象。换言之，要针对接口编程，而不是针对实现编程。</p>
-<p>如果说开闭原则是面向对象设计的目标的话，那么依赖反转原则就是面向对象设计的主要实现机制之一，它是系统抽象化的具体实现。</p>
-<p>需要注意如下几个问题：</p>
-<ul>
-<li>代码中传递参数时或在关联关系中，尽量引用层次高的抽象层类，即使用接口和抽象类进行变量类型声明、参数类型声明、方法返回类型声明，以及数据类型的转换等，而不要用具体类来做这些事情。</li>
-<li>为了确保该原则的应用，一个具体类应当只实现接口或抽象类中声明过的方法，而不要给出多余的方法，否则将无法调用到在子类中增加的新方法。</li>
-</ul>
-<p>在引入抽象层后，系统将具有很好的灵活性，在程序中尽量使用抽象层进行编程，而将具体类写在配置文件中，这样一来，如果系统行为发生变化，只需要对抽象层进行扩展，并修改配置文件，而无须修改原有系统的源代码，在不修改的情况下来扩展系统的功能，满足开闭原则的要求。</p>
-<p>在实现依赖倒转原则时，需要我们针对抽象层编程，将具体类的对象通过依赖注入的方式注入到其他对象中。</p>
-<p>依赖注入（DependencyInjection, DI）是指当一个对象要与其他对象发生依赖关系时，通过抽象来注入所依赖的对象。</p>
-<p>常用的注入方式有三种：</p>
-<p><strong>构造注入</strong><br>通过构造函数来传入具体类的对象。</p>
-<p><strong>Setter注入</strong><br>通过Setter方法来传入具体类的对象。</p>
-<p><strong>接口注入</strong><br>通过在接口中声明的业务方法来传入具体类的对象。</p>
-<p>这些方法在定义时使用的是抽象类型，在运行时再传入具体类型的对象，由子类对象来覆盖父类对象。</p>
-<p>举个栗子：</p>
-<p>某 CRM 系统：该系统经常需要将存储在 TXT 或 Excel 文件中的客户信息转存到数据库中，因此需要进行数据格式转换，初始设计方案：</p>
-<img src="/2018/03/20/design-pattern/4-1.png" title="4-1">
-<p>该设计方案存在一个非常严重的问题，由于每次转换数据时数据来源不一定相同，因此需要更换数据转换类，如有时候需要将 TXTDataConvertor 改为 ExcelDataConvertor，此时，需要修改 CustomerDAO 的源代码，而且在引入并使用新的数据转换类时也不得不修改 CustomerDAO 的源代码。</p>
-<p>系统扩展性较差，违反了开闭原则，现需要对该方案进行重构，使之符合依赖反转原则：</p>
-<ul>
-<li>引用抽象数据转换类 DataConvertor，CustomerDAO 针对抽象类 DataConvertor 编程；</li>
-<li>将具体数据转换类名存储在配置文件中。</li>
-</ul>
-<p>根据里氏代换原则，程序运行时，具体数据转换类对象将替换 DataConvertor 类型的对象，程序不会出现任何问题。更换具体数据转换类时无须修改源代码，只需要修改配置文件；如果需要增加新的具体数据转换类，只要将新增数据转换类作为 DataConvertor 的子类并修改配置文件即可，原有代码无须做任何修改，满足开闭原则。</p>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/4-2.png" title="4-2">
-<p>在上述重构过程中，我们使用了开闭原则、里氏代换原则和依赖反转原则。<br>在大多数情况下，这三个设计原则会同时出现，开闭原则是目标，里氏代换原则是基础，依赖反转原则是手段，它们相辅相成，相互补充，目标一致，只是分析问题时所站角度不同而已。</p>
-<h1 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a><a href="http://blog.csdn.net/lovelion/article/details/7562842" target="_blank" rel="noopener">接口隔离原则</a></h1><p>定义：使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p>
-<p>根据接口隔离原则，当一个接口太大时，我们需要将它分割成一些更细小的接口，使用该接口的客户端仅需知道与之相关的方法即可。每一个接口应该承担一种相对独立的角色，不干不该干的事，该干的事都要干。<br>这里的“接口”往往有两种不同的含义：</p>
-<ol>
-<li>一种是指一个类型所具有的方法特征的集合，仅仅是一种逻辑上的抽象；</li>
-<li>一种是指某种语言具体的“接口”定义，有严格的定义和结构，比如 Java 语言中的 interface。</li>
-</ol>
-<p>对于这两种不同的含义，接口隔离原则的表达方式以及含义都有所不同：</p>
-<ol>
-<li>当把“接口”理解成一个类型所提供的所有方法特征的集合的时候，这就是一种逻辑上的概念，接口的划分将直接带来类型的划分。可以把接口理解成角色，一个接口只能代表一个角色，每个角色都有它特定的一个接口，此时，这个原则可以叫做“角色隔离原则”。</li>
-<li>如果把“接口”理解成狭义的特定语言的接口，那么是指接口仅仅提供客户端需要的行为，客户端不需要的行为则隐藏起来，应当为客户端提供尽可能小的单独的接口，而不要提供大的总接口。在面向对象编程语言中，实现一个接口就需要实现该接口中定义的所有方法，因此大的总接口使用起来不一定很方便，为了使接口的职责单一，需要将大接口中的方法根据其职责不同分别放在不同的小接口中，以确保每个接口使用起来都较为方便，并都承担某一单一角色。接口应该尽量细化，同时接口中的方法应该尽量少，每个接口中只包含一个客户端（如子模块或业务逻辑类）所需的方法即可，这种机制也称为“定制服务”，即为不同的客户端提供宽窄不同的接口。</li>
-</ol>
-<p>举个栗子：</p>
-<p>某 CRM 系统的客户数据显示模块接口：</p>
-<img src="/2018/03/20/design-pattern/5-1.png" title="5-1">
-<p>dataRead() 从文件中读取数据<br>transformToXML() 将数据转换成 XML 格式<br>createChart() 创建图表<br>displayChart() 显示图表<br>createReport() 创建文字报表<br>displayReport() 显示文字报表。</p>
-<p>在实际使用过程中发现该接口很不灵活：</p>
-<ol>
-<li>如果一个具体的数据显示类本身不需要进行数据转换（源文件本身就是XML格式），但由于实现了该接口，将不得不实现其中声明的  transformToXML() 方法（至少需要提供一个空实现）；</li>
-<li>如果需要创建和显示图表，除了需实现与图表相关的方法外，还需要实现创建和显示文字报表的方法，否则程序编译时将报错。</li>
-</ol>
-<p>CustomerDataDisplay 接口定义了太多方法，即该接口承担了太多职责：</p>
-<ol>
-<li>导致该接口的实现类很庞大，在不同的实现类中都不得不实现接口中定义的所有方法，灵活性较差，如果出现大量的空方法，将导致系统中产生大量的无用代码，影响代码质量；</li>
-<li>由于客户端针对大接口编程，将在一定程序上破坏程序的封装性，客户端看到了不应该看到的方法，没有为客户端定制接口。</li>
-</ol>
-<p>现使用接口隔离原则和单一职责原则对其进行重构：</p>
-<ul>
-<li>将其中的一些方法封装在不同的小接口中，确保每一个接口使用起来都较为方便，并都承担某一单一角色，每个接口中只包含一个客户端（如模块或类）所需的方法。</li>
-</ul>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/5-2.png" title="5-2">
-<p>注：</p>
-<ol>
-<li>在使用接口隔离原则时，我们需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；</li>
-<li>接口也不能太大，太大的接口将违背接口隔离原则，灵活性较差，使用起来很不方便。</li>
-<li>一般而言，接口中仅包含为某一类用户定制的方法即可，不应该强迫客户依赖于那些它们不用的方法。</li>
-</ol>
-<h1 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a><a href="http://blog.csdn.net/lovelion/article/details/7563445" target="_blank" rel="noopener">迪米特法则</a></h1><p>迪米特法则又称最少知识原则(LeastKnowledge Principle, LKP)，来自1987年美国东北大学(Northeastern University)一个名为 Demeter 的研究项目。</p>
-<p>定义：一个软件实体应当尽可能少地与其他实体发生相互作用。</p>
-<p>如果一个系统符合迪米特法则，那么当其中某一个模块发生修改时，就会尽量少地影响其他模块，扩展会相对容易，这是对软件实体之间通信的限制，迪米特法则要求限制软件实体之间通信的宽度和深度。迪米特法则可降低系统的耦合度，使类与类之间保持松散的耦合关系。</p>
-<p>迪米特法则还有几种定义形式，包括：不要和“陌生人”说话、只与你的直接朋友通信等。对于一个对象，其朋友包括以下几类：</p>
-<ul>
-<li>当前对象本身(this)；</li>
-<li>以参数形式传入到当前对象方法中的对象；</li>
-<li>当前对象的成员对象；</li>
-<li>如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友；</li>
-<li>当前对象所创建的对象。</li>
-</ul>
-<p>任何一个对象，如果满足上面的条件之一，就是当前对象的“朋友”，否则就是“陌生人”。在应用迪米特法则时，一个对象只能与直接朋友发生交互，不要与“陌生人”发生直接交互，这样做可以降低系统的耦合度，一个对象的改变不会给太多其他对象带来影响。如果两个对象之间不必彼此直接通信，那么这两个对象就不应当发生任何直接的相互作用，如果其中的一个对象需要调用另一个对象的某一个方法的话，可以通过第三者转发这个调用。简言之，就是通过引入一个合理的第三者来降低现有对象之间的耦合度。</p>
-<p>需要注意如下几个问题：</p>
-<ol>
-<li>在类的划分上，应当尽量创建松耦合的类，类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大波及；</li>
-<li>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限；</li>
-<li>在类的设计上，只要有可能，一个类型应当设计成不变类；</li>
-<li>在对其他类的引用上，一个对象对其他对象的引用应当降到最低。</li>
-</ol>
-<p>举个栗子：</p>
-<p>某 CRM 系统包含很多业务操作窗口，在这些窗口中，某些界面控件之间存在复杂的交互关系，一个控件事件的触发将导致多个其他界面控件产生响应，比如，当一个按钮(Button)被单击时，对应的列表框(List)、组合框(ComboBox)、文本框(TextBox)、文本标签(Label)等都将发生改变。<br>初始设计方案：</p>
-<img src="/2018/03/20/design-pattern/6-1.png" title="6-1">
-<p>由于界面控件之间的交互关系复杂，导致在该窗口中增加新的界面控件时需要修改与之交互的其他控件的源代码，系统扩展性较差，也不便于增加和删除新控件。</p>
-<p>现使用迪米特对其进行重构：通过引入一个专门用于控制界面控件交互的中间类(Mediator)来降低界面控件之间的耦合度。</p>
-<p>重构后的结构：</p>
-<img src="/2018/03/20/design-pattern/6-2.png" title="6-2">
-<p>引入中间类之后，界面控件之间不再发生直接引用，而是将请求先转发给中间类，再由中间类来完成对其他控件的调用。当需要增加或删除新的控件时，只需修改中间类即可，无须修改新增控件或已有控件的源代码。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 学习 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 设计模式 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Java模版]]></title>
       <url>/2018/03/19/Agorithm/Java-template/</url>
       <content type="html"><![CDATA[<h1 id="辗转相除法"><a href="#辗转相除法" class="headerlink" title="辗转相除法"></a>辗转相除法</h1><p>求最大公约数<br>最小公倍数 = ab/最大公约数</p>
@@ -681,50 +681,82 @@ public static int[] RadixSort(int[] array) {
     </entry>
     
     <entry>
-      <title><![CDATA[Spring/SpringBoot]]></title>
-      <url>/2018/03/19/Java/spring/Spring-SpringBoot/</url>
-      <content type="html"><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p><a href="https://www.ibm.com/developerworks/cn/java/wa-spring1/" target="_blank" rel="noopener">Spring 框架简介</a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Spring 是一个为了解决企业应用程序开发复杂性而创建的开源框架。它的主要优势之一就是分层架构，允许你选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。</p>
-<p>Spring 框架是一个分层架构，由 7 个定义良好的模块组成。<br>Spring 模块构建在核心容器之上，核心容器定义了创建、配置和管理 bean 的方式：</p>
-<img src="/2018/03/19/Java/spring/Spring-SpringBoot/spring_framework.png" title="Spring">
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>组成 Spring 框架的每个模块（或组件）都可以单独存在，或者与其他一个或多个模块联合实现。</p>
-<p><strong>核心容器</strong><br>核心容器提供 Spring 框架的基本功能。<br>核心容器的主要组件是 BeanFactory，它是工厂模式的实现。<br>BeanFactory 使用控制反转 （IOC） 模式将应用程序的配置和依赖性规范与实际的应用程序代码分开。</p>
-<p><strong>Spring 上下文</strong><br>Spring 上下文是一个配置文件，向 Spring 框架提供上下文信息。<br>Spring 上下文包括企业服务，例如 JNDI、EJB、电子邮件、国际化、校验和调度功能。</p>
-<p><strong>Spring AOP</strong><br>通过配置管理特性，Spring AOP 模块直接将面向方面的编程功能集成到了 Spring 框架中。<br>所以，可以很容易地使 Spring 框架管理的任何对象支持 AOP。<br>Spring AOP 模块为基于 Spring 的应用程序中的对象提供了事务管理服务。<br>通过使用 Spring AOP，不用依赖 EJB 组件，就可以将声明性事务管理集成到应用程序中。</p>
-<p><strong>Spring DAO</strong><br>JDBC DAO 抽象层提供了有意义的异常层次结构，可用该结构来管理异常处理和不同数据库供应商抛出的错误消息。<br>异常层次结构简化了错误处理，并且极大地降低了需要编写的异常代码数量（例如打开和关闭连接）。<br>Spring DAO 的面向 JDBC 的异常遵从通用的 DAO 异常层次结构。</p>
-<p><strong>Spring ORM</strong><br>Spring 框架插入了若干个 ORM 框架，从而提供了 ORM 的对象关系工具，其中包括 JDO、Hibernate 和 iBatis SQL Map，所有这些都遵从 Spring 的通用事务和 DAO 异常层次结构。</p>
-<p><strong>Spring Web 模块</strong><br>Web 上下文模块建立在应用程序上下文模块之上，为基于 Web 的应用程序提供了上下文，所以 Spring 框架支持与 Jakarta Struts 的集成。<br>Web 模块还简化了处理多部分请求以及将请求参数绑定到域对象的工作。</p>
-<p><strong>Spring MVC 框架</strong><br>MVC 框架是一个全功能的构建 Web 应用程序的 MVC 实现。通过策略接口，MVC 框架变成为高度可配置的，MVC 容纳了大量视图技术，其中包括 JSP、Velocity、Tiles、iText 和 POI。</p>
-<p>Spring 框架的功能可以用在任何 J2EE 服务器中，大多数功能也适用于不受管理的环境。<br>Spring 的核心要点：支持不绑定到特定 J2EE 服务的可重用业务和数据访问对象，所以这样的对象可以在不同 J2EE 环境 （Web 或 EJB）、独立应用程序、测试环境之间重用。</p>
-<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC：Inversion of Control（控制反转）</p>
-<p>基本概念：不创建对象，但是描述创建它们的方式。在代码中不直接与对象和服务连接，但在配置文件中描述哪一个组件需要哪一项服务。容器 （在 Spring 框架中是 IOC 容器） 负责将这些联系在一起。</p>
-<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><p>AOP：Aspect Oriented Programming（面向切面编程）</p>
-<p>AOP 是 OOP 的有力补充：OOP 将程序分成各个层次的对象，AOP 将运行过程分解成各个切面。AOP 是从运行程序的角度去考虑程序的结构，提取业务处理过程的切面，OOP 是静态的抽象，AOP 是动态的抽象，是对应用执行过程的步骤进行抽象，从而获得步骤之间的逻辑划分。</p>
-<p>AOP 和 IOC 是补充性的技术，它们都运用模块化方式解决企业应用程序开发中的复杂问题。<br>在典型的 OOP 开发方式中，可能要将日志记录语句放在所有方法和 Java 类中才能实现日志功能。<br>在 AOP 方式中，可以反过来将日志服务模块化，并以声明的方式将它们应用到需要日志的组件上。当然，优势就是 Java 类不需要知道日志服务的存在，也不需要考虑相关的代码。所以，用 Spring AOP 编写的应用程序代码是松散耦合的。</p>
-<p>AOP 的功能完全集成到了 Spring 事务管理、日志和其他各种特性的上下文中。</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
-<li><p>使用 Spring 的 IOC 容器，将对象之间的依赖关系交给 Spring，降低组件之间的耦合性，让我们更专注于应用逻辑。</p>
-</li>
-<li><p>可以提供众多服务，事务管理，WS 等。</p>
-</li>
-<li><p>AOP 的很好支持，方便面向切面编程。</p>
-</li>
-<li><p>对主流的框架提供了很好的集成支持，如 Hibernate,Struts2,JPA 等</p>
-</li>
-<li><p>Spring 低侵入，代码污染极低。</p>
-</li>
-<li><p>Spring 的高度可开放性，并不强制依赖于 Spring，开发者可以自由选择 Spring 部分或全部</p>
-</li>
+      <title><![CDATA[JDBC/Hibernate/MyBatis]]></title>
+      <url>/2018/03/19/Java/spring/JDBC-Hibernate-MyBatis/</url>
+      <content type="html"><![CDATA[<h1 id="JDBC-简介"><a href="#JDBC-简介" class="headerlink" title="JDBC 简介"></a>JDBC 简介</h1><p>JDBC：Java Data Base Connectivity（Java数据库连接）</p>
+<p>它是用于 Java 和数据库之间的数据库无关连接的标准 Java API。<br>即：JDBC 是用于在 Java 中与数据库连接的 API。</p>
+<p>JDBC 库包括通常与数据库使用相关，如：</p>
+<ul>
+<li>连接到数据库</li>
+<li>创建 SQL 语句</li>
+<li>在数据库中执行 SQL 查询</li>
+<li>查看和修改结果记录</li>
+</ul>
+<p>从根本上说，JDBC 是一个规范，它提供了一整套接口，允许以一种可移植的访问底层数据库 API。 </p>
+<p>Java 可以用它来编写不同类型的可执行文件，如：</p>
+<ul>
+<li>Java 应用程序</li>
+<li>Java Applet</li>
+<li>Java Servlets</li>
+<li>Java ServerPages(JSP)</li>
+<li>企业级 JavaBeans(EJB)</li>
+</ul>
+<p>所有这些不同的可执行文件都能够使用 JDBC 驱动程序来访问数据库，并用于存储数据到数据库中。</p>
+<p>JDBC 提供与 ODBC 相同的功能，允许 Java 程序包含与数据库无关的代码（同样的代码，只需要指定使用的数据库类型，不需要重修改数据库查询或操作代码）。</p>
+<p><a href="https://www.cnblogs.com/erbing/p/5805727.html" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="Hibernate-简介"><a href="#Hibernate-简介" class="headerlink" title="Hibernate 简介"></a>Hibernate 简介</h1><p>Hibernate 是一个开源的对象关系映射框架，它对 JDBC 进行非常轻量级的对象封装，所以可以应用在任何使用 JDBC 的场合，使得程序员可以在此基础上使得由原来直接操纵数据库变成直接操作映射数据表后生成的 Java 类，从而用对象编程思维来操纵数据库。</p>
+<p>Hibernate 对数据库结构提供了较为完整的封装，Hibernate 的 O/R Mapping 实现了 POJO 和数据库表之间的映射和 SQL 的自动生成、执行。</p>
+<p>所以程序员不需要对 SQL 的熟练掌握，只需定义好 POJOs（Plain Old Java Objects，普通 Java 对象） 到数据库表的映射关系，即可通过 Hibernate 提供的方法完成持久层操作，Hibernate/OJB 会根据制定的存储逻辑，自动生成对应的 SQL 并调用 JDBC 接口加以执行。</p>
+<p><a href="http://hibernate.org/orm/documentation/5.2/" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="MyBatis-简介"><a href="#MyBatis-简介" class="headerlink" title="MyBatis 简介"></a>MyBatis 简介</h1><p>MyBatis 同样是一个开源的对象关系映射框架，它支持定制化 SQL、存储过程以及高级映射。避免了 JDBC 代码和手动设置参数以及获取结果集。可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs 映射成数据库中的记录。</p>
+<p><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="各自优缺点"><a href="#各自优缺点" class="headerlink" title="各自优缺点"></a>各自优缺点</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>大致编程步骤：</p>
+<ol>
+<li>连接数据库，注册驱动和数据库信息。</li>
+<li>操作 Connection，打开 Statement 对象。</li>
+<li>通过 Statement 对象执行 SQL，返回结果到 ResultSet 对象。</li>
+<li>使用 ResultSet 读取数据，然后通过代码转化为具体的 POJO 对象。</li>
+<li>关闭数据库相关的资源。</li>
 </ol>
-<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><p>Spring Boot 实现了自动配置，降低了项目搭建的复杂度。</p>
-<p>Spring 框架需要进行大量的配置，Spring Boot 引入自动配置的概念，让项目设置变得很容易。<br>Spring Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。也就是说，它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。</p>
-<p>同时它集成了大量常用的第三方库配置(例如Jackson, JDBC, Mongo, Redis, Mail等等)，Spring Boot 应用中这些第三方库几乎可以零配置的开箱即用(out-of-the-box)，大部分的 Spring Boot 应用都只需要非常少量的配置代码，开发者能够更加专注于业务逻辑。</p>
-<p>Spring Boot 只是承载者，辅助你简化项目搭建过程的。如果承载的是 WEB 项目，使用 Spring MVC 作为 MVC 框架，那么工作流程和你上面描述的是完全一样的，因为这部分工作是 Spring MVC 做的而不是 Spring Boot。</p>
-<p>对使用者来说，换用 Spring Boot 以后，项目初始化方法变了，配置文件变了，另外就是不需要单独安装 Tomcat 这类容器服务器了，maven 打出 jar 包直接跑起来就是个网站，但你最核心的业务逻辑实现与业务流程实现没有任何变化。</p>
-<p>所以，用最简练的语言概括就是：</p>
-<p>Spring 是一个“引擎”；</p>
-<p>Spring MVC 是基于 Spring 的一个 MVC 框架 ；</p>
-<p>Spring Boot 是基于 Spring4 的条件注册的一套快速开发整合包。</p>
+<p>缺点：</p>
+<ol>
+<li>工作量大，需要连接，然后处理 JDBC 底层事务，处理数据类型。</li>
+<li>需要操作 Connection、Statement、ResultSet 对象去拿数据并关闭它们。</li>
+<li>要对 JDBC 可能产生的异常进行捕捉处理并正确关闭资源。</li>
+</ol>
+<p>由于 JDBC 存在的缺陷，实际工作中很少直接使用 JDBC，用的更多的是 ORM 对象关系模型来操作数据库，比如 Hibernate 和 Mybatis。</p>
+<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p>Hibernate 是建立在若干 POJO 通过 xml 映射文件（或注解）提供的规则映射到数据库表上的。</p>
+<p>我们可以通过 POJO 直接操作数据库的数据，它提供的是一种全表映射的模型。Hibernate 对 JDBC 的封装程度还是比较高的，我们已经不需要写 SQL，只要使用 HQL 语言就可以了。</p>
+<p>优点：</p>
+<ol>
+<li>消除了代码的映射规则，把这些规则都分离到了 xml 或注解。</li>
+<li>不用再管理数据库连接，它也配置到 xml 里面了。</li>
+<li>一个会话中不需要操作多个对象，只需要操作 Session 对象。</li>
+<li>关闭资源只需要关闭一个 Session 即可。</li>
+<li>大大提高了编程的简易性和可读性。</li>
+</ol>
+<p>Hibernate 还提供了级联，缓存，映射，一对多等功能。<br>Hibernate 是全表映射，通过 HQL 去操作 POJO 进而操作数据库的数据。</p>
+<p>缺点：</p>
+<ol>
+<li>全表映射带来的不便。比如，更新时需要发送所有的字段。</li>
+<li>无法根据不同的条件组装不同的 SQL。</li>
+<li>对多表关联和复杂的 SQL 查询支持较差，需要自己写 SQL，返回后，需要自己将数据封装为 POJO。</li>
+<li>不能有效的支持存储过程。</li>
+<li>虽然有 HQL，但是性能较差，大型互联网系统往往需要优化 SQL，而 Hibernate 做不到。</li>
+</ol>
+<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>为了解决 Hibernate 的不足，Mybatis 出现了，Mybatis 是半自动的框架。之所以称它为半自动，是因为它需要手工匹配提供 POJO，SQL 和映射关系，而全表映射的 Hibernate 只需要提供 POJO 和映射关系即可。</p>
+<p>Mybatis 需要提供的映射文件包含了三个部分：SQL，映射规则，POJO。</p>
+<p>在 Mybatis 里需要自己编写 SQL，虽然比 Hibernate 配置多，但是 Mybatis 可以配置动态 SQL，解决了 Hibernate 表名根据时间变化，不同条件下列不一样的问题，同时也可以对 SQL 进行优化，通过配置决定你的 SQL 映射规则，也能支持存储过程，所以对于一些复杂和需要优化性能的 SQL 查询它就更加方便。</p>
+<h1 id="什么时候使用-Hibernate-Mybatis"><a href="#什么时候使用-Hibernate-Mybatis" class="headerlink" title="什么时候使用 Hibernate/Mybatis"></a>什么时候使用 Hibernate/Mybatis</h1><p>Hibernate 作为 Java ORM 框架，编程简易，同时无需编写sql确实开发效率优于Mybatis。<br>此外 Hibernate 还提供了缓存，日志，级联等强大的功能。</p>
+<p>但是 Hibernate 的缺陷也是十分明显，多表关联复杂 SQL，数据系统权限限制，根据条件变化的 SQL，存储过程等场景使用 Hibernate 十分不方便，而性能又难以通过 SQL 优化，所以注定了 Hibernate 只适用于在场景不太复杂，要求性能不太苛刻的时候使用。</p>
+<p>如果你需要一个灵活的，可以动态生成映射关系的框架，那么 Mybatis 确实是一个最好的选择。它几乎可以替代 JDBC，拥有动态列，动态表名，存储过程支持，同时提供了简易的缓存，日志，级联。但是它的缺陷是需要你提供映射规则和 SQL，所以开发工作量比 Hibernate 要大些。</p>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p><strong>层次</strong><br>JDBC 是较底层的持久层操作方式，而 Hibernate 和 MyBatis 都是在 JDBC 的基础上进行了封装使其更加方便程序员对持久层的操作。</p>
+<p><strong>功能</strong><br>JDBC 就是简单的建立数据库连接，然后创建 Statement，将 SQL 语句传给 Statement 去执行，如果是有返回结果的查询语句，会将查询结果放到 ResultSet 对象中，通过对 ResultSet 对象的遍历操作来获取数据。</p>
+<p>Hibernate 是将数据库中的数据表映射为持久层的 Java 对象，对 SQL 语句进行修改和优化比较困难。</p>
+<p>MyBatis 是将 SQL 语句中的输入参数和输出参数映射为 Java 对象，SQL 修改和优化比较方便。</p>
+<p><strong>使用</strong><br>如果进行底层编程，而且对性能要求极高的话，应该采用 JDBC 的方式。</p>
+<p>如果要对数据库进行完整性控制的话建议使用 Hibernate。</p>
+<p>如果要灵活使用 SQL 语句的话建议采用 MyBatis 框架。</p>
 ]]></content>
       
         <categories>
@@ -737,6 +769,8 @@ public static int[] RadixSort(int[] array) {
         <tags>
             
             <tag> Java </tag>
+            
+            <tag> Spring </tag>
             
         </tags>
         
@@ -860,83 +894,18 @@ public static int[] RadixSort(int[] array) {
     </entry>
     
     <entry>
-      <title><![CDATA[JDBC/Hibernate/MyBatis]]></title>
-      <url>/2018/03/19/Java/spring/JDBC-Hibernate-MyBatis/</url>
-      <content type="html"><![CDATA[<h1 id="JDBC-简介"><a href="#JDBC-简介" class="headerlink" title="JDBC 简介"></a>JDBC 简介</h1><p>JDBC：Java Data Base Connectivity（Java数据库连接）</p>
-<p>它是用于 Java 和数据库之间的数据库无关连接的标准 Java API。<br>即：JDBC 是用于在 Java 中与数据库连接的 API。</p>
-<p>JDBC 库包括通常与数据库使用相关，如：</p>
-<ul>
-<li>连接到数据库</li>
-<li>创建 SQL 语句</li>
-<li>在数据库中执行 SQL 查询</li>
-<li>查看和修改结果记录</li>
-</ul>
-<p>从根本上说，JDBC 是一个规范，它提供了一整套接口，允许以一种可移植的访问底层数据库 API。 </p>
-<p>Java 可以用它来编写不同类型的可执行文件，如：</p>
-<ul>
-<li>Java 应用程序</li>
-<li>Java Applet</li>
-<li>Java Servlets</li>
-<li>Java ServerPages(JSP)</li>
-<li>企业级 JavaBeans(EJB)</li>
-</ul>
-<p>所有这些不同的可执行文件都能够使用 JDBC 驱动程序来访问数据库，并用于存储数据到数据库中。</p>
-<p>JDBC 提供与 ODBC 相同的功能，允许 Java 程序包含与数据库无关的代码（同样的代码，只需要指定使用的数据库类型，不需要重修改数据库查询或操作代码）。</p>
-<p><a href="https://www.cnblogs.com/erbing/p/5805727.html" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="Hibernate-简介"><a href="#Hibernate-简介" class="headerlink" title="Hibernate 简介"></a>Hibernate 简介</h1><p>Hibernate 是一个开源的对象关系映射框架，它对 JDBC 进行非常轻量级的对象封装，所以可以应用在任何使用 JDBC 的场合，使得程序员可以在此基础上使得由原来直接操纵数据库变成直接操作映射数据表后生成的 Java 类，从而用对象编程思维来操纵数据库。</p>
-<p>Hibernate 对数据库结构提供了较为完整的封装，Hibernate 的 O/R Mapping 实现了 POJO 和数据库表之间的映射和 SQL 的自动生成、执行。</p>
-<p>所以程序员不需要对 SQL 的熟练掌握，只需定义好 POJOs（Plain Old Java Objects，普通 Java 对象） 到数据库表的映射关系，即可通过 Hibernate 提供的方法完成持久层操作，Hibernate/OJB 会根据制定的存储逻辑，自动生成对应的 SQL 并调用 JDBC 接口加以执行。</p>
-<p><a href="http://hibernate.org/orm/documentation/5.2/" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="MyBatis-简介"><a href="#MyBatis-简介" class="headerlink" title="MyBatis 简介"></a>MyBatis 简介</h1><p>MyBatis 同样是一个开源的对象关系映射框架，它支持定制化 SQL、存储过程以及高级映射。避免了 JDBC 代码和手动设置参数以及获取结果集。可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs 映射成数据库中的记录。</p>
-<p><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="各自优缺点"><a href="#各自优缺点" class="headerlink" title="各自优缺点"></a>各自优缺点</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>大致编程步骤：</p>
-<ol>
-<li>连接数据库，注册驱动和数据库信息。</li>
-<li>操作 Connection，打开 Statement 对象。</li>
-<li>通过 Statement 对象执行 SQL，返回结果到 ResultSet 对象。</li>
-<li>使用 ResultSet 读取数据，然后通过代码转化为具体的 POJO 对象。</li>
-<li>关闭数据库相关的资源。</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>工作量大，需要连接，然后处理 JDBC 底层事务，处理数据类型。</li>
-<li>需要操作 Connection、Statement、ResultSet 对象去拿数据并关闭它们。</li>
-<li>要对 JDBC 可能产生的异常进行捕捉处理并正确关闭资源。</li>
-</ol>
-<p>由于 JDBC 存在的缺陷，实际工作中很少直接使用 JDBC，用的更多的是 ORM 对象关系模型来操作数据库，比如 Hibernate 和 Mybatis。</p>
-<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p>Hibernate 是建立在若干 POJO 通过 xml 映射文件（或注解）提供的规则映射到数据库表上的。</p>
-<p>我们可以通过 POJO 直接操作数据库的数据，它提供的是一种全表映射的模型。Hibernate 对 JDBC 的封装程度还是比较高的，我们已经不需要写 SQL，只要使用 HQL 语言就可以了。</p>
-<p>优点：</p>
-<ol>
-<li>消除了代码的映射规则，把这些规则都分离到了 xml 或注解。</li>
-<li>不用再管理数据库连接，它也配置到 xml 里面了。</li>
-<li>一个会话中不需要操作多个对象，只需要操作 Session 对象。</li>
-<li>关闭资源只需要关闭一个 Session 即可。</li>
-<li>大大提高了编程的简易性和可读性。</li>
-</ol>
-<p>Hibernate 还提供了级联，缓存，映射，一对多等功能。<br>Hibernate 是全表映射，通过 HQL 去操作 POJO 进而操作数据库的数据。</p>
-<p>缺点：</p>
-<ol>
-<li>全表映射带来的不便。比如，更新时需要发送所有的字段。</li>
-<li>无法根据不同的条件组装不同的 SQL。</li>
-<li>对多表关联和复杂的 SQL 查询支持较差，需要自己写 SQL，返回后，需要自己将数据封装为 POJO。</li>
-<li>不能有效的支持存储过程。</li>
-<li>虽然有 HQL，但是性能较差，大型互联网系统往往需要优化 SQL，而 Hibernate 做不到。</li>
-</ol>
-<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>为了解决 Hibernate 的不足，Mybatis 出现了，Mybatis 是半自动的框架。之所以称它为半自动，是因为它需要手工匹配提供 POJO，SQL 和映射关系，而全表映射的 Hibernate 只需要提供 POJO 和映射关系即可。</p>
-<p>Mybatis 需要提供的映射文件包含了三个部分：SQL，映射规则，POJO。</p>
-<p>在 Mybatis 里需要自己编写 SQL，虽然比 Hibernate 配置多，但是 Mybatis 可以配置动态 SQL，解决了 Hibernate 表名根据时间变化，不同条件下列不一样的问题，同时也可以对 SQL 进行优化，通过配置决定你的 SQL 映射规则，也能支持存储过程，所以对于一些复杂和需要优化性能的 SQL 查询它就更加方便。</p>
-<h1 id="什么时候使用-Hibernate-Mybatis"><a href="#什么时候使用-Hibernate-Mybatis" class="headerlink" title="什么时候使用 Hibernate/Mybatis"></a>什么时候使用 Hibernate/Mybatis</h1><p>Hibernate 作为 Java ORM 框架，编程简易，同时无需编写sql确实开发效率优于Mybatis。<br>此外 Hibernate 还提供了缓存，日志，级联等强大的功能。</p>
-<p>但是 Hibernate 的缺陷也是十分明显，多表关联复杂 SQL，数据系统权限限制，根据条件变化的 SQL，存储过程等场景使用 Hibernate 十分不方便，而性能又难以通过 SQL 优化，所以注定了 Hibernate 只适用于在场景不太复杂，要求性能不太苛刻的时候使用。</p>
-<p>如果你需要一个灵活的，可以动态生成映射关系的框架，那么 Mybatis 确实是一个最好的选择。它几乎可以替代 JDBC，拥有动态列，动态表名，存储过程支持，同时提供了简易的缓存，日志，级联。但是它的缺陷是需要你提供映射规则和 SQL，所以开发工作量比 Hibernate 要大些。</p>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p><strong>层次</strong><br>JDBC 是较底层的持久层操作方式，而 Hibernate 和 MyBatis 都是在 JDBC 的基础上进行了封装使其更加方便程序员对持久层的操作。</p>
-<p><strong>功能</strong><br>JDBC 就是简单的建立数据库连接，然后创建 Statement，将 SQL 语句传给 Statement 去执行，如果是有返回结果的查询语句，会将查询结果放到 ResultSet 对象中，通过对 ResultSet 对象的遍历操作来获取数据。</p>
-<p>Hibernate 是将数据库中的数据表映射为持久层的 Java 对象，对 SQL 语句进行修改和优化比较困难。</p>
-<p>MyBatis 是将 SQL 语句中的输入参数和输出参数映射为 Java 对象，SQL 修改和优化比较方便。</p>
-<p><strong>使用</strong><br>如果进行底层编程，而且对性能要求极高的话，应该采用 JDBC 的方式。</p>
-<p>如果要对数据库进行完整性控制的话建议使用 Hibernate。</p>
-<p>如果要灵活使用 SQL 语句的话建议采用 MyBatis 框架。</p>
-]]></content>
+      <title><![CDATA[Web项目性能优化]]></title>
+      <url>/2018/03/19/web-optimization/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web性能优化分为后端和前端两个方面。</p>
+<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>1、压缩源码和图片<br>JavaScript文件源代码可以采用混淆压缩的方式，CSS文件源代码进行普通压缩，JPG图片可以根据具体质量来压缩为50%到70%，PNG可以使用一些开源压缩软件来压缩，比如24色变成8色、去掉一些PNG格式信息等。</p>
+<p>2、选择合适的图片格式<br>如果图片颜色数较多就使用JPG格式，如果图片颜色数较少就使用PNG格式，如果能够通过服务器端判断浏览器支持WebP，那么就使用WebP格式和SVG格式。</p>
+<p>3、合并静态资源<br>包括CSS、JavaScript和小图片，减少HTTP请求。有很大一部分用户访问会因为这一条而取得最大受益</p>
+<p>4、开启服务器端的Gzip压缩<br>这对文本资源非常有效，对图片资源则没那么大的压缩比率。</p>
+<p>5、使用CDN<br>或者一些公开库使用第三方提供的静态资源地址（比如jQuery、normalize.css）。一方面增加并发下载量，另一方面能够和其他网站共享缓存。</p>
+<p>6、延长静态资源缓存时间<br>这样，频繁访问网站的访客就能够更快地访问。不过，这里要通过修改文件名的方式，确保在资源更新的时候，用户会拉取到最新的内容。</p>
+<p>7、把CSS放在页面头部，把JavaScript放在页面底部<br>这样就不会阻塞页面渲染，让页面出现长时间的空白。</p>
+<p><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/20/speeding-up-web-site-14rule.html" target="_blank" rel="noopener">如何提高网页的效率（上篇）</a><br><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/28/speeding-up-web-site-yslow.html" target="_blank" rel="noopener">如何提高网页的效率（下篇）</a></p>
+<h1 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h1>]]></content>
       
         <categories>
             
@@ -949,7 +918,67 @@ public static int[] RadixSort(int[] array) {
             
             <tag> Java </tag>
             
-            <tag> Spring </tag>
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Spring/SpringBoot]]></title>
+      <url>/2018/03/19/Java/spring/Spring-SpringBoot/</url>
+      <content type="html"><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p><a href="https://www.ibm.com/developerworks/cn/java/wa-spring1/" target="_blank" rel="noopener">Spring 框架简介</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Spring 是一个为了解决企业应用程序开发复杂性而创建的开源框架。它的主要优势之一就是分层架构，允许你选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。</p>
+<p>Spring 框架是一个分层架构，由 7 个定义良好的模块组成。<br>Spring 模块构建在核心容器之上，核心容器定义了创建、配置和管理 bean 的方式：</p>
+<img src="/2018/03/19/Java/spring/Spring-SpringBoot/spring_framework.png" title="Spring">
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>组成 Spring 框架的每个模块（或组件）都可以单独存在，或者与其他一个或多个模块联合实现。</p>
+<p><strong>核心容器</strong><br>核心容器提供 Spring 框架的基本功能。<br>核心容器的主要组件是 BeanFactory，它是工厂模式的实现。<br>BeanFactory 使用控制反转 （IOC） 模式将应用程序的配置和依赖性规范与实际的应用程序代码分开。</p>
+<p><strong>Spring 上下文</strong><br>Spring 上下文是一个配置文件，向 Spring 框架提供上下文信息。<br>Spring 上下文包括企业服务，例如 JNDI、EJB、电子邮件、国际化、校验和调度功能。</p>
+<p><strong>Spring AOP</strong><br>通过配置管理特性，Spring AOP 模块直接将面向方面的编程功能集成到了 Spring 框架中。<br>所以，可以很容易地使 Spring 框架管理的任何对象支持 AOP。<br>Spring AOP 模块为基于 Spring 的应用程序中的对象提供了事务管理服务。<br>通过使用 Spring AOP，不用依赖 EJB 组件，就可以将声明性事务管理集成到应用程序中。</p>
+<p><strong>Spring DAO</strong><br>JDBC DAO 抽象层提供了有意义的异常层次结构，可用该结构来管理异常处理和不同数据库供应商抛出的错误消息。<br>异常层次结构简化了错误处理，并且极大地降低了需要编写的异常代码数量（例如打开和关闭连接）。<br>Spring DAO 的面向 JDBC 的异常遵从通用的 DAO 异常层次结构。</p>
+<p><strong>Spring ORM</strong><br>Spring 框架插入了若干个 ORM 框架，从而提供了 ORM 的对象关系工具，其中包括 JDO、Hibernate 和 iBatis SQL Map，所有这些都遵从 Spring 的通用事务和 DAO 异常层次结构。</p>
+<p><strong>Spring Web 模块</strong><br>Web 上下文模块建立在应用程序上下文模块之上，为基于 Web 的应用程序提供了上下文，所以 Spring 框架支持与 Jakarta Struts 的集成。<br>Web 模块还简化了处理多部分请求以及将请求参数绑定到域对象的工作。</p>
+<p><strong>Spring MVC 框架</strong><br>MVC 框架是一个全功能的构建 Web 应用程序的 MVC 实现。通过策略接口，MVC 框架变成为高度可配置的，MVC 容纳了大量视图技术，其中包括 JSP、Velocity、Tiles、iText 和 POI。</p>
+<p>Spring 框架的功能可以用在任何 J2EE 服务器中，大多数功能也适用于不受管理的环境。<br>Spring 的核心要点：支持不绑定到特定 J2EE 服务的可重用业务和数据访问对象，所以这样的对象可以在不同 J2EE 环境 （Web 或 EJB）、独立应用程序、测试环境之间重用。</p>
+<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><p>IOC：Inversion of Control（控制反转）</p>
+<p>基本概念：不创建对象，但是描述创建它们的方式。在代码中不直接与对象和服务连接，但在配置文件中描述哪一个组件需要哪一项服务。容器 （在 Spring 框架中是 IOC 容器） 负责将这些联系在一起。</p>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><p>AOP：Aspect Oriented Programming（面向切面编程）</p>
+<p>AOP 是 OOP 的有力补充：OOP 将程序分成各个层次的对象，AOP 将运行过程分解成各个切面。AOP 是从运行程序的角度去考虑程序的结构，提取业务处理过程的切面，OOP 是静态的抽象，AOP 是动态的抽象，是对应用执行过程的步骤进行抽象，从而获得步骤之间的逻辑划分。</p>
+<p>AOP 和 IOC 是补充性的技术，它们都运用模块化方式解决企业应用程序开发中的复杂问题。<br>在典型的 OOP 开发方式中，可能要将日志记录语句放在所有方法和 Java 类中才能实现日志功能。<br>在 AOP 方式中，可以反过来将日志服务模块化，并以声明的方式将它们应用到需要日志的组件上。当然，优势就是 Java 类不需要知道日志服务的存在，也不需要考虑相关的代码。所以，用 Spring AOP 编写的应用程序代码是松散耦合的。</p>
+<p>AOP 的功能完全集成到了 Spring 事务管理、日志和其他各种特性的上下文中。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li><p>使用 Spring 的 IOC 容器，将对象之间的依赖关系交给 Spring，降低组件之间的耦合性，让我们更专注于应用逻辑。</p>
+</li>
+<li><p>可以提供众多服务，事务管理，WS 等。</p>
+</li>
+<li><p>AOP 的很好支持，方便面向切面编程。</p>
+</li>
+<li><p>对主流的框架提供了很好的集成支持，如 Hibernate,Struts2,JPA 等</p>
+</li>
+<li><p>Spring 低侵入，代码污染极低。</p>
+</li>
+<li><p>Spring 的高度可开放性，并不强制依赖于 Spring，开发者可以自由选择 Spring 部分或全部</p>
+</li>
+</ol>
+<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><p>Spring Boot 实现了自动配置，降低了项目搭建的复杂度。</p>
+<p>Spring 框架需要进行大量的配置，Spring Boot 引入自动配置的概念，让项目设置变得很容易。<br>Spring Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。也就是说，它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。</p>
+<p>同时它集成了大量常用的第三方库配置(例如Jackson, JDBC, Mongo, Redis, Mail等等)，Spring Boot 应用中这些第三方库几乎可以零配置的开箱即用(out-of-the-box)，大部分的 Spring Boot 应用都只需要非常少量的配置代码，开发者能够更加专注于业务逻辑。</p>
+<p>Spring Boot 只是承载者，辅助你简化项目搭建过程的。如果承载的是 WEB 项目，使用 Spring MVC 作为 MVC 框架，那么工作流程和你上面描述的是完全一样的，因为这部分工作是 Spring MVC 做的而不是 Spring Boot。</p>
+<p>对使用者来说，换用 Spring Boot 以后，项目初始化方法变了，配置文件变了，另外就是不需要单独安装 Tomcat 这类容器服务器了，maven 打出 jar 包直接跑起来就是个网站，但你最核心的业务逻辑实现与业务流程实现没有任何变化。</p>
+<p>所以，用最简练的语言概括就是：</p>
+<p>Spring 是一个“引擎”；</p>
+<p>Spring MVC 是基于 Spring 的一个 MVC 框架 ；</p>
+<p>Spring Boot 是基于 Spring4 的条件注册的一套快速开发整合包。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
             
         </tags>
         
@@ -1038,35 +1067,6 @@ public static int[] RadixSort(int[] array) {
             <tag> Java </tag>
             
             <tag> 数据结构 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Web项目性能优化]]></title>
-      <url>/2018/03/19/web-optimization/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web性能优化分为后端和前端两个方面。</p>
-<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>1、压缩源码和图片<br>JavaScript文件源代码可以采用混淆压缩的方式，CSS文件源代码进行普通压缩，JPG图片可以根据具体质量来压缩为50%到70%，PNG可以使用一些开源压缩软件来压缩，比如24色变成8色、去掉一些PNG格式信息等。</p>
-<p>2、选择合适的图片格式<br>如果图片颜色数较多就使用JPG格式，如果图片颜色数较少就使用PNG格式，如果能够通过服务器端判断浏览器支持WebP，那么就使用WebP格式和SVG格式。</p>
-<p>3、合并静态资源<br>包括CSS、JavaScript和小图片，减少HTTP请求。有很大一部分用户访问会因为这一条而取得最大受益</p>
-<p>4、开启服务器端的Gzip压缩<br>这对文本资源非常有效，对图片资源则没那么大的压缩比率。</p>
-<p>5、使用CDN<br>或者一些公开库使用第三方提供的静态资源地址（比如jQuery、normalize.css）。一方面增加并发下载量，另一方面能够和其他网站共享缓存。</p>
-<p>6、延长静态资源缓存时间<br>这样，频繁访问网站的访客就能够更快地访问。不过，这里要通过修改文件名的方式，确保在资源更新的时候，用户会拉取到最新的内容。</p>
-<p>7、把CSS放在页面头部，把JavaScript放在页面底部<br>这样就不会阻塞页面渲染，让页面出现长时间的空白。</p>
-<p><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/20/speeding-up-web-site-14rule.html" target="_blank" rel="noopener">如何提高网页的效率（上篇）</a><br><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/28/speeding-up-web-site-yslow.html" target="_blank" rel="noopener">如何提高网页的效率（下篇）</a></p>
-<h1 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h1>]]></content>
-      
-        <categories>
-            
-            <category> 学习 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Java </tag>
             
         </tags>
         
