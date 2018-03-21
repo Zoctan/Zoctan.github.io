@@ -5,119 +5,12 @@ tags:
 - Java
 ---
 
-一些常用的算法模板
+# 辗转相除法
 
-```java 大整数字符串模拟
-private class BigInteger {
-	/**
-	 * 阶乘 http://www.open-open.com/home/space-135360-do-blog-id-9620.html
-	 */
-	private String factorial(int bigInteger) {
-		int pos = 0;//
-		int digit;// 数据长度
-		double sum = 0;// 阶乘位数
-		int i, j, k, carray;
-		// 计算阶乘位数
-		for (i = 1; i <= bigInteger; i++) {
-			sum += Math.log10(i);
-		}
-		digit = (int) sum + 1; // 数据长度
-        // 初始化一个数组
-		int[] fact = new int[digit];
-		fact[0] = 1; // 设个位为 1
-		// 将2^bigInteger逐个与原来的积相乘
-		for (i = 2; i <= bigInteger; i++) {
-			// 查找最高位{}
-			for (j = digit - 1; j >= 0; j--) {
-				if (fact[j] != 0) {
-					pos = j; // 记录最高位
-					break;
-				}
-			}
-            // 每一位与i乘
-			for (j = 0; j <= pos; j++) {
-				fact[j] *= i;
-			}
-			// 进位处理
-			for (k = 0, carray = 0; k <= pos; k++) { // 从0到pos逐位检查是否需要进位
-				fact[k] += carray;// 累加进位
-				if (fact[k] <= 9) {// 小于9不进位
-					carray = 0;
-				} else if (fact[k] > 9 && k < pos) { // 大于9，但不是最高位
-					carray = fact[k] / 10; // 保存进位值
-					fact[k] = fact[k] % 10; // 得到该位的一位数
-				} else if (fact[k] > 9 && k >= pos) { // 大于9，且是最高位
-					while (fact[k] > 9) { // 循环向前进位
-						carray = fact[k] / 10; // 计算进位值
-						fact[k] = fact[k] % 10; // 当前的第一位数
-						k++;
-						fact[k] = carray; // 在下一位保存进位值
-					}
-				}
-			}
-		}
-		for (j = digit - 1; j >= 0; j--) {
-			if (fact[j] != 0) {
-				pos = j;// 记录最高位
-				break;
-			}
-		}
-		StringBuilder result = new StringBuilder();
-		for (i = pos; i >= 0; i--) {
-			result.append(fact[i]);
-		}
-		return result.toString();
-	}
+求最大公约数
+最小公倍数 = ab/最大公约数
 
-	/*
-	 * 加法
-	 */
-	private String add(String x1, String x2) {
-		if (x1 == null && x2 == null)
-			return "0";
-		if (x1 == null)
-			return x2;
-		if (x2 == null)
-			return x1;
-		StringBuilder s1 = new StringBuilder(x1).reverse();
-		StringBuilder s2 = new StringBuilder(x2).reverse();
-		int len1 = s1.length();
-		int len2 = s2.length();
-		int len = 0;
-		int count = Math.abs(len1 - len2);
-		if (len1 < len2) {
-			len = len2;
-			while (count-- > 0)
-				s1.append("0");
-		} else {
-			len = len1;
-			while (count-- > 0)
-				s2.append("0");
-		}
-		int overflow = 0, num = 0;
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < len; i++) {
-			num = s1.charAt(i) - '0' + s2.charAt(i) - '0' + overflow;
-			if (num >= 10) {
-				overflow = 1;
-				num -= 10;
-			} else {
-				overflow = 0;
-			}
-			result.append(String.valueOf(num));
-		}
-		if (overflow == 1)
-			result.append(1);
-		return result.reverse().toString();
-	}
-}
-```
-
-```java 辗转相除法
-/**
- * 求最大公约数
- * 最小公倍数 = ab/最大公约数
- */
+```java
 long gcd(long a, long b) {
     long tmp;
     while ((tmp = a % b) != 0) {
@@ -132,17 +25,19 @@ long gcd(long a, long b) {
 }
 ```
 
-```java 斯特林公式
-/**
- * 求n阶乘的位数
- */
+# 斯特林公式
+
+求n阶乘的位数
+
+```java
 double len = 0.5 * Math.log10(2.0 * Math.PI * n) + n * Math.log10(n * 1.0 / Math.E) + 1;
 ```
 
-```java 扩展欧几里德
-/**
- * 求乘法逆元
- */
+# 扩展欧几里德
+
+求乘法逆元
+
+```java
 long exgcd(long a, long n) {
     long x0 = 1, y0 = 0, x1 = 0, y1 = 1, x2, y2;
     long r = a % n;
@@ -163,7 +58,9 @@ long exgcd(long a, long n) {
 }
 ```
 
-```java 快速幂
+# 快速幂
+
+```java
 long quickMod(long x, long n, long mod) {
     long res = 1;
     while (n > 0) {
@@ -176,11 +73,9 @@ long quickMod(long x, long n, long mod) {
 }
 ```
 
-```java 全排列
-/**
- * 输出的序列无顺序
- * 思想：冒泡排序，不断和后面的交换
- */
+# 全排列
+
+```java
 static void permutate(char[] array, int from, int to) {
     if (from == to) { // 输出
         System.out.println(new String(array));
@@ -209,32 +104,11 @@ static void swap(char[] array, int m, int n) {
 }
 ```
 
-```java 二分查找
-/**
- * Arrays.binarySearch()
- */
-int binarySearch(int[] array, int x) {
-    int low = 0;
-    int high = array.length - 1;
-    int middle;
-    while (low <= high) {
-        middle = (low + high) / 2;
-        if (array[middle] == x) {
-            return middle;
-        } else if (array[middle] < x) {
-            low = middle + 1;
-        } else {
-            high = middle - 1;
-        }
-    }
-    return -1;
-}
-```
+# 最长公共子序列
 
-```java 最长公共子序列
-/**
- * 两个字符串中的最长公共子序列，不要求子序列连续
- */
+两个字符串中的最长公共子序列，不要求子序列连续
+
+```java
 void findLCS(String s1, String s2) {
     int s1Len = s1.length();
     int s2Len = s2.length();
@@ -270,10 +144,11 @@ void findLCS(String s1, String s2) {
 }
 ```
 
-```java 最长公共子串
-/**
- * 两个字符串中的最长公共子串，要求子串一定连续
- */
+# 最长公共子串
+
+两个字符串中的最长公共子串，要求子串一定连续
+
+```java
 static int findLongest(String str1, String str2) {
     int s1Len = str1.length();
     int s2Len = str2.length();
@@ -303,7 +178,9 @@ static int findLongest(String str1, String str2) {
 }
 ```
 
-```java 埃拉托斯特尼筛法
+# 埃拉托斯特尼筛法
+
+```java
 static ArrayList<Integer> getPrime(int n) {
 	boolean[] notPrime = new boolean[n + 1];
 	int sqrtN = (int) Math.sqrt(n);

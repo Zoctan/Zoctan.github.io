@@ -1,37 +1,38 @@
 {
   "skills": {
-    "Python": 2,
-    "Java": 3,
-    "HTML/CSS": 3,
+    "Python": 3,
+    "Java": 4,
+    "JavaScript": 3,
+    "HTML/CSS": 2,
 
     "invisible-split-line-1": -1,
 
-    "Shell": 2,
+    "Shell": 3,
 
     "invisible-split-line-2": -1,
 
     "Photoshop": 2
   },
   "projects": [{
-    "name": "项目A",
-    "image": "http://file06.16sucai.com/2016/0926/93ad20908e602433784051bca1161eec.jpg",
-    "tags": ["2017年", "项目标签"],
-    "description": "xx",
+    "name": "智能插座APP",
+    "image": "https://github.com/Zoctan/SmartHub/blob/app/screenshot/guide3.png",
+    "tags": ["2017年", "Android"],
+    "description": "基于 Material Design 和 MVP 架构的智能插座客户端\n支持：Android 6.0 <= x < 7.0\n本 APP 基于团队制作的具有可识别、计量、安全和节能的智能插座而开发的。智能插座本身可对用电器进行学习识别，对插上用电器的参数进行分类上传。用户可以通过 APP 定时或实时控制插座通电，查看包括电压、电流、功率和功率因数，当前用电器等信息，可根据统计出的日月用电量进一步了解家电的耗能问题。",
     "link_text": "Github地址",
-    "link": "https://github.com/"
+    "link": "https://github.com/Zoctan/SmartHub"
   }, {
-    "name": "作品B",
-    "image": "http://file05.16sucai.com/2015/0611/341c4081207dffa83598f9e7ce5bef99.jpg",
-    "description": "xx",
-    "tags": ["Github", "设计"],
+    "name": "Spring Boot Vue Admin",
+    "image": "https://github.com/Zoctan/spring-boot-vue-admin/blob/master/README/3.png",
+    "description": "一套前后端分离的后台权限管理模版。",
+    "tags": ["2018年", "Java"],
     "link_text": "Github地址",
-    "link": "https://github.com/"
+    "link": "https://github.com/Zoctan/spring-boot-vue-admin"
   }, {
-    "name": "作品C",
+    "name": "Spring Boot API Seedling",
     "image": "http://file01.16sucai.com/d/file/2014-01-18/13900358739440.jpg",
-    "description": "xx",
-    "tags": ["Github", "作品"],
+    "description": "快速构建中小型 API、RESTful API 项目。",
+    "tags": ["2018年", "Java"],
     "link_text": "Github地址",
-    "link": "https://github.com/"
+    "link": "https://github.com/Zoctan/spring-boot-api-seedling"
   }]
 }

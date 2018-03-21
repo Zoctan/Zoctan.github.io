@@ -2681,6 +2681,7 @@ RacingThread trying to call A.last()
 暂时先用简单例子帮助理解。
 
 现在有两个业务类：
+
 ```java
 package reflection;
 
@@ -2708,6 +2709,7 @@ class Service2 {
 不使用反射：
 
 修改代码，重新编译运行：
+
 ```java
 package reflection;
 
@@ -2725,12 +2727,14 @@ public class Test {
 
 首先准备一个配置文件 A.properties，放在src目录下。
 里面存放：类的名称和要调用的方法名。
+
 ```txt A.properties
 class=reflection.Service1
 method=doService1
 ```
 
 在测试类 Test 中，首先取出类名称和方法名，然后通过反射去调用这个方法：
+
 ```java
 package reflection;
 

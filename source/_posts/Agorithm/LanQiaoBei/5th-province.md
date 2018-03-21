@@ -47,8 +47,6 @@ public class A
 
 请填写这个整数。 1835421
 
-注意：只需要填写一个整数，不要填写任何多余的内容。比如说明文字。
-
 ```java 暴力
 public class Main {
 	public static void main(String[] args) {
@@ -77,8 +75,7 @@ public class Main {
 ```java 二分
 public class Main {
 	public static void main(String[] args) {
-		double start = 2.0;
-		double end = 3.0;
+		double start = 2.0, end = 3.0;
 		while (true) {
 			double middle = (start + end) / 2;
 			double result = Math.pow(middle, middle);
@@ -109,17 +106,17 @@ public class Main {
 
 样例输入1：
 5
-样例输出1：
+输出：
 1
 
 样例输入2：
 100
-样例输出2：
+输出：
 2
 
 样例输入3：
 3
-样例输出3：
+输出：
 0
 
 资源约定：
@@ -128,11 +125,12 @@ CPU消耗  < 1000ms
 
 ```java 暴力
 import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
-		scanner.close();
+
 		int solution = 0;
 		for (int i = 1; i < n; i++) {
 			// 利用开方和取整减少一层循环去猜测第3条边
@@ -172,7 +170,7 @@ public class Main {
 004000030
 000009700
 
-样例输出1：
+输出：
 145327698
 839654127
 672918543
@@ -194,7 +192,7 @@ public class Main {
 008500010
 090000400
 
-样例输出2：
+输出：
 812753649
 943682175
 675491283
@@ -319,7 +317,7 @@ G将军有一支训练有素的军队，这个军队除开G将军外，每名士
 样例输入1：
 3
 1 1
-样例输出1：
+输出：
 4
 
 样例说明：
@@ -332,7 +330,7 @@ G将军有一支训练有素的军队，这个军队除开G将军外，每名士
 样例输入2：
 7
 1 1 2 2 3 3
-样例输出2：
+输出：
 40
 
 数据规模与约定：
@@ -354,6 +352,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
+
+	static class Node {
+		// 士兵的下级
+		List<Integer> subordinate = new LinkedList<>();
+		int[] dp = { 1, 1 };
+	}
+
 	static Scanner scanner = new Scanner(new BufferedInputStream(System.in));
 	static int n = scanner.nextInt();
 	static Node[] node = new Node[n + 1];
@@ -380,13 +385,6 @@ public class Main {
 		// 减去所有都没有去的情况
 		int count = (node[1].dp[0] + node[1].dp[1] - 1) % 10007;
 		System.out.println(count);
-	}
-
-	static class Node {
-		// 士兵的下级
-		List<Integer> subordinate = new LinkedList<>();
-		// 背包
-		int[] dp = { 1, 1 };
 	}
 }
 ```
