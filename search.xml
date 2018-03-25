@@ -831,35 +831,6 @@ public static int[] RadixSort(int[] array) {
     </entry>
     
     <entry>
-      <title><![CDATA[Web项目性能优化]]></title>
-      <url>/2018/03/19/web-optimization/</url>
-      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web性能优化分为后端和前端两个方面。</p>
-<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>1、压缩源码和图片<br>JavaScript文件源代码可以采用混淆压缩的方式，CSS文件源代码进行普通压缩，JPG图片可以根据具体质量来压缩为50%到70%，PNG可以使用一些开源压缩软件来压缩，比如24色变成8色、去掉一些PNG格式信息等。</p>
-<p>2、选择合适的图片格式<br>如果图片颜色数较多就使用JPG格式，如果图片颜色数较少就使用PNG格式，如果能够通过服务器端判断浏览器支持WebP，那么就使用WebP格式和SVG格式。</p>
-<p>3、合并静态资源<br>包括CSS、JavaScript和小图片，减少HTTP请求。有很大一部分用户访问会因为这一条而取得最大受益</p>
-<p>4、开启服务器端的Gzip压缩<br>这对文本资源非常有效，对图片资源则没那么大的压缩比率。</p>
-<p>5、使用CDN<br>或者一些公开库使用第三方提供的静态资源地址（比如jQuery、normalize.css）。一方面增加并发下载量，另一方面能够和其他网站共享缓存。</p>
-<p>6、延长静态资源缓存时间<br>这样，频繁访问网站的访客就能够更快地访问。不过，这里要通过修改文件名的方式，确保在资源更新的时候，用户会拉取到最新的内容。</p>
-<p>7、把CSS放在页面头部，把JavaScript放在页面底部<br>这样就不会阻塞页面渲染，让页面出现长时间的空白。</p>
-<p><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/20/speeding-up-web-site-14rule.html" target="_blank" rel="noopener">如何提高网页的效率（上篇）</a><br><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/28/speeding-up-web-site-yslow.html" target="_blank" rel="noopener">如何提高网页的效率（下篇）</a></p>
-<h1 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h1>]]></content>
-      
-        <categories>
-            
-            <category> 学习 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Java </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[事务注解]]></title>
       <url>/2018/03/19/Java/spring/transactional/</url>
       <content type="html"><![CDATA[<h1 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h1><p>在使用应用软件过程中，用户的一个操作实际是对数据读写的多步操作的结合。</p>
@@ -899,6 +870,131 @@ public static int[] RadixSort(int[] array) {
 <p><code>@Transactional(isolation = Isolation.DEFAULT)</code></p>
 <p><strong>timeout</strong><br>设置事务的超时秒数，默认为 -1 表示永不超时。</p>
 <p>一个事务所允许执行的最长时间，如果超过该时间限制但事务还没有完成，则自动回滚事务。<br>默认设置为底层事务系统的超时值，如果底层数据库事务系统没有设置超时值，那么就是 <code>none</code>，没有超时限制。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Web项目性能优化]]></title>
+      <url>/2018/03/19/web-optimization/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Web性能优化分为后端和前端两个方面。</p>
+<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>1、压缩源码和图片<br>JavaScript文件源代码可以采用混淆压缩的方式，CSS文件源代码进行普通压缩，JPG图片可以根据具体质量来压缩为50%到70%，PNG可以使用一些开源压缩软件来压缩，比如24色变成8色、去掉一些PNG格式信息等。</p>
+<p>2、选择合适的图片格式<br>如果图片颜色数较多就使用JPG格式，如果图片颜色数较少就使用PNG格式，如果能够通过服务器端判断浏览器支持WebP，那么就使用WebP格式和SVG格式。</p>
+<p>3、合并静态资源<br>包括CSS、JavaScript和小图片，减少HTTP请求。有很大一部分用户访问会因为这一条而取得最大受益</p>
+<p>4、开启服务器端的Gzip压缩<br>这对文本资源非常有效，对图片资源则没那么大的压缩比率。</p>
+<p>5、使用CDN<br>或者一些公开库使用第三方提供的静态资源地址（比如jQuery、normalize.css）。一方面增加并发下载量，另一方面能够和其他网站共享缓存。</p>
+<p>6、延长静态资源缓存时间<br>这样，频繁访问网站的访客就能够更快地访问。不过，这里要通过修改文件名的方式，确保在资源更新的时候，用户会拉取到最新的内容。</p>
+<p>7、把CSS放在页面头部，把JavaScript放在页面底部<br>这样就不会阻塞页面渲染，让页面出现长时间的空白。</p>
+<p><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/20/speeding-up-web-site-14rule.html" target="_blank" rel="noopener">如何提高网页的效率（上篇）</a><br><a href="http://www.cnblogs.com/JustinYoung/archive/2007/11/28/speeding-up-web-site-yslow.html" target="_blank" rel="noopener">如何提高网页的效率（下篇）</a></p>
+<h1 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h1>]]></content>
+      
+        <categories>
+            
+            <category> 学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JDBC/Hibernate/MyBatis]]></title>
+      <url>/2018/03/19/Java/spring/JDBC-Hibernate-MyBatis/</url>
+      <content type="html"><![CDATA[<h1 id="JDBC-简介"><a href="#JDBC-简介" class="headerlink" title="JDBC 简介"></a>JDBC 简介</h1><p>JDBC：Java Data Base Connectivity（Java数据库连接）</p>
+<p>它是用于 Java 和数据库之间的数据库无关连接的标准 Java API。<br>即：JDBC 是用于在 Java 中与数据库连接的 API。</p>
+<p>JDBC 库包括通常与数据库使用相关，如：</p>
+<ul>
+<li>连接到数据库</li>
+<li>创建 SQL 语句</li>
+<li>在数据库中执行 SQL 查询</li>
+<li>查看和修改结果记录</li>
+</ul>
+<p>从根本上说，JDBC 是一个规范，它提供了一整套接口，允许以一种可移植的访问底层数据库 API。 </p>
+<p>Java 可以用它来编写不同类型的可执行文件，如：</p>
+<ul>
+<li>Java 应用程序</li>
+<li>Java Applet</li>
+<li>Java Servlets</li>
+<li>Java ServerPages(JSP)</li>
+<li>企业级 JavaBeans(EJB)</li>
+</ul>
+<p>所有这些不同的可执行文件都能够使用 JDBC 驱动程序来访问数据库，并用于存储数据到数据库中。</p>
+<p>JDBC 提供与 ODBC 相同的功能，允许 Java 程序包含与数据库无关的代码（同样的代码，只需要指定使用的数据库类型，不需要重修改数据库查询或操作代码）。</p>
+<p><a href="https://www.cnblogs.com/erbing/p/5805727.html" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="Hibernate-简介"><a href="#Hibernate-简介" class="headerlink" title="Hibernate 简介"></a>Hibernate 简介</h1><p>Hibernate 是一个开源的对象关系映射框架，它对 JDBC 进行非常轻量级的对象封装，所以可以应用在任何使用 JDBC 的场合，使得程序员可以在此基础上使得由原来直接操纵数据库变成直接操作映射数据表后生成的 Java 类，从而用对象编程思维来操纵数据库。</p>
+<p>Hibernate 对数据库结构提供了较为完整的封装，Hibernate 的 O/R Mapping 实现了 POJO 和数据库表之间的映射和 SQL 的自动生成、执行。</p>
+<p>所以程序员不需要对 SQL 的熟练掌握，只需定义好 POJOs（Plain Old Java Objects，普通 Java 对象） 到数据库表的映射关系，即可通过 Hibernate 提供的方法完成持久层操作，Hibernate/OJB 会根据制定的存储逻辑，自动生成对应的 SQL 并调用 JDBC 接口加以执行。</p>
+<p><a href="http://hibernate.org/orm/documentation/5.2/" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="MyBatis-简介"><a href="#MyBatis-简介" class="headerlink" title="MyBatis 简介"></a>MyBatis 简介</h1><p>MyBatis 同样是一个开源的对象关系映射框架，它支持定制化 SQL、存储过程以及高级映射。避免了 JDBC 代码和手动设置参数以及获取结果集。可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs 映射成数据库中的记录。</p>
+<p><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">参考资料</a></p>
+<h1 id="各自优缺点"><a href="#各自优缺点" class="headerlink" title="各自优缺点"></a>各自优缺点</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>大致编程步骤：</p>
+<ol>
+<li>连接数据库，注册驱动和数据库信息。</li>
+<li>操作 Connection，打开 Statement 对象。</li>
+<li>通过 Statement 对象执行 SQL，返回结果到 ResultSet 对象。</li>
+<li>使用 ResultSet 读取数据，然后通过代码转化为具体的 POJO 对象。</li>
+<li>关闭数据库相关的资源。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>工作量大，需要连接，然后处理 JDBC 底层事务，处理数据类型。</li>
+<li>需要操作 Connection、Statement、ResultSet 对象去拿数据并关闭它们。</li>
+<li>要对 JDBC 可能产生的异常进行捕捉处理并正确关闭资源。</li>
+</ol>
+<p>由于 JDBC 存在的缺陷，实际工作中很少直接使用 JDBC，用的更多的是 ORM 对象关系模型来操作数据库，比如 Hibernate 和 Mybatis。</p>
+<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p>Hibernate 是建立在若干 POJO 通过 xml 映射文件（或注解）提供的规则映射到数据库表上的。</p>
+<p>我们可以通过 POJO 直接操作数据库的数据，它提供的是一种全表映射的模型。Hibernate 对 JDBC 的封装程度还是比较高的，我们已经不需要写 SQL，只要使用 HQL 语言就可以了。</p>
+<p>优点：</p>
+<ol>
+<li>消除了代码的映射规则，把这些规则都分离到了 xml 或注解。</li>
+<li>不用再管理数据库连接，它也配置到 xml 里面了。</li>
+<li>一个会话中不需要操作多个对象，只需要操作 Session 对象。</li>
+<li>关闭资源只需要关闭一个 Session 即可。</li>
+<li>大大提高了编程的简易性和可读性。</li>
+</ol>
+<p>Hibernate 还提供了级联，缓存，映射，一对多等功能。<br>Hibernate 是全表映射，通过 HQL 去操作 POJO 进而操作数据库的数据。</p>
+<p>缺点：</p>
+<ol>
+<li>全表映射带来的不便。比如，更新时需要发送所有的字段。</li>
+<li>无法根据不同的条件组装不同的 SQL。</li>
+<li>对多表关联和复杂的 SQL 查询支持较差，需要自己写 SQL，返回后，需要自己将数据封装为 POJO。</li>
+<li>不能有效的支持存储过程。</li>
+<li>虽然有 HQL，但是性能较差，大型互联网系统往往需要优化 SQL，而 Hibernate 做不到。</li>
+</ol>
+<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>为了解决 Hibernate 的不足，Mybatis 出现了，Mybatis 是半自动的框架。之所以称它为半自动，是因为它需要手工匹配提供 POJO，SQL 和映射关系，而全表映射的 Hibernate 只需要提供 POJO 和映射关系即可。</p>
+<p>Mybatis 需要提供的映射文件包含了三个部分：SQL，映射规则，POJO。</p>
+<p>在 Mybatis 里需要自己编写 SQL，虽然比 Hibernate 配置多，但是 Mybatis 可以配置动态 SQL，解决了 Hibernate 表名根据时间变化，不同条件下列不一样的问题，同时也可以对 SQL 进行优化，通过配置决定你的 SQL 映射规则，也能支持存储过程，所以对于一些复杂和需要优化性能的 SQL 查询它就更加方便。</p>
+<h1 id="什么时候使用-Hibernate-Mybatis"><a href="#什么时候使用-Hibernate-Mybatis" class="headerlink" title="什么时候使用 Hibernate/Mybatis"></a>什么时候使用 Hibernate/Mybatis</h1><p>Hibernate 作为 Java ORM 框架，编程简易，同时无需编写sql确实开发效率优于Mybatis。<br>此外 Hibernate 还提供了缓存，日志，级联等强大的功能。</p>
+<p>但是 Hibernate 的缺陷也是十分明显，多表关联复杂 SQL，数据系统权限限制，根据条件变化的 SQL，存储过程等场景使用 Hibernate 十分不方便，而性能又难以通过 SQL 优化，所以注定了 Hibernate 只适用于在场景不太复杂，要求性能不太苛刻的时候使用。</p>
+<p>如果你需要一个灵活的，可以动态生成映射关系的框架，那么 Mybatis 确实是一个最好的选择。它几乎可以替代 JDBC，拥有动态列，动态表名，存储过程支持，同时提供了简易的缓存，日志，级联。但是它的缺陷是需要你提供映射规则和 SQL，所以开发工作量比 Hibernate 要大些。</p>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p><strong>层次</strong><br>JDBC 是较底层的持久层操作方式，而 Hibernate 和 MyBatis 都是在 JDBC 的基础上进行了封装使其更加方便程序员对持久层的操作。</p>
+<p><strong>功能</strong><br>JDBC 就是简单的建立数据库连接，然后创建 Statement，将 SQL 语句传给 Statement 去执行，如果是有返回结果的查询语句，会将查询结果放到 ResultSet 对象中，通过对 ResultSet 对象的遍历操作来获取数据。</p>
+<p>Hibernate 是将数据库中的数据表映射为持久层的 Java 对象，对 SQL 语句进行修改和优化比较困难。</p>
+<p>MyBatis 是将 SQL 语句中的输入参数和输出参数映射为 Java 对象，SQL 修改和优化比较方便。</p>
+<p><strong>使用</strong><br>如果进行底层编程，而且对性能要求极高的话，应该采用 JDBC 的方式。</p>
+<p>如果要对数据库进行完整性控制的话建议使用 Hibernate。</p>
+<p>如果要灵活使用 SQL 语句的话建议采用 MyBatis 框架。</p>
 ]]></content>
       
         <categories>
@@ -1144,102 +1240,6 @@ public static int[] RadixSort(int[] array) {
             <tag> Java </tag>
             
             <tag> 数据结构 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[JDBC/Hibernate/MyBatis]]></title>
-      <url>/2018/03/19/Java/spring/JDBC-Hibernate-MyBatis/</url>
-      <content type="html"><![CDATA[<h1 id="JDBC-简介"><a href="#JDBC-简介" class="headerlink" title="JDBC 简介"></a>JDBC 简介</h1><p>JDBC：Java Data Base Connectivity（Java数据库连接）</p>
-<p>它是用于 Java 和数据库之间的数据库无关连接的标准 Java API。<br>即：JDBC 是用于在 Java 中与数据库连接的 API。</p>
-<p>JDBC 库包括通常与数据库使用相关，如：</p>
-<ul>
-<li>连接到数据库</li>
-<li>创建 SQL 语句</li>
-<li>在数据库中执行 SQL 查询</li>
-<li>查看和修改结果记录</li>
-</ul>
-<p>从根本上说，JDBC 是一个规范，它提供了一整套接口，允许以一种可移植的访问底层数据库 API。 </p>
-<p>Java 可以用它来编写不同类型的可执行文件，如：</p>
-<ul>
-<li>Java 应用程序</li>
-<li>Java Applet</li>
-<li>Java Servlets</li>
-<li>Java ServerPages(JSP)</li>
-<li>企业级 JavaBeans(EJB)</li>
-</ul>
-<p>所有这些不同的可执行文件都能够使用 JDBC 驱动程序来访问数据库，并用于存储数据到数据库中。</p>
-<p>JDBC 提供与 ODBC 相同的功能，允许 Java 程序包含与数据库无关的代码（同样的代码，只需要指定使用的数据库类型，不需要重修改数据库查询或操作代码）。</p>
-<p><a href="https://www.cnblogs.com/erbing/p/5805727.html" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="Hibernate-简介"><a href="#Hibernate-简介" class="headerlink" title="Hibernate 简介"></a>Hibernate 简介</h1><p>Hibernate 是一个开源的对象关系映射框架，它对 JDBC 进行非常轻量级的对象封装，所以可以应用在任何使用 JDBC 的场合，使得程序员可以在此基础上使得由原来直接操纵数据库变成直接操作映射数据表后生成的 Java 类，从而用对象编程思维来操纵数据库。</p>
-<p>Hibernate 对数据库结构提供了较为完整的封装，Hibernate 的 O/R Mapping 实现了 POJO 和数据库表之间的映射和 SQL 的自动生成、执行。</p>
-<p>所以程序员不需要对 SQL 的熟练掌握，只需定义好 POJOs（Plain Old Java Objects，普通 Java 对象） 到数据库表的映射关系，即可通过 Hibernate 提供的方法完成持久层操作，Hibernate/OJB 会根据制定的存储逻辑，自动生成对应的 SQL 并调用 JDBC 接口加以执行。</p>
-<p><a href="http://hibernate.org/orm/documentation/5.2/" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="MyBatis-简介"><a href="#MyBatis-简介" class="headerlink" title="MyBatis 简介"></a>MyBatis 简介</h1><p>MyBatis 同样是一个开源的对象关系映射框架，它支持定制化 SQL、存储过程以及高级映射。避免了 JDBC 代码和手动设置参数以及获取结果集。可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs 映射成数据库中的记录。</p>
-<p><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">参考资料</a></p>
-<h1 id="各自优缺点"><a href="#各自优缺点" class="headerlink" title="各自优缺点"></a>各自优缺点</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>大致编程步骤：</p>
-<ol>
-<li>连接数据库，注册驱动和数据库信息。</li>
-<li>操作 Connection，打开 Statement 对象。</li>
-<li>通过 Statement 对象执行 SQL，返回结果到 ResultSet 对象。</li>
-<li>使用 ResultSet 读取数据，然后通过代码转化为具体的 POJO 对象。</li>
-<li>关闭数据库相关的资源。</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>工作量大，需要连接，然后处理 JDBC 底层事务，处理数据类型。</li>
-<li>需要操作 Connection、Statement、ResultSet 对象去拿数据并关闭它们。</li>
-<li>要对 JDBC 可能产生的异常进行捕捉处理并正确关闭资源。</li>
-</ol>
-<p>由于 JDBC 存在的缺陷，实际工作中很少直接使用 JDBC，用的更多的是 ORM 对象关系模型来操作数据库，比如 Hibernate 和 Mybatis。</p>
-<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p>Hibernate 是建立在若干 POJO 通过 xml 映射文件（或注解）提供的规则映射到数据库表上的。</p>
-<p>我们可以通过 POJO 直接操作数据库的数据，它提供的是一种全表映射的模型。Hibernate 对 JDBC 的封装程度还是比较高的，我们已经不需要写 SQL，只要使用 HQL 语言就可以了。</p>
-<p>优点：</p>
-<ol>
-<li>消除了代码的映射规则，把这些规则都分离到了 xml 或注解。</li>
-<li>不用再管理数据库连接，它也配置到 xml 里面了。</li>
-<li>一个会话中不需要操作多个对象，只需要操作 Session 对象。</li>
-<li>关闭资源只需要关闭一个 Session 即可。</li>
-<li>大大提高了编程的简易性和可读性。</li>
-</ol>
-<p>Hibernate 还提供了级联，缓存，映射，一对多等功能。<br>Hibernate 是全表映射，通过 HQL 去操作 POJO 进而操作数据库的数据。</p>
-<p>缺点：</p>
-<ol>
-<li>全表映射带来的不便。比如，更新时需要发送所有的字段。</li>
-<li>无法根据不同的条件组装不同的 SQL。</li>
-<li>对多表关联和复杂的 SQL 查询支持较差，需要自己写 SQL，返回后，需要自己将数据封装为 POJO。</li>
-<li>不能有效的支持存储过程。</li>
-<li>虽然有 HQL，但是性能较差，大型互联网系统往往需要优化 SQL，而 Hibernate 做不到。</li>
-</ol>
-<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>为了解决 Hibernate 的不足，Mybatis 出现了，Mybatis 是半自动的框架。之所以称它为半自动，是因为它需要手工匹配提供 POJO，SQL 和映射关系，而全表映射的 Hibernate 只需要提供 POJO 和映射关系即可。</p>
-<p>Mybatis 需要提供的映射文件包含了三个部分：SQL，映射规则，POJO。</p>
-<p>在 Mybatis 里需要自己编写 SQL，虽然比 Hibernate 配置多，但是 Mybatis 可以配置动态 SQL，解决了 Hibernate 表名根据时间变化，不同条件下列不一样的问题，同时也可以对 SQL 进行优化，通过配置决定你的 SQL 映射规则，也能支持存储过程，所以对于一些复杂和需要优化性能的 SQL 查询它就更加方便。</p>
-<h1 id="什么时候使用-Hibernate-Mybatis"><a href="#什么时候使用-Hibernate-Mybatis" class="headerlink" title="什么时候使用 Hibernate/Mybatis"></a>什么时候使用 Hibernate/Mybatis</h1><p>Hibernate 作为 Java ORM 框架，编程简易，同时无需编写sql确实开发效率优于Mybatis。<br>此外 Hibernate 还提供了缓存，日志，级联等强大的功能。</p>
-<p>但是 Hibernate 的缺陷也是十分明显，多表关联复杂 SQL，数据系统权限限制，根据条件变化的 SQL，存储过程等场景使用 Hibernate 十分不方便，而性能又难以通过 SQL 优化，所以注定了 Hibernate 只适用于在场景不太复杂，要求性能不太苛刻的时候使用。</p>
-<p>如果你需要一个灵活的，可以动态生成映射关系的框架，那么 Mybatis 确实是一个最好的选择。它几乎可以替代 JDBC，拥有动态列，动态表名，存储过程支持，同时提供了简易的缓存，日志，级联。但是它的缺陷是需要你提供映射规则和 SQL，所以开发工作量比 Hibernate 要大些。</p>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p><strong>层次</strong><br>JDBC 是较底层的持久层操作方式，而 Hibernate 和 MyBatis 都是在 JDBC 的基础上进行了封装使其更加方便程序员对持久层的操作。</p>
-<p><strong>功能</strong><br>JDBC 就是简单的建立数据库连接，然后创建 Statement，将 SQL 语句传给 Statement 去执行，如果是有返回结果的查询语句，会将查询结果放到 ResultSet 对象中，通过对 ResultSet 对象的遍历操作来获取数据。</p>
-<p>Hibernate 是将数据库中的数据表映射为持久层的 Java 对象，对 SQL 语句进行修改和优化比较困难。</p>
-<p>MyBatis 是将 SQL 语句中的输入参数和输出参数映射为 Java 对象，SQL 修改和优化比较方便。</p>
-<p><strong>使用</strong><br>如果进行底层编程，而且对性能要求极高的话，应该采用 JDBC 的方式。</p>
-<p>如果要对数据库进行完整性控制的话建议使用 Hibernate。</p>
-<p>如果要灵活使用 SQL 语句的话建议采用 MyBatis 框架。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 学习 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> Spring </tag>
             
         </tags>
         
