@@ -123,10 +123,10 @@ if (type.equals("pie")) {
 比如，有两个类，一个基类 BaseClass，一个子类 SubClass：
 
 ```java
-BaseClass {
+class BaseClass {
 }
 
-SubClass extends BaseClass {
+class SubClass extends BaseClass {
 }
 
 // 方法接受 BaseClass 类型参数

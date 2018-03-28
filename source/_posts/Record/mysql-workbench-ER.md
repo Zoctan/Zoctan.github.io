@@ -1,7 +1,9 @@
 ---
 title: mysql-workbench导出ER图
 date: 2018-3-4
-category: 学习
+category: 杂项
+tags:
+- 使用过程
 ---
 
 Debian下安装

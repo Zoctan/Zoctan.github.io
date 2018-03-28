@@ -4,7 +4,6 @@ date: 2018-3-19
 category: 学习
 tags:
   - Java
-  - Spring
 ---
 
 # JDBC 简介

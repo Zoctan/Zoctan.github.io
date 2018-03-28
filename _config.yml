@@ -1,10 +1,10 @@
 # Hexo Configurationzh-CN
 ## Docs:            https://hexo.io/docs/configuration.html
-## Source:          https://github.com/hexojs/hexo/
+## Source:          https://github.com/Zoctan/hexo-theme-teal
 
 # Site
 title:              Zoctan's Blog
-subtitle:           「Zoctan 时光屋」
+subtitle:           又来看我啦~
 description:        后端汪 | 爱折腾
 author:             Zoctan
 language:           zh-CN

@@ -219,12 +219,11 @@ $f[i] = (f[i-1] + m) % i (i > 1)$
 import java.util.Scanner;
 
 public class Main {
+	static Scanner scanner = new Scanner(System.in);
 	public static void main(String args[]) {
-		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		int m = scanner.nextInt();
 		System.out.println(LastRemaining_Solution(n, m));
-		scanner.close();
 	}
 
 	public static int LastRemaining_Solution(int n, int m) {

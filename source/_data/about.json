@@ -15,14 +15,14 @@
   },
   "projects": [{
     "name": "智能插座APP",
-    "image": "https://github.com/Zoctan/SmartHub/blob/app/screenshot/guide3.png",
+    "image": "https://raw.githubusercontent.com/Zoctan/SmartHub/app/screenshot/login.png",
     "tags": ["2017年", "Android"],
-    "description": "基于 Material Design 和 MVP 架构的智能插座客户端\n支持：Android 6.0 <= x < 7.0\n本 APP 基于团队制作的具有可识别、计量、安全和节能的智能插座而开发的。智能插座本身可对用电器进行学习识别，对插上用电器的参数进行分类上传。用户可以通过 APP 定时或实时控制插座通电，查看包括电压、电流、功率和功率因数，当前用电器等信息，可根据统计出的日月用电量进一步了解家电的耗能问题。",
+    "description": "基于 Material Design 和 MVP 架构的智能插座客户端",
     "link_text": "Github地址",
     "link": "https://github.com/Zoctan/SmartHub"
   }, {
     "name": "Spring Boot Vue Admin",
-    "image": "https://github.com/Zoctan/spring-boot-vue-admin/blob/master/README/3.png",
+    "image": "https://raw.githubusercontent.com/Zoctan/spring-boot-vue-admin/master/README/2.png",
     "description": "一套前后端分离的后台权限管理模版。",
     "tags": ["2018年", "Java"],
     "link_text": "Github地址",

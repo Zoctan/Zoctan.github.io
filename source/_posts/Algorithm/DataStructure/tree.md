@@ -1,5 +1,5 @@
 ---
-title: 数据结构
+title: 树
 date: 2018-3-19
 category: 学习
 tags:
@@ -17,7 +17,7 @@ tags:
 2. 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值
 3. 它的左、右子树也分别为二叉搜索树
 
-## 模版
+**模版**
 
 ```java
 class BSTree {
@@ -25,7 +25,7 @@ class BSTree {
 		int key, value;
 		Node leftChild, rightChild;
 
-		public Node(int key, int value) {
+		Node(int key, int value) {
 			this.key = key;
 			this.value = value;
 		}
@@ -40,7 +40,7 @@ class BSTree {
 	 * 
 	 * @return 指定节点
 	 */
-	public Node find(int key) {
+	Node query(int key) {
 		Node currentNode = root;
 		while (currentNode != null && currentNode.key != key) {
 			if (key < currentNode.key) {
@@ -58,7 +58,7 @@ class BSTree {
 	 * @param key 键
 	 * @param value 值
 	 */
-	public void insert(int key, int value) {
+	void insert(int key, int value) {
 		if (root == null) {
 			root = new Node(key, value);
 			return;
@@ -94,7 +94,7 @@ class BSTree {
 	 * 
 	 * @return 是否删除成功
 	 */
-	public boolean delete(int key) {
+	boolean delete(int key) {
 		Node currentNode = root;
 		Node parentNode = root;
 		boolean isLeftChild = true;
@@ -154,7 +154,7 @@ class BSTree {
 	 * 
 	 * @return 直接后继节点
 	 */
-	private Node getDirectPostNode(Node delNode) {
+	Node getDirectPostNode(Node delNode) {
 		Node parentNode = delNode;// 用来保存待删除节点的直接后继节点的父亲节点
 		Node directPostNode = delNode;// 用来保存待删除节点的直接后继节点
 		Node currentNode = delNode.rightChild;
@@ -176,7 +176,7 @@ class BSTree {
 	 * 
 	 * @param rootNode 根节点
 	 */
-	public void preOrder(Node rootNode) {
+	void preOrder(Node rootNode) {
 		if (rootNode != null) {
 			System.out.println("key: " + rootNode.key + " " + "value: " + rootNode.value);
 			preOrder(rootNode.leftChild);
@@ -189,7 +189,7 @@ class BSTree {
 	 * 
 	 * @param rootNode 根节点
 	 */
-	public void inOrder(Node rootNode) {
+	void inOrder(Node rootNode) {
 		if (rootNode != null) {
 			inOrder(rootNode.leftChild);
 			System.out.println("key: " + rootNode.key + " " + "value: " + rootNode.value);
@@ -202,7 +202,7 @@ class BSTree {
 	 * 
 	 * @param rootNode 根节点
 	 */
-	public void postOrder(Node rootNode) {
+	void postOrder(Node rootNode) {
 		if (rootNode != null) {
 			postOrder(rootNode.leftChild);
 			postOrder(rootNode.rightChild);
@@ -239,60 +239,31 @@ C[i] 管理的区间：[i - bitLow(i) + 1, i]
 
 通常使用在高效的计算数列的前缀和，区间和。
 
-## 模版
+**模版**
 
 ```java
 class BinaryIndexedTree {
 	int length;
-	int[] tree;
+	int[] tree;// 数组有效范围 1~length
 
 	/**
-	 * 为了统一下标，所以tree[0]不被使用，数组有效范围1~length
+	 * 为了统一下标，tree[0]不被使用
 	 * 
 	 * @param length 数组长度
 	 */
-	public BinaryIndexedTree(int length) {
+	BinaryIndexedTree(int length) {
 		this.length = length;
 		tree = new int[length + 1];
 	}
 
 	/**
-	 * 计算1~index范围内和
-	 * 
-	 * @param index 索引
-	 */
-	public int sum(int index) {
-		if (index < 1 && index > length) {
-			throw new IllegalArgumentException("Out of Range!");
-		}
-		int sum = 0;
-		while (index > 0) {
-			sum += tree[index];
-			index -= lowBit(index);
-		}
-		return sum;
-	}
-
-	/**
-	 * 计算start~end范围内和
-	 * 
-	 * @param start 起始
-	 * @param end 终点
-	 */
-	public int sum(int start, int end) {
-		return sum(end) - sum(start - 1);
-	}
-
-	/**
-	 * index一直加上lowBit(index)，直到index为length。这些位置的值都加上value
+	 * index一直加上lowBit(index)，直到index为length
+	 * 这些位置的值都加上value
 	 * 
 	 * @param index 索引
 	 * @param value 值
 	 */
-	public void put(int index, int value) {
-		if (index < 1 && index > length) {
-			throw new IllegalArgumentException("Out of Range!");
-		}
+	void put(int index, int value) {
 		while (index <= length) {
 			tree[index] += value;
 			index += lowBit(index);
@@ -300,14 +271,12 @@ class BinaryIndexedTree {
 	}
 
 	/**
-	 * index一直减去lowBit(index)，直到index为length。这些位置的值都加上value
+	 * index一直减去lowBit(index)，直到index为length
+	 * 这些位置的值都减去value
 	 * 
 	 * @param index 索引
 	 */
-	public int get(int index) {
-		if (index < 1 && index > length) {
-			throw new IllegalArgumentException("Out of Range!");
-		}
+	int get(int index) {
 		int sum = tree[index];
 		int z = index - lowBit(index);
 		index--;
@@ -323,9 +292,33 @@ class BinaryIndexedTree {
 	 * 
 	 * @param index 索引
 	 */
-	private static int lowBit(int k) {
+	static int lowBit(int k) {
 		// 1110保留最低位1，即最右边1：0010
 		return k & -k;
+	}
+
+	/**
+	 * 计算1~index范围内和
+	 * 
+	 * @param index 索引
+	 */
+	int sum(int index) {
+		int sum = 0;
+		while (index > 0) {
+			sum += tree[index];
+			index -= lowBit(index);
+		}
+		return sum;
+	}
+
+	/**
+	 * 计算start~end范围内和
+	 * 
+	 * @param start 起始
+	 * @param end 终点
+	 */
+	int sum(int start, int end) {
+		return sum(end) - sum(start - 1);
 	}
 }
 ```
@@ -344,7 +337,7 @@ class BinaryIndexedTree {
 
 线段树主要用于高效解决连续区间的动态查询问题，由于二叉结构的特性，使用线段树可以快速的查找某一个节点在若干条线段中出现的次数，时间复杂度为 O(logN）。而未优化的空间复杂度为 2N，因此有时需要离散化来压缩空间。
 
-## 模版
+**模版**
 
 ```java
 
@@ -371,7 +364,7 @@ class SegmentTree {
 	 * @param left 左区间
 	 * @param right 右区间
 	 */
-	public void build(int left, int right) {
+	void build(int left, int right) {
 		root = new Node(left, right);
 		build(root);
 	}
@@ -381,7 +374,7 @@ class SegmentTree {
 	 * 
 	 * @param root 根节点
 	 */
-	private void build(Node root) {
+	void build(Node root) {
 		int left = root.left;
 		int right = root.right;
 		// root节点为叶子节点
@@ -405,7 +398,7 @@ class SegmentTree {
 	 * @param left 左端点
 	 * @param right 右端点
 	 */
-	public void insert(int left, int right) {
+	void insert(int left, int right) {
 		insert(left, right, root);
 	}
 
@@ -416,7 +409,7 @@ class SegmentTree {
 	 * @param right 右端点
 	 * @param node 节点
 	 */
-	private void insert(int left, int right, Node node) {
+	void insert(int left, int right, Node node) {
 		if (node == null || left < node.left || right > node.right) {
 			System.out.println("输入的参数不合法!" + "left:" + left + " " + "right:" + right);
 			System.out.println("root:" + node.left + " " + node.right);
@@ -444,7 +437,7 @@ class SegmentTree {
 	 * @param left 左端点
 	 * @param right 右端点
 	 */
-	public void delete(int left, int right) {
+	void delete(int left, int right) {
 		delete(left, right, root);
 	}
 
@@ -455,7 +448,7 @@ class SegmentTree {
 	 * @param right 右端点
 	 * @param node 节点
 	 */
-	private void delete(int left, int right, Node node) {
+	void delete(int left, int right, Node node) {
 		if (node == null || left < node.left || right > node.right) {
 			System.out.println("输入的参数不合法!");
 			return;
@@ -482,7 +475,7 @@ class SegmentTree {
 	/**
 	 * 前序遍历
 	 */
-	public void preOrder() {
+	void preOrder() {
 		preOrder(root);
 	}
 
@@ -491,7 +484,7 @@ class SegmentTree {
 	 * 
 	 * @param root 根节点
 	 */
-	private void preOrder(Node root) {
+	void preOrder(Node root) {
 		if (root.right - root.left == 1) {
 			System.out.println("[" + root.left + "," + root.right + "]:" + root.count);
 			return;
@@ -505,8 +498,8 @@ class SegmentTree {
 	/**
 	 * 统计线段树中cover为true的线段的总长度
 	 */
-	public int Count() {
-		return Count(root);
+	int count() {
+		return count(root);
 	}
 
 	/**
@@ -514,21 +507,21 @@ class SegmentTree {
 	 * 
 	 * @param node 节点
 	 */
-	private int Count(Node node) {
+	int count(Node node) {
 		if (node.cover == true) {// 不继续往下查找，否则会重复
 			return node.right - node.left;
 		} else {
 			if (node.right - node.left == 1) {
 				return 0;
 			} else {
-				return Count(node.leftChild) + Count(node.rightChild);
+				return count(node.leftChild) + count(node.rightChild);
 			}
 		}
 	}
 }
 ```
 
-## 优点
+**优点**
 
 - 时间快，操作多
 
@@ -542,7 +535,7 @@ class SegmentTree {
 
 另外，它操作多样化，比起树状数组，多了区间最值一种操作。　　
 
-## 缺点
+**缺点**
 
 - 浪费空间
 
@@ -550,3 +543,179 @@ class SegmentTree {
 但是在某些情况，线段树会浪费三倍的空间(只有一条链等)，但你又不能省掉这三倍空间，还是得苦逼的开四倍。
 
 和树状数组比起来，一棵普通的线段树是树状数组空间的四倍。
+
+# 字典树
+
+字典树/前缀树/单词查找树/键树（Trie）：
+
+{% asset_img Trie.png Trie %}
+
+上图表示了关键字集合 {“a”, “to”, “tea”, “ted”, “ten”, “i”, “in”, “inn”} 。
+
+基本性质：
+1. 根节点不包含字符，除根节点外的每一个子节点都包含一个字符。
+2. 从根节点到某一个节点，路径上经过的字符连接起来，为该节点对应的字符串。
+3. 每个节点的所有子节点包含的字符互不相同。
+4. 从第一字符开始有连续重复的字符只占用一个节点，比如上面的to，和ten，中重复的单词t只占用了一个节点。
+
+应用：
+1. 前缀匹配
+2. 字符串检索
+3. 词频统计
+4. 字符串排序
+
+**模版**
+
+```java
+
+class Trie {
+	class Node {
+		int num;// 有多少单词通过这个节点，即由根至该节点组成的字符串模式出现的次数
+		Node[] child;// 所有的子节点
+		boolean isEnd;// 是不是最后一个节点
+		char value;// 节点的值
+
+		Node() {
+			num = 1;
+			child = new Node[SIZE];
+			isEnd = false;
+		}
+	}
+
+	int SIZE = 26;
+	Node root;
+
+	/**
+	 * 插入一个单词
+	 * 
+	 * @param str 单词
+	 */
+	void insert(String str) {
+		if (root == null) {
+			root = new Node();
+			return;
+		}
+		if (str == null || str.length() == 0) {
+			return;
+		}
+		Node node = root;
+		char[] letters = str.toCharArray();// 将目标单词转换为字符数组
+		for (int i = 0, len = str.length(); i < len; i++) {
+			int pos = letters[i] - 'a';
+			// 如果当前节点的儿子节点中没有该字符，则构建一个TrieNode并复值该字符
+			if (node.child[pos] == null) {
+				node.child[pos] = new Node();
+				node.child[pos].value = letters[i];
+			} else {
+				// 如果已经存在，则将由根至该儿子节点组成的字符串模式出现的次数+1
+				node.child[pos].num++;
+			}
+			node = node.child[pos];
+		}
+		node.isEnd = true;
+	}
+
+	/**
+	 * 计算单词前缀的数量
+	 * 
+	 * @param prefix 前缀
+	 * @return 单词前缀的数量
+	 */
+	int countPrefix(String prefix) {
+		if (prefix == null || prefix.length() == 0) {
+			return -1;
+		}
+		Node node = root;
+		char[] letters = prefix.toCharArray();
+		for (int i = 0, len = prefix.length(); i < len; i++) {
+			int pos = letters[i] - 'a';
+			if (node.child[pos] == null) {
+				return 0;
+			} else {
+				node = node.child[pos];
+			}
+		}
+		return node.num;
+	}
+
+	/**
+	 * 打印指定前缀的单词
+	 * 
+	 * @param prefix 前缀
+	 * @return 单词
+	 */
+	String hasPrefix(String prefix) {
+		if (prefix == null || prefix.length() == 0) {
+			return null;
+		}
+		Node node = root;
+		char[] letters = prefix.toCharArray();
+		for (int i = 0, len = prefix.length(); i < len; i++) {
+			int pos = letters[i] - 'a';
+			if (node.child[pos] == null) {
+				return null;
+			} else {
+				node = node.child[pos];
+			}
+		}
+		preTraverse(node, prefix);
+		return null;
+	}
+
+	/**
+	 * 遍历经过此节点的单词
+	 * 
+	 * @param node 节点
+	 * @param prefix 前缀
+	 */
+	void preTraverse(Node node, String prefix) {
+		if (!node.isEnd) {
+			for (Node child : node.child) {
+				if (child != null) {
+					preTraverse(child, prefix + child.value);
+				}
+			}
+			return;
+		}
+		System.out.println(prefix);
+	}
+
+	/**
+	 * 存在完全匹配的单词
+	 * 
+	 * @param str 单词
+	 * @return boolean
+	 */
+	boolean has(String str) {
+		if (str == null || str.length() == 0) {
+			return false;
+		}
+		Node node = root;
+		char[] letters = str.toCharArray();
+		for (int i = 0, len = str.length(); i < len; i++) {
+			int pos = letters[i] - 'a';
+			if (node.child[pos] != null) {
+				node = node.child[pos];
+			} else {
+				return false;
+			}
+		}
+		// 走到这一步，表明可能完全匹配，可能部分匹配，如果最后一个字符节点为末端节点，则是完全匹配，否则是部分匹配
+		return node.isEnd;
+	}
+
+	/**
+	 * 前序遍历
+	 * 
+	 * @param node 节点
+	 */
+	void preTraverse(Node node) {
+		if (node != null) {
+			System.out.print(node.value + "-");
+			for (Node child : node.child) {
+				preTraverse(child);
+			}
+		}
+	}
+}
+```

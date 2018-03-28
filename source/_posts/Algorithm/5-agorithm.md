@@ -267,75 +267,11 @@ public class Main {
 比如：有3种菜，价格分别是2, 3, 1，卡上余额为7。
 保留5块钱，为了尽可能花完剩下的7-5=2块钱，就买了第1个菜，2块钱就花完了，最后用5块钱买最贵的那个3块钱的菜，这样最少余额为2。
 
-```java 二维数组
-import java.util.Arrays;
-import java.util.Scanner;
-public class Main {
-	// 背包容量
-	private static int rest;
-	private static int[] need;
-	private static int[][] dp;
-
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(new BufferedInputStream(System.in));
-		int n = scanner.nextInt();
-		need = new int[n];
-		for (int i = 0; i < n; i++) {
-			need[i] = scanner.nextInt();
-		}
-		int card = scanner.nextInt();
-		scanner.close();
-		// 如果卡余额不足5块钱，买不了菜
-		if (card < 5) {
-			System.out.println(card);
-			return;
-		}
-		// 方便后面选最贵菜
-		Arrays.sort(need);
-		// 分成5块钱和另外剩下的一部分钱
-		rest = card - 5;
-		dp = new int[n][rest + 1];
-		// 剩下的钱买菜
-		buy();
-		// 最后剩下的钱去买最贵的菜
-		System.out.println(card - dp[need.length - 2][rest] - need[need.length - 1]);
-	}
-
-	private static void buy() {
-		for (int j = 1; j <= rest; j++) {
-			// 最贵的菜要留到最后买，所以这里不买最贵的菜
-			for (int i = 0; i < need.length - 1; i++) {
-				if (j >= need[i]) {
-					if (i == 0) {
-						dp[i][j] = need[i];
-						continue;
-					}
-					dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - need[i]] + need[i]);
-				} else {
-					if (i == 0) {
-						dp[i][j] = 0;
-						continue;
-					}
-					dp[i][j] = dp[i - 1][j];
-				}
-			}
-		}
-		/*
-		for (int j = 0; j < need.length; j++) {
-			for (int i = 0; i <= rest; i++) {
-				System.out.print(dp[j][i] + " ");
-			}
-			System.out.println();
-		}
-		 */
-	}
-}
-```
-
 ```java 一维数组 AC
 import java.io.BufferedInputStream;
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(new BufferedInputStream(System.in));
@@ -349,16 +285,20 @@ public class Main {
 				need[i] = scanner.nextInt();
 			}
 			int card = scanner.nextInt();
+			// 如果卡余额不足5块钱，买不了菜
 			if (card < 5) {
 				System.out.println(card);
 				continue;
 			}
+			// 方便后面选最贵菜
 			Arrays.sort(need);
 			if (card == 5 || n == 1) {
 				System.out.println(card - need[n - 1]);
 			} else {
+				// 分成5块钱和另外剩下的一部分钱
 				int rest = card - 5;
 				int[] dp = new int[rest + 1];
+				// 最贵的菜要留到最后买，所以这里不买最贵的菜，故 n-1
 				for (int i = 0; i < n - 1; i++) {
 					for (int j = rest; j >= need[i]; j--) {
 						dp[j] = Math.max(dp[j], dp[j - need[i]] + need[i]);
@@ -399,12 +339,7 @@ For each case, print one line containing two integers A and B which denote the v
 大意：A，B学院平分所有的设施装置，假设有N种装置（0<N<1000），不同装置不同价值（如果有2个价值一样的装置，那就把它们看成一样的），要求平分后的价值差不多，如果不相等，A得到的价值应该大于B的。
 
 分析：
-看上去是完全背包，但可以将多个相同装置展开，变回0-1背包。
-比如：
-10 1 
-20 2
-30 1
-变为10 20 20 30
+多重背包，价值和重量一样。
 
 将所有装置价值总和/2后当成背包大小，这个背包就相当于学院B，然后去拿装置，拿剩的就是另一个学院A的。
 比如样例1：
@@ -416,36 +351,32 @@ For each case, print one line containing two integers A and B which denote the v
 
 ```java AC
 import java.io.BufferedInputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Main {
+	static Scanner scanner = new Scanner(new BufferedInputStream(System.in));
+
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(new BufferedInputStream(System.in));
 		int n = scanner.nextInt();
 		while (n > 0) {
 			int sum = 0;
-			ArrayList<Integer> value = new ArrayList<>();
-			for (int i = 0, nums = 0, v = 0; i < n; i++) {
-				v = scanner.nextInt();
-				value.add(v);
-				nums = scanner.nextInt();
-				sum += v * nums;
-				while (nums != 1) {
-					value.add(v);
-					nums--;
+			int[] value = new int[n];
+			int[] num = new int[n];
+			for (int i = 0; i < n; i++) {
+				value[i] = scanner.nextInt();
+				num[i] = scanner.nextInt();
+				sum += value[i] * num[i];
+			}
+			int capacity = sum >> 1;
+			int[] dp = new int[capacity + 1];
+			for (int i = 0; i < n; i++) {
+				for (int k = 0; k < num[i]; k++) {
+					for (int j = capacity; j >= value[i]; j--) {
+						dp[j] = Math.max(dp[j], dp[j - value[i]] + value[i]);
+					}
 				}
 			}
-			int total = value.size();
-			Integer[] f = new Integer[total];
-			value.toArray(f);
-			int bag = sum >> 1;
-			int[] dp = new int[bag + 1];
-			for (int i = 0; i < total; i++) {
-				for (int j = bag; j >= f[i]; j--) {
-					dp[j] = Math.max(dp[j], dp[j - f[i]] + f[i]);
-				}
-			}
-			System.out.println((sum - dp[bag]) + " " + dp[bag]);
+			System.out.println((sum - dp[capacity]) + " " + dp[capacity]);
 			n = scanner.nextInt();
 		}
 	}
@@ -604,7 +535,6 @@ public class Main {
 #### 完全背包
 
 ```java 一维数组
-import static java.lang.System.out;
 public class Main {
 	private static int capacity = 10;
 	private static String[] items = new String[] { "a", "b", "c", "d", "e" };
@@ -626,13 +556,46 @@ public class Main {
 	}
 
 	private static void outPutMaxValue() {
-		out.println(dp[capacity]);
+		System.out.println(dp[capacity]);
 	}
 }
 ```
 
 #### 多重背包
 
+##### 模版
+
+```java
+public class Main {
+	private static int capacity = 10;
+	private static String[] items = new String[] { "a", "b", "c", "d", "e" };
+	private static int[] weight = new int[] { 2, 2, 6, 5, 4 };
+	private static int[] value = new int[] { 6, 3, 5, 4, 6 };
+	private static int[] num = new int[] { 2, 3, 1, 4, 2 };
+	private static int[] dp = new int[capacity + 1];
+
+	public static void main(String[] args) {
+		decide();
+		outPutMaxValue();
+	}
+
+	private static void decide() {
+		for (int i = 0; i < items.length; i++) {
+			for (int k = 0; k < num[i]; k++) {
+				for (int j = capacity; j >= weight[i]; j--) {
+					dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+				}
+			}
+		}
+	}
+
+	private static void outPutMaxValue() {
+		System.out.println(dp[capacity]);
+	}
+}
+```
+
+##### 例子
 [HDU2159：FATE](http://acm.hdu.edu.cn/showproblem.php?pid=2159)
 最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。
 久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。
