@@ -3,7 +3,7 @@ title: 蓝桥杯2016年第7届Java-B组国赛
 date: 2018-1-22
 category: 学习
 tags:
-  - 蓝桥杯
+  - 算法
   - Java
 ---
 

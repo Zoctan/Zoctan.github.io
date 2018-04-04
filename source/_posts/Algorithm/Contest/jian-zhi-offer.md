@@ -3,7 +3,7 @@ title: 剑指offer
 date: 2018-01-01
 category: 学习
 tags:
-  - 剑指offer
+  - 算法
   - Java
 ---
 

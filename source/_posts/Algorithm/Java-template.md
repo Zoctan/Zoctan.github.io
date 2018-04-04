@@ -34,10 +34,10 @@ long gcd(long a, long b) {
 
 # 斯特林公式
 
-求 n 阶乘的位数
+求 n 阶乘后的位数
 
 ```java
-double len = 0.5 * Math.log10(2 * n * Math.PI) + n * Math.log10(n / Math.E) + 1;
+0.5 * log10(2 * n * PI) + n * log10(n / E) + 1
 ```
 
 # 扩展欧几里德
@@ -45,7 +45,7 @@ double len = 0.5 * Math.log10(2 * n * Math.PI) + n * Math.log10(n / Math.E) + 1;
 求乘法逆元
 
 ```java
-static long[] extendEuclid(long a, long b) {
+long[] extendEuclid(long a, long b) {
 	if (b == 0) {
 		return new long[] { a, 1, 0 };
 	} else {
@@ -61,7 +61,7 @@ static long[] extendEuclid(long a, long b) {
 # 中国剩余定理/孙子定理
 
 ```java
-static long CRT(long p[], long m[], long n) {
+long CRT(long p[], long m[], long n) {
 	long M = 1;
 	long result = 0;
 	for (int i = 0; i < n; i++) {
@@ -97,25 +97,30 @@ long quickPowerMod(long x, long n, long mod) {
 # 全排列
 
 ```java
-static void permutate(char[] array, int from, int to) {
-    if (from == to) {
-        System.out.println(new String(array));
-    } else {
-        for (int i = from; i < to; i++) {
-            if (isUnique(array, from, i)) {
-                swap(array, from, i);
-                permutate(array, from + 1, to);
-                swap(array, from, i);
-            }
-        }
-    }
+/**
+ * char[] a = { 'a', 'b', 'c' };
+ * permutate(a, 0);
+ */
+void permutate(char[] A, int n) {
+	if (n == A.length) {
+		System.out.println(new String(A));
+	} else {
+		for (int i = n; i < A.length; i++) {
+			if (isUnique(A, n, i)) {
+				swap(A, n, i);
+				permutate(A, n + 1);
+				swap(A, n, i);
+			}
+		}
+	}
 }
 
-static boolean isUnique(char[] array, int begin, int end) {
-    for (int i = begin; i < end; i++)
-        if (array[i] == array[end])
-            return false;
-    return true;
+// 如果有重复字符，要去重
+boolean isUnique(char[] A, int start, int end) {
+	for (int i = start; i < end; i++)
+		if (A[i] == A[end])
+			return false;
+	return true;
 }
 ```
 
@@ -164,7 +169,7 @@ void LCS(String s1, String s2) {
 两个字符串中的最长公共子串，要求子串一定连续
 
 ```java
-int longest(String s1, String s2) {
+int Longest(String s1, String s2) {
 	int s1Length = s1.length(), s2Length = s2.length();
 	int[][] dp = new int[s1Length][s2Length];
 	int longest = 0;
@@ -263,6 +268,8 @@ ArrayList<Integer> getPrime(int n) {
 
 # KMP
 
+匹配字符串
+
 ```java
 public static void main(String[] args) {
 	String a = "ababa";
@@ -315,14 +322,15 @@ boolean isIntersects(Point a, Point b, Point c, Point d) {
 	// 即判断c、d两点是否在ab线段的两侧
 	// 再判断a、b两点是否在cd线段的两侧
 	// 都成立才正确
-	return crossProduct(a, b, c) * crossProduct(a, b, d) <= 0 && crossProduct(c, d, a) * crossProduct(c, d, b) <= 0;
+	return crossProduct(a, b, c) * crossProduct(a, b, d) <= 0
+			&& crossProduct(c, d, a) * crossProduct(c, d, b) <= 0;
 }
 ```
 
 # 01背包
 
 ```java
-int capacity = 10;
+int capacity = 12;
 int items = 5;
 int[] weight = new int[] { 2, 2, 6, 5, 4 };
 int[] value = new int[] { 6, 3, 5, 4, 6 };
@@ -348,14 +356,14 @@ void bagComplete() {
 	}
 }
 // 初始化分两种情况：
-// 1. 背包要求正好装满则初始化 dp[0] = 0, dp[1~w] = Integer.MIN_VALUE;  
-// 2. 不需要正好装满 dp[0~v] = 0;
+// 1. 背包要求正好装满：dp[0] = 0, dp[1~w] = Integer.MIN_VALUE;  
+// 2. 不需要正好装满：dp[0~v] = 0;
 ```
 
 # 多重背包
 
 ```java
-int capacity = 10;
+int capacity = 12;
 int items = 5;
 int[] weight = new int[] { 2, 2, 6, 5, 4 };
 int[] value = new int[] { 6, 3, 5, 4, 6 };
@@ -369,6 +377,35 @@ void bagMultiple() {
 				dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
 			}
 		}
+	}
+}
+```
+
+# 快排
+
+```java
+int partition(int[] A, int low, int high) {
+	int i = low;
+	int j = high + 1;
+	int pivot = A[low]; // 基准
+	while (true) {
+		// 左边的比基准值小
+		while (i < high && A[++i] < pivot);
+		// 右边的比基准值大
+		while (A[--j] > pivot);
+		if (i >= j)	break;
+		swap(A, i, j);
+	}
+	// 基准值交换到 i j 相遇的位置
+	swap(A, low, j);
+	return j;
+}
+
+void quicksort(int[] A, int low, int high) {
+	if (low < high) {
+		int mid = partition(A, low, high);
+		quicksort(A, low, mid - 1);
+		quicksort(A, mid + 1, high);
 	}
 }
 ```

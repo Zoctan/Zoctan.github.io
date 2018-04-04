@@ -5,17 +5,18 @@ category: 学习
 tags:
   - 数据结构
   - Java
+  - 算法
 ---
 
 # 二叉搜索树
 
 二叉搜索树/二叉排序树（Binary Search Tree）：
 
-{% asset_img BinarySearchTree.png BinarySearchTree %}
+![BinarySearchTree](BinarySearchTree.png)
 
-1. 它的左子树不空，则左子树上所有结点的值均小于它的根结点的值
-2. 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值
-3. 它的左、右子树也分别为二叉搜索树
+1. 根的左子树不空，则左子树上所有结点的值均小于它的根结点的值。
+2. 根的右子树不空，则右子树上所有结点的值均大于它的根结点的值。
+3. 根的左、右子树也分别为二叉搜索树。
 
 **模版**
 
@@ -216,7 +217,7 @@ class BSTree {
 
 树状数组/二叉索引树（Binary Indexed Tree）：
 
-{% asset_img BinaryIndexedTree.png BinaryIndexedTree %}
+![BinaryIndexedTree](BinaryIndexedTree.png)
 
 A 数组就是原数组，C 数组则是树状数组。
 
@@ -327,7 +328,7 @@ class BinaryIndexedTree {
 
 线段树/区间树（Segment tree）是一种二叉搜索树：
 
-{% asset_img SegmentTree.png SegmentTree %}
+![SegmentTree](SegmentTree.png)
 
 特点：
 - 每个结点表示的是一个线段，或者说是一个区间。
@@ -548,7 +549,7 @@ class SegmentTree {
 
 字典树/前缀树/单词查找树/键树（Trie）：
 
-{% asset_img Trie.png Trie %}
+![Trie](Trie.png)
 
 上图表示了关键字集合 {“a”, “to”, “tea”, “ted”, “ten”, “i”, “in”, “inn”} 。
 

@@ -3,7 +3,7 @@ title: 蓝桥杯2017年第8届省赛
 date: 2018-1-26
 category: 学习
 tags:
-  - 蓝桥杯
+  - 算法
   - Java
 ---
 
@@ -120,7 +120,7 @@ public class Main {
 A,2,3,4,5,6,7,8,9 共9张纸牌排成一个正三角形（A按1计算）。要求每个边的和相等。
 下图就是一种排法。
 
-{% asset_img 2.png 纸牌三角形 %}
+![纸牌三角形](2.png)
 
 这样的排法可能会有很多。
 
@@ -262,11 +262,11 @@ public class Main {
 
 如图是可行的分割法：
 
-{% asset_img 4-1.png 方格分割 %}
+![方格分割](4-1.png)
 
-{% asset_img 4-2.png 方格分割 %}
+![方格分割](4-2.png)
 
-{% asset_img 4-3.png 方格分割 %}
+![方格分割](4-3.png)
 
 试计算：
 包括这3种分法在内，一共有多少种不同的分割方法。 509
@@ -377,7 +377,6 @@ public class Main {
 				weight[i][j] = scanner.nextDouble();
 			}
 		}
-		scanner.close();
 		for (int i = 1; i < 30; i++) {
 			for (int j = 0; j < i; j++) {
 				double front = weight[i - 1][j] / 2.0;
@@ -401,7 +400,7 @@ public class Main {
 
 二阶魔方就是只有2层的魔方，只由8个小块组成。
 
-{% asset_img 6.png 魔方状态 %}
+![魔方状态](6.png)
 
 小明很淘气，他只喜欢3种颜色，所有把家里的二阶魔方重新涂了颜色，如下：
 
@@ -455,11 +454,12 @@ ULRDLUURRR
 
 如果你还没明白游戏规则，可以参看一个简化的4x4迷宫的解说图：
 
-{% asset_img 7.png 迷宫 %}
+![迷宫](7.png)
 
 ```java
 import java.io.BufferedInputStream;
 import java.util.Scanner;
+
 public class Main {
 	static Scanner scanner = new Scanner(new BufferedInputStream(System.in));
 	static int n = 10;
@@ -586,7 +586,7 @@ class Main {
 
 ## 跳蚱蜢
 
-{% asset_img 9.png 跳蚱蜢 %}
+![跳蚱蜢](9.png)
 
 有 9 只盘子，排成 1 个圆圈。
 其中 8 只盘子内装着 8 只蚱蜢，有一个是空盘。
@@ -1008,7 +1008,8 @@ class Main {
 		try {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setLenient(false);
-			calendar.set(year, month, date);
+			// 注意月份从0开始
+			calendar.set(year, month - 1, date);
 			calendar.get(Calendar.YEAR);
 			return true;
 		} catch (Exception e) {
@@ -1147,10 +1148,7 @@ public class Main {
 峰值内存消耗（含虚拟机） < 256M
 CPU消耗  < 1000ms
 
-分析：
-二分
-
-```java
+```java 二分
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -1222,7 +1220,7 @@ public class Main {
 CPU消耗  < 2000ms
 
 分析：
-判断某些区间的和时会重复计算，比如区间 [1,4]，其和为 1+2+3+4，而 1+2+3 在区间 [1,3] 时就已经计算过了，为了减少重复计算，使用前缀和：
+判断某些区间的和时会重复计算，比如区间 [1,4]，其和为 1+2+3+4，而 1+2+3 在区间 [1,3] 时就已经计算过了，为了减少重复，使用前缀和：
 - 用 sum[i] 表示 A1 + A2 + … +Ai
 - 对任意一段区间 [l, r]，其和为 sum[r] - sum[l-1]
 - 保证这个区间和为K倍数：(sum[r] - sum[l-1]) % k == 0
@@ -1231,7 +1229,7 @@ CPU消耗  < 2000ms
 样例说明：
 ```
 区间：  1 2 3  4  5
-和：    1 3 6 10 15
+前缀和：1 3 6 10 15
 取余：  1 1 0  0  1，这里其实还隐藏了第一个 0
 补全：0 1 1 0  0  1
 ```

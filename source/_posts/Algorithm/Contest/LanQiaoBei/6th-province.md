@@ -3,7 +3,7 @@ title: 蓝桥杯2015年第6届省赛
 date: 2018-1-25
 category: 学习
 tags:
-  - 蓝桥杯
+  - 算法
   - Java
 ---
 
