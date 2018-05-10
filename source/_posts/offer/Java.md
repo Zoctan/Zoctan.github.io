@@ -141,17 +141,129 @@ public class SimpleHappenBefore {
 
 7.J.U.C包的JDK源码（CAS、AQS、ConcurrentHashMap、ThreadLocal、CyclicBarrier、CountDownLatch、Atom、阻塞队列等等） 
 
-8.String、StringBuffer、StringBuilder 
-
-9.异常处理机制 
-
 10.集合框架底层JDK实现（HashMap和Hashtable区别、Set、List等等） 
 
 11.IO（writer、reader、InputStream、OutputStream）、NIO等 
 
-12.四种引用及其区别和使用场景 
+**四种引用及其区别和使用场景**
 
-13.对象序列化与反序列化 
+*强引用（StrongReference）*
+
+如果一个对象具有强引用，那垃圾回收器（Garbage Collection，GC）绝不会回收它。当内存空间不足，JVM 宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。
+
+```java
+// 强引用
+Object o = new Object();
+
+// 如果不使用时，要弱化引用，帮助 GC 回收此对象
+// 显式地设置为 null 或超出对象的生命周期范围，则 GC 认为该对象不存在引用，这时就会回收该对象
+// 具体什么时候回收要取决于 GC 的算法
+o = null;
+```
+
+```java
+// 在一个方法的内部有一个强引用
+// 这个引用 o 保存在栈中，而真正的引用内容（Object）保存在堆中
+// 当这个方法运行完成后就会退出方法栈，引用 o 将会不存在，引用内容 Object 将被回收
+// 但如果这个 o 是全局的变量，就需要在不用时将其赋值为 null ，因为强引用不会被垃圾回收
+public void test(){
+  Object o = new Object();
+}
+```
+
+```java ArrayList的实现源码
+private transient Object[] elementData;
+
+public void clear() {
+  modCount++;
+  // 如果只是 elementData = null，那么强引用仍然存在
+  // 所以使用 clear() 方法释放数组中存放的引用类型，就可以及时释放内存
+  // Let gc do its work
+  for (int i = 0; i < size; i++)
+    elementData[i] = null;
+  size = 0;
+}
+```
+
+*软引用（SoftReference）*
+
+如果一个对象只具有软引用，当内存空间足够，GC 不会回收它；但内存空间不足时，就会回收这些对象的内存。只要 GC 没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。
+
+软引用可以和引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被 GC 回收，JVM 就会把这个软引用加入到与之关联的引用队列中。
+
+```java
+// 强引用
+String str = new String("abc");
+// 软引用
+SoftReference<String> softRef = new SoftReference<String>(str);
+
+if(JVM.内存不足()) {
+  str = null;  // 转换为软引用
+  System.gc(); // 通知 GC 进行回收
+}
+```
+
+实际场景：按浏览器的后退按钮时，这个后退时显示的网页内容是重新进行请求还是从缓存中取出呢？
+可能的实现策略：
+- 如果一个网页在浏览结束时就进行内容的回收，则按后退查看前面浏览过的页面时，需要重新构建。
+- 如果将浏览过的网页存储到内存中会造成内存的大量浪费，甚至会造成内存溢出。
+
+```java 使用软引用灵活处理
+// 获取页面进行浏览
+Browser prev = new Browser();
+// 浏览完毕后置为软引用
+SoftReference sr = new SoftReference(prev);
+
+if(sr.get() != null) {
+  // 还没有被回收器回收，直接获取
+  rev = (Browser) sr.get();
+} else {
+  // 由于内存吃紧，所以对软引用的对象被回收了
+  // 这时重新构建前一页面
+  prev = new Browser();
+  sr = new SoftReference(prev);
+}
+```
+
+*弱引用（WeakReference）*
+
+弱引用与软引用的区别：只具有弱引用的对象拥有更短暂的生命周期。在 GC 线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于 GC 是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。
+
+弱引用可以和引用队列联合使用，如果弱引用所引用的对象被垃圾回收，JVM 就会把这个弱引用加入到与之关联的引用队列中。
+
+当你想引用一个对象，但是这个对象有自己的生命周期，你不想介入这个对象的生命周期，这时候你就可以用弱引用。
+
+```java
+// 强引用
+String str = new String("abc");
+// 弱引用
+WeakReference<String> weakRef = new WeakReference<String>(str);
+// 再次变为强引用
+String abc = weakRef.get();
+```
+
+*虚引用（PhantomReference）*
+
+“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被 GC 回收。主要用来跟踪对象被 GC 回收的活动。
+
+虚引用与软引用和弱引用的区别：虚引用必须和引用队列联合使用。当 GC 准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。
+
+```java
+ReferenceQueue queue = new ReferenceQueue();
+PhantomReference pr = new PhantomReference(object, queue); 
+```
+
+可以通过判断引用队列中是否加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。
+
+**对象序列化与反序列化**
+
+序列化：把堆内存中的 Java 对象数据，通过某种方式把对象存储到磁盘文件中或者传递给其他网络节点（在网络上传输）。这个过程称为序列化。通俗来说就是将数据结构或对象转换成二进制串的过程。
+
+反序列化：把磁盘文件中的对象数据或者把网络节点上的对象数据，恢复成Java对象模型的过程。也就是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程。
+
+为什么要做序列化？
+1. 在分布式系统中，此时需要把对象在网络上传输，就得把对象数据转换为二进制形式，需要共享的数据的 Java 对象，都得做序列化。
+2. 服务器钝化：如果服务器发现某些对象好久没活动了，那么服务器就会把这些内存中的对象持久化在本地磁盘文件中（Java 对象转换为二进制文件）；如果服务器发现某些对象需要活动时，先去内存中寻找，找不到再去磁盘文件中反序列化我们的对象数据，恢复成 Java 对象。这样能节省服务器内存。
 
 14.lambda表达式 
 

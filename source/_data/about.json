@@ -14,6 +14,13 @@
     "Photoshop": 2
   },
   "projects": [{
+    "name": "WYUOJ",
+    "image": "https://raw.githubusercontent.com/QinZhen001/CodeNut/api/README/1.png",
+    "tags": ["2017年", "Web"],
+    "description": "为学校开发的 online judge 平台，目前在重写，暂不开放OJ功能",
+    "link_text": "Github地址",
+    "link": "https://github.com/QinZhen001/CodeNut"
+  },{
     "name": "智能插座APP",
     "image": "https://raw.githubusercontent.com/Zoctan/SmartHub/app/screenshot/login.png",
     "tags": ["2017年", "Android"],
