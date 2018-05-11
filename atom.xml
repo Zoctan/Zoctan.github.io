@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Zoctan.github.io/"/>
-  <updated>2018-04-15T07:39:35.964Z</updated>
+  <updated>2018-05-11T09:28:16.543Z</updated>
   <id>https://Zoctan.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试——其他</title>
+    <link href="https://Zoctan.github.io/2018/05/11/offer/other/"/>
+    <id>https://Zoctan.github.io/2018/05/11/offer/other/</id>
+    <published>2018-05-10T16:00:00.000Z</published>
+    <updated>2018-05-11T09:28:16.543Z</updated>
+    
+    <content type="html"><![CDATA[<p>代码规范，包命名规范</p><p>项目和实习： </p><p>一定要把自己做的东西从头到尾顺一遍。 </p><p>难点在哪里，怎么解决的，学到了什么，技术亮点在哪里，这些事经常问的。 </p><p>常问的问题，像并发量多少，怎么优化这些也要早测试早作准备。 </p><p>千万不要到时候再想，这会让面试官感觉你对自己做的都不熟悉。最好可以自己画一下架构图，讲的时候思路更清晰。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;代码规范，包命名规范&lt;/p&gt;
+&lt;p&gt;项目和实习： &lt;/p&gt;
+&lt;p&gt;一定要把自己做的东西从头到尾顺一遍。 &lt;/p&gt;
+&lt;p&gt;难点在哪里，怎么解决的，学到了什么，技术亮点在哪里，这些事经常问的。 &lt;/p&gt;
+&lt;p&gt;常问的问题，像并发量多少，怎么优化这些也要早测试早作准备。 &lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="https://Zoctan.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="面试" scheme="https://Zoctan.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Redshift 色温控制</title>
@@ -401,70 +430,20 @@
   </entry>
   
   <entry>
-    <title>《算法导论》笔记3-11</title>
-    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-11/"/>
-    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-11/</id>
+    <title>《算法导论》笔记3-12</title>
+    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-12/"/>
+    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-12/</id>
     <published>2018-03-28T16:00:00.000Z</published>
-    <updated>2018-03-29T05:18:57.962Z</updated>
+    <updated>2018-03-29T05:44:26.455Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h1><h2 id="直接寻址表"><a href="#直接寻址表" class="headerlink" title="直接寻址表"></a>直接寻址表</h2><h2 id="散列表-1"><a href="#散列表-1" class="headerlink" title="散列表"></a>散列表</h2><h2 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h2><h2 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h2><h3 id="线性探查"><a href="#线性探查" class="headerlink" title="线性探查"></a>线性探查</h3><h3 id="二次探查"><a href="#二次探查" class="headerlink" title="二次探查"></a>二次探查</h3><h3 id="双重散列"><a href="#双重散列" class="headerlink" title="双重散列"></a>双重散列</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><p>递归查找：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tree_search(root, k)</span><br><span class="line"><span class="keyword">if</span> root == null <span class="keyword">or</span> k == root.key</span><br><span class="line"><span class="keyword">return</span> root</span><br><span class="line"><span class="keyword">if</span> k &lt; root.key</span><br><span class="line"><span class="keyword">return</span> tree_search(root.left, k)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> tree_search(root.right, k)</span><br></pre></td></tr></table></figure><p>迭代查找：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tree_search(root, k)</span><br><span class="line"><span class="keyword">while</span> root != null <span class="keyword">or</span> k != root.key</span><br><span class="line"><span class="keyword">if</span> k &lt; root.key</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root = root.right</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><p>最大关键字元素和最小关键字元素：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree_min(root)</span><br><span class="line"><span class="keyword">while</span> root.left != null</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree_max(root)</span><br><span class="line"><span class="keyword">while</span> root.right != null</span><br><span class="line">root = root.right</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><p>插入：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tree_insert(T, node)</span><br><span class="line">parent = null</span><br><span class="line">root = T.root</span><br><span class="line"><span class="keyword">while</span> root != null</span><br><span class="line">parent = root</span><br><span class="line"><span class="keyword">if</span> node.key &lt; root.key</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root = root.right</span><br><span class="line">node.parent = parent</span><br><span class="line"><span class="comment"># 空树</span></span><br><span class="line"><span class="keyword">if</span> parent == null</span><br><span class="line">T.root = node</span><br><span class="line"><span class="keyword">elif</span> node.key &lt; parent.key</span><br><span class="line">parent.left = node</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">parent.right = node</span><br></pre></td></tr></table></figure><p>删除：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">transplant(T, root, child)</span><br><span class="line"><span class="keyword">if</span> root.parent == null</span><br><span class="line">T.root = child</span><br><span class="line"><span class="keyword">elif</span> root == root.parent.left</span><br><span class="line">root.parent.left = child</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root.parent.right = child</span><br><span class="line"><span class="keyword">if</span> child != null</span><br><span class="line">child.parent = root.parent</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tree_delete(T, node)</span><br><span class="line"><span class="keyword">if</span> node.left == null</span><br><span class="line">transplant(T, node, node.right)</span><br><span class="line"><span class="keyword">elif</span> node.right == null</span><br><span class="line">transplant(T, node, node.left)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">minChild = tree_min(node.right)</span><br><span class="line"><span class="keyword">if</span> minChild != node</span><br><span class="line">transplant(T, minChild, minChild.right)</span><br><span class="line">minChild.right = node.right</span><br><span class="line">minChild.right.parent = minChild</span><br><span class="line">transplant(T, node, minChild)</span><br><span class="line">minChild.left = node.left</span><br><span class="line">minChild.left.parent = minChild</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;散列表&quot;&gt;&lt;a href=&quot;#散列表&quot; class=&quot;headerlink&quot; title=&quot;散列表&quot;&gt;&lt;/a&gt;散列表&lt;/h1&gt;&lt;h2 id=&quot;直接寻址表&quot;&gt;&lt;a href=&quot;#直接寻址表&quot; class=&quot;headerlink&quot; title=&quot;直接寻址表&quot;&gt;&lt;/a&gt;
-      
-    
-    </summary>
-    
-      <category term="读书" scheme="https://Zoctan.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="算法导论" scheme="https://Zoctan.github.io/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《算法导论》笔记3-13</title>
-    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-13/"/>
-    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-13/</id>
-    <published>2018-03-28T16:00:00.000Z</published>
-    <updated>2018-03-29T05:48:54.062Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p>旋转：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">left_rotate(T, root)</span><br><span class="line">rChild = root.right</span><br><span class="line">root.right = rChild.left</span><br><span class="line"><span class="keyword">if</span> rChild.left != T.null</span><br><span class="line">rChild.left.parent = root</span><br><span class="line">rChild.parent = root.parent</span><br><span class="line"><span class="keyword">if</span> root.parent == T.null</span><br><span class="line">T.root = rChild</span><br><span class="line"><span class="keyword">elif</span> root == root.parent.left</span><br><span class="line">root.parent.left = rChild</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root.parent.right = rChild</span><br><span class="line">rChild.left = root</span><br><span class="line">root.parent = rChild</span><br></pre></td></tr></table></figure><p>插入：</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;红黑树&quot;&gt;&lt;a href=&quot;#红黑树&quot; class=&quot;headerlink&quot; title=&quot;红黑树&quot;&gt;&lt;/a&gt;红黑树&lt;/h1&gt;&lt;p&gt;旋转：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
-      
-    
-    </summary>
-    
-      <category term="读书" scheme="https://Zoctan.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
-    
-    
-      <category term="算法导论" scheme="https://Zoctan.github.io/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《算法导论》笔记3-10</title>
-    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-10/"/>
-    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-10/</id>
-    <published>2018-03-28T16:00:00.000Z</published>
-    <updated>2018-03-29T05:14:26.589Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h2><p>判断空栈：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stack_empty(S)</span><br><span class="line"><span class="keyword">return</span> S.top == <span class="number">0</span></span><br></pre></td></tr></table></figure><p>压栈：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">push(S, x)</span><br><span class="line">S.top++</span><br><span class="line">S[S.top] = x</span><br></pre></td></tr></table></figure><p>弹栈：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pop(S)</span><br><span class="line"><span class="keyword">if</span> stack_empty(S)</span><br><span class="line">error <span class="string">"underflow"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">S.top--</span><br><span class="line"><span class="keyword">return</span> S[S.top + <span class="number">1</span>]</span><br></pre></td></tr></table></figure><h2 id="队列（queue）"><a href="#队列（queue）" class="headerlink" title="队列（queue）"></a>队列（queue）</h2><p>入队：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enqueue(Q, x)</span><br><span class="line">Q[Q.tail] = x</span><br><span class="line"><span class="keyword">if</span> Q.tail == Q.length</span><br><span class="line">Q.tail = <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">Q.tail++</span><br></pre></td></tr></table></figure><p>出队：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dequeue(Q, x)</span><br><span class="line">x = Q[Q.head]</span><br><span class="line"><span class="keyword">if</span> Q.head == Q.length</span><br><span class="line">Q.head = <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">Q.head++</span><br><span class="line"><span class="keyword">return</span> x</span><br></pre></td></tr></table></figure><h2 id="链表（linked-list）"><a href="#链表（linked-list）" class="headerlink" title="链表（linked list）"></a>链表（linked list）</h2><p>搜索：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_search(L, k)</span><br><span class="line">x = L.head</span><br><span class="line"><span class="keyword">while</span> x != null <span class="keyword">and</span> x.key != k</span><br><span class="line">x = x.next</span><br><span class="line"><span class="keyword">return</span> x</span><br></pre></td></tr></table></figure><p>插入：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list_insert(L, k)</span><br><span class="line">x.next = L.head</span><br><span class="line"><span class="keyword">if</span> L.head != null</span><br><span class="line">L.head.prev = x</span><br><span class="line">L.head = x</span><br><span class="line">x.prev = null</span><br></pre></td></tr></table></figure><p>删除：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_delete(L, x)</span><br><span class="line"><span class="keyword">if</span> x.prev != null</span><br><span class="line">x.prev.next = x.next</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">L.head = x.next</span><br><span class="line"><span class="keyword">if</span> x.next != null</span><br><span class="line">x.next.prev = x.prev</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot; title=&quot;数据结构&quot;&gt;&lt;/a&gt;数据结构&lt;/h1&gt;&lt;h2 id=&quot;栈（stack）&quot;&gt;&lt;a href=&quot;#栈（stack）&quot; class=&quot;headerlink&quot; title=&quot;栈
+        &lt;h1 id=&quot;二叉搜索树&quot;&gt;&lt;a href=&quot;#二叉搜索树&quot; class=&quot;headerlink&quot; title=&quot;二叉搜索树&quot;&gt;&lt;/a&gt;二叉搜索树&lt;/h1&gt;&lt;p&gt;递归查找：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
       
     
     </summary>
@@ -502,20 +481,45 @@
   </entry>
   
   <entry>
-    <title>《算法导论》笔记3-12</title>
-    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-12/"/>
-    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-12/</id>
+    <title>《算法导论》笔记3-13</title>
+    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-13/"/>
+    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-13/</id>
     <published>2018-03-28T16:00:00.000Z</published>
-    <updated>2018-03-29T05:44:26.455Z</updated>
+    <updated>2018-03-29T05:48:54.062Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><p>递归查找：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tree_search(root, k)</span><br><span class="line"><span class="keyword">if</span> root == null <span class="keyword">or</span> k == root.key</span><br><span class="line"><span class="keyword">return</span> root</span><br><span class="line"><span class="keyword">if</span> k &lt; root.key</span><br><span class="line"><span class="keyword">return</span> tree_search(root.left, k)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> tree_search(root.right, k)</span><br></pre></td></tr></table></figure><p>迭代查找：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tree_search(root, k)</span><br><span class="line"><span class="keyword">while</span> root != null <span class="keyword">or</span> k != root.key</span><br><span class="line"><span class="keyword">if</span> k &lt; root.key</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root = root.right</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><p>最大关键字元素和最小关键字元素：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree_min(root)</span><br><span class="line"><span class="keyword">while</span> root.left != null</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tree_max(root)</span><br><span class="line"><span class="keyword">while</span> root.right != null</span><br><span class="line">root = root.right</span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure><p>插入：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">tree_insert(T, node)</span><br><span class="line">parent = null</span><br><span class="line">root = T.root</span><br><span class="line"><span class="keyword">while</span> root != null</span><br><span class="line">parent = root</span><br><span class="line"><span class="keyword">if</span> node.key &lt; root.key</span><br><span class="line">root = root.left</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root = root.right</span><br><span class="line">node.parent = parent</span><br><span class="line"><span class="comment"># 空树</span></span><br><span class="line"><span class="keyword">if</span> parent == null</span><br><span class="line">T.root = node</span><br><span class="line"><span class="keyword">elif</span> node.key &lt; parent.key</span><br><span class="line">parent.left = node</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">parent.right = node</span><br></pre></td></tr></table></figure><p>删除：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">transplant(T, root, child)</span><br><span class="line"><span class="keyword">if</span> root.parent == null</span><br><span class="line">T.root = child</span><br><span class="line"><span class="keyword">elif</span> root == root.parent.left</span><br><span class="line">root.parent.left = child</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root.parent.right = child</span><br><span class="line"><span class="keyword">if</span> child != null</span><br><span class="line">child.parent = root.parent</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tree_delete(T, node)</span><br><span class="line"><span class="keyword">if</span> node.left == null</span><br><span class="line">transplant(T, node, node.right)</span><br><span class="line"><span class="keyword">elif</span> node.right == null</span><br><span class="line">transplant(T, node, node.left)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">minChild = tree_min(node.right)</span><br><span class="line"><span class="keyword">if</span> minChild != node</span><br><span class="line">transplant(T, minChild, minChild.right)</span><br><span class="line">minChild.right = node.right</span><br><span class="line">minChild.right.parent = minChild</span><br><span class="line">transplant(T, node, minChild)</span><br><span class="line">minChild.left = node.left</span><br><span class="line">minChild.left.parent = minChild</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p>旋转：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">left_rotate(T, root)</span><br><span class="line">rChild = root.right</span><br><span class="line">root.right = rChild.left</span><br><span class="line"><span class="keyword">if</span> rChild.left != T.null</span><br><span class="line">rChild.left.parent = root</span><br><span class="line">rChild.parent = root.parent</span><br><span class="line"><span class="keyword">if</span> root.parent == T.null</span><br><span class="line">T.root = rChild</span><br><span class="line"><span class="keyword">elif</span> root == root.parent.left</span><br><span class="line">root.parent.left = rChild</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">root.parent.right = rChild</span><br><span class="line">rChild.left = root</span><br><span class="line">root.parent = rChild</span><br></pre></td></tr></table></figure><p>插入：</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;二叉搜索树&quot;&gt;&lt;a href=&quot;#二叉搜索树&quot; class=&quot;headerlink&quot; title=&quot;二叉搜索树&quot;&gt;&lt;/a&gt;二叉搜索树&lt;/h1&gt;&lt;p&gt;递归查找：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+        &lt;h1 id=&quot;红黑树&quot;&gt;&lt;a href=&quot;#红黑树&quot; class=&quot;headerlink&quot; title=&quot;红黑树&quot;&gt;&lt;/a&gt;红黑树&lt;/h1&gt;&lt;p&gt;旋转：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      
+    
+    </summary>
+    
+      <category term="读书" scheme="https://Zoctan.github.io/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="算法导论" scheme="https://Zoctan.github.io/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《算法导论》笔记3-11</title>
+    <link href="https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-11/"/>
+    <id>https://Zoctan.github.io/2018/03/29/Algorithm/Book/Introduction-to-Algorithms/3-11/</id>
+    <published>2018-03-28T16:00:00.000Z</published>
+    <updated>2018-03-29T05:18:57.962Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h1><h2 id="直接寻址表"><a href="#直接寻址表" class="headerlink" title="直接寻址表"></a>直接寻址表</h2><h2 id="散列表-1"><a href="#散列表-1" class="headerlink" title="散列表"></a>散列表</h2><h2 id="散列函数"><a href="#散列函数" class="headerlink" title="散列函数"></a>散列函数</h2><h2 id="开放寻址法"><a href="#开放寻址法" class="headerlink" title="开放寻址法"></a>开放寻址法</h2><h3 id="线性探查"><a href="#线性探查" class="headerlink" title="线性探查"></a>线性探查</h3><h3 id="二次探查"><a href="#二次探查" class="headerlink" title="二次探查"></a>二次探查</h3><h3 id="双重散列"><a href="#双重散列" class="headerlink" title="双重散列"></a>双重散列</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;散列表&quot;&gt;&lt;a href=&quot;#散列表&quot; class=&quot;headerlink&quot; title=&quot;散列表&quot;&gt;&lt;/a&gt;散列表&lt;/h1&gt;&lt;h2 id=&quot;直接寻址表&quot;&gt;&lt;a href=&quot;#直接寻址表&quot; class=&quot;headerlink&quot; title=&quot;直接寻址表&quot;&gt;&lt;/a&gt;
       
     
     </summary>
