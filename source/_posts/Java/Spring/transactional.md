@@ -27,6 +27,10 @@ tags:
 
 声明式事务管理不需要入侵代码，通过注解 `@Transactional` 就可以进行事务操作，更快捷而且简单。
 
+声明式事务有两种使用方式：
+1. 基于 XML 的声明式事务
+2. 基于注解的声明式事务
+
 # 使用方式
 
 在 `Spring Boot` 中，当我们使用了 `spring-boot-starter-jdbc` 或 `spring-boot-starter-data-jpa` 依赖的时候，框架会自动注入 `DataSourceTransactionManager` 或 `JpaTransactionManager`，使用时只需要在函数上增加 `@Transactional` 注解。

@@ -15,7 +15,7 @@
   },
   "projects": [{
     "name": "WYUOJ",
-    "image": "https://raw.githubusercontent.com/QinZhen001/CodeNut/api/README/1.png",
+    "image": "https://raw.githubusercontent.com/QinZhen001/CodeNut/all/README/1.png",
     "tags": ["2017年", "Web"],
     "description": "为学校开发的 online judge 平台，目前在重写，暂不开放OJ功能",
     "link_text": "Github地址",
