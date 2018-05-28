@@ -8,7 +8,7 @@ tags:
 
 # 前记
 
-项目需要用到 Oracle　数据库，但是没有用过，本来想直接安装在主机上的，但是看了 ArchWiki 后觉得好麻烦，然后就想起了 docker。还有 Spring 项目里用到了 Oracle JDBC 的驱动，但是 Maven 怎么都下载不到本地，搜索了一番才发现 Oracle 没有授权，也是醉了。这里就记录一下 docker 的使用过程以及在项目里导入官网下的 JDBC 驱动。
+项目需要用到 Oracle 数据库，但以前没有用过。本来想直接安装在主机上的，但是看了 ArchWiki 后觉得好麻烦，然后就想起了 docker。还有 Spring 项目里用到了 Oracle JDBC 的驱动，但是 Maven 怎么都下载不到本地，搜索了一番才发现 Oracle 没有授权，也是醉了。这里就记录一下 docker 的使用过程以及在项目里导入官网下的 JDBC 驱动。
 
 # docker
 
@@ -33,7 +33,7 @@ sath89/oracle-xe-11g                Oracle xe 11g with database files mount supp
 
 ```bash
 sudo echo '{ "registry-mirrors": [ "https://pee6w651.mirror.aliyuncs.com"] }' > /etc/docker/daemon.json
-systemctl restart docker
+sudo systemctl restart docker
 ```
 
 这里使用 oracle-12c：
@@ -85,7 +85,7 @@ bin/sqlplus
 
 我还发现了更优雅的安装方法。
 
-配好 docker-compose：[官方文档](https://docs.docker.com/compose/install/#install-compose)
+安装好 docker-compose：[官方文档](https://docs.docker.com/compose/install/#install-compose)（Arch 下有包，直接 pacman 也可以）
 
 ```bash
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
@@ -123,11 +123,12 @@ services:
 
 Oracle 官网的链接：http://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html
 
-这里使用 Oracle 12.2.0.1 JDBC，只下载 ojdbc8.jar 就好了。（还要登录，并且确认协议）
+这里使用 Oracle 12.2.0.1 JDBC，只下载 ojdbc8.jar 就好了。（还要登录和确认协议）
 
 本地安装（如果还不行，请看最后）：
 
 ```bash
+cd 下载目录
 mvn install:install-file -Dfile=ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojdbc8 -Dversion=12.2.0.1 -Dpackaging=jar
 ```
 
