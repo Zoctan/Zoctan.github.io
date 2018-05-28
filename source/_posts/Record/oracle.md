@@ -10,7 +10,7 @@ tags:
 
 项目需要用到 Oracle 数据库，但以前没有用过。本来想直接安装在主机上的，但是看了 ArchWiki 后觉得好麻烦，然后就想起了 docker。还有 Spring 项目里用到了 Oracle JDBC 的驱动，但是 Maven 怎么都下载不到本地，搜索了一番才发现 Oracle 没有授权，也是醉了。这里就记录一下 docker 的使用过程以及在项目里导入官网下的 JDBC 驱动。
 
-# docker
+# Docker
 
 docker 的安装过程就不累述了，网上很多。
 
