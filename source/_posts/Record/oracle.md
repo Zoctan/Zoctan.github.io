@@ -97,11 +97,11 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-执行 `docker-compose up -d`，它会根据 compose.yaml 的配置来 pull/run 容器。
+执行 `docker-compose up -d`，它会读取当前路径下的 docker-compose.yml 配置来 pull/run 容器。
 
-```yaml
+```yml
 # http://wiki.jikexueyuan.com/project/docker-technology-and-combat/yaml_file.html
-version: '2'
+version: '3'
 services:
   oracle:
     # sid: XE
@@ -110,8 +110,8 @@ services:
     # 指定为镜像名称或镜像 ID
     image: sath89/oracle-12c
     # 卷挂载路径设置（HOST:CONTAINER）
-    volumes:
-      - /home/xx/data:/u01/app/oracle
+    #volumes:
+      #- /home/xx/data:/u01/app/oracle
     # 暴露端口（HOST:CONTAINER）
     ports:
       - 1521:1521
