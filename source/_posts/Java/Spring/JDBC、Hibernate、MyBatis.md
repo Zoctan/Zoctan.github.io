@@ -1,9 +1,9 @@
 ---
-title: JDBC/Hibernate/MyBatis
+title: JDBC、Hibernate、MyBatis
 date: 2018-3-19
 category: 学习
 tags:
-  - Java
+  - MyBatis
 ---
 
 # JDBC 简介

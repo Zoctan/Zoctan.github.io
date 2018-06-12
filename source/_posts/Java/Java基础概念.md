@@ -10,11 +10,11 @@ tags:
 
 Java 源码，经过编译器编译后生成 .class 字节码文件
 
-![编译](java_compile.png)
+![编译](编译.png)
 
 JVM 将字节码文件翻译成特定平台下的机器码然后运行
 
-![字节码翻译](class_translate.png)
+![字节码翻译](字节码翻译.png)
 
 注：编译的结果是生成字节码，字节码不能直接运行，必须通过 JVM 翻译成机器码才能运行。不同平台下编译生成的字节码是一样的，但是由 JVM 翻译成的机器码却不一样。
 
@@ -146,7 +146,7 @@ CharSequence 是一个定义字符串操作的接口，它只包括 length()、c
 
 StringBuffer、StringBuilder、String 对 CharSequence 接口的实现过程不一样，如下图所示：
 
-![对CharSequence接口的实现](charsequence.png)
+![对CharSequence接口的实现](对CharSequence接口的实现.png)
 
 String 直接实现了 CharSequence 接口；
 StringBuilder 和 StringBuffer 都是可变的字符序列，它们都继承于AbstractStringBuilder，实现了 CharSequence 接口。
@@ -216,7 +216,7 @@ public class Demo {
 
 类可以比喻成图纸，对象比喻成产品，图纸说明了产品的参数及其承担的任务；一张图纸可以生产出具有相同性质的产品，不同图纸可以生产不同类型的产品。
 
-![图纸 -> 产品](design.png)
+![图纸 -> 产品](图纸.png)
 
 使用 new 关键字，就可以通过类来创建对象，即将图纸生产成产品，这个过程叫做类的实例化，因此也称对象是类的一个实例。
 

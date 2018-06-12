@@ -1,5 +1,5 @@
 ---
-title: mysql-workbench导出ER图
+title: MySQL Workbench 导出 ER 图
 date: 2018-3-4
 category: 杂项
 tags:

@@ -1,19 +1,21 @@
 // 入门指南 https://www.gulpjs.com.cn/docs/getting-started/
-var gulp = require('gulp');
-var minifycss = require('gulp-minify-css');
-var uglify = require('gulp-uglify');
-var htmlmin = require('gulp-htmlmin');
-var htmlclean = require('gulp-htmlclean');
-var imagemin = require('gulp-imagemin');
+let gulp = require('gulp');
+let cleanCSS = require('gulp-clean-css');
+let uglify = require('gulp-uglify');
+let htmlmin = require('gulp-htmlmin');
+let htmlclean = require('gulp-htmlclean');
+let imagemin = require('gulp-imagemin');
 
 // 压缩 public 目录 css
+// https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-api
 gulp.task('minify-css', function () {
     return gulp.src('./public/**/*.css')
-        .pipe(minifycss())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./public'));
 });
 
 // 压缩 public 目录 html
+// https://github.com/kangax/html-minifier
 gulp.task('minify-html', function () {
     return gulp.src('./public/**/*.html')
         .pipe(htmlclean())
@@ -25,7 +27,8 @@ gulp.task('minify-html', function () {
             removeScriptTypeAttributes: true, //删除<script>的type="text/javascript"
             removeStyleLinkTypeAttributes: true, //删除<style>和<link>的type="text/css"
             minifyJS: true, //压缩页面JS
-            minifyCSS: true //压缩页面CSS
+            minifyCSS: true, //压缩页面CSS
+            minifyURLs: true //url属性使用相对路径
         }))
         .on('error', function (err) {
             console.log('html Error!', err.message);
@@ -35,6 +38,7 @@ gulp.task('minify-html', function () {
 });
 
 // 压缩 public/js 目录 js
+// https://github.com/mishoo/UglifyJS2#minify-options
 gulp.task('minify-js', function () {
     return gulp.src('./public/**/*.js')
         .pipe(uglify())
@@ -43,7 +47,7 @@ gulp.task('minify-js', function () {
 
 // 压缩图片任务
 // 在命令行输入 gulp images 启动此任务
-gulp.task('images', function () {
+gulp.task('minify-image', function () {
     // 1. 找到图片
     gulp.src('./photos/*.*')
     // 2. 压缩图片
@@ -56,5 +60,5 @@ gulp.task('images', function () {
 
 // 执行 gulp 命令时执行的任务
 gulp.task('default', [
-    'minify-html', 'minify-css', 'minify-js', 'images'
+    'minify-html', 'minify-css', 'minify-js', 'minify-image'
 ]);

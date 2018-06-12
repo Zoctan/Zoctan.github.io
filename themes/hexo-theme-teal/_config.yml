@@ -7,7 +7,7 @@ menu:
   th-list:                /categories
   user:                   /about
 
-# 你的头像url
+# 头像url
 avatar:                   /img/avatar.png
 # avatar link
 avatar_link:              /about
