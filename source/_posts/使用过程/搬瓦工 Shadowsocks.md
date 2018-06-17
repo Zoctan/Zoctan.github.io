@@ -68,4 +68,4 @@ ssserver -c /etc/shadowsocks.json -d start
 
 本地再安装一下客户端即可看到墙外世界啦～
 
-Github 上还有各种[客户端](https://github.com/search?o=desc&q=shadowsocks&s=stars&type=Repositories)可以玩耍～
+Github 上的各种[客户端](https://github.com/search?o=desc&q=shadowsocks&s=stars&type=Repositories)可以玩耍～
