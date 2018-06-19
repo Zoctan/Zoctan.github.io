@@ -1,11 +1,11 @@
 <%- partial('_partial/header', {
-    title: __('menu.archives'),
+    title: ('menu.archives'),
     hdClass: 'archives-header'
 }) %>
 <div class="container body-wrap fade">
     <%
     var posts = [];
-    page.posts.each(function (post) {
+    page.posts.each(function(post) {
         posts.push(post);
     });
     var sortPosts = _[_.orderBy ? 'orderBy' : 'sortByOrder'](posts, ['date'], ['desc']);
@@ -21,16 +21,14 @@
       if(ny !== y || nm !== m) {
         y = ny;
         m = nm;
-        if (i > 0) {
-    %>
-</div> <% } %>
-<h3 class="archive-separator"><%= dt.format('MMMM, YYYY') %></h3>
-<div class="waterfall">
+        if (i > 0) { %></div> <% } %>
+        <h3 class="archive-separator"><%= dt.format('MMMM, YYYY') %></h3>
+        <div class="waterfall">
     <% } %>
-
-    <%- partial('_partial/archive', {post: post, date_format: 'MMM D'}) %>
+       <%- partial('_partial/archive', { post: post, date_format: 'MMM D' }) %>
 
     <% }) %>
-</div>
+        </div>
 
-<%- partial('_partial/paginator') %>
+    <%- partial('_partial/paginator') %>
+</div>

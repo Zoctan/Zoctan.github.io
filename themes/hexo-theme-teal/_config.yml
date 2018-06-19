@@ -24,10 +24,14 @@ socail:
 color:                    "#009688"
 
 # 列表文章内容截断
+# 文章摘要渲染方式: 为 true 时将渲染为 html，否则为文本
 excerpt_render:           false
+# 截断长度
 excerpt_length:           48
 excerpt_link:             阅读全文...
+# 支持公式渲染
 mathjax:                  true
+
 archive_yearly:           true
 
 # 是否显示文章最后更新时间
@@ -44,6 +48,25 @@ reward:
 
 # 是否开启搜索
 search:                   true
+# 搜索的内容
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
 
 # 是否大屏幕下文章页隐藏导航
 hideMenu:                 true
@@ -100,8 +123,8 @@ visit_counter:            true
 # 如果想让你的自定义样式生效，把此项设为 false
 cdn:                      true
 
-# 设置为 true 将使用 lightbox render 图片
+# 文章图片灯箱效果
 lightbox:                 true
 
-# icp备案号  ICP_license:    京ICP备1234556号-1
+# ICP备案号  ICP_license:    京ICP备1234556号-1
 ICP_license:              false
