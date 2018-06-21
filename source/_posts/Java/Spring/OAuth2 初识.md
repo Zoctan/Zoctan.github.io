@@ -16,7 +16,7 @@ OAuth2 可以方便第三方应用获取用户在其他应用的信息。
 [阮一峰--理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 [Spring Security Oauth 官网文档](http://projects.spring.io/spring-security-oauth/docs/oauth2.html)
 
-虽然文章都有介绍，但是为了加深自己的记忆，这里将重新复述一遍阮老师的内容，并改正其中一些问题。
+虽然文章都有介绍，但是为了加深自己的记忆，这里将重新复述一遍阮老师的内容，并参考[腾讯文档](http://wiki.open.qq.com/wiki/website/%E4%BD%BF%E7%94%A8Authorization_Code%E8%8E%B7%E5%8F%96Access_Token)将过程描述。
 
 # 应用场景
 
@@ -102,8 +102,6 @@ OAuth2 定义了四种授权方式：
 ## 过程详解
 
 **获取 Authorization Code**
-
-参考[腾讯文档](http://wiki.open.qq.com/wiki/website/%E4%BD%BF%E7%94%A8Authorization_Code%E8%8E%B7%E5%8F%96Access_Token)
 
 请求地址：https://demo.com/authorize
 
