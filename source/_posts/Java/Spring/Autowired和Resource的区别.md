@@ -1,5 +1,5 @@
 ---
-title: \@Autowired和@Resource的区别
+title: Autowired和Resource的区别
 date: 2018-06-18
 category: 学习
 tags:
