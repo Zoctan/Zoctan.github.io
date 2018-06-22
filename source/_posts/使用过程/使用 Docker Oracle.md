@@ -125,7 +125,7 @@ Oracle 官网的链接：http://www.oracle.com/technetwork/database/application-
 
 这里使用 Oracle 12.2.0.1 JDBC，只下载 ojdbc8.jar 就好了。（还要登录和确认协议）
 
-本地安装（如果还不行，请看最后）：
+## 本地安装：
 
 ```bash
 cd 下载目录
@@ -146,9 +146,9 @@ mvn install:install-file -Dfile=ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojd
 </dependencies>
 ```
 
-----
+如果上面的本地安装后 Idea 还找不到 ojdbc8，就参照下面的步骤手动将 ojdbc8 添加到本地仓库。
 
-上面的本地安装后 Idea 还找不到的话，就手动添加到本地仓库：
+## 手动添加
 
 一般仓库位置在 `/home/（用户名）/.m2/repository/`
 
@@ -168,4 +168,6 @@ mvn install:install-file -Dfile=ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojd
 </project>
 ```
 
-这时的 Idea 还没刷新，你可以稍微改下你的 pom.xml 文件，让其自动更新。
+到此就完成了 ojdbc8 的手动添加。
+
+这时的 Idea 还没刷新仓库内容，你可以稍微改下你的 pom.xml 文件，让其自动更新。
