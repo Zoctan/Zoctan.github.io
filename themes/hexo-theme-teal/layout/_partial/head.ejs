@@ -49,11 +49,11 @@
         <link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- url_for(config.feed.path) %>">
     <% } %>
     <%- favicon_tag(theme.favicon) %>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/highlight/default.css">
-    <!-- github无法缓存
+    
+    <!-- 首先要上传到unpkg.com才能缓存
     <link rel="stylesheet" href="<%- url_for(theme_css('/css/style', cache)) %>">
-    -->
+     -->
+    
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->

@@ -19,7 +19,7 @@ OAuth2 可以方便第三方应用获取用户在其他应用的信息。
 
 虽然文章都有介绍，但是为了加深自己的记忆，这里将重新复述一遍阮老师的内容，并参考[腾讯文档](http://wiki.open.qq.com/wiki/website/%E4%BD%BF%E7%94%A8Authorization_Code%E8%8E%B7%E5%8F%96Access_Token)将过程描述成一个接口。
 
-这篇用豆瓣举例的文章 [一张图搞定OAuth2.0](https://www.cnblogs.com/flashsun/p/7424071.html) 也写得不错。这里也将参考该文章的简易 Demo 以及写出本文的 Demo。
+这篇用豆瓣举例的文章 [一张图搞定OAuth2.0](https://www.cnblogs.com/flashsun/p/7424071.html) 写得不错。这里也参考它的简易 Demo，写出本文的 Demo。
 
 # 应用场景
 
@@ -113,7 +113,7 @@ OAuth2 定义了四种授权方式：
 response_type  |    是   | 授权类型，此值固定为"code"
 client_id      |    是   | 在认证服务器注册获得的客户端 ID
 client_secret  |    否   | 在认证服务器注册获得的客户端秘钥（如果没有分配，可以为空）
-state          |    是   | 客户端的状态值。防止第三方应用被CSRF攻击，成功授权后回调时会原样带回。严格按照流程检查用户与 state 参数状态的绑定
+state          |    是   | 客户端的状态值。防止第三方应用被CSRF攻击，成功授权后回调时会原样带回。严格按照流程检查用户与 state 参数状态的绑定，参见[RFC 文档](https://tools.ietf.org/html/rfc6749#section-10.12)
 redirect_uri   |    是   | 成功授权后的回调地址，注意需将 url 进行 URLEncode
 scope          |    否   | 请求用户授权时向用户显示的可进行授权的列表。建议控制授权项的数量，只传入必要的接口名称，因为授权项越多，用户越可能拒绝进行任何授权
 
@@ -149,7 +149,7 @@ Location: https://client.com/index?usercancel=1&state=test
 
 请求地址：https://demo.com/token
 
-请求方法：GET
+请求方法：POST
 
 请求头         | 是否必须 | 描述
 :------------:|:-------:|:----

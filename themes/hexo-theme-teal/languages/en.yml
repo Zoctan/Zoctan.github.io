@@ -6,9 +6,9 @@ visit_counter:
   site_pv:           "Total Visited: "
 
 menu:
-  home:              "home"
-  archives:          "archives"
-  tags:              "tags"
+  home:              "Home"
+  archives:          "Archives"
+  tags:              "Tags"
   th-list:           "Categories"
   user:              "About"
 

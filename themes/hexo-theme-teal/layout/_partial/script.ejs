@@ -14,15 +14,19 @@
 <script src="/js/search.js" async></script>
 <% } %>
 
-<!-- github无法缓存
+<!-- 首先要上传到unpkg.com才能缓存
 <script src="<%- url_for(theme_js('/js/main', cache)) %>"></script>
 <% if (theme.search) { %>
-  <%- partial('search') %>
-  <script src="<%- url_for(theme_js('/js/search', cache)) %>" async></script>
+<%- partial('search') %>
+<script src="<%- url_for(theme_js('/js/search', cache)) %>" async></script>
 <% } %>
 -->
 
+<% if (theme.mathjax) { %>
 <%- partial('plugins/mathjax') %>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<% } %>
+
 <% if (theme.visit_counter) { %>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <% } %>
