@@ -79,11 +79,14 @@ toc:
 # 文章页留言内容，hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
 postMessage:              The tears will dry, the smiles will fade, while the memories last forever.
 
-# 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1255152447
-cnzz:                     1271740271
+# 站长统计，如要开启，输入CNZZ站点id，如 cnzz: 1271740271
+cnzz:                     false
 
 # 百度统计，如要开启，改为你的 key
 baidu_tongji:             6d56a752598eadf952ff790975b8c157
+
+# 百度推送
+baidu_push:               true
 
 # 腾讯分析，如要开启，输入站点id
 tajs:                     64869149
@@ -121,7 +124,7 @@ visit_counter:            true
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false
-cdn:                      true
+cdn:                      false
 
 # 文章图片灯箱效果
 lightbox:                 true

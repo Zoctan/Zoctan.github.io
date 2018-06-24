@@ -16,7 +16,7 @@ wechat:              "WeChat"
 alipay:              "ALiPay"
 
 post:
-  continue_reading:  "Continue reading..."
+  read_all:          "Read"
   last_updated:      "Last updated: "
   prev:              "prev"
   next:              "next"

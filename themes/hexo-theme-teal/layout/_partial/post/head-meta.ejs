@@ -1,11 +1,13 @@
-<time datetime="<%= date_xml(page.date) %>" itemprop="datePublished" class="page-time">
-  <%= page.date.format(config.date_format) %>
+<time class="page-time"
+      datetime="<%= date_xml(page.date) %>"
+      itemprop="datePublished">
+    <%= page.date.format(config.date_format) %>
 </time>
 
 <% if (page.categories && page.categories.length) { %>
-	<%- list_categories(page.categories, {
-	  show_count: false,
-	  class: 'article-category',
-		style: 'list'
-	}) %>
+<%- list_categories(page.categories, {
+    show_count: false,
+    class: 'article-category',
+    style: 'list'
+}) %>
 <% } %>

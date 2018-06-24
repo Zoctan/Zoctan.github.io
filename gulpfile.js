@@ -1,16 +1,18 @@
 // 入门指南 https://www.gulpjs.com.cn/docs/getting-started/
-let gulp = require('gulp');
-let cleanCSS = require('gulp-clean-css');
-let uglify = require('gulp-uglify');
-let htmlmin = require('gulp-htmlmin');
-let htmlclean = require('gulp-htmlclean');
-let imagemin = require('gulp-imagemin');
+var gulp = require('gulp');
+var cleanCSS = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
+var htmlmin = require('gulp-htmlmin');
+var htmlclean = require('gulp-htmlclean');
+var imagemin = require('gulp-imagemin');
 
 // 压缩 public 目录 css
 // https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-api
 gulp.task('minify-css', function () {
     return gulp.src('./public/**/*.css')
-        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(cleanCSS({
+            compatibility: 'ie8'
+        }))
         .pipe(gulp.dest('./public'));
 });
 
@@ -34,31 +36,39 @@ gulp.task('minify-html', function () {
             console.log('html Error!', err.message);
             this.end();
         })
-        .pipe(gulp.dest('./public'))
+        .pipe(gulp.dest('./public'));
 });
 
 // 压缩 public/js 目录 js
 // https://github.com/mishoo/UglifyJS2#minify-options
 gulp.task('minify-js', function () {
     return gulp.src('./public/**/*.js')
-        .pipe(uglify())
+        .pipe(uglify({
+            ie8: true
+        }))
         .pipe(gulp.dest('./public'));
 });
 
-// 压缩图片任务
-// 在命令行输入 gulp images 启动此任务
+// 压缩 public/img 目录图片
+// 如果出现错误 jpegtran ENOENT 或者 optipng ENOENT
+// npm rebuild jpegtran-bin optipng-bin
 gulp.task('minify-image', function () {
-    // 1. 找到图片
-    gulp.src('./photos/*.*')
-    // 2. 压缩图片
-        .pipe(imagemin({
-            progressive: true
-        }))
-        // 3. 另存图片
-        .pipe(gulp.dest('dist/images'))
+    return gulp.src(['./public/**/*.jpg', './public/**/*.png'])
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('./public'));
 });
 
 // 执行 gulp 命令时执行的任务
 gulp.task('default', [
-    'minify-html', 'minify-css', 'minify-js', 'minify-image'
+    'minify-html', 'minify-css', 'minify-js'//, 'minify-image'
 ]);
