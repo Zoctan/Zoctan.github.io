@@ -3,7 +3,7 @@ title: OAuth2 初识
 date: 2018-06-21
 category: 学习
 tags:
-  - Spring
+  - OAuth2
 ---
 
 # 前记
@@ -13,13 +13,11 @@ OAuth2 可以方便第三方应用获取用户在其他应用的信息。
 比如用 QQ 账户登录优酷，优酷就会先让用户登录 QQ，然后让用户确认授权优酷访问 QQ 上的信息，确认后优酷就获得了 QQ 的 OAuth 服务器返回的 token，之后就可以通过 token 访问到权力范围内的用户相关信息。
 
 以下是相关的文章：
-[RFC 6749](https://tools.ietf.org/html/rfc6749)
-[阮一峰--理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
-[Spring Security Oauth 官网文档](http://projects.spring.io/spring-security-oauth/docs/oauth2.html)
+- [RFC 6749](https://tools.ietf.org/html/rfc6749)
+- [OAuth2 Simplified](https://aaronparecki.com/oauth-2-simplified/)
+- [阮一峰 -- 理解 OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
 
-虽然文章都有介绍，但是为了加深自己的记忆，这里将重新复述一遍阮老师的内容，并参考[腾讯文档](http://wiki.open.qq.com/wiki/website/%E4%BD%BF%E7%94%A8Authorization_Code%E8%8E%B7%E5%8F%96Access_Token)将过程描述成一个接口。
-
-这篇用豆瓣举例的文章 [一张图搞定OAuth2.0](https://www.cnblogs.com/flashsun/p/7424071.html) 写得不错。这里也参考它的简易 Demo，写出本文的 Demo。
+这篇用豆瓣举例的文章 [一张图搞定OAuth2.0](https://www.cnblogs.com/flashsun/p/7424071.html) 写得不错。这里也参考它的简易 Demo，并结合自己对 OAuth2 协议的理解，和[腾讯文档](http://wiki.open.qq.com/wiki/website/%E4%BD%BF%E7%94%A8Authorization_Code%E8%8E%B7%E5%8F%96Access_Token)写出本文的 Demo —— [模拟 QQ 授权银行客户端（授权码模式）](https://github.com/Zoctan/spring-security-oauth2-demo/tree/master/preOAuth2)。
 
 # 应用场景
 
@@ -62,13 +60,13 @@ OAuth 在"客户端"与"服务提供商"之间，设置了一个授权层（Auth
 ![运行流程](运行流程.png)
 
 （A）用户打开客户端以后，客户端要求用户给予授权。
-（B）用户同意给予客户端授权。
+（B）用户同意给予客户端授权。（关键，有了这个授权以后，客户端就可以获取令牌，进而凭令牌获取资源）
 （C）客户端使用上一步获得的授权，向认证服务器申请令牌。
 （D）认证服务器对客户端进行认证以后，确认无误，同意发放令牌。
 （E）客户端使用令牌，向资源服务器申请获取资源。
 （F）资源服务器确认令牌无误，同意向客户端开放资源。
 
-（B）是关键，即用户怎样才能给客户端授权。有了这个授权以后，客户端就可以获取令牌，进而凭令牌获取资源。
+![时序图](时序图.png)
 
 # 客户端的授权模式
 
@@ -113,7 +111,7 @@ OAuth2 定义了四种授权方式：
 response_type  |    是   | 授权类型，此值固定为"code"
 client_id      |    是   | 在认证服务器注册获得的客户端 ID
 client_secret  |    否   | 在认证服务器注册获得的客户端秘钥（如果没有分配，可以为空）
-state          |    是   | 客户端的状态值。防止第三方应用被CSRF攻击，成功授权后回调时会原样带回。严格按照流程检查用户与 state 参数状态的绑定，参见[RFC 文档](https://tools.ietf.org/html/rfc6749#section-10.12)
+state          |    是   | 客户端的状态值。防止客户端被CSRF攻击，成功授权后回调时会原样带回。严格按照流程检查用户与 state 参数状态的绑定，参见[RFC 文档](https://tools.ietf.org/html/rfc6749#section-10.12)，以及这篇文章[OAuth2 CSRF攻击](https://www.jianshu.com/p/c7c8f51713b6)
 redirect_uri   |    是   | 成功授权后的回调地址，注意需将 url 进行 URLEncode
 scope          |    否   | 请求用户授权时向用户显示的可进行授权的列表。建议控制授权项的数量，只传入必要的接口名称，因为授权项越多，用户越可能拒绝进行任何授权
 
