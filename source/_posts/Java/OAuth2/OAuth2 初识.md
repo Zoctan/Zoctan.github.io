@@ -390,3 +390,35 @@ expires_in     | 有效期，单位为秒
 refresh_token  | 在授权自动续期步骤中，获取新的 access_token 时需要提供的参数
 token_type     | 令牌类型，bearer 或 mac 类型
 scope          | 权限范围，如果与客户端申请的范围一致，可省略
+
+# Demo 截图
+
+[模拟 QQ 授权银行客户端（授权码模式）](https://github.com/Zoctan/spring-security-oauth2-demo/tree/master/preOAuth2)。
+
+选择 QQ 授权登录：
+
+![银行登录页](demo1.png)
+
+银行客户端将用户导向 QQ 的授权登录页面：
+
+![授权登录页](demo2.png)
+
+并且在导向前客户端设置了 Session 保存 state：
+
+![BANKSESSION](demo3.png)
+
+同样 QQ 也设置了 Session 保存状态：
+
+![QQSESSION](demo4.png)
+
+QQ 的 Session：
+
+![QQSESSION](demo5.png)
+
+授权登录后，QQ 将用户重定向回客户端设置的回调页面：
+
+![回调页面](demo6.png)
+
+因为 state 设置了时效性，获取授权码后即被销毁，所以刷新即被当做攻击了：
+
+![假设被攻击了](demo7.png)

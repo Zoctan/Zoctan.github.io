@@ -50,6 +50,7 @@ gulp.task('minify-js', function () {
 });
 
 // 压缩 public/img 目录图片
+// 图片太多，压缩速度非常慢，可自行选择是否压缩
 // 如果出现错误 jpegtran ENOENT 或者 optipng ENOENT
 // npm rebuild jpegtran-bin optipng-bin
 gulp.task('minify-image', function () {
@@ -70,5 +71,5 @@ gulp.task('minify-image', function () {
 
 // 执行 gulp 命令时执行的任务
 gulp.task('default', [
-    'minify-html', 'minify-css', 'minify-js'//, 'minify-image'
+    'minify-html', 'minify-css', 'minify-js', 'minify-image'
 ]);
