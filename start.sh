@@ -1,3 +1,3 @@
 #!/bin/bash
 
-hexo clean && hexo generate && gulp && hexo server
+hexo clean && hexo generate && hexo server

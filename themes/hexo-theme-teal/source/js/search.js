@@ -62,6 +62,15 @@
         }
     };
 
+    function formatDateTime(date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        return y + '-' + m + '-' + d;  
+    };
+
     function render(data) {
         var html = '';
         if (data.length) {
@@ -71,7 +80,7 @@
                 return tpl(searchTpl, {
                     title: post.title,
                     path: (window.BLOG.ROOT + '/' + post.path).replace(/\/{2,}/g, '/'),
-                    date: new Date(post.date).toLocaleDateString(),
+                    date: formatDateTime(new Date(post.date)),
                     tags: post.tags.map(function (tag) {
                         return '<span>#' + tag.name + '</span>'
                     }).join('')
