@@ -21,6 +21,9 @@ post:
   prev:              "上一页"
   next:              "下一页"
   reward:            "￥"
+  word_count:        "字数"
+  min2read:          "预计阅读"
+  minute:            "分钟"
 
 about:
   skills:            "技能"

@@ -20,16 +20,16 @@ public class HashMap<K, V>
     private static class Node<K, V> implements java.util.Map.Entry<K, V> {
         //...
     }
-    
+
     // 哈希表的"key-value键值对"都是存储在 Node 数组中的
-    private transient HashMap.Node<?, ?>[] table;
+    private transient HashMap.Node<K, V>[] table;
     // HashMap 中保存的键值对的实际数量
-    private transient int count;  
+    private transient int size;
     // 阈值，用于判断是否需要调整 HashMap 的容量（threshold = 容量*加载因子）
     private int threshold;
     // 加载因子
-    private float loadFactor;
-    // HashMap 被改变的次数，实现fail-fast机制
+    private final float loadFactor;
+    // HashMap 被改变的次数，实现 fail-fast 机制
     private transient int modCount;
 
     // ...
@@ -38,96 +38,79 @@ public class HashMap<K, V>
         return this.putVal(hash(key), key, value, false, true);
     }
 
-    final V putVal(int hash, K key, V value, boolean var4, boolean var5) {
-        HashMap.Node[] var6 = this.table;
-        int var8;
-        if (this.table == null || (var8 = var6.length) == 0) {
-            var8 = (var6 = this.resize()).length;
-        }
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+        HashMap.Node<K, V>[] tab = this.table;
+        Node<K, V> p;
+        int n, i;
+        if (this.table == null || (n = tab.length) == 0)
+            n = (tab = this.resize()).length;
 
-        Object var7;
-        int var9;
-        if ((var7 = var6[var9 = var8 - 1 & hash]) == null) {
-            var6[var9] = this.newNode(hash, key, value, (HashMap.Node)null);
-        } else {
-            Object var10;
-            label79: {
-                Object var11;
-                if (((HashMap.Node)var7).hash == hash) {
-                    var11 = ((HashMap.Node)var7).key;
-                    if (((HashMap.Node)var7).key == key || key != null && key.equals(var11)) {
-                        var10 = var7;
-                        break label79;
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+
+        else {
+            Node<K, V> e;
+            K k;
+            if (p.hash == hash &&
+                    ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K, V>) p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
                     }
-                }
-
-                if (var7 instanceof HashMap.TreeNode) {
-                    var10 = ((HashMap.TreeNode)var7).putTreeVal(this, var6, hash, key, value);
-                } else {
-                    int var12 = 0;
-
-                    while(true) {
-                        var10 = ((HashMap.Node)var7).next;
-                        if (((HashMap.Node)var7).next == null) {
-                            ((HashMap.Node)var7).next = this.newNode(hash, key, value, (HashMap.Node)null);
-                            if (var12 >= 7) {
-                                this.treeifyBin(var6, hash);
-                            }
-                            break;
-                        }
-
-                        if (((HashMap.Node)var10).hash == hash) {
-                            var11 = ((HashMap.Node)var10).key;
-                            if (((HashMap.Node)var10).key == key || key != null && key.equals(var11)) {
-                                break;
-                            }
-                        }
-
-                        var7 = var10;
-                        ++var12;
-                    }
+                    if (e.hash == hash &&
+                            ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    p = e;
                 }
             }
-
-            if (var10 != null) {
-                Object var13 = ((HashMap.Node)var10).value;
-                if (!var4 || var13 == null) {
-                    ((HashMap.Node)var10).value = value;
-                }
-
-                this.afterNodeAccess((HashMap.Node)var10);
-                return var13;
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
             }
         }
-
-        ++this.modCount;
-        if (++this.size > this.threshold) {
-            this.resize();
-        }
-
-        this.afterNodeInsertion(var5);
+        ++modCount;
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
         return null;
     }
 
     public V get(Object key) {
-        HashMap.Node node = this.getNode(hash(key), key);
+        HashMap.Node<K, V> node = this.getNode(hash(key), key);
         return node == null ? null : node.value;
     }
 
     final HashMap.Node<K, V> getNode(int hash, Object key) {
-        HashMap.Node[] table = this.table;
-        HashMap.Node node = table[length - 1 & hash];
-        int length = table.length;
+        HashMap.Node<K, V>[] table = this.table;
+        int n = table.length;
+        HashMap.Node<K, V> first = table[n - 1 & hash], e;
+        K k;
 
-        if (this.table != null && length > 0 && node != null) {            
-            // 在“该hash值对应的链表”上查找“键值等于key”的元素
-            for (;node != null;node = node.next) {
-                if (node instanceof HashMap.TreeNode) {
-                    return ((HashMap.TreeNode) node).getTreeNode(hash, key);
-                }
-                if (node.hash == hash
-                    && (node.key == key || key != null && key.equals(node.key))) {
-                    return node;
+        if (this.table != null && n > 0 && first != null) {
+            for (; first != null; first = first.next) {
+                // 在该 hash 值对应的链表上查找键值等于 key 的元素
+                // 如果 hash 值相同并且键值地址或键值一样
+                if (first.hash == hash &&
+                        ((k = first.key) == key || (key != null && key.equals(k))))
+                    return first;
+                if ((e = first.next) != null) {
+                    if (first instanceof TreeNode)
+                        return ((TreeNode<K, V>) first).getTreeNode(hash, key);
+                    do {
+                        if (e.hash == hash &&
+                                ((k = e.key) == key || (key != null && key.equals(k))))
+                            return e;
+                    } while ((e = e.next) != null);
                 }
             }
         }
@@ -146,7 +129,7 @@ java.lang.Object
 
 **特点**
 
-1. HashMap 是一个散列表，它存储的内容是键值对（key-value）映射。
+1. HashMap 实际上是一个"链表散列"的数据结构，即数组和链表的结合体。底层结构是一个数组，数组中的每一项是一条链表。存储的是 Entry 键值对（key-value）映射。
 2. 允许存在一个 key 为 null 和任意个 value 为 null 的键值对。
 3. HashMap 继承于 AbstractMap，实现了 Map、Cloneable、java.io.Serializable 接口。
 4. HashMap 的方法没有锁，即其不是线程安全的。
@@ -173,20 +156,17 @@ public HashMap(Map<? extends K, ? extends V> map)
 
 ```java
 public HashMap(int initialCapacity, float loadFactor) {
-    this.modCount = 0;
     // 验证初始容量
     if (initialCapacity < 0)
-        throw new IllegalArgumentException("Illegal initial capacity: " + var1);
+        throw new IllegalArgumentException("Illegal initial capacity: " + initialCapacity);
+
     // HashMap 的最大容量只能是 MAXIMUM_CAPACITY
     if (initialCapacity > MAXIMUM_CAPACITY)
         initialCapacity = MAXIMUM_CAPACITY;
 
     // 验证加载因子
-    if (loadFactor <= 0.0F || Float.isNaN(loadFactor))
+    if (loadFactor <= 0 || Float.isNaN(loadFactor))
         throw new IllegalArgumentException("Illegal load factor: " + loadFactor);
-
-    if (initialCapacity == 0)
-        initialCapacity = 1;
 
     this.loadFactor = loadFactor;
     
@@ -194,14 +174,14 @@ public HashMap(int initialCapacity, float loadFactor) {
     this.threshold = tableSizeFor(initialCapacity);
 }
 
-// 找出“大于 initialCapacity ”的最小的2的幂
-private static final int tableSizeFor(int initialCapacity) {
-    int capacity = initialCapacity - 1;
-    capacity |= capacity >>> 1;
-    capacity |= capacity >>> 2;
-    capacity |= capacity >>> 4;
-    capacity |= capacity >>> 8;
-    capacity |= capacity >>> 16;
-    return capacity < 0 ? 1 : (capacity >= 0x40000000 ? 0x40000000 : capacity + 1);
+// 返回 initialCapacity 的最小2次幂
+private static final int tableSizeFor(int cap) {
+    int n = cap - 1;
+    n |= n >>> 1;
+    n |= n >>> 2;
+    n |= n >>> 4;
+    n |= n >>> 8;
+    n |= n >>> 16;
+    return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
 }
 ```

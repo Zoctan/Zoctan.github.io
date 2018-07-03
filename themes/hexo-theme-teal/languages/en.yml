@@ -21,6 +21,9 @@ post:
   prev:              "prev"
   next:              "next"
   reward:            "$"
+  word_count:        "word"
+  min2read:          "min2read"
+  minute:            "minute"
 
 about:
   skills:            "Skills"
