@@ -127,3 +127,140 @@ SSO-Server
 4. 重定向回 SSO 客户端 client，并附上令牌；
 5. 校验 client 令牌有效性（存在、有效），若有效则将客户端注册到 server（暂存）；
 7. 接收 client 注销请求，注销所有会话。
+
+# Demo 截图
+
+首先是访问 QQ 邮箱，因为没有登录过，所以重定向到了认证服务器：
+
+```java
+@Override
+public void doFilter(final ServletRequest servletRequest, final ServletResponse servletResponse, final FilterChain filterChain) throws IOException, ServletException {
+    final HttpServletRequest request = (HttpServletRequest) servletRequest;
+    final HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+    final HttpSession session = request.getSession();
+    // 用户登录状态
+    final Object isLogin = session.getAttribute("isLogin");
+    // 已登录，放行
+    if (isLogin != null) {
+        filterChain.doFilter(request, response);
+        return;
+    }
+    // 未登录，跳转到认证服务器
+    final String to = String.format("%s/login?" +
+            "sub_id=%s" + "&" +
+            "sub_secret=%s" + "&" +
+            "service=%s", this.qqURL, this.subId, this.subSecret, this.localhostURL);
+    response.sendRedirect(to);
+}
+```
+
+![重定向至认证服务器](demo1.png)
+
+认证服务器向用户提供登录界面：
+
+```java
+@GetMapping("/login")
+public String login(@RequestParam("sub_id") final String subId,
+                    @RequestParam("sub_secret") final String subSecret,
+                    @RequestParam("service") final String service,
+                    final ModelMap map,
+                    final HttpServletResponse response) throws IOException {
+    // 验证子系统
+    final String validate = this.validateClient(subId, subSecret);
+    if (validate != null) {
+        response.sendRedirect(service + "?error=" + validate);
+        return null;
+    }
+    
+    final HttpSession session = this.request.getSession();
+    // 如果之前登录过
+    final Object isLogin = session.getAttribute("isLogin");
+    if (isLogin != null) {
+        // 从 Cookie 中获取 token
+        final String token = CookieUtil.get(this.request, "token");
+        // 带上 token 重定向回去
+        response.sendRedirect(service + "?token=" + token);
+        return null;
+    }
+    // 未登录，按正常登录进行
+    // 记录下请求的子系统地址
+    session.setAttribute("service", service);
+    // 页面变量
+    map.addAttribute("username", this.username);
+    map.addAttribute("password", this.password);
+    return "login";
+}
+```
+
+![认证服务器提供登录界面](demo2.png)
+
+用户登录成功，重定向回 QQ 邮箱子系统：
+
+```java
+@PostMapping("/doLogin")
+public ModelAndView doLogin(@RequestParam("username") final String username,
+                            @RequestParam("password") final String password,
+                            final HttpServletResponse response) throws IOException {
+    final ModelAndView modelAndView = new ModelAndView();
+    if (!this.username.equals(username) || !this.password.equals(password)) {
+        modelAndView.setViewName("/login");
+        modelAndView.addObject("alertMsg", "用户名或密码错误");
+        return modelAndView;
+    }
+
+    // 生成 token
+    final String token = UUID.randomUUID().toString();
+    // 在 Cookie 中设置 token
+    CookieUtil.set(response, "token", token);
+    // 全局 session
+    final HttpSession session = this.request.getSession();
+    // 设置用户已登录
+    session.setAttribute("isLogin", true);
+    final String service = session.getAttribute("service").toString();
+    response.sendRedirect(service + "?token=" + token);
+    return null;
+}
+```
+
+![重定向回子系统](demo3.png)
+
+```java
+@GetMapping("/")
+public String callback(@RequestParam(value = "token", required = false) final String token,
+                        @RequestParam(value = "error", required = false) final String error,
+                        final HttpServletResponse response,
+                        final ModelMap modelMap) {
+    if (!StringUtils.isEmpty(error)) {
+        modelMap.addAttribute("error", error);
+    }
+    if (!StringUtils.isEmpty(token)
+            && StringUtils.isEmpty(error)) {
+        final HttpSession session = this.request.getSession();
+        // 设置用户已登录
+        session.setAttribute("isLogin", true);
+        // 在 Cookie 中设置 token
+        CookieUtil.set(response, this.tokenCookieName, token);
+        modelMap.addAttribute(this.tokenCookieName, token);
+    }
+    return "index";
+}
+```
+
+![QQ 邮箱子系统首页](demo4.png)
+
+然后尝试访问 QQ 游戏子系统，可以看到直接就带上了 token，表明用户已经登录：
+
+![ QQ 游戏子系统首页](demo5.png)
+
+认证服务器的控制台也显示了，在 QQ 游戏不知道用户是否登录时，重定向到了认证服务器，因为全局 session 设置了 isLogin=true，所以认证服务器直接把 token 带上，重定向回 QQ 游戏，避免了用户二次登录。
+
+![认证服务器的控制台](demo6.png)
+
+# 总结
+
+通过原理和 demo 可以看出，其实单点登录也是利用了 cookie、session，只是进一步分为了全局的，和局部的，分别对应认证服务器和各个子系统。
+
+当子系统不能确认用户登录时，重定向到认证服务器确认：
+- 如果未登录，全局 session 为空或者 isLogin=false，认证服务器提供登录界面，登陆成功就设置认证服务器和浏览器之间的全局 session 中 isLogin=true。
+- 如果登录过，带上 token，重定向回子系统，避免用户重复登录。
