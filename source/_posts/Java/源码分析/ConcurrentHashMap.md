@@ -1,9 +1,8 @@
 ---
 title: ConcurrentHashMap
 date: 2018-5-13
-category: 学习
+category: Java
 tags:
-  - Java
   - 源码
 ---
 

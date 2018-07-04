@@ -1,10 +1,7 @@
 ---
 title: Java 算法模版
 date: 2018-05-01
-category: 学习
-tags:
-- Java
-- 算法
+category: 算法
 ---
 
 # 前言

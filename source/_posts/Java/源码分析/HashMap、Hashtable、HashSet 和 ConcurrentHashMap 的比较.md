@@ -1,9 +1,8 @@
 ---
 title: HashMap、Hashtable、HashSet 和 ConcurrentHashMap 的比较
 date: 2018-07-01
-category: 学习
+category: Java
 tags:
-  - Java
   - 源码
 ---
 

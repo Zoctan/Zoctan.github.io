@@ -1,9 +1,7 @@
 ---
 title: 面试——Linux
-date: 2018-4-8
-category: 学习
-tags:
-  - 面试
+date: 2018-04-08
+category: 面试
 ---
 
 # Linux: 

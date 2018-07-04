@@ -1,10 +1,7 @@
 ---
 title: 蓝桥杯2016年第7届Java-B组国赛
-date: 2018-1-22
-category: 学习
-tags:
-  - 算法
-  - Java
+date: 2018-01-22
+category: 算法
 ---
 
 # 愤怒小鸟

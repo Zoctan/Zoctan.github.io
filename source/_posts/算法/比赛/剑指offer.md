@@ -1,10 +1,7 @@
 ---
 title: 剑指offer
 date: 2018-01-01
-category: 学习
-tags:
-  - 算法
-  - Java
+category: 算法
 ---
 
 # 斐波那契数列

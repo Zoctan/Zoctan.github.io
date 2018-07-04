@@ -1,9 +1,7 @@
 ---
 title: 面试——Java
-date: 2018-2-14
-category: 学习
-tags:
-  - 面试
+date: 2018-02-14
+category: 面试
 ---
 
 ## 多线程实现的几种方式（Thread、Runnable、Callable、线程池）及各自的特点

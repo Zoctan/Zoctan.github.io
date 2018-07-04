@@ -1,10 +1,7 @@
 ---
 title: 蓝桥杯2015年第5届Java-B组省赛
-date: 2018-1-25
-category: 学习
-tags:
-  - 算法
-  - Java
+date: 2018-01-25
+category: 算法
 ---
 
 # 正则表达式

@@ -1,9 +1,7 @@
 ---
 title: Web项目性能优化
-date: 2018-3-19
-category: 学习
-tags:
-  - Java
+date: 2018-03-19
+category: 面试
 ---
 
 # 前言

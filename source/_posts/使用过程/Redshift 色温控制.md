@@ -1,9 +1,7 @@
 ---
 title: Redshift 色温控制
-date: 2018-4-15
-category: 杂项
-tags:
-- 使用过程
+date: 2018-04-15
+category: 使用过程
 ---
 
 # 前记

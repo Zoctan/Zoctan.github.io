@@ -1,9 +1,7 @@
 ---
 title: 广度搜索和深度搜索
-date: 2018-3-9
-category: 学习
-tags:
-- 算法
+date: 2018-03-09
+category: 算法
 ---
 
 # 前言

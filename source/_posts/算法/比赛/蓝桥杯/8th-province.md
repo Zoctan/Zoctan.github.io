@@ -1,10 +1,7 @@
 ---
 title: 蓝桥杯2017年第8届省赛
-date: 2018-1-26
-category: 学习
-tags:
-  - 算法
-  - Java
+date: 2018-01-26
+category: 算法
 ---
 
 # 结果填空

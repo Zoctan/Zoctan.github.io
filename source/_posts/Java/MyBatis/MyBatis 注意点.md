@@ -1,7 +1,7 @@
 ---
 title: MyBatis 注意点
 date: 2018-07-01
-category: 学习
+category: Java
 tags:
   - MyBatis
 ---

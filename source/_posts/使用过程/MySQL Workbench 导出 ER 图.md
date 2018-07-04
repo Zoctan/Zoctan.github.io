@@ -1,9 +1,7 @@
 ---
 title: MySQL Workbench 导出 ER 图
-date: 2018-3-4
-category: 杂项
-tags:
-- 使用过程
+date: 2018-03-04
+category: 使用过程
 ---
 
 Debian下安装

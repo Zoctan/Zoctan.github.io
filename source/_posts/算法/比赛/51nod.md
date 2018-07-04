@@ -1,10 +1,7 @@
 ---
 title: 51Nod
-date: 2018-3-14
-category: 学习
-tags:
-  - 算法
-  - Java
+date: 2018-03-14
+category: 算法
 ---
 
 # [最大子段和](http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1049)

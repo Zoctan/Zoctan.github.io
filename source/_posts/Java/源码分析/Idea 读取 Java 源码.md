@@ -1,9 +1,8 @@
 ---
 title: Idea 读取 Java 源码
 date: 2018-07-01
-category: 学习
+category: Java
 tags:
-  - Java
   - 源码
 ---
 

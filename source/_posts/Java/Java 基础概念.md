@@ -1,9 +1,7 @@
 ---
-title: Java基础概念
+title: Java 基础概念
 date: 2017-12-26
-category: 学习
-tags:
-  - Java
+category: Java
 ---
 
 # Java 虚拟机（JVM）

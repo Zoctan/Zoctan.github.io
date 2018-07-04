@@ -1,9 +1,8 @@
 ---
 title: HashMap
-date: 2018-5-12
-category: 学习
+date: 2018-05-12
+category: Java
 tags:
-  - Java
   - 源码
 ---
 

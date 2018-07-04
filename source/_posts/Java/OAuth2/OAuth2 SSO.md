@@ -10,7 +10,9 @@ tags:
 
 单点登录（Single Sign On）严格上来说和 OAuth2 没太大关系，只是 SSO 可以通过 OAuth2 实现。本文延续 OAuth2 初识的模式，看完原理写 Demo，在上一个 Demo 的基础上加以改造。
 
-代码：[GitHub]()
+认证中心仍然是 QQ，然后子系统是 QQ 邮箱 + QQ 游戏，两个子系统除了配置上有少许差别外，基本一样。
+
+代码：[GitHub](https://github.com/Zoctan/spring-security-oauth2-demo/tree/master/preSSO)
 
 原理参考[单点登录原理](http://www.cnblogs.com/markleilei/p/6201665.html)，内容上有删改。
 

@@ -1,9 +1,8 @@
 ---
 title: Integer
 date: 2018-07-01
-category: 学习
+category: Java
 tags:
-  - Java
   - 源码
 ---
 

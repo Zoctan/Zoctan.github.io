@@ -1,9 +1,7 @@
 ---
 title: Jetty 部署 Spring Boot
-date: 2018-5-27
-category: 杂项
-tags:
-- 使用过程
+date: 2018-05-27
+category: 使用过程
 ---
 
 # 前记

@@ -1,9 +1,7 @@
 ---
 title: 搬瓦工 Shadowsocks
-date: 2018-6-12
-category: 杂项
-tags:
-- 使用过程
+date: 2018-06-12
+category: 使用过程
 ---
 
 # 前记
@@ -18,7 +16,7 @@ tags:
 
 虽然配置比较渣，但是一个月 500G 免费流量，挂上 Shadowsocks 后的速度也很快，也是满足了日常需求了。
 
-初始系统是 Centos，版本太旧（但是有BBR加速），我就直接在[控制面板](https://bandwagonhost.com/clientarea.php?action=products)重装成了 Debian 9。
+初始系统是 Centos，版本太旧（但是有 BBR 加速），我就直接在[控制面板](https://bandwagonhost.com/clientarea.php?action=products)重装成了 Debian 9。
 
 # 安装 Shadowsocks
 
@@ -43,7 +41,7 @@ dnf install libsodium python34-pip
 pip3 install  git+https://github.com/shadowsocks/shadowsocks.git@master
 ```
 
-`vim /etc/shadowsocks.json` 配置文件：
+`/etc/shadowsocks.json` 配置文件：
 
 ```
 {
@@ -64,8 +62,50 @@ pip3 install  git+https://github.com/shadowsocks/shadowsocks.git@master
 ssserver -c /etc/shadowsocks.json -d start
 ```
 
-开机自启：在 `/etc/rc.local` 中加入 ssserver -c /etc/shadowsocks.json -d start
+本地再安装一下[ Github 上的各种客户端](https://github.com/search?o=desc&q=shadowsocks&s=stars&type=Repositories)即可看到墙外世界啦～
 
-本地再安装一下客户端即可看到墙外世界啦～
+# 作为系统服务开机自启
 
-Github 上的各种[客户端](https://github.com/search?o=desc&q=shadowsocks&s=stars&type=Repositories)可以玩耍～
+在目录 `/usr/lib/systemd/system/` 下新建 `shadowsocks.service`：
+
+```bash
+[Unit]
+Description=AutoExec
+[Service]
+# 执行的脚本
+ExecStart=/root/ss.sh
+[Install]
+WantedBy=multi-user.target
+```
+
+`/root/ss.sh` 脚本：
+
+```bash
+#!/bin/sh
+nohup sslocal -c /etc/shadowsocks.json -d start &
+sleep 1000h 
+```
+
+重新加载一下：
+
+```bash
+sudo systemctl reload
+```
+
+开机自启：
+
+```bash
+sudo systemctl enable shadowsocks.service
+```
+
+启动：
+
+```bash
+sudo systemctl start shadowsocks.service
+```
+
+查看状态
+
+```bash
+sudo systemctl status shadowsocks.service
+```
