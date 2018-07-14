@@ -1,7 +1,7 @@
 ---
 title: OAuth2 初识
 date: 2018-06-21
-category: 学习
+category: Java
 tags:
   - OAuth2
 ---

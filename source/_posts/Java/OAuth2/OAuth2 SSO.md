@@ -1,7 +1,7 @@
 ---
 title: OAuth2 SSO
 date: 2018-06-27
-category: 学习
+category: Java
 tags:
   - OAuth2
 ---
@@ -19,7 +19,7 @@ tags:
 前提知识：
 - session 和 cookie 的使用
 
-# 登录状态
+# 单系统登录
 
 假设浏览器第一次请求服务器需要输入用户名与密码验证身份，服务器拿到用户名密码去数据库比对，正确的话说明当前持有这个会话的用户是合法用户，应该将这个会话标记为“已授权”或者“已登录”等等之类的状态，既然是会话的状态，自然要保存在会话对象中，tomcat 在会话对象中设置登录状态：
 
@@ -130,7 +130,7 @@ SSO-Server
 5. 校验 client 令牌有效性（存在、有效），若有效则将客户端注册到 server（暂存）；
 7. 接收 client 注销请求，注销所有会话。
 
-# Demo 截图
+# Demo
 
 首先是访问 QQ 邮箱，因为没有登录过，所以重定向到了认证服务器：
 
@@ -226,6 +226,8 @@ public ModelAndView doLogin(@RequestParam("username") final String username,
 ```
 
 ![重定向回子系统](demo3.png)
+
+子系统接受回调内容：
 
 ```java
 @GetMapping("/")
