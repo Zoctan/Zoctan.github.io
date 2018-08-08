@@ -6,7 +6,7 @@ category: 使用过程
 
 # 前记
 
-项目需要部署到线上，原来都是直接 java -jar 这样运行的，后来才发现服务器的 CPU 占满了，不得不说第一次部署 Java 这么困难。打算用 Tomcat ，但是一直启动不了，各种奇怪的原因，无奈换成 Jetty。
+项目需要部署到线上，原来都是直接 java -jar 这样运行的，后来才发现服务器的 CPU 占满了，不得不说第一次部署 Java 这么困难。打算用 Tomcat，但是一直启动不了，各种奇怪的原因，无奈换成 Jetty。
 
 # 下载
 
@@ -76,19 +76,11 @@ mvn clean package -Dmaven.test.skip=true
 
 上面的步骤已经将项目打包到 target 目录下了，比如 xx.war。
 
-将 xx.war 放到刚才下载解压的 Jetty 目录的 JETTY_HOME/webapps 即可。（可以在 jetty 运行时直接放进去，会动态检查）
+将 xx.war 放到刚才下载解压的 Jetty 目录的 JETTY_HOME/webapps 即可（可以在 jetty 运行时直接放进去，会动态检测）。
 
-然后运行 JETTY_HOME 下的 start.jar：
+然后运行 JETTY_HOME 下的 start.jar：`java -jar start.jar`
 
-```bash
-java -jar start.jar
-```
-
-或者 bin/jetty.sh：
-
-```bash
-./bin/jetty.sh start
-```
+或者 bin/jetty.sh：`./bin/jetty.sh start`
 
 访问 http://localhost:8080/xx/ 即可看到效果。
 

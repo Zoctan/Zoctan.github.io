@@ -86,26 +86,12 @@ nohup sslocal -c /etc/shadowsocks.json -d start &
 sleep 1000h 
 ```
 
-重新加载一下：
+重新加载：`sudo systemctl reload`
 
-```bash
-sudo systemctl reload
-```
+开机自启：`sudo systemctl enable shadowsocks.service`
 
-开机自启：
+启动：`sudo systemctl start shadowsocks.service`
 
-```bash
-sudo systemctl enable shadowsocks.service
-```
+查看状态：`sudo systemctl status shadowsocks.service`
 
-启动：
-
-```bash
-sudo systemctl start shadowsocks.service
-```
-
-查看状态
-
-```bash
-sudo systemctl status shadowsocks.service
-```
+Active: active (running) 即启动成功。

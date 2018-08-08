@@ -104,8 +104,8 @@ public class Hashtable<K, V>
 
 ```
 java.lang.Object  
-  ↳ java.util.Dictionary<K, V>  
-      ↳ java.util.Hashtable<K, V>  
+    ↳ java.util.Dictionary<K, V>  
+        ↳ java.util.Hashtable<K, V>  
 ```
 
 **特点**

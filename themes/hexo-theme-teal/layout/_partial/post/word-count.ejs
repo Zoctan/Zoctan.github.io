@@ -1,4 +1,15 @@
 <!-- 文字字数统计 -->
 <!-- hexo-wordcount -->
-<span class="post-count"><%= __('post.word_count') %>&nbsp;<%= wordcount(post.content) %></span>
-<span class="post-count"><%= __('post.min2read') %>&nbsp;<%= min2read(post.content) %>&nbsp;<%= __('post.minute') %></span>
+<span class="post-count">
+    <%= __('post.word_count') %>
+    &nbsp;
+    <%= wordcount(post.content) %>
+</span>
+<!-- 预计阅读 -->
+<span class="post-count">
+    <%= __('post.min2read') %>
+    &nbsp;
+    <%= min2read(post.content) %>
+    &nbsp;
+    <%= __('post.minute') %>
+</span>

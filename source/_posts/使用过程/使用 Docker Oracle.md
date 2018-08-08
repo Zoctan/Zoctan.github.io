@@ -12,11 +12,7 @@ category: 使用过程
 
 docker 的安装过程就不累述了，网上很多。
 
-查找 Oracle 相关的镜像：
-
-```bash
-sudo docker search oracle
-```
+查找 Oracle 相关的镜像：`sudo docker search oracle`
 
 ```
 NAME                                DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED

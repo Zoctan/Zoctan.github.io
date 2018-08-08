@@ -8,6 +8,9 @@ category: Java
 
 最近写项目，凡是不属于数据表对应对象的字段的，但又是连表查询出来的，我都加在了 DO 里（贪方便），然后字段越来越多，实在不妥，然后就去了解标题的那些模型。网上大部分都是只讲概念，虽然也能看懂，但是没有例子实在不好，所以这里会写概念 + 栗子。
 
+参考文章：
+- [细思极恐-你真的会写java吗](http://lrwinx.github.io/2017/03/04/%E7%BB%86%E6%80%9D%E6%9E%81%E6%81%90-%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E5%86%99java%E5%90%97/)
+
 # DO、DTO、BO、AO、VO、POJO
 
 分层领域模型规约：
@@ -65,4 +68,36 @@ public class UserDO {
 还有很多问题，这这里就不详细介绍了。
 
 可见，从头用到尾只使用 DO 是不好的。
+
+# 属性赋值工具
+
+模型之间的转换只需要将对应的值拷贝就行了，比如一个个 set：
+
+```java
+@RestController
+@RequestMapping("user")
+public class UserApi {
+    @Resource
+    private UserService userService;
+
+    @PostMapping
+    public User addUser(UserInputDTO userInputDTO){
+        User user = new User();
+        user.setUsername(userInputDTO.getUsername());
+        user.setAge(userInputDTO.getAge());
+
+        return userService.addUser(user);
+    }
+}
+```
+
+当然以上方法不太好，属性一多，set 起来也多，所以可以用一些工具帮我们拷贝（基本上是浅拷贝，需要注意使用）：
+
+```java
+org.springframework.beans.BeanUtils#copyProperties
+org.apache.commons.beanutils.PropertyUtils#copyProperties
+org.apache.commons.beanutils.BeanUtils#copyProperties
+```
+
+org.springframework.beans.BeanUtils 和 org.apache.commons.beanutils.BeanUtils 的区别可以参考这篇文章：https://www.cnblogs.com/dongfangshenhua/p/7099970.html
 

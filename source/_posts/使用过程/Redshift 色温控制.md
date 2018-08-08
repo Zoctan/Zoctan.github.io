@@ -16,15 +16,13 @@ category: 使用过程
 
 Redshift 在简单的安装后就能使用了，挺方便的，所以设置为了开机自启，以下是安装过程和设置过程：
 
-# Redshift
-
-**安装**
+# Debian 安装
 
 ```bash
 sudo apt-get install redshift
 ```
 
-**配置**
+## 配置
 
 切换到 `~/.config` 目录下，并新建文件 `redshift.conf`，配置内容如下：
 
@@ -60,7 +58,7 @@ lat=39.90
 lon=116.41
 ```
 
-**开机自启**
+## 开机自启
 
 切换到 `/etc/systemd/user` 目录下，新建文件 `redshift.service`，配置内容如下：
 
@@ -92,24 +90,16 @@ systemctl daemon-reload
 systemctl --user enable redshift.service
 ```
 
-**开启/停止/重启**
+## 开启/停止/重启
 
 像其他用户服务一样使用：
 
-*开启*
+开启：`systemctl --user start redshift.service`
 
-```bash
-systemctl --user start redshift.service
-```
+停止：`systemctl --user stop redshift.service`
 
-*停止*
+重启：`systemctl --user restart redshift.service`
 
-```bash
-systemctl --user stop redshift.service
-```
+# Arch 安装
 
-*重启*
-
-```bash
-systemctl --user restart redshift.service
-```
+Arch 就更简单了，直接 `sudo pacman -S redshift` 即可，而且有图形化界面，除了上面的配置外其他的直接通过按钮即可开启。
