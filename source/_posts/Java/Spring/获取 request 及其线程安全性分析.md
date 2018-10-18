@@ -109,7 +109,7 @@ public class TestController {
         Thread.sleep(1000);
     }
 }
-```	
+```
 
 该方法实现的原理：Controller 方法开始处理请求时，Spring 会将 request 对象赋值到方法参数中。
 
