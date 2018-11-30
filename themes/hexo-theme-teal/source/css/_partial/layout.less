@@ -56,6 +56,17 @@
     border-radius: 50%;
     overflow: hidden;
     box-shadow: @boxShadow;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@tag-color-4), to(@tag-color-3));
+      animation-timing-function: ease-in-out;
+      animation-name: breathe;
+      animation-duration: 1800ms;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+  }
+  // 头像呼吸效果
+  @keyframes breathe {
+      0% { opacity: .2; box-shadow:0 1px rgba(255,255,255,0.1);}
+      100% { opacity: 1; box-shadow:0 1px rgba(59,235,235,1);}
   }
 
   .introduce {

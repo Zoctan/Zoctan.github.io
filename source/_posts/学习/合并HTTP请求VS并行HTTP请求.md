@@ -88,7 +88,7 @@ parallel-large.html引用large1.css、large2.css … large6.css， combined-larg
 
 实验结果：
 
-            | large-6in1.css | large1.css、large2.css … large6.css
+  文件     | large-6in1.css | large1.css、large2.css … large6.css
 :----------:|:--------------:|:------------------:
 平均时间(s)  |  5.52          |  5.3
 
@@ -112,9 +112,10 @@ parallel-large.html引用large1.css、large2.css … large6.css， combined-larg
 测试10次，平均加载时间为5.20s。
 
 汇总实验结果如下：
-            | large-6in1.css | large1.css、large2.css … large6.css | large-2in1a.css、... large-2in1c.css
-:----------:|:--------------:|:------------------:
-平均时间(s)  | 5.52           | 5.30                             |5.20
+
+文件       | large-6in1.css | large1.css、large2.css … large6.css | large-2in1a.css、... large-2in1c.css
+:--------:|:--------------:|:-----------------------------------:|:----------------:
+平均时间(s) | 5.52          | 5.30                                 |5.20
 
 从实验1结果可以看出，合并资源和拆分资源对于资源的总加载时间没有显著影响。实验中耗时最少的是拆分成3个资源的情况（5.2s），耗时最多的是合并成一个资源的情况(5.52s)，但两者也只不过相差6%。考虑到实验环境具有一定随机性，以及实验重复次数只有10次，这个时间差并不能表征3种场景有明显的时间差异性。
 
@@ -128,9 +129,10 @@ xlarge-3in1.css，由前面3个css文件合并而成，大小为5.1M。
 parallel-xlarge.html引用xlarge1.css、xlarge2.css 、xlarge3.css， combined-xlarge.html引用xlarge-3in1.css。
 
 测试过程同上，实验结果：
-            | xlarge-3in1.css | xlarge1.css、xlarge2.css、xlarge3.css
-:----------:|:---------------:|:------------------:
-平均时间(s)  | 37.72           | 36.88
+
+文件       | xlarge-3in1.css | xlarge1.css、xlarge2.css、xlarge3.css
+:---------:|:--------------:|:------------------:
+平均时间(ms) | 37.72           | 36.88
 
 这组实验的时间差只有2%，更小了，所以更无法说明合并资源和拆分资源的总加载时间有明显差异性。
 
@@ -145,14 +147,13 @@ parallel-xlarge.html引用xlarge1.css、xlarge2.css 、xlarge3.css， combined-x
 测试文件：
 medium1.css、medium2.css … medium6.css，每个文件9.4K；
 medium-6in1.css，由前面6个css文件合并而成，大小为56.4K。
-parallel-medium.html引用medium1.css、medium2.css … medium6.css， combined-medium.html 引用 medium-6in1.css。
+parallel-medium.html 引用 medium1.css、medium2.css … medium6.css， combined-medium.html 引用 medium-6in1.css。
 
 实验结果：
-            | medium-6in1.css | medium1.css、medium2.css … medium6.css
+
+文件        | medium-6in1.css | medium1.css、medium2.css … medium6.css
 :----------:|:---------------:|:------------------:
 平均时间(ms) | 34.87           | 46.24
-
-注意单位变成ms
 
 实验3的时间差是33%，虽然数值上只差12ms。先不多分析，继续看实验4。
 
@@ -166,7 +167,8 @@ small-6in1.css，由前面6个css文件合并而成，大小为173B。
 parallel-medium.html引用small1.css、small2.css … small6.css， combined-medium.html 引用 small-6in1.css。
 
 实验结果：
-            | small-6in1.css  | small1.css、small2.css … small6.css
+
+文件        | small-6in1.css  | small1.css、small2.css … small6.css
 :----------:|:---------------:|:------------------:
 平均时间(ms) | 20.33           |  35
 

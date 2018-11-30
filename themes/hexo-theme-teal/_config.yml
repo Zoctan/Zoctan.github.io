@@ -119,7 +119,7 @@ canonical:                false
 # 版权起始年份
 since_year:               2017
 
-# “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
+# “不蒜子”访问量统计 http://busuanzi.ibruce.info/
 visit_counter:            true
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
