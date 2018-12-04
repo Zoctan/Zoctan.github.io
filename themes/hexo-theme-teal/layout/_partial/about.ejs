@@ -16,7 +16,7 @@
                     %>
                     <li class="waves-block socail-icon %>">
                         <a href="<%- url_for(link) %>" target="_blank">
-                            <i class="icon icon-<%= i %>" aria-hidden="true"></i>
+                            <i class="fab fa-<%= i %>" aria-hidden="true"></i>
                         </a>
                     </li>
                     <% } %>
@@ -27,7 +27,7 @@
         <section>
             <div class="about-me">
                 <h1 class="about-card-title">
-                    <i class="icon icon-lg icon-mars" aria-hidden="true"></i> <%= __('menu.user') %>
+                    <i class="fas fa-mars" aria-hidden="true"></i> <%= __('menu.user') %>
                 </h1>
                 <div class="content"><%- post.content %></div>
             </div>
@@ -36,7 +36,7 @@
         <% if (aboutData.skills) { %>
         <section>
             <h1 class="about-card-title">
-                <i class="icon icon-lg icon-cogs" aria-hidden="true"></i> <%= __('about.skills') %>
+                <i class="fas fa-cogs" aria-hidden="true"></i> <%= __('about.skills') %>
             </h1>
             <ul class="skill-list">
                 <% for (var skill in aboutData.skills) { %>
@@ -45,10 +45,10 @@
                     <div class="flex-col"><%= skill %></div>
                     <div class="flex-col">
                         <% for (var i = 1; i <= aboutData.skills[skill]; i++) { %>
-                        <i class="icon icon-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                         <% } %>
                         <% for (; i <= 6; i++) { %>
-                        <i class="icon icon-star-o" aria-hidden="true"></i>
+                        <i class="far fa-star" aria-hidden="true"></i>
                         <% } %>
                     </div>
                     <div class="flex-col"></div>
@@ -64,7 +64,7 @@
         <% if (aboutData.projects && aboutData.projects.length > 0) { %>
         <section>
             <h1 class="about-card-title">
-                <i class="icon icon-lg icon-cubes" aria-hidden="true"></i> <%= __('about.projects') %>
+                <i class="fas fa-cubes" aria-hidden="true"></i> <%= __('about.projects') %>
             </h1>
             <div class="flex-row-wrap">
                 <% for (var i in aboutData.projects) { %>

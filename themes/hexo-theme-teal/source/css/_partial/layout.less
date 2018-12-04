@@ -65,12 +65,12 @@
   }
   // 头像呼吸效果
   @keyframes breathe {
-      0% { opacity: .2; box-shadow:0 1px rgba(255,255,255,0.1);}
+      0% { opacity: .4; box-shadow:0 1px rgba(255,255,255,0.1);}
       100% { opacity: 1; box-shadow:0 1px rgba(59,235,235,1);}
   }
 
   .introduce {
-    margin: 1em 0 0;
+    margin: 1.5em 0 0;
     text-align: center;
     color: @textPrimaryColor;
 
@@ -79,8 +79,8 @@
     }
 
     .description {
-      padding-top: 2px;
-      padding-bottom: 10px;
+      color: #DCDCDC;
+      word-wrap: break-word;
     }
 
     .socail-icon {
@@ -116,19 +116,12 @@
 
     li {
       padding: 0 @menuPadding;
-
-      .icon {
-        position: absolute;
-        top: 0;
-        left: @menuPadding;
-        line-height: inherit;
-      }
-
+      
       &.active,
       &:hover {
         background: rgba(0, 0, 0, .05);
 
-        .icon,
+        svg,
         a {
           color: @primaryColor;
         }

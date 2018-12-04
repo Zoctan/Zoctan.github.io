@@ -3,7 +3,7 @@
 >
     <div class="inner flex-row-vertical">
         <a href="javascript:void(0);" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-            <i class="icon icon-lg icon-close" aria-hidden="true"></i>
+            <i class="fas fa-times" aria-hidden="true"></i>
         </a>
         <div class="brand-wrap" style="background-image:url(<%- url_for(theme.brand) %>)">
             <div class="brand">
@@ -12,14 +12,14 @@
                         <img src="<%- url_for(theme.avatar) %>">
                     </a>
                     <h5 class="nickname"><%- config.author %></h5>
-                    <h5 class="description"><%- config.description %></h5>
+                    <small class="description"><%- config.description %></small><br/>
                     <%
                     for (var i in theme.socail) {
                         link = theme.socail[i];
                     %>
                     <li class="waves-block socail-icon %>">
                         <a href="<%- url_for(link) %>" target="_blank">
-                            <i class="icon icon-lg icon-<%= i %>" aria-hidden="true"></i>
+                            <i class="fab fa-<%= i %>" aria-hidden="true"></i>
                         </a>
                     </li>
                     <% } %>
@@ -38,7 +38,7 @@
                 %>
                 <li class="waves-block waves-effect<% if(isActive(menuLink)){ %> active<% } %>">
                     <a href="<%- url_for(menuLink) %>">
-                        <i class="icon icon-lg icon-<%= i %>" aria-hidden="true"></i>
+                        <i class="fas fa-<%= i %>" aria-hidden="true"></i>
                         <%= (__('menu.' + i) || _.startCase(i)) %>
                     </a>
                 </li>

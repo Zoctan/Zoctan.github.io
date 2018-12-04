@@ -7,7 +7,7 @@ visit_counter:
 
 menu:
   home:              "主页"
-  archives:          "归档"
+  archive:           "归档"
   tags:              "标签"
   th-list:           "分类"
   user:              "关于"

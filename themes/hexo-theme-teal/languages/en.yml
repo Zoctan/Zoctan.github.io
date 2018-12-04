@@ -7,7 +7,7 @@ visit_counter:
 
 menu:
   home:              "Home"
-  archives:          "Archives"
+  archive:           "Archives"
   tags:              "Tags"
   th-list:           "Categories"
   user:              "About"

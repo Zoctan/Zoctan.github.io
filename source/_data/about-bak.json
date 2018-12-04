@@ -1,0 +1,45 @@
+{
+  "skills": {
+    "Python": 3,
+    "Java": 4,
+    "JavaScript": 3,
+    "HTML/CSS": 2,
+
+    "invisible-split-line-1": -1,
+
+    "Shell": 3,
+
+    "invisible-split-line-2": -1,
+
+    "Photoshop": 2
+  },
+  "projects": [{
+    "name": "WYUOJ",
+    "image": "https://raw.githubusercontent.com/QinZhen001/CodeNut/all/README/1.png",
+    "tags": ["2017年", "Web"],
+    "description": "为学校开发的 online judge 平台，目前在重写，暂不开放OJ功能",
+    "link_text": "Github地址",
+    "link": "https://github.com/QinZhen001/CodeNut"
+  },{
+    "name": "智能插座APP",
+    "image": "https://raw.githubusercontent.com/Zoctan/SmartHub/app/screenshot/login.png",
+    "tags": ["2017年", "Android"],
+    "description": "基于 Material Design 和 MVP 架构的智能插座客户端",
+    "link_text": "Github地址",
+    "link": "https://github.com/Zoctan/SmartHub"
+  }, {
+    "name": "Spring Boot Vue Admin",
+    "image": "https://raw.githubusercontent.com/Zoctan/spring-boot-vue-admin/master/README/2.png",
+    "description": "一套前后端分离的后台权限管理模版。",
+    "tags": ["2018年", "Java"],
+    "link_text": "Github地址",
+    "link": "https://github.com/Zoctan/spring-boot-vue-admin"
+  }, {
+    "name": "Spring Boot API Seedling",
+    "image": "http://file01.16sucai.com/d/file/2014-01-18/13900358739440.jpg",
+    "description": "快速构建中小型 API、RESTful API 项目。",
+    "tags": ["2018年", "Java"],
+    "link_text": "Github地址",
+    "link": "https://github.com/Zoctan/spring-boot-api-seedling"
+  }]
+}

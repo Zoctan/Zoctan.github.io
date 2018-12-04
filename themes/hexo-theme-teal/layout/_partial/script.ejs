@@ -1,3 +1,6 @@
+<!-- 蜘蛛网背景 -->
+<script src="/js/nest_min.js"></script>
+<script src="/js/fontawesome_min.js"></script>
 <script src="/js/waves_0.7.6_min.js"></script>
 <script>
     var BLOG = {
@@ -9,6 +12,9 @@
     <% if (theme.cnzz) { %>
     lazyScripts.push('//s13.cnzz.com/z_stat.php?id=<%- theme.cnzz %>&web_id=<%- theme.cnzz %>');
     <% } %>
+
+    document.body.oncopy = () => alert("Zoctan's Blog: Copy success O(∩_∩)O!");
+
 </script>
 
 <script src="<%- url_for(theme_js('/js/main', config.cdn)) %>"></script>

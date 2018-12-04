@@ -1,5 +1,5 @@
 ---
-title: Sdkman管理JDK版本
+title: Sdkman 管理 JDK 版本
 date: 2018-10-31
 category: 使用过程
 ---
