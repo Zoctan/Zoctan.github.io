@@ -36,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zoctan/hexo-theme-indigo.git"
+    "url": "git+https://github.com/Zoctan/hexo-theme-teal.git"
   },
   "keywords": [
     "hexo"
@@ -44,8 +44,8 @@
   "author": "Zoctan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Zoctan/hexo-theme-indigo/issues"
+    "url": "https://github.com/Zoctan/hexo-theme-teal/issues"
   },
-  "homepage": "https://github.com/Zoctan/hexo-theme-indigo#readme",
+  "homepage": "https://github.com/Zoctan/hexo-theme-teal#readme",
   "description": ""
 }
