@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Zoctan&#39;s Blog</title>
+  <icon>https://zoctan.piggyserver.top/img/logo.png</icon>
+  <subtitle>Nice to see you!</subtitle>
+  <link href="https://zoctan.piggyserver.top/atom.xml" rel="self"/>
+  
+  <link href="https://zoctan.piggyserver.top/"/>
+  <updated>2022-10-21T11:11:38.119Z</updated>
+  <id>https://zoctan.piggyserver.top/</id>
+  
+  <author>
+    <name>Zoctan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>V2ray + Cloudfare save bang ip</title>
+    <link href="https://zoctan.piggyserver.top/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/"/>
+    <id>https://zoctan.piggyserver.top/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</id>
+    <published>2022-10-11T16:00:00.000Z</published>
+    <updated>2022-10-21T11:11:38.119Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray。目前稳定在 V2ray + Cloudfare。&lt;/p&gt;
+&lt;p&gt;VPS IP早几年就被 the great wall 封了，所以才用了 V2ray + Cloudfare 方案，不定时还要更新 CDN 的 IP，不然也会有被屏蔽的麻烦。&lt;/p&gt;
+&lt;p&gt;搬瓦工的官网需要翻墙才能上，安装完系统也要翻墙，所以先找个免费的限时 VPN 挂着。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wulabing/V2Ray_ws-tls_bash_onekey&quot;&gt;安装脚本&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/badafans/better-cloudflare-ip&quot;&gt;Cloudfare CDN IP 测速&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/XIU2/CloudflareSpeedTest&quot;&gt;Cloudfare CDN IP 测速2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/2dust/v2rayN&quot;&gt;Windows 客户端&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/2dust/v2rayNG&quot;&gt;Android 客户端&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="usage" scheme="https://zoctan.piggyserver.top/categories/usage/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins 自动化部署</title>
+    <link href="https://zoctan.piggyserver.top/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/"/>
+    <id>https://zoctan.piggyserver.top/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</id>
+    <published>2019-01-30T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.071Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Jenkins 拉取 GitLab 仓库源码&lt;/li&gt;
+&lt;li&gt;Jenkins 本地构建打包应用&lt;/li&gt;
+&lt;li&gt;把应用按 Dockerfile 打包进 Docker 镜像&lt;/li&gt;
+&lt;li&gt;使用 shell 或 Docker 相关的 Jenkins 插件把镜像上传到 Docker 私有仓库&lt;/li&gt;
+&lt;li&gt;执行 shell 脚本删除旧 Docker 容器，运行新 Docker 容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参考文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000007837054?utm_source=tag-newest&quot;&gt;Jenkins集成Docker镜像实现自动发布&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/39289273&quot;&gt;docker+jenkins+git搭建java自动化部署&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.51cto.com/ganbing/2085769&quot;&gt;实战docker+jenkins+git+registry构建持续集成环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.jianshu.com/p/8b1241a90d7a&quot;&gt;基于Docker+Jenkins+Gitlab搭建持续集成环境&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://zoctan.piggyserver.top/categories/Docker/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GitLab 搭建</title>
+    <link href="https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-01-28T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.069Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有时候公司需要搭建私有仓库，这时 GitHub 就不能用了。&lt;/p&gt;
+&lt;p&gt;这里的私有仓库使用 GitLab，而且使用 Docker 方式运行，方便快速。&lt;/p&gt;
+&lt;p&gt;GitLab 有 CE 和 EE 版本，本文使用 CE 版本。&lt;/p&gt;
+&lt;p&gt;参考文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/omnibus/docker/README.html&quot;&gt;GitLab 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://zoctan.piggyserver.top/categories/Docker/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Registry 搭建</title>
+    <link href="https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/"/>
+    <id>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</id>
+    <published>2019-01-28T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.077Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Docker Hub 是 Docker 公司提供的公共镜像存储空间，类似 GitHub、Maven。&lt;/p&gt;
+&lt;p&gt;和它们一样，公司为了节省网络带宽，防止一些安全问题，一般会搭建私有仓库。&lt;/p&gt;
+&lt;p&gt;本文使用的私有仓库是 Registry。&lt;/p&gt;
+&lt;p&gt;参考文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/kevingrace/p/6628062.html&quot;&gt;Docker容器学习梳理–私有仓库Registry使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/zhaojiankai/p/7813969.html&quot;&gt;Registry私有仓库搭建及认证&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://zoctan.piggyserver.top/categories/Docker/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>仿Vue极简双向绑定</title>
+    <link href="https://zoctan.piggyserver.top/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/"/>
+    <id>https://zoctan.piggyserver.top/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</id>
+    <published>2018-11-14T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.082Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;原文来自：&lt;a href=&quot;https://segmentfault.com/a/1190000015375217&quot;&gt;https://segmentfault.com/a/1190000015375217&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Object-defineProperty&quot;&gt;&lt;a href=&quot;#Object-defineProperty&quot; class=&quot;headerlink&quot; title=&quot;Object.defineProperty()&quot;&gt;&lt;/a&gt;Object.defineProperty()&lt;/h1&gt;&lt;p&gt;这个API是实现双向绑定的核心，最主要的作用是重写数据的get、set方法：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="拜读" scheme="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sdkman manage JDK version</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/31/usage/Sdkman%20manage%20JDK%20version/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-20T10:17:50.765Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;JDK 版本越来越多，老是手动下载改环境变量很麻烦。&lt;/p&gt;
+&lt;p&gt;偶然看到 Sdkman：The Software Development Kit Manager。&lt;/p&gt;
+&lt;p&gt;它可以管理各种 kit：Ant、Java、Gradle、Maven、Springboot-cli、Groovy、Kotlin、Scala。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="usage" scheme="https://zoctan.piggyserver.top/categories/usage/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>短链接服务系统开发</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.089Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;功能简单描述&quot;&gt;&lt;a href=&quot;#功能简单描述&quot; class=&quot;headerlink&quot; title=&quot;功能简单描述&quot;&gt;&lt;/a&gt;功能简单描述&lt;/h1&gt;&lt;p&gt;功能很简单，实现将长网址缩短的功能，如：&lt;br&gt;&lt;a href=&quot;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&quot;&gt;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&lt;/a&gt; -&amp;gt; &lt;a href=&quot;https://abc.com/alsk2&quot;&gt;https://abc.com/alsk2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为什么要转短链？因为要控制每条短信的字数，对于公司来说，短信里面的字可都是钱呀。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为什么不用 t.cn，url.cn 等短链服务呢，它们生成的链接不是更短吗？&lt;br&gt;是的，它们确实能实现更短的链接，可是要收钱的，而且这里面充满了商业数据呀。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;短链服务总的来说，就做两件事：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将长链接变为短链接，当然是越短越好。&lt;/li&gt;
+&lt;li&gt;用户点击短链接的时候，实现自动跳转到原来的长链接。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="拜读" scheme="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hashcode</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.053Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 各种连接</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.106Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;MySQL 版本：10.1.29-MariaDB-6+b1&lt;/p&gt;
+&lt;p&gt;建表 SQL：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; `a_table` (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_id` &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_name` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_part` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) ENGINE&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;InnoDB &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; CHARSET&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;utf8;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; `b_table` (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_id` &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_name` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_part` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) ENGINE&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;InnoDB &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; CHARSET&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;utf8;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="数据库" scheme="https://zoctan.piggyserver.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CyclicBarrier</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:18.960Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与 CountDownLatch 不同的是该 barrier 在释放等待线程后可以重用，所以称它为循环（Cyclic）的屏障（Barrier）。&lt;/p&gt;
+&lt;p&gt;CyclicBarrier 支持一个可选的 Runnable 命令，在一组线程中的最后一个线程到达之后（但在释放所有线程之前），该命令只在每个屏障点运行一次。若在继续所有参与线程之前更新共享状态，此屏障操作很有用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>3.Netty from the ground up</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</id>
+    <published>2018-10-18T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.184Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Netty 组件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bootstrap &amp;#x2F; ServerBootstrap&lt;/li&gt;
+&lt;li&gt;EventLoop&lt;/li&gt;
+&lt;li&gt;EventLoopGroup&lt;/li&gt;
+&lt;li&gt;ChannelPipeline&lt;/li&gt;
+&lt;li&gt;Channel&lt;/li&gt;
+&lt;li&gt;Future &amp;#x2F; ChannelFuture&lt;/li&gt;
+&lt;li&gt;ChannelInitializer&lt;/li&gt;
+&lt;li&gt;ChannelHandler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来将会在本章对上面组件进行介绍，为了避免分散地介绍它们，我们将详细说明它们是如何在一起工作的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>1.Netty and Java NIO APIs</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</id>
+    <published>2018-10-17T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.181Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本章内容主要介绍：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Netty 架构&lt;/li&gt;
+&lt;li&gt;我们为什么需要非阻塞IO&lt;/li&gt;
+&lt;li&gt;阻塞IO vs 非阻塞IO&lt;/li&gt;
+&lt;li&gt;了解 JDK 的 NIO实现的问题和 Netty 的解决方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前面关于 Netty 架构的省略。&lt;/p&gt;
+&lt;h1 id=&quot;异步的设计&quot;&gt;&lt;a href=&quot;#异步的设计&quot; class=&quot;headerlink&quot; title=&quot;异步的设计&quot;&gt;&lt;/a&gt;异步的设计&lt;/h1&gt;&lt;p&gt;整个 Netty 的 API 都是异步的。异步处理并不新鲜，已经出现有一段时间了。在这些年里，IO 经常出现瓶颈，所以异步处理变得越来越重要。&lt;/p&gt;
+&lt;p&gt;在使用资源时调用异步处理可以变得更有效率，因为当任务进行时，我们可以去干其他事，直到我们收到任务完成的信息。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Netty&#39;s Hello World</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</id>
+    <published>2018-10-10T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:18.980Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://netty.io/index.html&quot;&gt;Netty 官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;刚接触 Netty，不太懂这个 NIO 非阻塞，所以跟着文档入门。&lt;/p&gt;
+&lt;p&gt;可以到&lt;a href=&quot;https://netty.io/downloads.html&quot;&gt;官网&lt;/a&gt;下载，也可以直接使用 maven 依赖：&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.netty&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;netty-all&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;4.1.30.Final&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;scope&lt;/span&gt;&amp;gt;&lt;/span&gt;compile&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;scope&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>合并请求VS并行请求</title>
+    <link href="https://zoctan.piggyserver.top/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/"/>
+    <id>https://zoctan.piggyserver.top/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</id>
+    <published>2018-10-09T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.084Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;减少HTTP请求，是雅虎前端性能优化35条军规的第1条，2006年雅虎提出了这35条军规，从那以后，就深深地影响到了一批又一批的前端开发者，即使在12年后的今天，影响力依旧不减…..&lt;/p&gt;
+&lt;p&gt;但是，雅虎军规中还有1条是：拆分资源以最大化利用浏览器并行下载的能力。现在问题就来了，减少HTTP请求，但网页所需的资源并不能减少（否则网页就不再是之前的网页了），所以减少HTTP请求，主要是通过合并资源来实现的，一边是建议合并资源，一边是建议拆分资源，显然是有冲突的地方，那么到底该怎么做呢？网上有些文章也讨论过这个问题，但大多是停留在想当然的理论分析上，而且忽略了TCP传输机制的影响。今天，老干部就带大家一起用实验+理论，仔细探讨下这个问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="拜读" scheme="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IO流</title>
+    <link href="https://zoctan.piggyserver.top/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/"/>
+    <id>https://zoctan.piggyserver.top/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</id>
+    <published>2018-08-06T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:18.961Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;IO流的分类&quot;&gt;&lt;a href=&quot;#IO流的分类&quot; class=&quot;headerlink&quot; title=&quot;IO流的分类&quot;&gt;&lt;/a&gt;IO流的分类&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;按流的流向分：输入流、输出流&lt;/li&gt;
+&lt;li&gt;按操作单元划分：字节流、字符流&lt;/li&gt;
+&lt;li&gt;按流的角色划分：节点流、处理流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;IO流的40多个类都是从如下4个抽象类基类中派生出来的：&lt;/p&gt;
+&lt;p&gt;输入流的基类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reader：字符输入流&lt;/li&gt;
+&lt;li&gt;InputStream：字节输入流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;输出流的基类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Writer：字符输出流&lt;/li&gt;
+&lt;li&gt;OutputStream：字节输出流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/%E6%8C%89%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作方式分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/%E6%8C%89%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作对象分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>常用数据结构</title>
+    <link href="https://zoctan.piggyserver.top/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://zoctan.piggyserver.top/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
+    <published>2018-07-28T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.059Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png&quot; alt=&quot;常用数据结构&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;名称&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;底层结构&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;线程安全&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;有序&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;值唯一&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;LinkedList&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;双向链表&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;ArrayList&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;Vector&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;HashTable&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组+链表&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不为空&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;HashSet&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组+链表&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;TreeSet&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;红黑树&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;HashMap&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组+链表&amp;#x2F;红黑树&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;TreeMap&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;红黑树&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;ConcurrentHashMap&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;数组+链表&amp;#x2F;红黑树&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;√&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;x&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;不唯一&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内存分配和回收机制</title>
+    <link href="https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/"/>
+    <id>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.053Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;内存分配&quot;&gt;&lt;a href=&quot;#内存分配&quot; class=&quot;headerlink&quot; title=&quot;内存分配&quot;&gt;&lt;/a&gt;内存分配&lt;/h1&gt;&lt;p&gt;这里所说的内存分配，主要指在堆上的分配。一般的，对象的内存分配都是在堆上进行，但现代技术也支持将对象拆成标量类型（标量类型即原子类型，表示单个值，可以是基本类型或 String 等），然后在栈上分配，在栈上分配的很少见，这里不考虑。&lt;/p&gt;
+&lt;p&gt;Java 的内存分配和回收机制概括起来就是：分代分配，分代回收。&lt;/p&gt;
+&lt;p&gt;根据存活时间，对象被分为：新生代（Young Generation）、老年代（Old Generation）、永久代（Permanent Generation）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/%E4%B8%89%E4%BB%A31.jpg&quot; alt=&quot;三代&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/%E4%B8%89%E4%BB%A32.png&quot; alt=&quot;三代——《成为JavaGC专家part I》&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>四种引用和使用场景</title>
+    <link href="https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <id>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.056Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;强引用（StrongReference）&quot;&gt;&lt;a href=&quot;#强引用（StrongReference）&quot; class=&quot;headerlink&quot; title=&quot;强引用（StrongReference）&quot;&gt;&lt;/a&gt;强引用（StrongReference）&lt;/h1&gt;&lt;p&gt;如果一个对象具有强引用，那垃圾回收器（Garbage Collection，GC）绝不会回收它。当内存空间不足，JVM 宁愿抛出 OutOfMemoryError，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类加载机制</title>
+    <link href="https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    <id>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.066Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;类加载机制&quot;&gt;&lt;a href=&quot;#类加载机制&quot; class=&quot;headerlink&quot; title=&quot;类加载机制&quot;&gt;&lt;/a&gt;类加载机制&lt;/h1&gt;&lt;p&gt;JVM 类加载机制分为：加载，验证，准备，解析，初始化。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.png&quot; alt=&quot;类加载机制&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>获取 request 及其线程安全性分析</title>
+    <link href="https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/Spring/%E8%8E%B7%E5%8F%96%20request%20%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90/"/>
+    <id>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/Spring/%E8%8E%B7%E5%8F%96%20request%20%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2022-10-20T00:42:19.051Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;原文&lt;a href=&quot;https://www.cnblogs.com/kismetv/p/8757260.html&quot;&gt;Spring中获取request的几种方法，及其线程安全性分析&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本文将介绍在使用 Spring MVC 开发中，获取 request 对象的几种方法，并讨论其线程安全性。&lt;/p&gt;
+&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;在使用 Spring MVC 开发 Web 系统时，经常需要在处理请求时使用 request 对象。比如：获取客户端 IP 地址、请求的 URL、header 中的属性（Cookie、授权信息）、body 中的数据等。&lt;/p&gt;
+&lt;p&gt;由于在 Spring MVC 中，处理请求的 Controller、Service 等对象都是单例的，因此获取 request 对象时最需要注意的问题，便是 request 对象是否线程安全：当有大量并发请求时，能否保证不同请求&amp;#x2F;线程中使用不同的 request 对象。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.piggyserver.top/categories/Java/"/>
+    
+    
+    <category term="Spring" scheme="https://zoctan.piggyserver.top/tags/Spring/"/>
+    
+  </entry>
+  
+</feed>
