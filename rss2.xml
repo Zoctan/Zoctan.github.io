@@ -4,24 +4,39 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Zoctan&#39;s Blog</title>
-    <link>https://zoctan.piggyserver.top/</link>
+    <link>https://zoctan.github.io/</link>
     
     <image>
-      <url>https://zoctan.piggyserver.top/img/logo.png</url>
+      <url>https://zoctan.github.io/img/logo.png</url>
       <title>Zoctan&#39;s Blog</title>
-      <link>https://zoctan.piggyserver.top/</link>
+      <link>https://zoctan.github.io/</link>
     </image>
     
-    <atom:link href="https://zoctan.piggyserver.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://zoctan.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Record my footprint in this world.</description>
-    <pubDate>Fri, 21 Oct 2022 11:11:38 GMT</pubDate>
+    <pubDate>Fri, 21 Oct 2022 16:40:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>test</title>
+      <link>https://zoctan.github.io/2022/10/21/test/</link>
+      <guid>https://zoctan.github.io/2022/10/21/test/</guid>
+      <pubDate>Fri, 21 Oct 2022 13:10:11 GMT</pubDate>
+      
+      
+      
+      
+      
+      
+      <comments>https://zoctan.github.io/2022/10/21/test/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>V2ray + Cloudfare save bang ip</title>
-      <link>https://zoctan.piggyserver.top/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</link>
-      <guid>https://zoctan.piggyserver.top/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</guid>
+      <link>https://zoctan.github.io/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</link>
+      <guid>https://zoctan.github.io/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</guid>
       <pubDate>Tue, 11 Oct 2022 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray。目前稳定在 V2ray + Cloudfare。&lt;/p&gt;
@@ -38,18 +53,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/usage/">usage</category>
+      <category domain="https://zoctan.github.io/categories/usage/">usage</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Jenkins 自动化部署</title>
-      <link>https://zoctan.piggyserver.top/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</link>
-      <guid>https://zoctan.piggyserver.top/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</guid>
+      <link>https://zoctan.github.io/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</link>
+      <guid>https://zoctan.github.io/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</guid>
       <pubDate>Wed, 30 Jan 2019 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;流程：&lt;/p&gt;
@@ -71,18 +86,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Docker/">Docker</category>
+      <category domain="https://zoctan.github.io/categories/Docker/">Docker</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>GitLab 搭建</title>
-      <link>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</link>
-      <guid>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</guid>
+      <link>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</link>
+      <guid>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</guid>
       <pubDate>Mon, 28 Jan 2019 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有时候公司需要搭建私有仓库，这时 GitHub 就不能用了。&lt;/p&gt;
@@ -96,18 +111,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Docker/">Docker</category>
+      <category domain="https://zoctan.github.io/categories/Docker/">Docker</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Registry 搭建</title>
-      <link>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</link>
-      <guid>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</guid>
+      <link>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</link>
+      <guid>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</guid>
       <pubDate>Mon, 28 Jan 2019 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Docker Hub 是 Docker 公司提供的公共镜像存储空间，类似 GitHub、Maven。&lt;/p&gt;
@@ -122,18 +137,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Docker/">Docker</category>
+      <category domain="https://zoctan.github.io/categories/Docker/">Docker</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>仿Vue极简双向绑定</title>
-      <link>https://zoctan.piggyserver.top/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</link>
-      <guid>https://zoctan.piggyserver.top/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</guid>
+      <link>https://zoctan.github.io/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</link>
+      <guid>https://zoctan.github.io/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</guid>
       <pubDate>Wed, 14 Nov 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;原文来自：&lt;a href=&quot;https://segmentfault.com/a/1190000015375217&quot;&gt;https://segmentfault.com/a/1190000015375217&lt;/a&gt;&lt;/p&gt;
@@ -142,18 +157,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
+      <category domain="https://zoctan.github.io/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Sdkman manage JDK version</title>
-      <link>https://zoctan.piggyserver.top/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</guid>
+      <link>https://zoctan.github.io/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</link>
+      <guid>https://zoctan.github.io/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</guid>
       <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;JDK 版本越来越多，老是手动下载改环境变量很麻烦。&lt;/p&gt;
@@ -163,18 +178,40 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/usage/">usage</category>
+      <category domain="https://zoctan.github.io/categories/usage/">usage</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/31/usage/Sdkman%20manage%20JDK%20version/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/31/usage/Sdkman%20manage%20JDK%20version/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>hashcode</title>
+      <link>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</link>
+      <guid>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</guid>
+      <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
+      
+      
+      
+      <comments>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>短链接服务系统开发</title>
-      <link>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</guid>
+      <link>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</link>
+      <guid>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</guid>
       <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;功能简单描述&quot;&gt;&lt;a href=&quot;#功能简单描述&quot; class=&quot;headerlink&quot; title=&quot;功能简单描述&quot;&gt;&lt;/a&gt;功能简单描述&lt;/h1&gt;&lt;p&gt;功能很简单，实现将长网址缩短的功能，如：&lt;br&gt;&lt;a href=&quot;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&quot;&gt;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&lt;/a&gt; -&amp;gt; &lt;a href=&quot;https://abc.com/alsk2&quot;&gt;https://abc.com/alsk2&lt;/a&gt;&lt;/p&gt;
@@ -191,40 +228,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
+      <category domain="https://zoctan.github.io/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>hashcode</title>
-      <link>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</guid>
-      <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
-      
-      
-      
-      <comments>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>MySQL 各种连接</title>
-      <link>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</guid>
+      <link>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</link>
+      <guid>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</guid>
       <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;MySQL 版本：10.1.29-MariaDB-6+b1&lt;/p&gt;
@@ -234,18 +249,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
+      <category domain="https://zoctan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>CyclicBarrier</title>
-      <link>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</guid>
+      <link>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</link>
+      <guid>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</guid>
       <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与 CountDownLatch 不同的是该 barrier 在释放等待线程后可以重用，所以称它为循环（Cyclic）的屏障（Barrier）。&lt;/p&gt;
@@ -254,18 +269,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>3.Netty from the ground up</title>
-      <link>https://zoctan.piggyserver.top/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</guid>
+      <link>https://zoctan.github.io/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</link>
+      <guid>https://zoctan.github.io/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</guid>
       <pubDate>Thu, 18 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;Netty 组件：&lt;/p&gt;
@@ -284,18 +299,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>1.Netty and Java NIO APIs</title>
-      <link>https://zoctan.piggyserver.top/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</guid>
+      <link>https://zoctan.github.io/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</link>
+      <guid>https://zoctan.github.io/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</guid>
       <pubDate>Wed, 17 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;本章内容主要介绍：&lt;/p&gt;
@@ -312,18 +327,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Netty&#39;s Hello World</title>
-      <link>https://zoctan.piggyserver.top/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</guid>
+      <link>https://zoctan.github.io/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</link>
+      <guid>https://zoctan.github.io/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</guid>
       <pubDate>Wed, 10 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;&lt;a href=&quot;https://netty.io/index.html&quot;&gt;Netty 官网&lt;/a&gt;&lt;/p&gt;
@@ -334,18 +349,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>合并请求VS并行请求</title>
-      <link>https://zoctan.piggyserver.top/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</link>
-      <guid>https://zoctan.piggyserver.top/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</guid>
+      <link>https://zoctan.github.io/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</link>
+      <guid>https://zoctan.github.io/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</guid>
       <pubDate>Tue, 09 Oct 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;减少HTTP请求，是雅虎前端性能优化35条军规的第1条，2006年雅虎提出了这35条军规，从那以后，就深深地影响到了一批又一批的前端开发者，即使在12年后的今天，影响力依旧不减…..&lt;/p&gt;
@@ -354,18 +369,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
+      <category domain="https://zoctan.github.io/categories/%E6%8B%9C%E8%AF%BB/">拜读</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>IO流</title>
-      <link>https://zoctan.piggyserver.top/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</link>
-      <guid>https://zoctan.piggyserver.top/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</guid>
+      <link>https://zoctan.github.io/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</link>
+      <guid>https://zoctan.github.io/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</guid>
       <pubDate>Mon, 06 Aug 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;IO流的分类&quot;&gt;&lt;a href=&quot;#IO流的分类&quot; class=&quot;headerlink&quot; title=&quot;IO流的分类&quot;&gt;&lt;/a&gt;IO流的分类&lt;/h1&gt;&lt;ul&gt;
@@ -390,18 +405,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>常用数据结构</title>
-      <link>https://zoctan.piggyserver.top/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
-      <guid>https://zoctan.piggyserver.top/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <link>https://zoctan.github.io/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <guid>https://zoctan.github.io/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <pubDate>Sat, 28 Jul 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;p&gt;&lt;img src=&quot;/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png&quot; alt=&quot;常用数据结构&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
@@ -483,18 +498,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>内存分配和回收机制</title>
-      <link>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</link>
-      <guid>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</guid>
+      <link>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</link>
+      <guid>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</guid>
       <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;内存分配&quot;&gt;&lt;a href=&quot;#内存分配&quot; class=&quot;headerlink&quot; title=&quot;内存分配&quot;&gt;&lt;/a&gt;内存分配&lt;/h1&gt;&lt;p&gt;这里所说的内存分配，主要指在堆上的分配。一般的，对象的内存分配都是在堆上进行，但现代技术也支持将对象拆成标量类型（标量类型即原子类型，表示单个值，可以是基本类型或 String 等），然后在栈上分配，在栈上分配的很少见，这里不考虑。&lt;/p&gt;
@@ -506,18 +521,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>四种引用和使用场景</title>
-      <link>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
-      <guid>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
+      <link>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
+      <guid>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
       <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;强引用（StrongReference）&quot;&gt;&lt;a href=&quot;#强引用（StrongReference）&quot; class=&quot;headerlink&quot; title=&quot;强引用（StrongReference）&quot;&gt;&lt;/a&gt;强引用（StrongReference）&lt;/h1&gt;&lt;p&gt;如果一个对象具有强引用，那垃圾回收器（Garbage Collection，GC）绝不会回收它。当内存空间不足，JVM 宁愿抛出 OutOfMemoryError，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。&lt;/p&gt;</description>
@@ -525,18 +540,18 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>类加载机制</title>
-      <link>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</link>
-      <guid>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</guid>
+      <link>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</link>
+      <guid>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</guid>
       <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;类加载机制&quot;&gt;&lt;a href=&quot;#类加载机制&quot; class=&quot;headerlink&quot; title=&quot;类加载机制&quot;&gt;&lt;/a&gt;类加载机制&lt;/h1&gt;&lt;p&gt;JVM 类加载机制分为：加载，验证，准备，解析，初始化。&lt;/p&gt;
@@ -545,35 +560,11 @@
       
       
       
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
+      <category domain="https://zoctan.github.io/categories/Java/">Java</category>
       
       
       
-      <comments>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>获取 request 及其线程安全性分析</title>
-      <link>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/Spring/%E8%8E%B7%E5%8F%96%20request%20%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90/</link>
-      <guid>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/Spring/%E8%8E%B7%E5%8F%96%20request%20%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90/</guid>
-      <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;原文&lt;a href=&quot;https://www.cnblogs.com/kismetv/p/8757260.html&quot;&gt;Spring中获取request的几种方法，及其线程安全性分析&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本文将介绍在使用 Spring MVC 开发中，获取 request 对象的几种方法，并讨论其线程安全性。&lt;/p&gt;
-&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;在使用 Spring MVC 开发 Web 系统时，经常需要在处理请求时使用 request 对象。比如：获取客户端 IP 地址、请求的 URL、header 中的属性（Cookie、授权信息）、body 中的数据等。&lt;/p&gt;
-&lt;p&gt;由于在 Spring MVC 中，处理请求的 Controller、Service 等对象都是单例的，因此获取 request 对象时最需要注意的问题，便是 request 对象是否线程安全：当有大量并发请求时，能否保证不同请求&amp;#x2F;线程中使用不同的 request 对象。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zoctan.piggyserver.top/categories/Java/">Java</category>
-      
-      
-      <category domain="https://zoctan.piggyserver.top/tags/Spring/">Spring</category>
-      
-      
-      <comments>https://zoctan.piggyserver.top/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/Spring/%E8%8E%B7%E5%8F%96%20request%20%E5%8F%8A%E5%85%B6%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/#disqus_thread</comments>
       
     </item>
     
