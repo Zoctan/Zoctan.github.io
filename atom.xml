@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Zoctan&#39;s Blog</title>
   <icon>https://zoctan.github.io/img/logo.png</icon>
-  <subtitle>Nice to see you!</subtitle>
+  <subtitle>Nice To See You!</subtitle>
   <link href="https://zoctan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zoctan.github.io/"/>
-  <updated>2022-10-21T16:40:32.972Z</updated>
+  <updated>2022-10-22T09:03:55.602Z</updated>
   <id>https://zoctan.github.io/</id>
   
   <author>
@@ -17,24 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="https://zoctan.github.io/2022/10/21/test/"/>
-    <id>https://zoctan.github.io/2022/10/21/test/</id>
-    <published>2022-10-21T13:10:11.000Z</published>
-    <updated>2022-10-21T16:40:32.972Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>V2ray + Cloudfare save bang ip</title>
-    <link href="https://zoctan.github.io/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/"/>
-    <id>https://zoctan.github.io/2022/10/12/usage/V2ray%20+%20Cloudfare%20save%20bang%20ip/</id>
+    <title>V2ray + Cloudfare 拯救被墙 VPS IP</title>
+    <link href="https://zoctan.github.io/2022/10/12/zh/usage/v2ray_cloudfare_save_bang_ip/"/>
+    <id>https://zoctan.github.io/2022/10/12/zh/usage/v2ray_cloudfare_save_bang_ip/</id>
     <published>2022-10-11T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.972Z</updated>
+    <updated>2022-10-22T09:03:55.602Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray。目前稳定在 V2ray + Cloudfare。&lt;/p&gt;
@@ -50,17 +37,19 @@
     
     
     
-    <category term="usage" scheme="https://zoctan.github.io/categories/usage/"/>
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="usage" scheme="https://zoctan.github.io/categories/zh/usage/"/>
     
     
   </entry>
   
   <entry>
     <title>Jenkins 自动化部署</title>
-    <link href="https://zoctan.github.io/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/"/>
-    <id>https://zoctan.github.io/2019/01/31/%E5%AD%A6%E4%B9%A0/docker/Jenkins%20%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</id>
+    <link href="https://zoctan.github.io/2019/01/31/zh/programing/docker/jenkins_auto_deploy/"/>
+    <id>https://zoctan.github.io/2019/01/31/zh/programing/docker/jenkins_auto_deploy/</id>
     <published>2019-01-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.992Z</updated>
+    <updated>2022-10-22T09:03:55.582Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;流程：&lt;/p&gt;
@@ -88,10 +77,10 @@
   
   <entry>
     <title>GitLab 搭建</title>
-    <link href="https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/GitLab%20%E6%90%AD%E5%BB%BA/</id>
+    <link href="https://zoctan.github.io/2019/01/29/zh/programing/docker/gitlab_deploy/"/>
+    <id>https://zoctan.github.io/2019/01/29/zh/programing/docker/gitlab_deploy/</id>
     <published>2019-01-28T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.992Z</updated>
+    <updated>2022-10-22T09:03:55.582Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有时候公司需要搭建私有仓库，这时 GitHub 就不能用了。&lt;/p&gt;
@@ -111,10 +100,10 @@
   
   <entry>
     <title>Registry 搭建</title>
-    <link href="https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/"/>
-    <id>https://zoctan.github.io/2019/01/29/%E5%AD%A6%E4%B9%A0/docker/Registry%20%E6%90%AD%E5%BB%BA/</id>
+    <link href="https://zoctan.github.io/2019/01/29/zh/programing/docker/registry_deploy/"/>
+    <id>https://zoctan.github.io/2019/01/29/zh/programing/docker/registry_deploy/</id>
     <published>2019-01-28T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.992Z</updated>
+    <updated>2022-10-22T09:03:55.582Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Docker Hub 是 Docker 公司提供的公共镜像存储空间，类似 GitHub、Maven。&lt;/p&gt;
@@ -134,68 +123,11 @@
   </entry>
   
   <entry>
-    <title>仿Vue极简双向绑定</title>
-    <link href="https://zoctan.github.io/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/"/>
-    <id>https://zoctan.github.io/2018/11/15/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E4%BB%BFVue%E6%9E%81%E7%AE%80%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</id>
-    <published>2018-11-14T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.992Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;原文来自：&lt;a href=&quot;https://segmentfault.com/a/1190000015375217&quot;&gt;https://segmentfault.com/a/1190000015375217&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Object-defineProperty&quot;&gt;&lt;a href=&quot;#Object-defineProperty&quot; class=&quot;headerlink&quot; title=&quot;Object.defineProperty()&quot;&gt;&lt;/a&gt;Object.defineProperty()&lt;/h1&gt;&lt;p&gt;这个API是实现双向绑定的核心，最主要的作用是重写数据的get、set方法：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="拜读" scheme="https://zoctan.github.io/categories/%E6%8B%9C%E8%AF%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Sdkman manage JDK version</title>
-    <link href="https://zoctan.github.io/2018/10/31/usage/Sdkman%20manage%20JDK%20version/"/>
-    <id>https://zoctan.github.io/2018/10/31/usage/Sdkman%20manage%20JDK%20version/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.972Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;JDK 版本越来越多，老是手动下载改环境变量很麻烦。&lt;/p&gt;
-&lt;p&gt;偶然看到 Sdkman：The Software Development Kit Manager。&lt;/p&gt;
-&lt;p&gt;它可以管理各种 kit：Ant、Java、Gradle、Maven、Springboot-cli、Groovy、Kotlin、Scala。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="usage" scheme="https://zoctan.github.io/categories/usage/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hashcode</title>
-    <link href="https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/"/>
-    <id>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/hashcode/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.988Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>短链接服务系统开发</title>
-    <link href="https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/"/>
-    <id>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E7%9F%AD%E9%93%BE%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</id>
+    <link href="https://zoctan.github.io/2018/10/31/zh/programing/design_ideas/short_link_service_system/"/>
+    <id>https://zoctan.github.io/2018/10/31/zh/programing/design_ideas/short_link_service_system/</id>
     <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.996Z</updated>
+    <updated>2022-10-22T09:03:55.582Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;功能简单描述&quot;&gt;&lt;a href=&quot;#功能简单描述&quot; class=&quot;headerlink&quot; title=&quot;功能简单描述&quot;&gt;&lt;/a&gt;功能简单描述&lt;/h1&gt;&lt;p&gt;功能很简单，实现将长网址缩短的功能，如：&lt;br&gt;&lt;a href=&quot;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&quot;&gt;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&lt;/a&gt; -&amp;gt; &lt;a href=&quot;https://abc.com/alsk2&quot;&gt;https://abc.com/alsk2&lt;/a&gt;&lt;/p&gt;
@@ -217,11 +149,70 @@
   </entry>
   
   <entry>
-    <title>MySQL 各种连接</title>
-    <link href="https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/"/>
-    <id>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%20%E5%90%84%E7%A7%8D%E8%BF%9E%E6%8E%A5/</id>
+    <title>hashcode</title>
+    <link href="https://zoctan.github.io/2018/10/31/zh/programing/java/hashcode/"/>
+    <id>https://zoctan.github.io/2018/10/31/zh/programing/java/hashcode/</id>
     <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.996Z</updated>
+    <updated>2022-10-22T09:03:55.586Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sdkman manage JDK version</title>
+    <link href="https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/"/>
+    <id>https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-22T09:03:55.594Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;JDK 版本越来越多，老是手动下载改环境变量很麻烦。&lt;/p&gt;
+&lt;p&gt;偶然看到 Sdkman：The Software Development Kit Manager。&lt;/p&gt;
+&lt;p&gt;它可以管理各种 kit：Ant、Java、Gradle、Maven、Springboot-cli、Groovy、Kotlin、Scala。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="usage" scheme="https://zoctan.github.io/categories/zh/usage/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CyclicBarrier</title>
+    <link href="https://zoctan.github.io/2018/10/31/zh/programing/java/concurrent/cyclicbarrier/"/>
+    <id>https://zoctan.github.io/2018/10/31/zh/programing/java/concurrent/cyclicbarrier/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-22T09:03:55.586Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与 CountDownLatch 不同的是该 barrier 在释放等待线程后可以重用，所以称它为循环（Cyclic）的屏障（Barrier）。&lt;/p&gt;
+&lt;p&gt;CyclicBarrier 支持一个可选的 Runnable 命令，在一组线程中的最后一个线程到达之后（但在释放所有线程之前），该命令只在每个屏障点运行一次。若在继续所有参与线程之前更新共享状态，此屏障操作很有用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 各种连接</title>
+    <link href="https://zoctan.github.io/2018/10/31/zh/programing/basis/database/mysql/join/"/>
+    <id>https://zoctan.github.io/2018/10/31/zh/programing/basis/database/mysql/join/</id>
+    <published>2018-10-30T16:00:00.000Z</published>
+    <updated>2022-10-22T09:03:55.574Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;MySQL 版本：10.1.29-MariaDB-6+b1&lt;/p&gt;
@@ -236,29 +227,11 @@
   </entry>
   
   <entry>
-    <title>CyclicBarrier</title>
-    <link href="https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/"/>
-    <id>https://zoctan.github.io/2018/10/31/%E5%AD%A6%E4%B9%A0/Java/Concurrent/CyclicBarrier/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.972Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与 CountDownLatch 不同的是该 barrier 在释放等待线程后可以重用，所以称它为循环（Cyclic）的屏障（Barrier）。&lt;/p&gt;
-&lt;p&gt;CyclicBarrier 支持一个可选的 Runnable 命令，在一组线程中的最后一个线程到达之后（但在释放所有线程之前），该命令只在每个屏障点运行一次。若在继续所有参与线程之前更新共享状态，此屏障操作很有用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>3.Netty from the ground up</title>
-    <link href="https://zoctan.github.io/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/"/>
-    <id>https://zoctan.github.io/2018/10/19/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/3.Netty%20from%20the%20ground%20up/</id>
+    <link href="https://zoctan.github.io/2018/10/19/zh/programing/book_read/java/netty_in_action/3_netty_from_the_ground_up/"/>
+    <id>https://zoctan.github.io/2018/10/19/zh/programing/book_read/java/netty_in_action/3_netty_from_the_ground_up/</id>
     <published>2018-10-18T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:33.004Z</updated>
+    <updated>2022-10-22T09:03:55.578Z</updated>
     
     
     <summary type="html">&lt;p&gt;Netty 组件：&lt;/p&gt;
@@ -276,17 +249,19 @@
     
     
     
-    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    <category term="book read" scheme="https://zoctan.github.io/categories/book-read/"/>
+    
+    <category term="java" scheme="https://zoctan.github.io/categories/book-read/java/"/>
     
     
   </entry>
   
   <entry>
     <title>1.Netty and Java NIO APIs</title>
-    <link href="https://zoctan.github.io/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/"/>
-    <id>https://zoctan.github.io/2018/10/18/%E8%AF%BB%E4%B9%A6/Netty%20in%20Action/1.Netty%20and%20Java%20NIO%20APIs/</id>
+    <link href="https://zoctan.github.io/2018/10/18/zh/programing/book_read/java/netty_in_action/1_netty_and_java_nio_apis/"/>
+    <id>https://zoctan.github.io/2018/10/18/zh/programing/book_read/java/netty_in_action/1_netty_and_java_nio_apis/</id>
     <published>2018-10-17T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:33.004Z</updated>
+    <updated>2022-10-22T09:03:55.578Z</updated>
     
     
     <summary type="html">&lt;p&gt;本章内容主要介绍：&lt;/p&gt;
@@ -302,17 +277,19 @@
     
     
     
-    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    <category term="book read" scheme="https://zoctan.github.io/categories/book-read/"/>
+    
+    <category term="java" scheme="https://zoctan.github.io/categories/book-read/java/"/>
     
     
   </entry>
   
   <entry>
     <title>Netty&#39;s Hello World</title>
-    <link href="https://zoctan.github.io/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/"/>
-    <id>https://zoctan.github.io/2018/10/11/%E5%AD%A6%E4%B9%A0/Java/Netty/</id>
+    <link href="https://zoctan.github.io/2018/10/11/zh/programing/java/netty/"/>
+    <id>https://zoctan.github.io/2018/10/11/zh/programing/java/netty/</id>
     <published>2018-10-10T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.976Z</updated>
+    <updated>2022-10-22T09:03:55.590Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://netty.io/index.html&quot;&gt;Netty 官网&lt;/a&gt;&lt;/p&gt;
@@ -329,10 +306,10 @@
   
   <entry>
     <title>合并请求VS并行请求</title>
-    <link href="https://zoctan.github.io/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/"/>
-    <id>https://zoctan.github.io/2018/10/10/%E5%AD%A6%E4%B9%A0/%E6%8B%9C%E8%AF%BB/%E5%90%88%E5%B9%B6%E8%AF%B7%E6%B1%82VS%E5%B9%B6%E8%A1%8C%E8%AF%B7%E6%B1%82/</id>
+    <link href="https://zoctan.github.io/2018/10/10/zh/programing/design_ideas/merge_requests_and_parallel_requests/"/>
+    <id>https://zoctan.github.io/2018/10/10/zh/programing/design_ideas/merge_requests_and_parallel_requests/</id>
     <published>2018-10-09T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.996Z</updated>
+    <updated>2022-10-22T09:03:55.582Z</updated>
     
     
     <summary type="html">&lt;p&gt;减少HTTP请求，是雅虎前端性能优化35条军规的第1条，2006年雅虎提出了这35条军规，从那以后，就深深地影响到了一批又一批的前端开发者，即使在12年后的今天，影响力依旧不减…..&lt;/p&gt;
@@ -347,10 +324,10 @@
   
   <entry>
     <title>IO流</title>
-    <link href="https://zoctan.github.io/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/"/>
-    <id>https://zoctan.github.io/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/</id>
+    <link href="https://zoctan.github.io/2018/08/07/zh/programing/java/io/"/>
+    <id>https://zoctan.github.io/2018/08/07/zh/programing/java/io/</id>
     <published>2018-08-06T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.972Z</updated>
+    <updated>2022-10-22T09:03:55.586Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;IO流的分类&quot;&gt;&lt;a href=&quot;#IO流的分类&quot; class=&quot;headerlink&quot; title=&quot;IO流的分类&quot;&gt;&lt;/a&gt;IO流的分类&lt;/h1&gt;&lt;ul&gt;
@@ -369,8 +346,8 @@
 &lt;li&gt;Writer：字符输出流&lt;/li&gt;
 &lt;li&gt;OutputStream：字节输出流&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/%E6%8C%89%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作方式分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/08/07/%E5%AD%A6%E4%B9%A0/Java/IO/%E6%8C%89%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作对象分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2018/08/07/zh/programing/java/io/%E6%8C%89%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作方式分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/08/07/zh/programing/java/io/%E6%8C%89%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB.jpg&quot; alt=&quot;按操作对象分类&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -381,13 +358,13 @@
   
   <entry>
     <title>常用数据结构</title>
-    <link href="https://zoctan.github.io/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>https://zoctan.github.io/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
+    <link href="https://zoctan.github.io/2018/07/29/zh/programing/java/common_data_structures/"/>
+    <id>https://zoctan.github.io/2018/07/29/zh/programing/java/common_data_structures/</id>
     <published>2018-07-28T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.988Z</updated>
+    <updated>2022-10-22T09:03:55.586Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2018/07/29/%E5%AD%A6%E4%B9%A0/Java/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png&quot; alt=&quot;常用数据结构&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2018/07/29/zh/programing/java/common_data_structures/%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png&quot; alt=&quot;常用数据结构&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -471,11 +448,29 @@
   </entry>
   
   <entry>
-    <title>内存分配和回收机制</title>
-    <link href="https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/"/>
-    <id>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</id>
+    <title>类加载机制</title>
+    <link href="https://zoctan.github.io/2018/07/25/zh/programing/java/class_loading_mechanism/"/>
+    <id>https://zoctan.github.io/2018/07/25/zh/programing/java/class_loading_mechanism/</id>
     <published>2018-07-24T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.988Z</updated>
+    <updated>2022-10-22T09:03:55.586Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;类加载机制&quot;&gt;&lt;a href=&quot;#类加载机制&quot; class=&quot;headerlink&quot; title=&quot;类加载机制&quot;&gt;&lt;/a&gt;类加载机制&lt;/h1&gt;&lt;p&gt;JVM 类加载机制分为：加载，验证，准备，解析，初始化。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/07/25/zh/programing/java/class_loading_mechanism/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.png&quot; alt=&quot;类加载机制&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内存分配和回收机制</title>
+    <link href="https://zoctan.github.io/2018/07/25/zh/programing/java/memory_allocation_and_recycling_mechanism/"/>
+    <id>https://zoctan.github.io/2018/07/25/zh/programing/java/memory_allocation_and_recycling_mechanism/</id>
+    <published>2018-07-24T16:00:00.000Z</published>
+    <updated>2022-10-22T09:03:55.590Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;内存分配&quot;&gt;&lt;a href=&quot;#内存分配&quot; class=&quot;headerlink&quot; title=&quot;内存分配&quot;&gt;&lt;/a&gt;内存分配&lt;/h1&gt;&lt;p&gt;这里所说的内存分配，主要指在堆上的分配。一般的，对象的内存分配都是在堆上进行，但现代技术也支持将对象拆成标量类型（标量类型即原子类型，表示单个值，可以是基本类型或 String 等），然后在栈上分配，在栈上分配的很少见，这里不考虑。&lt;/p&gt;
@@ -493,10 +488,10 @@
   
   <entry>
     <title>四种引用和使用场景</title>
-    <link href="https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
-    <id>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</id>
+    <link href="https://zoctan.github.io/2018/07/25/zh/programing/java/references_and_usage_scenarios/"/>
+    <id>https://zoctan.github.io/2018/07/25/zh/programing/java/references_and_usage_scenarios/</id>
     <published>2018-07-24T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.988Z</updated>
+    <updated>2022-10-22T09:03:55.594Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;强引用（StrongReference）&quot;&gt;&lt;a href=&quot;#强引用（StrongReference）&quot; class=&quot;headerlink&quot; title=&quot;强引用（StrongReference）&quot;&gt;&lt;/a&gt;强引用（StrongReference）&lt;/h1&gt;&lt;p&gt;如果一个对象具有强引用，那垃圾回收器（Garbage Collection，GC）绝不会回收它。当内存空间不足，JVM 宁愿抛出 OutOfMemoryError，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。&lt;/p&gt;</summary>
@@ -509,15 +504,53 @@
   </entry>
   
   <entry>
-    <title>类加载机制</title>
-    <link href="https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
-    <id>https://zoctan.github.io/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</id>
+    <title>获取 request 及其线程安全性分析</title>
+    <link href="https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/"/>
+    <id>https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/</id>
     <published>2018-07-24T16:00:00.000Z</published>
-    <updated>2022-10-21T16:40:32.992Z</updated>
+    <updated>2022-10-22T09:03:55.598Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;类加载机制&quot;&gt;&lt;a href=&quot;#类加载机制&quot; class=&quot;headerlink&quot; title=&quot;类加载机制&quot;&gt;&lt;/a&gt;类加载机制&lt;/h1&gt;&lt;p&gt;JVM 类加载机制分为：加载，验证，准备，解析，初始化。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/07/25/%E5%AD%A6%E4%B9%A0/Java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.png&quot; alt=&quot;类加载机制&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;原文&lt;a href=&quot;https://www.cnblogs.com/kismetv/p/8757260.html&quot;&gt;Spring中获取request的几种方法，及其线程安全性分析&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本文将介绍在使用 Spring MVC 开发中，获取 request 对象的几种方法，并讨论其线程安全性。&lt;/p&gt;
+&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;在使用 Spring MVC 开发 Web 系统时，经常需要在处理请求时使用 request 对象。比如：获取客户端 IP 地址、请求的 URL、header 中的属性（Cookie、授权信息）、body 中的数据等。&lt;/p&gt;
+&lt;p&gt;由于在 Spring MVC 中，处理请求的 Controller、Service 等对象都是单例的，因此获取 request 对象时最需要注意的问题，便是 request 对象是否线程安全：当有大量并发请求时，能否保证不同请求&amp;#x2F;线程中使用不同的 request 对象。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://zoctan.github.io/categories/Java/"/>
+    
+    
+    <category term="Spring" scheme="https://zoctan.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM</title>
+    <link href="https://zoctan.github.io/2018/07/24/zh/programing/java/jvm/"/>
+    <id>https://zoctan.github.io/2018/07/24/zh/programing/java/jvm/</id>
+    <published>2018-07-23T16:00:00.000Z</published>
+    <updated>2022-10-22T09:03:55.586Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Java-虚拟机（JVM）&quot;&gt;&lt;a href=&quot;#Java-虚拟机（JVM）&quot; class=&quot;headerlink&quot; title=&quot;Java 虚拟机（JVM）&quot;&gt;&lt;/a&gt;Java 虚拟机（JVM）&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/JVM.jpg&quot; alt=&quot;JVM&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Java 源码，经过编译器编译后生成 .class 字节码文件：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/%E7%BC%96%E8%AF%91.png&quot; alt=&quot;编译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Java 源码编译由以下三个过程组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分析和输入到符号表&lt;/li&gt;
+&lt;li&gt;注解处理&lt;/li&gt;
+&lt;li&gt;语义分析和生成class文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91.png&quot; alt=&quot;源码编译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;JVM 将字节码文件翻译成特定平台下的机器码然后运行：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/%E5%AD%97%E8%8A%82%E7%A0%81%E7%BF%BB%E8%AF%91.png&quot; alt=&quot;字节码翻译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：编译生成的是字节码，字节码不能直接运行，必须通过 JVM 翻译成机器码才能运行。不同平台下编译生成的字节码是一样的，但是由 JVM 翻译成的机器码却不一样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：跨平台的是 Java 程序，不是 JVM。JVM 是用 C&amp;#x2F;C++ 开发的，不能跨平台，不同平台下需要安装不同版本的 JVM。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
