@@ -15,22 +15,22 @@
     <atom:link href="https://zoctan.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Record Zoctan&#39;s Footprint In This World.</description>
-    <pubDate>Sat, 22 Oct 2022 09:08:15 GMT</pubDate>
+    <pubDate>Sun, 23 Oct 2022 16:44:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>V2ray + Cloudfare 拯救被墙 VPS IP</title>
+      <title>V2ray + Cloudflare 拯救被墙 VPS IP</title>
       <link>https://zoctan.github.io/2022/10/12/zh/usage/v2ray_cloudfare_save_bang_ip/</link>
       <guid>https://zoctan.github.io/2022/10/12/zh/usage/v2ray_cloudfare_save_bang_ip/</guid>
       <pubDate>Tue, 11 Oct 2022 16:00:00 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray。目前稳定在 V2ray + Cloudfare。&lt;/p&gt;
-&lt;p&gt;VPS IP早几年就被 the great wall 封了，所以才用了 V2ray + Cloudfare 方案，不定时还要更新 CDN 的 IP，不然也会有被屏蔽的麻烦。&lt;/p&gt;
+      <description>&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray，目前稳定在 V2ray + Cloudflare。&lt;/p&gt;
+&lt;p&gt;VPS IP 早几年就被 the great wall 封了，所以才用了 V2ray + Cloudflare 方案，不定时还要更新 CDN 的 IP，不然也会有被屏蔽的麻烦。&lt;/p&gt;
 &lt;p&gt;搬瓦工的官网需要翻墙才能上，安装完系统也要翻墙，所以先找个免费的限时 VPN 挂着。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/wulabing/V2Ray_ws-tls_bash_onekey&quot;&gt;安装脚本&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/badafans/better-cloudflare-ip&quot;&gt;Cloudfare CDN IP 测速&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/XIU2/CloudflareSpeedTest&quot;&gt;Cloudfare CDN IP 测速2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wulabing/V2Ray_ws-tls_bash_onekey&quot;&gt;VPS 安装 V2ray 脚本&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/badafans/better-cloudflare-ip&quot;&gt;Cloudflare CDN IP 测速脚本&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/XIU2/CloudflareSpeedTest&quot;&gt;Cloudflare CDN IP 测速脚本2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/2dust/v2rayN&quot;&gt;Windows 客户端&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/2dust/v2rayNG&quot;&gt;Android 客户端&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -183,7 +183,7 @@
     </item>
     
     <item>
-      <title>Sdkman manage JDK version</title>
+      <title>Sdkman 管理 JDK 版本</title>
       <link>https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/</link>
       <guid>https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/</guid>
       <pubDate>Tue, 30 Oct 2018 16:00:00 GMT</pubDate>
