@@ -15,14 +15,14 @@
     <atom:link href="https://zoctan.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Record Zoctan&#39;s Footprint In This World.</description>
-    <pubDate>Mon, 24 Oct 2022 15:01:14 GMT</pubDate>
+    <pubDate>Tue, 25 Oct 2022 09:12:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>AI 绘画</title>
-      <link>https://zoctan.github.io/2022/10/24/zh/programing/ai/painting/</link>
-      <guid>https://zoctan.github.io/2022/10/24/zh/programing/ai/painting/</guid>
-      <pubDate>Mon, 24 Oct 2022 15:01:14 GMT</pubDate>
+      <link>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/</link>
+      <guid>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/</guid>
+      <pubDate>Tue, 25 Oct 2022 09:12:40 GMT</pubDate>
       
       <description>&lt;p&gt;AI 作图的方向不错，目前想到图片&amp;#x2F;音乐这类都是无国界的，全世界都能传播。&lt;/p&gt;
 &lt;p&gt;数据来源：&lt;br&gt;商业画手（版权问题，不过只要数据量足够多，很难去人工识别哪些部分是来源商业的）&lt;br&gt;CC免费（质量不高，可以考虑）&lt;/p&gt;</description>
@@ -40,7 +40,65 @@
       <category domain="https://zoctan.github.io/tags/ai/">ai</category>
       
       
-      <comments>https://zoctan.github.io/2022/10/24/zh/programing/ai/painting/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>English Basis</title>
+      <link>https://zoctan.github.io/2022/10/25/zh/english/basis/</link>
+      <guid>https://zoctan.github.io/2022/10/25/zh/english/basis/</guid>
+      <pubDate>Tue, 25 Oct 2022 02:12:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;单词语法&quot;&gt;&lt;a href=&quot;#单词语法&quot; class=&quot;headerlink&quot; title=&quot;单词语法&quot;&gt;&lt;/a&gt;单词语法&lt;/h1&gt;&lt;h2 id=&quot;名词所有格&quot;&gt;&lt;a href=&quot;#名词所有格&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/">english</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/basis/">basis</category>
+      
+      
+      
+      <comments>https://zoctan.github.io/2022/10/25/zh/english/basis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>IELTS</title>
+      <link>https://zoctan.github.io/2022/10/25/zh/english/ielts/ielts/</link>
+      <guid>https://zoctan.github.io/2022/10/25/zh/english/ielts/ielts/</guid>
+      <pubDate>Tue, 25 Oct 2022 02:12:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/">english</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/ielts/">ielts</category>
+      
+      
+      
+      <comments>https://zoctan.github.io/2022/10/25/zh/english/ielts/ielts/#disqus_thread</comments>
       
     </item>
     
@@ -80,13 +138,8 @@
       <guid>https://zoctan.github.io/2022/10/10/zh/hardware/nas/bt/</guid>
       <pubDate>Sun, 09 Oct 2022 16:00:00 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;BT-站点&quot;&gt;&lt;a href=&quot;#BT-站点&quot; class=&quot;headerlink&quot; title=&quot;BT 站点&quot;&gt;&lt;/a&gt;BT 站点&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://thepiratebay.org/index.html&quot;&gt;the pirate</description>
-          
-        
+      <description>&lt;h1 id=&quot;BT-站点&quot;&gt;&lt;a href=&quot;#BT-站点&quot; class=&quot;headerlink&quot; title=&quot;BT 站点&quot;&gt;&lt;/a&gt;BT 站点&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://thepiratebay.org/index.html&quot;&gt;the pirate bay&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://proxyrarbg.org/index80.php&quot;&gt;proxyrarbg&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Tracker-加速&quot;&gt;&lt;a href=&quot;#Tracker-加速&quot; class=&quot;headerlink&quot; title=&quot;Tracker 加速&quot;&gt;&lt;/a&gt;Tracker 加速&lt;/h1&gt;&lt;p&gt;每天更新：&lt;br&gt;&lt;a href=&quot;https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/best.txt&quot;&gt;精选列表&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/all.txt&quot;&gt;完整列表&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://jsd.cdn.zzko.cn/gh/XIU2/TrackersListCollection/http.txt&quot;&gt;HTTP(S)列表&lt;/a&gt;&lt;/p&gt;</description>
       
       
       
@@ -107,13 +160,8 @@
       <guid>https://zoctan.github.io/2022/10/10/zh/hardware/nas/windows_nas/</guid>
       <pubDate>Sun, 09 Oct 2022 16:00:00 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;闲置的旧笔记本装了 Windows Sever 2019 做 Nas，当一个过渡产品，看看 Nas</description>
-          
-        
+      <description>&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;闲置的旧笔记本装了 Windows Sever 2019 做 Nas，当一个过渡产品，看看 Nas 是否真的是自己的刚需。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Zoctan/WinNas&quot;&gt;项目仓库&lt;/a&gt;&lt;/p&gt;</description>
       
       
       
@@ -529,78 +577,6 @@
       
       
       <comments>https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JVM</title>
-      <link>https://zoctan.github.io/2018/07/24/zh/programing/java/jvm/</link>
-      <guid>https://zoctan.github.io/2018/07/24/zh/programing/java/jvm/</guid>
-      <pubDate>Mon, 23 Jul 2018 16:00:00 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;Java-虚拟机（JVM）&quot;&gt;&lt;a href=&quot;#Java-虚拟机（JVM）&quot; class=&quot;headerlink&quot; title=&quot;Java 虚拟机（JVM）&quot;&gt;&lt;/a&gt;Java 虚拟机（JVM）&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/jvm.jpg&quot; alt=&quot;JVM&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Java 源码，经过编译器编译后生成 .class 字节码文件：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/compile.jpg&quot; alt=&quot;编译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Java 源码编译由以下三个过程组成：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;分析和输入到符号表&lt;/li&gt;
-&lt;li&gt;注解处理&lt;/li&gt;
-&lt;li&gt;语义分析和生成class文件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/source_code_compilation.png&quot; alt=&quot;源码编译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
-&lt;p&gt;JVM 将字节码文件翻译成特定平台下的机器码然后运行：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/07/24/zh/programing/java/jvm/bytecode_translation.jpg&quot; alt=&quot;字节码翻译&quot; loading=&quot;lazy&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注：编译生成的是字节码，字节码不能直接运行，必须通过 JVM 翻译成机器码才能运行。不同平台下编译生成的字节码是一样的，但是由 JVM 翻译成的机器码却不一样。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注：跨平台的是 Java 程序，不是 JVM。JVM 是用 C&amp;#x2F;C++ 开发的，不能跨平台，不同平台下需要安装不同版本的 JVM。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/">programing</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/java/">java</category>
-      
-      
-      
-      <comments>https://zoctan.github.io/2018/07/24/zh/programing/java/jvm/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>下载等待</title>
-      <link>https://zoctan.github.io/2018/07/22/zh/programing/design_ideas/download_waiting/</link>
-      <guid>https://zoctan.github.io/2018/07/22/zh/programing/design_ideas/download_waiting/</guid>
-      <pubDate>Sat, 21 Jul 2018 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;ol&gt;
-&lt;li&gt;广告。增加停留时间就意味着用户有更多的机会看到令自己感兴趣的广告并点击，然后就有更高的收入了；&lt;/li&gt;
-&lt;li&gt;推荐。可以立即推荐有关的下载，有的人下载完东西就直接关闭了网站，不会看到相关的下载信息，就没有更多的浏览量；&lt;/li&gt;
-&lt;li&gt;条款。我们在下载的时</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/">programing</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/design-ideas/">design ideas</category>
-      
-      
-      
-      <comments>https://zoctan.github.io/2018/07/22/zh/programing/design_ideas/download_waiting/#disqus_thread</comments>
       
     </item>
     
