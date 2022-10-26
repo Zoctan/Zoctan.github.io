@@ -15,14 +15,14 @@
     <atom:link href="https://zoctan.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Record Zoctan&#39;s Footprint In This World.</description>
-    <pubDate>Tue, 25 Oct 2022 14:51:29 GMT</pubDate>
+    <pubDate>Wed, 26 Oct 2022 16:20:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>AI 绘画</title>
-      <link>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/</link>
-      <guid>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/</guid>
-      <pubDate>Tue, 25 Oct 2022 14:51:29 GMT</pubDate>
+      <link>https://zoctan.github.io/2022/10/27/zh/programing/ai/painting/</link>
+      <guid>https://zoctan.github.io/2022/10/27/zh/programing/ai/painting/</guid>
+      <pubDate>Wed, 26 Oct 2022 16:20:27 GMT</pubDate>
       
       <description>&lt;p&gt;AI 作图的方向不错，目前想到图片&amp;#x2F;音乐这类都是无国界的，全世界都能传播。&lt;/p&gt;
 &lt;p&gt;数据来源：&lt;br&gt;商业画手（版权问题，不过只要数据量足够多，很难去人工识别哪些部分是来源商业的）&lt;br&gt;CC免费（质量不高，可以考虑）&lt;/p&gt;</description>
@@ -40,7 +40,67 @@
       <category domain="https://zoctan.github.io/tags/ai/">ai</category>
       
       
-      <comments>https://zoctan.github.io/2022/10/25/zh/programing/ai/painting/#disqus_thread</comments>
+      <comments>https://zoctan.github.io/2022/10/27/zh/programing/ai/painting/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>词根</title>
+      <link>https://zoctan.github.io/2022/10/26/zh/english/root_words/</link>
+      <guid>https://zoctan.github.io/2022/10/26/zh/english/root_words/</guid>
+      <pubDate>Wed, 26 Oct 2022 15:14:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;radi 根&lt;br&gt;radical 根本的、eradicate 根除、radiate 辐射、radiant 辐射的、radio 收音机、radioactive 放射性的、radium 镭&lt;/p&gt;
+&lt;p&gt;pose 摆放&lt;br&gt;expose 暴露、compose</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/">english</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/ielts/">ielts</category>
+      
+      
+      
+      <comments>https://zoctan.github.io/2022/10/26/zh/english/root_words/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>同义替换</title>
+      <link>https://zoctan.github.io/2022/10/26/zh/english/ielts/replace_words/</link>
+      <guid>https://zoctan.github.io/2022/10/26/zh/english/ielts/replace_words/</guid>
+      <pubDate>Wed, 26 Oct 2022 15:12:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;resemble&lt;br&gt;like &amp;#x2F; look like &amp;#x2F; be similar to&lt;/p&gt;
+&lt;p&gt;similar&lt;br&gt;resemble &amp;#x2F; like &amp;#x2F;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/">english</category>
+      
+      <category domain="https://zoctan.github.io/categories/zh/english/ielts/">ielts</category>
+      
+      
+      
+      <comments>https://zoctan.github.io/2022/10/26/zh/english/ielts/replace_words/#disqus_thread</comments>
       
     </item>
     
@@ -86,7 +146,7 @@
         
           
           
-      <description>&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</description>
+      <description>&lt;h1 id=&quot;考试形式&quot;&gt;&lt;a href=&quot;#考试形式&quot; class=&quot;headerlink&quot;</description>
           
         
       
@@ -529,57 +589,6 @@
       
       
       <comments>https://zoctan.github.io/2018/07/29/zh/programing/java/common_data_structures/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>四种引用和使用场景</title>
-      <link>https://zoctan.github.io/2018/07/25/zh/programing/java/references_and_usage_scenarios/</link>
-      <guid>https://zoctan.github.io/2018/07/25/zh/programing/java/references_and_usage_scenarios/</guid>
-      <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;强引用（StrongReference）&quot;&gt;&lt;a href=&quot;#强引用（StrongReference）&quot; class=&quot;headerlink&quot; title=&quot;强引用（StrongReference）&quot;&gt;&lt;/a&gt;强引用（StrongReference）&lt;/h1&gt;&lt;p&gt;如果一个对象具有强引用，那垃圾回收器（Garbage Collection，GC）绝不会回收它。当内存空间不足，JVM 宁愿抛出 OutOfMemoryError，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足的问题。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/">programing</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/java/">java</category>
-      
-      
-      
-      <comments>https://zoctan.github.io/2018/07/25/zh/programing/java/references_and_usage_scenarios/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>获取 request 及其线程安全性分析</title>
-      <link>https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/</link>
-      <guid>https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/</guid>
-      <pubDate>Tue, 24 Jul 2018 16:00:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;原文&lt;a href=&quot;https://www.cnblogs.com/kismetv/p/8757260.html&quot;&gt;Spring中获取request的几种方法，及其线程安全性分析&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本文将介绍在使用 Spring MVC 开发中，获取 request 对象的几种方法，并讨论其线程安全性。&lt;/p&gt;
-&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;在使用 Spring MVC 开发 Web 系统时，经常需要在处理请求时使用 request 对象。比如：获取客户端 IP 地址、请求的 URL、header 中的属性（Cookie、授权信息）、body 中的数据等。&lt;/p&gt;
-&lt;p&gt;由于在 Spring MVC 中，处理请求的 Controller、Service 等对象都是单例的，因此获取 request 对象时最需要注意的问题，便是 request 对象是否线程安全：当有大量并发请求时，能否保证不同请求&amp;#x2F;线程中使用不同的 request 对象。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zoctan.github.io/categories/zh/">zh</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/">programing</category>
-      
-      <category domain="https://zoctan.github.io/categories/zh/programing/java/">java</category>
-      
-      
-      <category domain="https://zoctan.github.io/tags/spring/">spring</category>
-      
-      
-      <comments>https://zoctan.github.io/2018/07/25/zh/programing/java/spring/request_and_its_thread_safety_analysis/#disqus_thread</comments>
       
     </item>
     
