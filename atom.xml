@@ -6,7 +6,7 @@
   <link href="https://zoctan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zoctan.github.io/"/>
-  <updated>2022-10-27T16:31:17.983Z</updated>
+  <updated>2022-10-28T17:04:13.697Z</updated>
   <id>https://zoctan.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>AI 绘画</title>
-    <link href="https://zoctan.github.io/2022/10/28/zh/programing/ai/painting/"/>
-    <id>https://zoctan.github.io/2022/10/28/zh/programing/ai/painting/</id>
-    <published>2022-10-27T16:31:17.983Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <link href="https://zoctan.github.io/2022/10/29/zh/programing/ai/painting/"/>
+    <id>https://zoctan.github.io/2022/10/29/zh/programing/ai/painting/</id>
+    <published>2022-10-28T17:04:13.697Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
     
     
     <summary type="html">&lt;p&gt;AI 作图的方向不错，目前想到图片&amp;#x2F;音乐这类都是无国界的，全世界都能传播。&lt;/p&gt;
@@ -41,21 +41,189 @@
   </entry>
   
   <entry>
+    <title>写作</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/writing/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/writing/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 条形图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/bar_chart/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/bar_chart/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C4-Test3&quot;&gt;&lt;a href=&quot;#C4-Test3&quot; class=&quot;headerlink&quot; title=&quot;C4 Test3&quot;&gt;&lt;/a&gt;C4 Test3&lt;/h1&gt;&lt;p&gt;The chart below shows the different levels of post-school qualifications in Australia and the proportion of men and women who held them in 1999.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 流程图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/flow_chart/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/flow_chart/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C6-Test3&quot;&gt;&lt;a href=&quot;#C6-Test3&quot; class=&quot;headerlink&quot; title=&quot;C6 Test3&quot;&gt;&lt;/a&gt;C6 Test3&lt;/h1&gt;&lt;p&gt;The diagrams below show the life cycle of the silkworm and the stages in the production of silk cloth.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 折线图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/line_chart/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/line_chart/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C5-Test1&quot;&gt;&lt;a href=&quot;#C5-Test1&quot; class=&quot;headerlink&quot; title=&quot;C5 Test1&quot;&gt;&lt;/a&gt;C5 Test1&lt;/h1&gt;&lt;p&gt;The graph below shows the proportion of the population aged 65 and over between 1940 and 2040 in three different countries.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 地图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/map/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/map/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C5-Test3&quot;&gt;&lt;a href=&quot;#C5-Test3&quot; class=&quot;headerlink&quot; title=&quot;C5 Test3&quot;&gt;&lt;/a&gt;C5 Test3&lt;/h1&gt;&lt;p&gt;The map below is of the town of Garlsdon. A new supermarket (S) is planned for the town. The map shows two possible sites for the supermarket.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 混合图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/mixed_chart/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/mixed_chart/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C4-Test4&quot;&gt;&lt;a href=&quot;#C4-Test4&quot; class=&quot;headerlink&quot; title=&quot;C4 Test4&quot;&gt;&lt;/a&gt;C4 Test4&lt;/h1&gt;&lt;p&gt;The charts below give information about travel to and from the UK, and about the most popular countries for UK residents to visit.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 饼图</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/pie_chart/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/pie_chart/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C8-Test2&quot;&gt;&lt;a href=&quot;#C8-Test2&quot; class=&quot;headerlink&quot; title=&quot;C8 Test2&quot;&gt;&lt;/a&gt;C8 Test2&lt;/h1&gt;&lt;p&gt;The three pie charts below show the changes in annual spending by a particular UK school in 1981, 1991 and 2001. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Task 1 表格</title>
+    <link href="https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/table/"/>
+    <id>https://zoctan.github.io/2022/10/28/zh/english/ielts/writing/task_1/table/</id>
+    <published>2022-10-28T12:20:02.000Z</published>
+    <updated>2022-10-28T17:04:13.697Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;C4-Test1&quot;&gt;&lt;a href=&quot;#C4-Test1&quot; class=&quot;headerlink&quot; title=&quot;C4 Test1&quot;&gt;&lt;/a&gt;C4 Test1&lt;/h1&gt;&lt;p&gt;The table below shows the proportion of different categories of families living in poverty in Australia in 1999.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
+    
+    <category term="english" scheme="https://zoctan.github.io/categories/zh/english/"/>
+    
+    <category term="ielts" scheme="https://zoctan.github.io/categories/zh/english/ielts/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>词根</title>
     <link href="https://zoctan.github.io/2022/10/26/zh/english/root_words/"/>
     <id>https://zoctan.github.io/2022/10/26/zh/english/root_words/</id>
     <published>2022-10-26T15:14:02.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.697Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;radi 根&lt;br&gt;radical 根本的、eradicate 根除、radiate 辐射、radiant 辐射的、radio 收音机、radioactive 放射性的、radium 镭&lt;/p&gt;
-&lt;p&gt;pose 摆放&lt;br&gt;expose 暴露、compose</summary>
-        
-      
+&lt;p&gt;pose 摆放&lt;br&gt;expose 暴露、compose 组成&amp;#x2F;创造、propose 求婚&amp;#x2F;提名&amp;#x2F;提议、dispose 扔掉&amp;#x2F;处理&amp;#x2F;安排&lt;br&gt;Man proposes, God disposes. 尽人事，听天命。&lt;br&gt;oppose 反对、depose 废除&amp;#x2F;罢免、deposit 沉淀物&amp;#x2F;定金&lt;/p&gt;</summary>
     
     
     
@@ -73,17 +241,13 @@
     <link href="https://zoctan.github.io/2022/10/26/zh/english/ielts/replace_words/"/>
     <id>https://zoctan.github.io/2022/10/26/zh/english/ielts/replace_words/</id>
     <published>2022-10-26T15:12:02.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.693Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;resemble&lt;br&gt;like &amp;#x2F; look like &amp;#x2F; be similar to&lt;/p&gt;
-&lt;p&gt;similar&lt;br&gt;resemble &amp;#x2F; like &amp;#x2F;</summary>
-        
-      
+&lt;p&gt;similar&lt;br&gt;resemble &amp;#x2F; like &amp;#x2F; compare&lt;/p&gt;
+&lt;p&gt;recognize&lt;br&gt;perceive &amp;#x2F; acknowledge &amp;#x2F; realize &amp;#x2F; appreciate &amp;#x2F; admin &amp;#x2F; identify &amp;#x2F; comprehend &amp;#x2F; understand &amp;#x2F; know &amp;#x2F; aware &amp;#x2F; conscious&lt;/p&gt;
+&lt;p&gt;conscious&lt;br&gt;aware &amp;#x2F; intended&lt;/p&gt;</summary>
     
     
     
@@ -101,7 +265,7 @@
     <link href="https://zoctan.github.io/2022/10/25/zh/english/basis/"/>
     <id>https://zoctan.github.io/2022/10/25/zh/english/basis/</id>
     <published>2022-10-25T02:12:02.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.693Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;单词语法&quot;&gt;&lt;a href=&quot;#单词语法&quot; class=&quot;headerlink&quot; title=&quot;单词语法&quot;&gt;&lt;/a&gt;单词语法&lt;/h1&gt;&lt;h2 id=&quot;名词所有格&quot;&gt;&lt;a href=&quot;#名词所有格&quot; class=&quot;headerlink&quot; title=&quot;名词所有格&quot;&gt;&lt;/a&gt;名词所有格&lt;/h2&gt;&lt;h3 id=&quot;有生命名词的所有格&quot;&gt;&lt;a href=&quot;#有生命名词的所有格&quot; class=&quot;headerlink&quot; title=&quot;有生命名词的所有格&quot;&gt;&lt;/a&gt;有生命名词的所有格&lt;/h3&gt;&lt;ol&gt;
@@ -131,16 +295,18 @@
     <link href="https://zoctan.github.io/2022/10/25/zh/english/ielts/ielts/"/>
     <id>https://zoctan.github.io/2022/10/25/zh/english/ielts/ielts/</id>
     <published>2022-10-25T02:12:02.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.693Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;考试形式&quot;&gt;&lt;a href=&quot;#考试形式&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;考试形式&quot;&gt;&lt;a href=&quot;#考试形式&quot; class=&quot;headerlink&quot; title=&quot;考试形式&quot;&gt;&lt;/a&gt;考试形式&lt;/h1&gt;&lt;p&gt;口语：12分钟左右。考试采用一对一的面试形式，考察考生日常会话、对熟悉话题作一定长度的描述以及与考官之间的互动能力。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1：一般3.5分钟&lt;/li&gt;
+&lt;li&gt;Part 2：一般3.5分钟，半分钟念考题，1分钟准备，1-2分钟作答&lt;/li&gt;
+&lt;li&gt;Part 3：一般5分钟。Part II考完马上进入Part 3，考官可能会问你6-8个问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;听力：30分钟听4段录音，每段10道题，共40道题，难度递增。前3段录音分两次听完，段内（第1-3篇）会给两次读题的机会（没仔细算过，可能是30秒左右），一段听完会有30秒时间检查答案。录音只听一遍。全部4段听完有10分钟抄答案，听力共40分钟&lt;/p&gt;
+&lt;p&gt;阅读：60分钟读3篇文章，共40道题（14+13+13），难度递增。考试的文章以英语国家日常生活素材为基础，可能从报纸、广告、说明书及书籍中摘取，考察考生对信息的理解及运用的能力。试题包括一篇较长的描述性、而非论证性的文章。&lt;/p&gt;
+&lt;p&gt;写作：60分钟写2篇文章，一篇小作文（20分钟，&amp;gt;150词）和一篇大作文（40分钟，&amp;gt;250词）&lt;br&gt;小作文要求考生写信，询问信息或解释一种情况；&lt;br&gt;大作文要求考生根据所给出问题或观点写一篇大约250字的短文，考生要求能够使用恰当的语气和语域（包括词汇、语法等）表达自己的观点，并反驳其他观点。&lt;/p&gt;</summary>
     
     
     
@@ -158,7 +324,7 @@
     <link href="https://zoctan.github.io/2022/10/12/zh/others/v2ray_cloudfare_save_ban_ip/"/>
     <id>https://zoctan.github.io/2022/10/12/zh/others/v2ray_cloudfare_save_ban_ip/</id>
     <published>2022-10-11T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.697Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;前几年买了&lt;a href=&quot;https://bandwagonhost.com/&quot;&gt;搬瓦工&lt;/a&gt;的一台最便宜的 VPS，大概一年120元，期间试过 Shadowsocks，V2ray，目前稳定在 V2ray + Cloudflare。&lt;/p&gt;
@@ -186,7 +352,7 @@
     <link href="https://zoctan.github.io/2022/10/10/zh/hardware/nas/bt/"/>
     <id>https://zoctan.github.io/2022/10/10/zh/hardware/nas/bt/</id>
     <published>2022-10-09T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.697Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;BT-站点&quot;&gt;&lt;a href=&quot;#BT-站点&quot; class=&quot;headerlink&quot; title=&quot;BT 站点&quot;&gt;&lt;/a&gt;BT 站点&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://thepiratebay.org/index.html&quot;&gt;the pirate bay&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://proxyrarbg.org/index80.php&quot;&gt;proxyrarbg&lt;/a&gt;&lt;/p&gt;
@@ -206,7 +372,7 @@
     <link href="https://zoctan.github.io/2022/10/10/zh/hardware/nas/windows_nas/"/>
     <id>https://zoctan.github.io/2022/10/10/zh/hardware/nas/windows_nas/</id>
     <published>2022-10-09T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:17.983Z</updated>
+    <updated>2022-10-28T17:04:13.697Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;闲置的旧笔记本装了 Windows Sever 2019 做 Nas，当一个过渡产品，看看 Nas 是否真的是自己的刚需。&lt;/p&gt;
@@ -226,7 +392,7 @@
     <link href="https://zoctan.github.io/2019/01/31/zh/programing/docker/jenkins_auto_deploy/"/>
     <id>https://zoctan.github.io/2019/01/31/zh/programing/docker/jenkins_auto_deploy/</id>
     <published>2019-01-30T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
+    <updated>2022-10-28T17:04:13.721Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;流程：&lt;/p&gt;
@@ -261,7 +427,7 @@
     <link href="https://zoctan.github.io/2019/01/29/zh/programing/docker/gitlab_deploy/"/>
     <id>https://zoctan.github.io/2019/01/29/zh/programing/docker/gitlab_deploy/</id>
     <published>2019-01-28T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
+    <updated>2022-10-28T17:04:13.721Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有时候公司需要搭建私有仓库，这时 GitHub 就不能用了。&lt;/p&gt;
@@ -285,7 +451,7 @@
     <link href="https://zoctan.github.io/2019/01/29/zh/programing/docker/registry_deploy/"/>
     <id>https://zoctan.github.io/2019/01/29/zh/programing/docker/registry_deploy/</id>
     <published>2019-01-28T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.007Z</updated>
+    <updated>2022-10-28T17:04:13.721Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;Docker Hub 是 Docker 公司提供的公共镜像存储空间，类似 GitHub、Maven。&lt;/p&gt;
@@ -313,7 +479,7 @@
     <link href="https://zoctan.github.io/2018/10/31/zh/programing/design_ideas/short_link_service_system/"/>
     <id>https://zoctan.github.io/2018/10/31/zh/programing/design_ideas/short_link_service_system/</id>
     <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
+    <updated>2022-10-28T17:04:13.717Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;功能简单描述&quot;&gt;&lt;a href=&quot;#功能简单描述&quot; class=&quot;headerlink&quot; title=&quot;功能简单描述&quot;&gt;&lt;/a&gt;功能简单描述&lt;/h1&gt;&lt;p&gt;功能很简单，实现将长网址缩短的功能，如：&lt;br&gt;&lt;a href=&quot;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&quot;&gt;https://javadoop.com/post/url-shortener/a/b/c/d/e/f&lt;/a&gt; -&amp;gt; &lt;a href=&quot;https://abc.com/alsk2&quot;&gt;https://abc.com/alsk2&lt;/a&gt;&lt;/p&gt;
@@ -334,218 +500,6 @@
     <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
     
     <category term="design ideas" scheme="https://zoctan.github.io/categories/zh/programing/design-ideas/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hashcode</title>
-    <link href="https://zoctan.github.io/2018/10/31/zh/programing/java/hashcode/"/>
-    <id>https://zoctan.github.io/2018/10/31/zh/programing/java/hashcode/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.007Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在 Java 的 Object 类中有一个方法:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;native&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;hashCode&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;根据这个方法的声明可知，该方法返回一个 int 类型的数值，并且是本地方法，因此在 Object 类中并没有给出具体的实现。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Sdkman 管理 JDK 版本</title>
-    <link href="https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/"/>
-    <id>https://zoctan.github.io/2018/10/31/zh/programing/java/sdkman_manage_jdk_version/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.015Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;前记&quot;&gt;&lt;a href=&quot;#前记&quot; class=&quot;headerlink&quot; title=&quot;前记&quot;&gt;&lt;/a&gt;前记&lt;/h1&gt;&lt;p&gt;JDK 版本越来越多，老是手动下载改环境变量很麻烦。&lt;/p&gt;
-&lt;p&gt;偶然看到 Sdkman：The Software Development Kit Manager。&lt;/p&gt;
-&lt;p&gt;它可以管理各种 kit：Ant、Java、Gradle、Maven、Springboot-cli、Groovy、Kotlin、Scala。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 各种连接</title>
-    <link href="https://zoctan.github.io/2018/10/31/zh/programing/basis/database/mysql/mysql_join/"/>
-    <id>https://zoctan.github.io/2018/10/31/zh/programing/basis/database/mysql/mysql_join/</id>
-    <published>2018-10-30T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:17.995Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;MySQL 版本：10.1.29-MariaDB-6+b1&lt;/p&gt;
-&lt;p&gt;建表 SQL：&lt;/p&gt;
-&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; `a_table` (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_id` &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_name` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `a_part` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) ENGINE&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;InnoDB &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; CHARSET&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;utf8;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;TABLE&lt;/span&gt; `b_table` (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_id` &lt;span class=&quot;type&quot;&gt;int&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_name` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  `b_part` &lt;span class=&quot;type&quot;&gt;varchar&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;) ENGINE&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;InnoDB &lt;span class=&quot;keyword&quot;&gt;DEFAULT&lt;/span&gt; CHARSET&lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt;utf8;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="basis" scheme="https://zoctan.github.io/categories/zh/programing/basis/"/>
-    
-    <category term="database" scheme="https://zoctan.github.io/categories/zh/programing/basis/database/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>3.Netty from the ground up</title>
-    <link href="https://zoctan.github.io/2018/10/19/zh/programing/book_read/java/netty_in_action/3_netty_from_the_ground_up/"/>
-    <id>https://zoctan.github.io/2018/10/19/zh/programing/book_read/java/netty_in_action/3_netty_from_the_ground_up/</id>
-    <published>2018-10-18T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Netty 组件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Bootstrap &amp;#x2F; ServerBootstrap&lt;/li&gt;
-&lt;li&gt;EventLoop&lt;/li&gt;
-&lt;li&gt;EventLoopGroup&lt;/li&gt;
-&lt;li&gt;ChannelPipeline&lt;/li&gt;
-&lt;li&gt;Channel&lt;/li&gt;
-&lt;li&gt;Future &amp;#x2F; ChannelFuture&lt;/li&gt;
-&lt;li&gt;ChannelInitializer&lt;/li&gt;
-&lt;li&gt;ChannelHandler&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;接下来将会在本章对上面组件进行介绍，为了避免分散地介绍它们，我们将详细说明它们是如何在一起工作的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="book read" scheme="https://zoctan.github.io/categories/zh/programing/book-read/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/book-read/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>1.Netty and Java NIO APIs</title>
-    <link href="https://zoctan.github.io/2018/10/18/zh/programing/book_read/java/netty_in_action/1_netty_and_java_nio_apis/"/>
-    <id>https://zoctan.github.io/2018/10/18/zh/programing/book_read/java/netty_in_action/1_netty_and_java_nio_apis/</id>
-    <published>2018-10-17T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本章内容主要介绍：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Netty 架构&lt;/li&gt;
-&lt;li&gt;我们为什么需要非阻塞IO&lt;/li&gt;
-&lt;li&gt;阻塞IO vs 非阻塞IO&lt;/li&gt;
-&lt;li&gt;了解 JDK 的 NIO实现的问题和 Netty 的解决方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;前面关于 Netty 架构的省略。&lt;/p&gt;
-&lt;h1 id=&quot;异步的设计&quot;&gt;&lt;a href=&quot;#异步的设计&quot; class=&quot;headerlink&quot; title=&quot;异步的设计&quot;&gt;&lt;/a&gt;异步的设计&lt;/h1&gt;&lt;p&gt;整个 Netty 的 API 都是异步的。异步处理并不新鲜，已经出现有一段时间了。在这些年里，IO 经常出现瓶颈，所以异步处理变得越来越重要。&lt;/p&gt;
-&lt;p&gt;在使用资源时调用异步处理可以变得更有效率，因为当任务进行时，我们可以去干其他事，直到我们收到任务完成的信息。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="book read" scheme="https://zoctan.github.io/categories/zh/programing/book-read/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/book-read/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Netty&#39;s Hello World</title>
-    <link href="https://zoctan.github.io/2018/10/11/zh/programing/book_read/java/netty_in_action/netty/"/>
-    <id>https://zoctan.github.io/2018/10/11/zh/programing/book_read/java/netty_in_action/netty/</id>
-    <published>2018-10-10T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://netty.io/index.html&quot;&gt;Netty 官网&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;可以到官网下载，也可以直接使用 maven 依赖：&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.netty&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;netty-all&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;4.1.30.Final&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;scope&lt;/span&gt;&amp;gt;&lt;/span&gt;compile&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;scope&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="book read" scheme="https://zoctan.github.io/categories/zh/programing/book-read/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/book-read/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>合并请求VS并行请求</title>
-    <link href="https://zoctan.github.io/2018/10/10/zh/programing/design_ideas/merge_requests_and_parallel_requests/"/>
-    <id>https://zoctan.github.io/2018/10/10/zh/programing/design_ideas/merge_requests_and_parallel_requests/</id>
-    <published>2018-10-09T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.003Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;减少HTTP请求，是雅虎前端性能优化35条军规的第1条，2006年雅虎提出了这35条军规，从那以后，就深深地影响到了一批又一批的前端开发者，即使在12年后的今天，影响力依旧不减…&lt;/p&gt;
-&lt;p&gt;但是，雅虎军规中还有1条是：拆分资源以最大化利用浏览器并行下载的能力。现在问题就来了，减少HTTP请求，但网页所需的资源并不能减少（否则网页就不再是之前的网页了），所以减少HTTP请求，主要是通过合并资源来实现的，一边是建议合并资源，一边是建议拆分资源，显然是有冲突的地方，那么到底该怎么做呢？网上有些文章也讨论过这个问题，但大多是停留在想当然的理论分析上，而且忽略了TCP传输机制的影响。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="design ideas" scheme="https://zoctan.github.io/categories/zh/programing/design-ideas/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>常用数据结构</title>
-    <link href="https://zoctan.github.io/2018/07/29/zh/programing/java/common_data_structures/"/>
-    <id>https://zoctan.github.io/2018/07/29/zh/programing/java/common_data_structures/</id>
-    <published>2018-07-28T16:00:00.000Z</published>
-    <updated>2022-10-27T16:31:18.007Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2018/07/29/zh/programing/java/common_data_structures/common_data_structures.png&quot; alt=&quot;常用数据结构&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="zh" scheme="https://zoctan.github.io/categories/zh/"/>
-    
-    <category term="programing" scheme="https://zoctan.github.io/categories/zh/programing/"/>
-    
-    <category term="java" scheme="https://zoctan.github.io/categories/zh/programing/java/"/>
     
     
   </entry>
